@@ -1,0 +1,31 @@
+<table class="table table-responsive table-hover" ts-wrapper ts-item-name="Room">
+    <thead>
+        <th ts-criteria="roomName" ts-default>Room Name</th>
+        <th ts-criteria="computerName" ts-filter>Computer Name</th>
+        <th>Tutor Office </th>
+        <th>Auto Start</th>
+        <th>Security Code Not Required</th>
+        <th>Confirm Room change</th>
+        <th>Confirm Staff Change</th>
+        <th>Confirm Time Change</th>
+        <th>May Print</th>
+        <th ng-showe="showActions">Actions</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="cristalRoom in cristalRooms" ts-repeat>
+            <td>{{ cristalRoom.roomName }}</td>
+            <td>{{ cristalRoom.computerName }}</td>
+            <td>{{ cristalRoom.tutorOffice | yesNo }}</td>
+            <td>{{cristalRoom.autoStart | yesNo }}</td>
+            <td>{{ cristalRoom.securityCodeNotRequired | yesNo }}</td>
+            <td>{{ cristalRoom.confirmRoomChange | yesNo }}</td>
+            <td>{{ cristalRoom.confirmStaffChange | yesNo }}</td>
+            <td>{{ cristalRoom.confirmTimeChange | yesNo }}</td>
+            <td>{{ cristalRoom.mayPrint | yesNo }}</td>
+            <td ng-show="showActions">
+                <button type="button" class="btn btn-primary btn-sm" ng-click="ctrl.editCristalRooms(cristalRoom.roomId)"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button ng-show="showActions" type="button" class="btn btn-primary btn-sm" ng-click="ctrl.addCristalRooms()"><span class="glyphicon glyphicon-pencil"></span> Add</button>

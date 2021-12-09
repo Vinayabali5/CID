@@ -1,0 +1,19 @@
+<div class="person-contact-details">
+    <div class="row" ng-show="hasData() && person.home">
+        <div class="col-xs-4">Home:</div>
+        <div class="col-xs-8">{{ person.home | telNo }}</div>
+    </div>
+    <div class="row" ng-show="hasData() && person.mobile">
+        <div class="col-xs-4">Mobile:</div>
+        <div class="col-xs-8">{{ person.mobile | telNo }}</div>
+    </div>
+    <div class="row" ng-show="hasData() && person.work">
+        <div class="col-xs-4">Work:</div>
+        <div class="col-xs-8">{{ person.work | telNo }}</div>
+    </div>
+    <div class="row" ng-show="hasData() && person.email">
+        <div class="col-xs-4">EMail (personal):</div>
+        <div class="col-xs-8">{{ person.email }}</div>
+    </div>
+    <div class="error" ng-hide="hasData()">Person Contact Details: No Data Provided</div>
+</div>

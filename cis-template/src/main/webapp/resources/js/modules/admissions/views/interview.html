@@ -1,0 +1,132 @@
+<div>
+    <div>
+        <legend>Interview Search</legend>
+        <form name="interview-search-form" class="search-form form-inline">
+            <label for="search">Name/Student ID:</label>
+            <input id="search" name="search" class="form-control input-sm" ng-model="searchTerm" autofocus />
+            <button type="submit" class="btn btn-sm btn-primary" ng-click="search(searchTerm)">Search</button>
+            <button id="toggle-interview-results" class="btn btn-sm btn-info" type="button" ng-click="toggleResults()" ng-disabled="!hasResults()">Show/Hide Results</button>
+        </form>
+    </div>
+    <div class="message" ng-show="message !== null">{{ message }}</div>
+    <div class="search-results" ng-show="hasResults() && resultsVisible()">
+        <h4>Search Results </h4>
+        <div id="interview-results" name="interview-results">
+
+            <table class="table table-responsive table-bordered table-hover table-condensed" ts-wrapper>
+                <thead>
+                    <th>Ref</th>
+                    <th>Person</th>
+                    <th>School</th>
+                    <th>Status</th>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="app in applicationList | orderBy : '+personName' " class="ng-cloak" ts-repeat>
+                        <td><a ng-click="loadInterview(app.studentId)">{{ app.referenceNo }}</a></td>
+                        <td>{{ app.personName }}</td>
+                        <td>{{ app.schoolName }}</td>
+                        <td>{{ app.status }}</td>
+                    </tr>
+                    <tr ng-show="!hasResults()">
+                        <td colspan="4">No Results</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<form name="interviewForm" class="form">
+    <div id="collapseInterviewDetails" name="collapseInterviewDetails">
+
+        <div class="row">
+            <div class="col-xs-12">
+                <fieldsset>
+                    <legend>Applicant Details</legend>
+                </fieldsset>
+            </div>
+            <div class="col-xs-6">
+                <div class="row">
+                    <div class="col-md-4 col-sm-6 col-xs-6"><strong>Reference:</strong></div>
+                    <div class="col-md-8 col-sm-6 col-xs-6 text-left">{{ interview.studentRef }}</div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 col-sm-6 col-xs-6"><strong>First Name:</strong></div>
+                    <div class="col-md-8 col-sm-6 col-xs-6 text-left">{{ interview.firstName }}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 col-sm-6 col-xs-6"><strong>Surname:</strong></div>
+                    <div class="col-md-8 col-sm-6 col-xs-6 text-left">{{ interview.surname }}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 col-sm-6 col-xs-6"><strong>Legal Surname:</strong></div>
+                    <div class="col-md-8 col-sm-6 col-xs-6 text-left">{{ interview.legalSurname }}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 col-sm-6 col-xs-6"><strong>Date of Birth:</strong></div>
+                    <div class="col-md-8 col-sm-6 col-xs-6 text-left">{{ interview.dob | date }}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 col-sm-6 col-xs-6"><strong>School:</strong></div>
+                    <div class="col-md-8 col-sm-6 col-xs-6 text-left">{{ interview.school.name }}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 col-sm-6 col-xs-6"><strong>Mobile:</strong></div>
+                    <div class="col-md-8 col-sm-6 col-xs-6 text-left">{{ interview.mobile }}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 col-sm-6 col-xs-6"><strong>Email:</strong></div>
+                    <div class="col-md-8 col-sm-6 col-xs-6 text-left">{{ interview.email }}</div>
+                </div>
+            </div>
+            <div class="col-xs-3">
+                <div class="row">
+                    <table class="table table-responsive table-hover">
+                        <thead>
+                            <th>Parent Email</th>
+                            <th>Mobile</th>
+                            <th>Home</th>
+                            <th>Contactable</th>
+                            <th>Preferred</th>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="contact in interview.contacts">
+                                <td>{{ contact.contact.email }}</td>
+                                <td>{{ contact.contact.mobile }}</td>
+                                <td>{{ contact.contact.home }}</td>
+                                <td>{{ contact.contactable | yesNo }}</td>
+                                <td>{{ contact.preferred | yesNo }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!--         <hr /> -->
+        <uib-tabset active="activeTab">
+            <uib-tab classes="tab-sm" index="'interview-information'" heading="Interview Information">
+                <div class="container-fluid" ng-include="'js/modules/admissions/views/tabs/interview-information.html'"></div>
+            </uib-tab>
+
+
+            <uib-tab classes="tab-sm" index="'school-reference'" heading="School Reference Details">
+                <div class="container-fluid" ng-include="'js/modules/admissions/views/tabs/school-references.html'"></div>
+            </uib-tab>
+
+            <uib-tab classes="tab-sm" index="'predicted-grade'" heading="Predicted Grade Details">
+                <div class="container-fluid" ng-include="'js/modules/admissions/views/tabs/student-predicted-grades.html'"></div>
+            </uib-tab>
+
+            <uib-tab classes="tab-sm" index="'student-files'" heading="School Reports and Additional Information">
+                <div class="container-fluid" ng-include="'js/modules/admissions/views/tabs/student-files.html'"></div>
+            </uib-tab>
+
+            <uib-tab classes="tab-sm" index="'interview-details'" heading="Interview Outcome">
+                <div class="container-fluid" ng-include="'js/modules/admissions/views/tabs/interview.html'"></div>
+            </uib-tab>
+        </uib-tabset>
+    </div>
+
+</form>

@@ -1,0 +1,41 @@
+<h1>Test Page</h1>
+
+<div ng-init="studentId = 160002; personId = 10002">
+
+    <h2>Other Tests</h2>
+
+    Student Id: <input type="text" ng-model="studentId"></input>
+    Person Id: <input type="text" ng-model="personId"></input>
+
+    <student-withdrawal student="ctrl.student"></student-withdrawal>
+
+    <button ng-click="ctrl.gotoStudent(studentId)">Go To Student ng-click</button>
+    <button ui-sref="student-viewer.view({studentId: studentId})">Go To Student ui-sref</button>
+
+    <h3 data-toggle="collapse" data-target="#test-1">Person Details</h3>
+    <person-details person="ctrl.person" id="test-1" class="collapse"></person-details>
+
+    <h3 data-toggle="collapse" data-target="#test-2">Student Details (from student object)</h3>
+    <student-details student="ctrl.student" show-all="true" id="test-2" class="collapse"></student-details>
+
+    <h3 data-toggle="collapse" data-target="#test-3">Student Details Lookup - show-all (from student-id)</h3>
+    <student-details-lookup student-id="studentId" show-all="true" id="test-3" class="collapse"></student-details-lookup>
+
+    <h3 data-toggle="collapse" data-target="#test-4">Person Contact Details Lookup</h3>
+    <person-contact-details-lookup person-id="personId" id="test-4" class="collapse"></person-contact-details-lookup>
+
+</div>
+
+
+<div>
+    <report-link report-path="'/CID/Students/Course Change Form'" report-params="'StudentId='+studentId">Test Report (Report Params as String)</report-link>
+    <report-link report-path="'/CID/Students/Course Change Form'" report-params="reportParamsObj">Test Report (Report Params as Object)</report-link>
+
+</div>
+
+<h3>Bulk Careers Records</h3>
+<div class="row">
+    <div class="col-sm-12">
+        <button class="btn btn-primary" type="button" name="button" bulk-careers-record="studentCareersRecords" permission="['ROLE_Developer']">Bulk Careers Records</button>
+    </div>
+</div>

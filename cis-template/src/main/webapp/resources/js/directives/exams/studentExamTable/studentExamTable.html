@@ -1,0 +1,11 @@
+<table class="table table-responsive">
+    <tbody>
+        <tr ng-repeat="student in studentList" class="ng-cloak">
+            <td>{{student.studentId}}</td>
+            <!--             <td>{{student}}</td> -->
+            <td>
+                <ng-transclude></ng-transclude>
+            </td>
+        </tr>
+    </tbody>
+</table>

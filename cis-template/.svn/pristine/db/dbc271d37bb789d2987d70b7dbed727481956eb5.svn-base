@@ -1,0 +1,27 @@
+<table class="table table-responsive table-hover" ts-wrapper ts-item-name="Attendance Monitoring Code">
+    <thead>
+        <th ts-criteria="id">ID</th>
+        <th ts-criteria="code">Code</th>
+        <th ts-criteria="description">Description</th>
+        <th>Warning Colour</th>
+        <th>HTML Colour</th>
+        <th>In Use</th>
+        <th>Non Entry</th>
+        <th ng-show="showActions">Actions</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="attendanceMonitoring in attendanceMonitorings" ts-repeat>
+            <td>{{ attendanceMonitoring.id }}</td>
+            <td>{{ attendanceMonitoring.code }}</td>
+            <td>{{ attendanceMonitoring.description }}</td>
+            <td>{{ attendanceMonitoring.warningColour }}</td>
+            <td>{{ attendanceMonitoring.htmlColour }}</td>
+            <td>{{ attendanceMonitoring.inUse | yesNo }}</td>
+            <td>{{ attendanceMonitoring.nonEntry | yesNo }}</td>
+            <td ng-show="showActions">
+                <button type="button" class="btn btn-primary btn-sm" ng-click="ctrl.editAttendanceMonitorings(attendanceMonitoring.id)"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button ng-show="showActions" type="button" class="btn btn-primary btn-sm" ng-click="ctrl.addAttendanceMonitorings()"><span class="glyphicon glyphicon-pencil"></span> Add</button>

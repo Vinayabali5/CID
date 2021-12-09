@@ -1,0 +1,5 @@
+<h3>Course Viewer</h3>
+<ul class="side-bar">
+    <li><a ui-sref="course-record.course.list">Course List</a></li>
+    <li><a ui-sref="course-record.course-group.list">Course Group List</a></li>
+</ul>

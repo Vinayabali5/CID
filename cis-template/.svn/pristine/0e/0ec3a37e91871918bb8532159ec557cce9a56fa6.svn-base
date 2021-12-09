@@ -1,0 +1,28 @@
+archivesBaseName = 'cis-template'
+//version = '1.2.14'
+
+apply plugin: 'war'
+apply plugin: 'nebula.node'
+apply plugin: 'nebula.grunt'
+
+bootWar {
+	launchScript()
+}
+
+processResources.dependsOn buildDist
+build.dependsOn buildDist
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+
+    implementation 'org.apache.commons:commons-lang3:3.3.2'
+
+    implementation 'org.codehaus.jackson:jackson-mapper-asl:1.9.13'
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-joda:2.4.0'
+
+    implementation 'com.allanditzel:spring-security-csrf-token-filter:1.1'
+
+    implementation 'org.springframework.boot:spring-boot-starter-test'
+}

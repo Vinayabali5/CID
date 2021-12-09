@@ -1,0 +1,7 @@
+<h1>Student Summary Details</h1>
+<input ng-model=ctrl.studentId></input><button class="btn btn-sm" ng-click="ctrl.getStudent()">Get StudentDetails</button>
+<br />
+<student-summary student="ctrl.student"></student-summary>
+
+<h1>Student Summary Editor</h1>
+<student-summary-editor student-id="ctrl.studentId" student="ctrl.student"></student-summary-editor>

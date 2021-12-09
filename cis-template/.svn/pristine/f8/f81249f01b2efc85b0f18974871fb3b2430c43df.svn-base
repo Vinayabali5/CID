@@ -1,0 +1,2 @@
+<h1>Year Groups Editor</h1>
+<year-groups-editor year-groups="data" show-actions="true"></year-groups-editor>

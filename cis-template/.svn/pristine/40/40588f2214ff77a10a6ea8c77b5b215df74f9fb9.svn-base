@@ -1,0 +1,7 @@
+<div class="row">
+    <div class="col-md-12">
+        <h1>Course Group List</h1>
+    </div>
+</div>
+
+<course-groups-table course-groups="courseGroups" filter-params=filterParams show-year-group="true" show-year="true" show-student="true" show-actions="userAllowActions()" include-reports="true" include-link="true"></course-groups-table>

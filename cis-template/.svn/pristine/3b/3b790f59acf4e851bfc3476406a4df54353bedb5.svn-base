@@ -1,0 +1,24 @@
+<form id="addressEditorPostcodeLookupForm" class="form">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="ctrl.clear()">&times;</button>
+        <h4 class="modal-title" id="myToDoLabel">Address List</h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+            <div class="form-group">
+                <label class="col-md-12 control-label" for="pl-address-list">Address:</label>
+                <div class="col-md-12">
+                    <select class="form-control" id="{{ id }}" ng-model="ctrl.selectedPostcodeId" size="20">
+                        <option ng-repeat="i in ctrl.postcode" value="{{ i.id }}">{{ i.text }} - {{ i.description }}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="ctrl.clear()"> <span class="glyphicon glyphicon-ban-circle"></span> Cancel </button>
+        <button type="submit" class="btn btn-primary" ng-click="ctrl.selectAddress()"><span class="glyphicon glyphicon-save"></span> Select </button>
+    </div>
+</form>

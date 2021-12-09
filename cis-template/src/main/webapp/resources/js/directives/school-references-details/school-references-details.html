@@ -1,0 +1,421 @@
+<form name="schoolReferenceForm" class="form" ng-action="createSchoolReferenceForm()">
+
+    <div class="row">
+        <div class="col-xs-12">
+            <fieldsset>
+                <legend>Work Ethic Details</legend>
+            </fieldsset>
+        </div>
+    </div>
+
+    <div class="rows">
+        <div class="col-xs-6">
+            <div class="form-group">
+                <label for="meetingTargets" class="col-xs-6 col-sm-4 control-label">Meeting target grades in all subjects:</label>
+                <div class="col-xs-6 col-sm-8">
+                    <input class="form-control" id="meetingTargets" name="meetingTargets" placeholder="Meeting Targets" ng-model="student.meetingTargets" type="text" readonly="true"></input>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="rows">
+        <div class="col-xs-6">
+            <div class="form-group">
+                <label for="effort" class="col-xs-6 col-sm-4 control-label">Always puts in full effort:</label>
+                <div class="col-xs-6 col-sm-8">
+                    <input class="form-control" id="effort" name="effort" placeholder="Effort" ng-model="student.effort" type="text" readonly="true"></input>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="rows">
+        <div class="col-xs-6">
+            <div class="form-group">
+                <label for="workEthic" class="col-xs-6 col-sm-4 control-label">Fully Supports the class work ethic:</label>
+                <div class="col-xs-6 col-sm-8">
+                    <input class="form-control" type="text" id="workEthic" name="workEthic" placeholder="Work Ethic" ng-model="student.workEthic" readonly="true"></input>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="rows">
+        <div class="col-xs-6">
+            <div class="form-group">
+                <label for="homeworkCompletion" class="col-xs-6 col-sm-4 control-label">Homework always done well and on time:</label>
+                <div class="col-xs-6 col-sm-8">
+                    <input class="form-control" id="homeworkCompletion" name="homeworkCompletion" placeholder="Home Work Completion" ng-model="student.homeworkCompletion" type="text" readonly="true"></input>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="rows">
+        <div class="col-xs-6">
+            <div class="form-group">
+                <label for="behaviour" class="col-xs-6 col-sm-4 control-label">Consistently good behaviour :</label>
+                <div class="col-xs-6 col-sm-8">
+                    <input class="form-control" id="behaviour" name="behaviour" placeholder="Behaviour" ng-model="student.behaviour" type="text" readonly="true"></input>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="rows">
+        <div class="col-xs-6">
+            <div class="form-group">
+                <label for="organisation" class="col-xs-6 col-sm-4 control-label">Good Personal organisation:</label>
+                <div class="col-xs-6 col-sm-8">
+                    <input class="form-control" id="organisation" name="organisation" placeholder="Meeting Targets" ng-model="student.organisation" type="text" readonly="true"></input>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="rows">
+        <div class="col-xs-6">
+            <div class="form-group">
+                <label for="attainmentPotential" class="col-xs-6 col-sm-4 control-label">Attainment Potential:</label>
+                <div class="col-xs-6 col-sm-8">
+                    <input class="form-control" id="attainmentPotential" name="attainmentPotential" placeholder="Attainment Potential" ng-model="student.attainmentPotential" type="text" readonly="true"></input>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="row">
+        <div class="col-xs-12">
+            <fieldsset>
+                <legend>Attendance Details</legend>
+            </fieldsset>
+        </div>
+    </div>
+
+    <div class="rows">
+        <div class="col-xs-6">
+            <div class="form-group">
+                <label for="year10Attendance" class="col-xs-6 col-sm-4 control-label">Year 10 Attendance:</label>
+                <div class="col-xs-6 col-sm-8">
+                    <input class="form-control" id="year10Attendance" name="year10Attendance" placeholder="Year 10 Attendance" ng-model="student.year10Attendance" type="text" readonly="true"></input>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="rows">
+        <div class="col-xs-6">
+            <div class="form-group">
+                <label for="year11Attendance" class="col-xs-6 col-sm-4 control-label">Year 11 Attendance:</label>
+                <div class="col-xs-6 col-sm-8">
+                    <input class="form-control" id="year11Attendance" name="year11Attendance" placeholder="Year 11 Attendance" ng-model="student.year11Attendance" type="text" readonly="true"></input>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="rows">
+        <div class="col-xs-6">
+            <div class="form-group">
+                <label for="year10AttendanceComment" class="col-xs-6 col-sm-4 control-label">Year 10 Attendance Comment:</label>
+                <div class="col-xs-6 col-sm-8">
+                    <textarea class="form-control" id="year10AttendanceComment" name="year10AttendanceComment" placeholder="Year 10 Attendance Comment" ng-model="student.year10AttendanceComment" rows="3" type="text" readonly="true"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="rows">
+        <div class="col-xs-6">
+            <div class="form-group">
+                <label for="year11AttendanceComment" class="col-xs-6 col-sm-4 control-label">Year 11 Attendance Comment:</label>
+                <div class="col-xs-6 col-sm-8">
+                    <textarea class="form-control" id="year11AttendanceComment" name="year11AttendanceComment" placeholder="Year 11 Attendance Comment" ng-model="student.year11AttendanceComment" rows="3" type="text" readonly="true"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <fieldsset>
+                <legend>Social Personality Details</legend>
+            </fieldsset>
+        </div>
+    </div>
+    <div class="rows">
+        <div class="col-xs-6">
+            <div class="form-group">
+                <label for="reliability" class="col-xs-6 col-sm-4 control-label">Very Reliable:</label>
+                <div class="col-xs-6 col-sm-8">
+                    <input class="form-control" id="reliability" name="reliability" placeholder="Reliability" ng-model="student.reliability" type="text" readonly="true"></input>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="rows">
+        <div class="col-xs-6">
+            <div class="form-group">
+                <label for="independence" class="col-xs-6 col-sm-4 control-label">Thinks Independently:</label>
+                <div class="col-xs-6 col-sm-8">
+                    <input class="form-control" id="independence" name="independence" placeholder="Independence" ng-model="student.independence" type="text" readonly="true"></input>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="rows">
+        <div class="col-xs-6">
+            <div class="form-group">
+                <label for="sociability" class="col-xs-6 col-sm-4 control-label">Sociability:</label>
+                <div class="col-xs-6 col-sm-8">
+                    <input class="form-control" id="sociability" name="sociability" placeholder="Sociability" ng-model="student.sociability" type="text" readonly="true"></input>
+                </div>
+            </div>
+        </div>
+
+        <div class="rows">
+            <div class="col-xs-6">
+                <div class="form-group">
+                    <label for="relationshipWithStaff" class="col-xs-6 col-sm-4 control-label">Relates Well to Staff:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control" id="relationshipWithStaff" name="relationshipWithStaff" placeholder="Relationship With Staff" ng-model="student.relationshipWithStaff" type="text" readonly="true"></input>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="row">
+            <div class="col-xs-12">
+                <fieldsset>
+                    <legend>Would you recommend this student for Advanced Level Study ?</legend>
+                </fieldsset>
+            </div>
+        </div>
+
+        <div class="rows">
+            <div class="col-xs-6">
+                <div class="form-group">
+                    <label for="recommend" class="col-xs-6 col-sm-4 control-label">Recommend:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control" id="recommend" name="recommend" ng-model="student.recommend" type="checkbox" ng-disabled="true"></input>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="rows">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="recommendComment" class="col-xs-6 col-sm-4 control-label">Please comment if answered No:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <textarea class="form-control" id="recommendComment" name="recommendComment" placeholder="Recommend Comment" ng-model="student.recommendComment" rows="3" type="text" readonly="true"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-xs-12">
+                <fieldsset>
+                    <legend>Are there behavioural issues e.g. detentions, suspensions, behaviour points ?</legend>
+                </fieldsset>
+            </div>
+        </div>
+
+        <div class="rows">
+            <div class="col-xs-6">
+                <div class="form-group">
+                    <label for="behaviouralIssues" class="col-xs-6 col-sm-4 control-label">Behavioural Issues:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control" id="behaviouralIssues" name="behaviouralIssues" ng-model="student.behaviouralIssues" type="checkbox" ng-disabled="true" readonly="true"></input>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="rows">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="behaviouralIssuesComment" class="col-xs-6 col-sm-4 control-label">Please Include any information that you consider relevant:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <textarea class="form-control" id="behaviouralIssuesComment" name="behaviouralIssuesComment" placeholder="Behavioural Issues Comment" ng-model="student.behaviouralIssuesComment" rows="3" type="text" readonly="true"></textarea>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="row">
+            <div class="col-xs-12">
+                <fieldsset>
+                    <legend>Has the Student held positions of responsibility or undertaken extra-curricular activities ?</legend>
+                </fieldsset>
+            </div>
+        </div>
+
+        <div class="rows">
+            <div class="col-xs-6">
+                <div class="form-group">
+                    <label for="responsibilitiesExtraCurricular" class="col-xs-6 col-sm-4 control-label">Please include any information that you consider relevant:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <textarea class="form-control" id="responsibilitiesExtraCurricular" name="responsibilitiesExtraCurricular" placeholder="Responsibilities Extra Curricular Activities Comment" ng-model="student.responsibilitiesExtraCurricular" rows="3" type="text" readonly="true"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-xs-12">
+                <fieldsset>
+                    <legend>Please Pass to SENCO if Student has Learning Difficulties</legend>
+                </fieldsset>
+            </div>
+        </div>
+
+
+        <div class="col-xs-6">
+            <div class="form-group">
+                <label for="senco" class="col-xs-6 col-sm-4 control-label">SENCO:</label>
+                <div class="col-xs-6 col-sm-8">
+                    <input class="form-control" id="senco" name="behaviouralIssues" ng-model="student.senco" type="checkbox" ng-disabled="true" readonly="true"></input>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="col-xs-6">
+            <div class="form-group">
+                <label for="ehcp" class="col-xs-6 col-sm-4 control-label">Does this student have an EHCP ?</label>
+                <div class="col-xs-6 col-sm-8">
+                    <input class="form-control" id="ehcp" name="ehcp" ng-model="student.ehcp" type="checkbox" ng-disabled="true" readonly="true"></input>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="col-xs-6">
+            <div class="form-group">
+                <label for="senPlan" class="col-xs-6 col-sm-4 control-label">Is the Student on a school SEN Plan ?</label>
+                <div class="col-xs-6 col-sm-8">
+                    <input class="form-control" id="senPlan" name="senPlan" ng-model="student.senPlan" type="checkbox" ng-disabled="true" readonly="true"></input>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="col-xs-6">
+            <div class="form-group">
+                <label for="externalAgencies" class="col-xs-6 col-sm-4 control-label">Are there other agencies involved with the Student? (CAMHS, Social Services, Police):</label>
+                <div class="col-xs-6 col-sm-8">
+                    <textarea class="form-control" id="externalAgencies" name="externalAgencies" placeholder="External Agencies" ng-model="student.externalAgencies" type="text" readonly="true"></textarea>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="areasOfNeed" class="col-xs-6 col-sm-4 control-label">Please define area of need detailing any factors affecting the Student's achievement including issues of attention, organisation, social skills etc :</label>
+                <div class="col-xs-6 col-sm-8">
+                    <textarea class="form-control" id="areasOfNeed" name="areasOfNeed" placeholder="Areas Of Need" ng-model="student.areasOfNeed" rows="3" type="text" readonly="true"></textarea>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="detailsOfSupport" class="col-xs-6 col-sm-4 control-label">Details of support provided:</label>
+                <div class="col-xs-6 col-sm-8">
+                    <textarea class="form-control" id="detailsOfSupport" name="detailsOfSupport" placeholder="Details Of Support" ng-model="student.detailsOfSupport" rows="3" type="text" readonly="true"></textarea>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+        <div class="col-xs-6">
+            <div class="form-group">
+                <label for="safeguardingIssues" class="col-xs-6 col-sm-4 control-label">Are there any Safeguarding issues around the student ?</label>
+                <div class="col-xs-6 col-sm-8">
+                    <input class="form-control" id="safeguardingIssues" name="safeguardingIssues" ng-model="student.safeguardingIssues" type="checkbox" ng-disabled="true" readonly="true"></input>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-xs-6">
+            <div class="form-group">
+                <label for="examAccess" class="col-xs-6 col-sm-4 control-label">Will this applicant be given Access Arrangements in GCSEs ?</label>
+                <div class="col-xs-6 col-sm-8">
+                    <input class="form-control" id="examAccess" name="examAccess" ng-model="student.examAccess" type="checkbox" ng-disabled="true"></input>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-xs-6">
+            <div class="form-group">
+                <label for="dateOfLastReport" class="col-xs-6 col-sm-4 control-label">Date Of Last Report:</label>
+                <div class="col-xs-6 col-sm-8">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="dateOfLastReport" name="dateOfLastReport" ng-init="dateOfLastReport = false" uib-datepicker-popup="dd/MM/yyyy" is-open="dateOfLastReport" placeholder="DD/MM/YYYY" ng-model="student.dateOfLastReport" readonly="true" />
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" ng-click="dateOfLastReport = !dateOfLastReport"><span class="glyphicon glyphicon-calendar"></span></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-xs-6">
+            <div class="form-group">
+                <label for="literacyLevel" class="col-xs-6 col-sm-4 control-label">Please comment on levels of literacy skills if relevant.</label>
+                <div class="col-xs-6 col-sm-8">
+                    <textarea class="form-control" id="literacyLevel" name="literacyLevel" placeholder="Literacy Level" ng-model="student.literacyLevel" rows="3" type="text" readonly="true"></textarea>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-xs-6">
+            <div class="form-group">
+                <label for="examAccessDetails" class="col-xs-6 col-sm-4 control-label">Please specify which arrangements will apply:</label>
+                <div class="col-xs-6 col-sm-8">
+                    <textarea class="form-control" id="examAccessDetails" name="examAccessDetails" placeholder="Exam Access Details" ng-model="student.examAccessDetails" rows="3" type="text" readonly="true"></textarea>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row" permission="'ROLE_Developer'" ng-show="false">
+            <div class="col-xs-12" collapsible="'debugData'" collapsible-title="'Debug Data'">
+                <pre>
+                {{ application | json }}
+                </pre>
+            </div>
+        </div>
+</form>

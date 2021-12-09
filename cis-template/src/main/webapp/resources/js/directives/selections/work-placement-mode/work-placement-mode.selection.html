@@ -1,0 +1,3 @@
+<select id="{{ id }}" class="{{class}}" ng-disabled="readonly" ng-model="ngmodelvar" ng-required="ngRequired">
+    <option ng-repeat="i in ctrl.workPlacementModes" ng-selected="ngmodelvar == i.id" ng-value="{{ i.id }}" value="{{ i.id }}">{{i.code}} - {{ i.description }}</option>
+</select>

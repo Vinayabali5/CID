@@ -1,0 +1,12 @@
+[Unit]
+Description=CIS Admissions - Demo
+After=syslog.target
+
+[Service]
+User=root
+Environment="SPRING_PROFILES_ACTIVE=demo" "PIDFILE=demo.pid" "PORTFILE=demo.port"
+ExecStart=/opt/cis/cis-admissions/cis-admissions-0.1.1.war
+SuccessExitStatus=143
+
+[Install]
+WantedBy=multi-user.target

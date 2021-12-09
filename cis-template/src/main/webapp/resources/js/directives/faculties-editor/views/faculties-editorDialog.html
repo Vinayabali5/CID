@@ -1,0 +1,105 @@
+<form id="facultiesEditForm" name="facultiesEditForm" role="form" novalidate show-validation>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="ctrl.cancel()">&times;</button>
+        <h4 class="modal-title" id="myToDoLabel">Add/Edit Faculty</h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+            <div class="form-group" ng-show="true">
+                <label for="id" class="control-label col-xs-4">Faculty ID</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" class="form-control" id="id" name="id" readonly ng-model="ctrl.faculties.id">
+                </div>
+            </div>
+            <div class="form-group" ng-show="true">
+                <label for="code" class="control-label col-xs-4">Code</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" class="form-control" id="code" name="code" ng-model="ctrl.faculties.code">
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="description" class="control-label col-xs-4">Description:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" class="form-control text ui-widget-content ui-corner-all" id="description" name="description" ng-model="ctrl.faculties.description"></input>
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="validFrom" class="control-label col-xs-4">Valid From:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="validFrom" name="validFrom" ng-init="validFrom = false" uib-datepicker-popup="dd/MM/yyyy" is-open="validFrom" ng-model="ctrl.faculties.validFrom" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="validFrom = !validFrom"><span class="glyphicon glyphicon-calendar"></span></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="validTo" class="control-label col-xs-4">Valid To:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="validTo" name="validTo" ng-init="validTo = false" uib-datepicker-popup="dd/MM/yyyy" is-open="validTo" ng-model="ctrl.faculties.validTo" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="validTo = !validTo"><span class="glyphicon glyphicon-calendar"></span></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="hofId" class="control-label col-xs-4">Head Of Faculty</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <staff-selection id="hofId" name="hofId" class="form-control" include-blank="true" ng-model="ctrl.faculties.hofId" readonly="setReadonly"></staff-selection>
+                </div>
+            </div>
+
+
+            <div class="form-group" ng-show="true">
+                <label for="pdId" class="control-label col-xs-4">Pastoral Director</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <staff-selection id="pdId" name="pdId" class="form-control" include-blank="true" ng-model="ctrl.faculties.pdId" readonly="setReadonly"></staff-selection>
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="apdId" class="control-label col-xs-4">Associate Pastoral Director</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <staff-selection id="apdId" name="apdId" class="form-control" include-blank="true" ng-model="ctrl.faculties.apdId" readonly="setReadonly"></staff-selection>
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="dolId" class="control-label col-xs-4">Director of Learning</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <staff-selection id="dolId" name="dolId" class="form-control" include-blank="true" ng-model="ctrl.faculties.dolId" readonly="setReadonly"></staff-selection>
+                </div>
+            </div>
+
+
+            <div class="form-group" ng-show="true">
+                <label for="adolId" class="control-label col-xs-4">Associate Director of Learning</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <staff-selection id="adolId" name="adolId" class="form-control" include-blank="true" ng-model="ctrl.faculties.adolId" readonly="setReadonly"></staff-selection>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="ctrl.cancel()">
+            <span class="glyphicon glyphicon-ban-circle"></span>
+            Cancel
+        </button>
+        <button type="button" class="btn btn-primary" ng-click="ctrl.save()">
+            <span class="glyphicon glyphicon-save"></span>
+            Save
+        </button>
+    </div>
+
+</form>

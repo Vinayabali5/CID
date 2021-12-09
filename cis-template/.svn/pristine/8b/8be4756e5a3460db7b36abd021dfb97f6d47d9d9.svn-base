@@ -1,0 +1,6 @@
+input.ng-invalid,
+select.ng-invalid,
+textarea.ng-invalid,
+input.ng-invalid ~ span.input-group-btn > button {
+  border:1px solid Red;
+}

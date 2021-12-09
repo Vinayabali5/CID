@@ -1,0 +1,106 @@
+<div class="col-xs-12">
+    <fieldset>
+        <legend>Letter Options</legend>
+    </fieldset>
+</div>
+
+<div class="row">
+    <div class="col-xs-6">
+        <div class="form-group">
+            <label for="reviewMeeting" class="control-label col-xs-8">Review Meeting</label>
+            <div class="col-xs-4">
+                <input type="checkbox" id="reviewMeeting" name="reviewMeeting" class="form-control text ui-widget-content ui-corner-all" ng-model="letter.reviewMeeting"></input>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xs-6">
+        <div class="form-group">
+            <label for="attendance" class="control-label col-xs-8">Attendance</label>
+            <div class="col-xs-4">
+                <input type="checkbox" id="attendance" name="attendance" class="form-control text ui-widget-content ui-corner-all" ng-model="letter.attendance"></input>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xs-6">
+        <div class="form-group">
+            <label for="behaviour" class="control-label col-xs-8">Behaviour</label>
+            <div class="col-xs-4">
+                <input type="checkbox" id="behaviour" name="behaviour" class="form-control text ui-widget-content ui-corner-all" ng-model="letter.behaviour"></input>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xs-6">
+        <div class="form-group">
+            <label for="homework" class="control-label col-xs-8">Homework</label>
+            <div class="col-xs-4">
+                <input type="checkbox" id="homework" name="homeowrk" class="form-control text ui-widget-content ui-corner-all" ng-model="letter.homework"></input>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xs-6">
+        <div class="form-group">
+            <label for="punctuality" class="control-label col-xs-8">Punctuality</label>
+            <div class="col-xs-4">
+                <input type="checkbox" id="punctuality" name="punctuality" class="form-control text ui-widget-content ui-corner-all" ng-model="letter.punctuality"></input>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xs-6">
+        <div class="form-group">
+            <label for="focus" class="control-label col-xs-8">Focus</label>
+            <div class="col-xs-4">
+                <input type="checkbox" id="focus" name="focus" class="form-control text ui-widget-content ui-corner-all" ng-model="letter.focus"></input>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xs-6">
+        <div class="form-group">
+            <label for="deadlines" class="control-label col-xs-8">Deadlines</label>
+            <div class="col-xs-4">
+                <input type="checkbox" id="deadlines" name="deadlines" class="form-control text ui-widget-content ui-corner-all" ng-model="letter.deadlines"></input>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xs-6">
+        <div class="form-group">
+            <label for="incompleteCoursework" class="control-label col-xs-8">Incomplete Course Work</label>
+            <div class="col-xs-4">
+                <input type="checkbox" id="incompleteCoursework" name="incompleteCoursework" class="form-control text ui-widget-content ui-corner-all" ng-model="letter.incompleteCoursework"></input>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xs-6">
+        <div class="form-group">
+            <label for="insufficientProgress" class="control-label col-xs-8">Progress</label>
+            <div class="col-xs-4">
+                <input type="checkbox" id="insufficientProgress" name="insufficientProgress" class="form-control text ui-widget-content ui-corner-all" ng-model="letter.insufficientProgress"></input>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xs-6">
+        <div class="form-group">
+            <label for="studentCopiedIn" class="control-label col-xs-8">Student to be copied in</label>
+            <div class="col-xs-4">
+                <input type="checkbox" id="studentCopiedIn" name="studentCopiedIn" class="form-control text ui-widget-content ui-corner-all" ng-model="letter.studentCopiedIn"></input>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xs-6">
+        <div class="form-group">
+            <label for="warningParagraph" class="control-label col-xs-4">Warning Paragraph: </label>
+            <div class="col-xs-8">
+                <letter-warning-paragraph-selection id="warningParagraph" name="warningParagraph" class="form-control text ui-widget-content ui-corner-all" ng-model="letter.warningParagraph"></letter-warning-paragraph-selection>
+            </div>
+        </div>
+    </div>
+</div>

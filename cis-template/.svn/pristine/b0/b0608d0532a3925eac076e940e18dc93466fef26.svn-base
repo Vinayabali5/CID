@@ -1,0 +1,20 @@
+<table class="table table-responsive table-hover" ts-wrapper ts-item-name="Role">
+    <thead>
+        <th ts-criteria="id">ID</th>
+        <th ts-criteria="roleName" ts-filter>Role Name</th>
+        <th ng-show="showAll" ts-criteria="roleDescription" ts-filter>Role Description</th>
+        <th ng-show="showActions">Actions</th>
+    </thead>
+    <tbody>
+        <tr></tr>
+        <tr ng-repeat="role in roles" ts-repeat>
+            <td>{{ role.id }}</td>
+            <td>{{ role.roleName }}</td>
+            <td ng-show="showAll">{{ role.roleDescription }}</td>
+            <td ng-show="showActions">
+                <button type="button" class="btn btn-primary btn-sm" ng-click="ctrl.editRoles(role.id)"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button ng-show="showActions" type="button" class="btn btn-primary btn-sm" ng-click="ctrl.addRoles()"><span class="glyphicon glyphicon-pencil"></span> Add</button>

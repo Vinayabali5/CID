@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>obsf</Title>
+      <Shortcut>obsf</Shortcut>
+      <Description>Order By Surname First Name</Description>
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations />
+      <Code Language="sql"><![CDATA[ORDER BY
+    [surname],
+    [first_name]
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

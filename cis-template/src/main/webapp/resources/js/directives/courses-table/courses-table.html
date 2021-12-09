@@ -1,0 +1,44 @@
+<table class="table table-responsive table-hover" ts-wrapper ts-item-name="Course">
+    <thead>
+        <tr>
+            <th ng-show="showAll || showId" ts-criteria="id" ts-filter>ID</th>
+            <th ts-criteria="spec" ts-filter>Spec</th>
+            <th ts-criteria="_levelDescription" ts-filter ts-default>Level</th>
+            <th ts-criteria="_subjectDescription" ts-filter>Subject</th>
+            <th ng-show="showAll || showExamBoard" ts-criteria="_examBoardDescription" ts-filter>Exam Board</th>
+            <th ng-show="showAll || showYear">Valid From</th>
+            <th ng-show="showAll || showYear">Valid To</th>
+            <th ng-show="showAll || showDetails" ts-filter>QAN</th>
+            <th ng-show="showReports">Reports</th>
+            <th ng-show="showActions">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="course in courses" ts-repeat>
+            <td ng-show="showAll || showId">{{ course.id }}</td>
+            <td><a href="#" ui-sref="course-record.course.view({courseId:course.id})">{{ course.spec }}</a></td>
+            <td>{{ course._levelDescription }}</td>
+            <td>{{ course._subjectDescription }}</td>
+            <td ng-show="showAll || showExamBoard">{{ course._examBoardDescription | notSet }}</td>
+            <td ng-show="showAll || showYear">{{ course._validFromCode | notSet }}</td>
+            <td ng-show="showAll || showYear">{{ course._validToCode | notSet }}</td>
+            <td ng-show="showAll || showDetails">{{ course.learningAimReference | notSet }}</td>
+            <td ng-show="showReports">
+                <div class="btn-group">
+                    <button class="btn btn-sm btn-default dropdown-toggle" type="button" id="reports-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Reports <span class="caret"></span></button>
+                    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="reports-menu">
+                        <li>
+                            <report-link report-path="'/CID/TimeTabling/Timetable Course - Column'" report-params="'CourseGroupMask=%'+course.spec +'%'" include-year="true">Timetables Course Column</report-link>
+                        </li>
+                        <li>
+                            <report-link report-path="'/CID/TimeTabling/Timetable Course - Square'" report-params="'CourseSpec='+course.spec">Timetables Course - Square</report-link>
+                        </li>
+                    </ul>
+                </div>
+            </td>
+            <td ng-show="showActions">
+                <button class="btn btn-sm btn-primary" type="button" edit-course="course.id">Edit Course</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,6 @@
+<h1>Student OverallAttendance Details</h1>
+
+<input ng-model=ctrl.studentId></input>
+<button class="btn btn-sm" ng-click="ctrl.getStudentOverallAttendance()">Get StudentOverallAttendanceDetails</button>
+<br />
+<student-overall-attendance-details student-overall-attendance="ctrl.studentOverallAttendance"></student-overall-attendance-details>

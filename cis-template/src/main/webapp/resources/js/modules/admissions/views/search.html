@@ -1,0 +1,41 @@
+<div class="search-box student-search">
+    <div class="search-form">
+        <div class="rows">
+            <div class="col-xs-12">
+                <fieldsset>
+                    <legend>Applicant Search</legend>
+                </fieldsset>
+            </div>
+        </div>
+        <form class="search-form form-inline" name="searchApplication">
+            <div class="form-group">
+                <label for="search">Name/Student ID:</label>
+                <input id="search" name="search" class="form-control input-sm" ng-model="searchTerm" autofocus />
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-sm btn-primary" ng-click="search(searchTerm)">Search</button>
+            </div>
+        </form>
+    </div>
+    <div class="message" ng-show="message !== null">{{ message }}</div>
+    <table class="table table-responsive table-bordered table-hover table-condensed" ts-wrapper>
+        <thead>
+            <th>Ref</th>
+            <th>Person</th>
+            <th>School</th>
+            <th>Status</th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="app in applicationList | orderBy : '+personName' " class="ng-cloak" ts-repeat>
+                <td><a ui-sref="admissions.edit({ studentId:app.studentId })">{{ app.referenceNo }}</a></td>
+                <td>{{ app.personName }}</td>
+                <td>{{ app.schoolName }}</td>
+                <td>{{ app.status }}</td>
+            </tr>
+            <tr ng-show="!hasResults()">
+                <td colspan="4">No Results</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</div>

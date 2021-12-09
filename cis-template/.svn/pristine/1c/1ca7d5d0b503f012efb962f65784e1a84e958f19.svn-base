@@ -1,0 +1,95 @@
+<form id="studentSummaryEditForm" name="studentSummaryEditForm" role="form" novalidate ng-submit="ctrl.save()" show-validation>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="ctrl.cancel()">&times;</button>
+        <h4 class="modal-title">Edit Student Details</h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+
+            <div class="form-group">
+                <label for="uln" class="control-label col-xs-4">ULN</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="uln" name="uln" type="text" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.student.uln"></input>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="uci" class="control-label col-xs-4">UCI</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="uci" name="uci" type="text" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.student.uci"></input>
+                </div>
+            </div>
+
+            <div class="form-group" permission permission-not="['ROLE_Welcome Team']">
+                <label for="studentEmail" class="control-label col-xs-4">Student Email</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="studentEmail" name="studentEmail" type="text" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.student.studentEmail"></input>
+                </div>
+            </div>
+
+            <div class="form-group" permission permission-not="['ROLE_Welcome Team']">
+                <label for="ethnicity" class="control-label col-xs-4">Ethnicity:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <ethnicity-selection class="form-control" id="ethnicity" name="ethnicity" include-blank="true" ng-model="ctrl.student.ethnicityId"></ethnicity-selection>
+                </div>
+            </div>
+
+            <div class="form-group" permission permission-not="['ROLE_Welcome Team']">
+                <label for="school" class="control-label col-xs-4">Previous School:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <school-selection class="form-control" id="school" name="school" include-blank="true" alt-null-text="'-- Select School --'" ng-model="ctrl.student.previousSchoolId"></school-selection>
+                </div>
+            </div>
+
+            <div class="form-group" permission permission-not="['ROLE_Welcome Team']">
+                <label for="LLDDHealthProblem" class="control-label col-xs-4">LLDD Health Problem:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <lLDD-health-problem-selection class="form-control" id="LLDDHealthProblem" name="LLDDHealthProblem" include-blank="true" ng-model="ctrl.student.llddHealthProblemId"></lLDD-health-problem-selection>
+                </div>
+            </div>
+
+            <div class="form-group" permission permission-not="['ROLE_Welcome Team']">
+                <label for="medicalNote" class="control-label col-xs-4">Medical Notes</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="medicalNote" name="medicalNote" type="text" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.student.medicalNote"></input>
+                </div>
+            </div>
+
+            <div class="form-group" permission permission-not="['ROLE_Welcome Team']">
+                <label for="riskLevel" class="control-label col-xs-4">Risk Level:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <risk-level-selection class="form-control" id="riskLevel" name="riskLevel" include-blank="true" alt-null-text="'-- Select Risk Level --'" ng-model="ctrl.student.riskLevelId"></risk-level-selection>
+                </div>
+            </div>
+
+            <div class="form-group" permission permission-not="['ROLE_Welcome Team']">
+                <label for="resident" class="control-label col-xs-4">Resident</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="checkbox" id="resident" name="resident" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.student.resident"></input>
+                </div>
+            </div>
+
+            <div class="form-group" permission permission-not="['ROLE_Welcome Team']">
+                <label for="possibleAspire" class="control-label col-xs-4">Possible Aspire</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="checkbox" id="possibleAspire" name="possibleAspire" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.student.possibleAspire"></input>
+                </div>
+            </div>
+
+            <div class="form-group" permission permission-not="['ROLE_Welcome Team']">
+                <label for="monitorable" class="control-label col-xs-4">Monitorable</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="checkbox" id="monitorable" name="monitorable" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.student.monitorable"></input>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="ctrl.cancel()"> <span class="glyphicon glyphicon-ban-circle"></span> Cancel</button>
+        <button type="submit" class="btn btn-primary" ng-disabled="studentSummaryEditForm.$invalid || studentSummaryEditForm.$submitted"><span class="glyphicon glyphicon-save"></span> Save</button>
+    </div>
+
+</form>

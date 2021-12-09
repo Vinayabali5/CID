@@ -1,0 +1,2 @@
+<h1>Staff Editor</h1>
+<staffs-editor staffs="data" show-actions="true"></staffs-editor>

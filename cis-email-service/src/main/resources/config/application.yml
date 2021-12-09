@@ -1,0 +1,23 @@
+server.port: 9999
+
+spring:
+  mail:
+    host: ${email.smtp-host}
+    port: ${email.smtp-port}
+    username: ${email.username}
+    password: ${email.password}
+    default-encoding: UTF-8
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls.enable: true
+
+        imap:
+          socketFactory:
+            class: javax.net.ssl.SSLSocketFactory
+            fallback: false
+        store:
+          protocol: imaps
+
+    debug: true

@@ -1,0 +1,2 @@
+<h1>Academic Year Editor</h1>
+<academic-years-editor academic-years="data" show-actions="true"></academic-years-editor>

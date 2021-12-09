@@ -1,0 +1,24 @@
+<h3>Interim Reports</h3>
+<div class="row">
+    <div class="col-md-8">
+        <fieldset>Display options:</fieldset>
+        <ul class="list-inline">
+            <li permission="['ROLE_Developer', 'ROLE_MIS']">
+                <input type="checkbox" ng-model="showStudent"> Show Student
+            </li>
+            <li>
+                <input type="checkbox" ng-model="showIRAttendanceFigures"> Show Attendance Figures
+            </li>
+            <!--             <li> -->
+            <!--                 <input type="checkbox" ng-model="showKeyAssessments"> Show Key Assessments -->
+            <!--             </li> -->
+        </ul>
+    </div>
+    <div class="col-md-4">
+        <report-link class="btn btn-sm btn-default" report-path="'/CID/Interim Reports/Student Interim Report Summary for Student List'" report-toolbar="false" report-params="'Student='+ctrl.student.id" include-year="true">Interim Report Summary</report-link>
+    </div>
+</div>
+<div class="row">
+    <student-interim-reports-table permission permission-not="['ROLE_MIS', 'ROLE_Office Administration']" student-interim-reports="ctrl.interimReports" show-student="showStudent" show-attendance-figures="showIRAttendanceFigures" show-key-assessments="true"></student-interim-reports-table>
+    <student-interim-reports-editor permission="['ROLE_MIS', 'ROLE_Office Administration']" student-interim-reports="ctrl.interimReports" show-student="showStudent" show-attendance-figures="showIRAttendanceFigures" show-key-assessments="true" show-actions="true"></student-interim-reports-editor>
+</div>

@@ -1,0 +1,2 @@
+<h1>Schools Editor</h1>
+<school-editor schools="data" show-actions="true"></school-editor>

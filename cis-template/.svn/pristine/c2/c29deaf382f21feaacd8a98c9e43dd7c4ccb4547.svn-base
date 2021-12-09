@@ -1,0 +1,56 @@
+<li class="dropdown-submenu">
+    <a tabindex="-1" href="#">Simple Tests</a>
+    <ul class="dropdown-menu">
+        <li><a ui-sref="test.schoolReferences">School Reference Form</a></li>
+        <li><a ui-sref="test.details">Details Tests</a></li>
+        <li><a ui-sref="test.tables">Tables Tests</a></li>
+        <li><a ui-sref="test.contacts">Contacts Tests</a></li>
+        <li><a ui-sref="test.address">Address Tests</a></li>
+        <li><a ui-sref="test.studentEntryQualification">StudentEntryQualification Test</a></li>
+        <li><a ui-sref="test.registers">Register Tests</a></li>
+        <li><a ui-sref="test.correspondences">Correspondence Tests</a></li>
+        <li><a ui-sref="test.iLPInterviews">ILPInterview Tests</a></li>
+        <li><a ui-sref="test.studentSpecialCategory">StudentSpecialCategory Tests</a></li>
+        <li><a ui-sref="test.studentWarning">Student Warning Test</a></li>
+        <li><a ui-sref="test.studentBursary">Student Bursary Test</a></li>
+        <li><a ui-sref="test.studentYear">Student Year Test</a></li>
+        <li><a ui-sref="test.studentAdmissions">Student Admissions Test</a></li>
+        <li><a ui-sref="test.externalResultsArchive">ExternalResultsArchive Test</a></li>
+        <li><a ui-sref="test.studentInterimReport">StudentInterimReportTest</a></li>
+        <li><a ui-sref="test.studentLearningSupport">StudentLearningSupportTest</a></li>
+        <li><a ui-sref="test.studentCollegeFundPayment">CollegeFundPaymentTest</a></li>
+        <li><a ui-sref="test.person">Person Tests</a></li>
+        <li><a ui-sref="test.wordGenerator">WordGeneratorTests</a></li>
+        <li><a ui-sref="test.studentSummary">Student Summary Test</a></li>
+        <li><a ui-sref="test.studentContactPreferences">Student Contact Preferences Test</a></li>
+        <li><a ui-sref="test.studentOverallAttendance">Student OverallAttendance Test</a></li>
+        <li><a ui-sref="test.studentMedicalNotes">MedicalNotes Test</a></li>
+        <li><a ui-sref="test.tutorGroupRemarkPermissions">Student Remark Permission Test</a></li>
+    </ul>
+</li>
+
+<li class="dropdown-submenu">
+    <a tabindex="-1" href="#">System Tests</a>
+    <ul class="dropdown-menu">
+        <li><a ui-sref="test.admissions">Admissions</a></li>
+        <li><a ui-sref="test.letters">ILP Letters</a></li>
+        <li><a ui-sref="test.studentFile">Student File</a></li>
+        <li><a ui-sref="test.searches">Searches</a></li>
+    </ul>
+</li>
+
+
+<li class="dropdown-submenu">
+    <a tabindex="-1" href="#">Data Tests</a>
+    <ul class="dropdown-menu">
+        <li><a ui-sref="test.selections">Selections</a></li>
+        <li><a ui-sref="test.lookups">Lookups</a></li>
+    </ul>
+</li>
+
+
+<hr />
+<li><a ui-sref="test.enrolmentChecker">Enrolment Checker</a></li>
+<li><a ui-sref="emailer">Emailer</a></li>
+
+<li><a ui-sref="test.other">Other Tests</a></li>

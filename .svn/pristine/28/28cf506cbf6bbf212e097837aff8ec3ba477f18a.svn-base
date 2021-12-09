@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>rvir</Title>
+      <Shortcut>rvir</Shortcut>
+      <Description>Report Variables: Interim Reports</Description>
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations />
+      <Code Language="sql"><![CDATA[DECLARE
+    @BelowAverageEffort float = 2.7,
+    @BelowActualAttendance float = 85,
+    @InterimReport int;
+
+-- SQL Prompt formatting off
+SET @InterimReport = (SELECT MAX([interim_report_id]) FROM [dbo].[interim_report])
+-- SQL Prompt formatting on
+
+
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

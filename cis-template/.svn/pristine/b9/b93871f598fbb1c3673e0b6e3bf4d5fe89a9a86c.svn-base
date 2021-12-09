@@ -1,0 +1,10 @@
+<div class="container">
+    <div class="staff-data">
+        <h3><strong> {{ currentUser.person.firstName }} {{ currentUser.person.surname }} - Review Interim reports</strong></h3>
+    </div>
+
+    <div class="row">
+        <my-interim-reports-table class="col-xs-12" interim-reports="studentInterimReports" filter-params=filterParams></my-interim-reports-table>
+    </div>
+
+</div>

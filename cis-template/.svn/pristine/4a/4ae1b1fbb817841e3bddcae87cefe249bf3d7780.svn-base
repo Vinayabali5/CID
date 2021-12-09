@@ -1,0 +1,3 @@
+<h3>Student Entry Qualifications</h3>
+<student-entry-qualifications-editor permission="['ROLE_Office Administration', 'ROLE_Quals on Entry', 'ROLE_Welcome Team']" student-id="ctrl.student.id" show-actions="true" student-entry-qualifications="ctrl.studentEntryQualifications"></student-entry-qualifications-editor>
+<student-entry-qualifications-table permission="'ROLE_Staff'" permission-not="['ROLE_Office Administration', 'ROLE_Quals on Entry', 'ROLE_Welcome Team']" student-entry-qualifications="ctrl.studentEntryQualifications"></student-entry-qualifications-table>

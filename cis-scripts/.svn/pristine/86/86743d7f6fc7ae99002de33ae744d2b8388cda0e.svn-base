@@ -1,0 +1,36 @@
+archivesBaseName = 'cis-scripts'
+version =  '0.0.1'
+
+apply plugin: 'java'
+apply plugin: 'groovy'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    compileOnly project(':cis-data')
+    
+    // SQL Driver Library
+    runtimeOnly('com.microsoft.sqlserver:mssql-jdbc')
+	
+	// Spring Boot Starter Libraries
+    compileOnly 'org.springframework.boot:spring-boot-starter-data-jpa'
+    
+    compileOnly 'org.apache.commons:commons-lang3:3.0'
+    
+    compileOnly 'org.codehaus.groovy:groovy-all:2.4.3'
+    
+    // Other dependencies
+    compileOnly "javax.inject:javax.inject:1"
+    
+    compileOnly "org.apache.poi:poi:${apachePoiVersion}"
+    compileOnly "org.apache.poi:poi-ooxml:${apachePoiVersion}"
+    
+    //compileOnly group: 'gnu.io', name: 'rxtx', version: '2.1.7'
+}
+

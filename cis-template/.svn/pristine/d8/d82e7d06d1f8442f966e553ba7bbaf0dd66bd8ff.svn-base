@@ -1,0 +1,1 @@
+<student-alternative-uci-table student-id="ctrl.student.id" student-alternative-ucis="ctrl.studentAlternativeUcis" show-status="true"></student-alternative-uci-table>

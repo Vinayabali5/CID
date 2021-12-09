@@ -1,0 +1,7 @@
+<h1>Student Medical Notes</h1>
+<input ng-model=ctrl.studentId></input><button class="btn btn-sm" ng-click="ctrl.getStudent()">Get Student Medical Details</button>
+<br />
+<medical-notes-details student="ctrl.student"></medical-notes-details>
+
+<h1>Medical Notes Editor</h1>
+<medical-notes-editor student-id="ctrl.studentId" student="ctrl.student"></medical-notes-editor>

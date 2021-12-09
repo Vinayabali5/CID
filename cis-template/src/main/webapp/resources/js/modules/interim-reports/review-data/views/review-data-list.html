@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="staff-data">
+        <h3><strong>Review Interim reports</strong></h3>
+    </div>
+
+    <table class="table table-bordered table-striped table-hover table-condensed" ts-wrapper ts-item-name="Course Group">
+        <thead>
+            <th ts-criteria="CourseGroupSpec" ts-filter>Course Group Spec</th>
+            <th>Saved</th>
+            <th>Actions</th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="reviewData in reviewList | orderBy: 'CourseGroupSpec'" ts-repeat>
+                <td>{{ reviewData.CourseGroupSpec }}</td>
+                <td>{{ reviewData.complete | yesNo }}</td>
+                <td>
+                    <button type="button" class="btn btrn-sm btn-primary" ng-click="editReviewData(reviewData)"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+
+                </td>
+            </tr>
+    </table>
+</div>

@@ -1,0 +1,74 @@
+<div class="container-fluid">
+    <h1>Seating Plan Generator</h1>
+
+    <form id="seatingPlanGeneratorForm" name="seatingPlanGeneratorForm" role="form" novalidate>
+        <div class="modal-header"></div>
+
+        <div class="modal-body">
+            <div class="row">
+                <div class="form-group col-sm-12 col-md-6 row">
+                    <label for="examDate" class="control-label col-xs-4">Exam Date: </label>
+                    <div class="col-xs-8 col-sm-8 col-md-8 input-group">
+                        <input type="text" class="form-control" ng-init="examDateDatePicker=false" ng-model="examDate" ng-change="onChange()" uib-datepicker-popup="dd/MM/yyyy" is-open="examDateDatePicker" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="examDateDatePicker=!examDateDatePicker">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-sm-12 col-md-6 row">
+                    <label for="session" class="control-label col-xs-4">Session:</label>
+                    <div class="col-xs-8 col-md-8 col-sm-8 input-group">
+                        <input type="radio" class="radio-inline" ng-model="session" ng-change="onChange()" value="A">AM</input>
+                        <input type="radio" class="radio-inline" ng-model="session" ng-change="onChange()" value="P">PM</input>
+                    </div>
+                </div>
+            </div>
+
+            <div ng-if="showExamRooms">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <div flex style="overflow: scroll;">
+                            <table id="examRoomTable" class="table">
+                                <thead class="table-header">
+                                    <tr>
+                                        <th>Room</th>
+                                        <th>Description</th>
+                                        <th class="text-center">Rows</th>
+                                        <th class="text-center">Columns</th>
+                                        <th class="text-center">Capacity</th>
+                                        <th class="text-center">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tr ng-repeat="examRoom in examRoomList" class="ng-cloak">
+                                    <td>{{examRoom.room.code}}</td>
+                                    <td>{{examRoom.room.description}}</td>
+                                    <td class="text-center">{{examRoom.rows}}</td>
+                                    <td class="text-center">{{examRoom.cols}}</td>
+                                    <td class="text-center">{{examRoom.rows * examRoom.cols}}</td>
+                                    <td class="text-center">
+                                        <button class="btn btn-primary btn-sm" ui-sref="exams.seating-plan.generator({examSessionId: examSession.id, examRoomId: examRoom.id, examDate: examDate, session: session })">Edit Seating Plan</button>
+                                        <button class="btn btn-primary btn-sm" ng-click="addEditRoomEntry(examSession, examRoom)">Edit Room</button>
+                                        <button class="btn btn-danger btn-sm" ng-click="deleteRoomEntry(examSession, examRoom)"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete</button>
+                                        <report-link class="btn btn-primary btn-sm" report-path="'/CID/Exams/Exam Seating Plan'" report-format="'EXCEL'" report-params="'ExamSeatingPlan='+examRoom.id" include-year="true">
+                                            <span class="glyphicon glyphicon-save" aria-hidden="true"></span> Excel Download
+                                        </report-link>
+                                    </td>
+                                </tr>
+                                <tbody>
+                                </tbody>
+                            </table>
+                            <div>
+                                <button class="btn btn-primary btn-sm" ng-click="addEditRoomEntry(examSession)">Add Exam Room</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

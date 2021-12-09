@@ -1,0 +1,48 @@
+<div class="student-special-categories-details">
+    <uib-tabset active="active" ng-show="hasData()">
+        <uib-tab index="-1" heading="Special Categories">
+            <div class="special-category-tab container-fluid">
+                <div class="row">
+                    <div class="col-md-12">The special categories for this student are separated into tabs. There will be a tab for each special category that the student has for further details about each special category please click on the tab to see the information. </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12" ng-hide="hasSpecialCategories()">This student current has no special categories defined.</div>
+                </div>
+            </div>
+        </uib-tab>
+        <uib-tab index="$index" heading="{{ $index + 1 }}" ng-repeat="specialCategory in specialCategories track by $index">
+            <div class="special-category-tab container-fluid">
+                <div class="row hidden">
+                    <div class="col-md-4">StudentId:</div>
+                    <div class="col-md-8" ng-bind="specialCategory.studentId">{{ specialCategory.studentId }}</div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">SpecialCategory:</div>
+                    <div class="col-md-8" ng-bind="specialCategory._specialCategoryDto.code">{{ specialCategory._specialCategoryDto.code }}</div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">SpecialConfirmed:</div>
+                    <div class="col-md-8" ng-bind="specialCategory.specialConfirmed">{{ specialCategory.specialConfirmed | yesNo }}</div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">ClassificationDate:</div>
+                    <div class="col-md-8" ng-bind="specialCategory.classificationDate | date:'dd/MM/yyyy'">{{ specialCategory.classificationDate | date:'dd/MM/yyyy' }}</div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">ClosedDate:</div>
+                    <div class="col-md-8" ng-bind="specialCategory.closedDate | date:'dd/MM/yyyy'">{{ specialCategory.closedDate | date:'dd/MM/yyyy' }}</div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">MonitoringNotes:</div>
+                    <div class="col-md-8" ng-bind="specialCategory.monitoringNotes">{{ specialCategory.monitoringNotes }}</div>
+                </div>
+            </div>
+        </uib-tab>
+    </uib-tabset>
+    <div class="error" ng-hide="hasData()">Error: No Data Provided</div>
+</div>

@@ -1,0 +1,85 @@
+/***
+ * This script is used to add the node tasks to gradle for resolving the node_module and bower_components for the project.
+ *
+ * Requires the following in the buildScript dependencies
+ *      classpath "com.moowork.gradle:gradle-node-plugin:0.11"
+ *
+ * @author Michael Horgan
+ *
+ */
+apply plugin: 'nebula.node'
+apply plugin: 'nebula.grunt'
+
+def webAppRoot = 'src/main/webapp'
+def webAppResourcesDir = webAppRoot + '/resources'
+def bowerDir = webAppResourcesDir + '/bower_components'
+
+node {
+    version = '8.17.0'
+    npmVersion = '6.13.6'
+    download = true
+    workDir = file("${project.buildDir}/nodejs")
+    nodeModulesDir = file("${project.projectDir}")
+}
+
+/*
+task npmInstall(type: NpmTask, dependsOn: 'npmSetup') {
+    npmCommand = 'install'
+    inputs.file('package.json')
+}
+*/
+
+task bowerInstall(type: NodeTask) {
+    script = file('node_modules/bower/bin/bower')
+    args = [
+        "--config.directory=${bowerDir}",
+        "--allow-root",
+        'install'
+    ]
+    inputs.files file("${project.projectDir}/bower.json")
+    outputs.files file(bowerDir)
+    outputs.upToDateWhen { false }
+    dependsOn npmInstall
+}
+
+task bowerInstallForce(type: NodeTask) {
+    script = file('node_modules/bower/bin/bower')
+    args = [
+        "--config.directory=${bowerDir}",
+        "--allow-root",
+        'install',
+        '-f'
+    ]
+    inputs.files file("${project.projectDir}/bower.json")
+    outputs.files file(bowerDir)
+    outputs.upToDateWhen { false }
+    dependsOn npmInstall
+}
+
+task bowerPackages() {  dependsOn bowerInstall  }
+
+task watch(type: GruntTask) {
+    description = "Watch the user interface files and execute the watch tasks on file modifications"
+    args = ['watch']
+    dependsOn bowerInstall
+}
+
+task buildJS(type: GruntTask) {
+    description = "Run the grunt build task to build the JavaScript resources"
+    args = ['build']
+    dependsOn bowerInstall
+}
+
+task buildDist(type: GruntTask) {
+    description = "Run the grunt buildDist task to build the disturbuted version"
+    args = ['buildDist']
+    dependsOn bowerInstall
+}
+
+build.dependsOn buildDist
+
+processResources.dependsOn buildJS
+tasks.eclipse.dependsOn buildJS
+
+clean.delete << file(bowerDir)
+clean.delete << file('node_modules')

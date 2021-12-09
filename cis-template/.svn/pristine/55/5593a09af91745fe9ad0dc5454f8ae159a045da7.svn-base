@@ -1,0 +1,46 @@
+<div class="row" ng-show="false">
+    <div class="col-md-4">Student Id:</div>
+    <div class="col-md-8" ng-bind="studentId">{{ studentSafetyPlan.studentId }}</div>
+</div>
+<div class="row">
+    <div class="col-xs-4">Completed With Name:</div>
+    <div class="col-xs-8">{{ studentSafetyPlan._completedWithName | blank}} </div>
+</div>
+<div class="row">
+    <div class="col-xs-4">How To Reduce Risk At Home:</div>
+    <div class="col-xs-8">{{ studentSafetyPlan.howToReduceRiskAtHome | blank}} </div>
+</div>
+<div class="row">
+    <div class="col-xs-4">Warning Signs Or Triggers:</div>
+    <div class="col-xs-8">{{ studentSafetyPlan.warningSignsOrTriggers | blank}}</div>
+</div>
+<div class="row">
+    <div class="col-xs-4">Past Actions To Help:</div>
+    <div class="col-xs-8">{{ studentSafetyPlan.pastActionsToHelp | blank}}</div>
+</div>
+<div class="row">
+    <div class="col-xs-4">Actions To Calm And Soothe:</div>
+    <div class="col-xs-8">{{ studentSafetyPlan.actionsToCalmAndSoothe | blank}}</div>
+</div>
+<div class="row">
+    <div class="col-xs-4">What To Tell Self:</div>
+    <div class="col-xs-8">{{ studentSafetyPlan.whatToTellSelf | blank}}</div>
+</div>
+<div class="row">
+    <div class="col-xs-4">What Could Others Do:</div>
+    <div class="col-xs-8">{{ studentSafetyPlan.whatCouldOthersDo | blank}}</div>
+</div>
+<div class="row">
+    <div class="col-xs-4">Who Can I Call:</div>
+    <div class="col-xs-8">{{ studentSafetyPlan.whoCanICall | blank}}</div>
+</div>
+<div class="row">
+    <div class="col-xs-4">Date Completed:</div>
+    <div class="col-xs-8">{{ studentSafetyPlan.dateCompleted | date:'dd/MM/yyyy' | blank}}</div>
+</div>
+
+<div class="row" ng-show="showActions">
+    <div class="col-xs-12">
+        <button type="button" ng-click="ctrl.editStudentSafetyPlan(studentSafetyPlan.id)" class="btn btn-sm btn-primary"><span class="glyphicon glyphicon-pencil"></span> Add/Edit Safety Plan</button>
+    </div>
+</div>

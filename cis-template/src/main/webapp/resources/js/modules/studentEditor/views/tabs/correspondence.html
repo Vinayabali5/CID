@@ -1,0 +1,16 @@
+<div class="row">
+    <h3>Correspondence</h3>
+</div>
+<div class="row">
+    <div class="col-sm-10">
+        <fieldset>Display options:</fieldset>
+        <ul class="list-inline">
+            <li>
+                <input type="checkbox" ng-model="showCourseCorrespondence" ng-init="showCourseCorrespondence = false"> Show Course
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="row">
+    <correspondence-table correspondence="ctrl.correspondence" show-course="showCourseCorrespondence"></correspondence-table>
+</div>

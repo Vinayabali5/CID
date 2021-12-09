@@ -1,0 +1,242 @@
+<form id="ilpInterviewsEditForm" name="ilpInterviewsEditForm" role="form" novalidate show-validation>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="ctrl.cancel()">&times;</button>
+        <h4 class="modal-title" ng-if="ctrl.ilpInterview.id == undefined">Add ILP Interview: {{ ctrl.student.person.firstName }} {{ ctrl.student.person.surname }} </h4>
+        <h4 class="modal-title" ng-if="ctrl.ilpInterview.id !== undefined">Edit ILP Interview: {{ ctrl.ilpInterview._student.person.firstName }} {{ ctrl.ilpInterview._student.person.surname }}</h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="row" permission="'ROLE_Developer'">
+            <div class="form-group">
+                <label for="id" class="control-label col-xs-3">ILP Interview ID</label>
+                <div class="col-xs-9">
+                    <input id="id" name="id" type="text" class="form-control" ng-model="ctrl.ilpInterview.id" readonly="ctrl.ilpInterview.id !== undefined">
+                </div>
+            </div>
+        </div>
+
+        <div class="row" permission="'ROLE_Developer'">
+            <div class="form-group">
+                <label for="studentId" class="control-label col-xs-3">Student ID</label>
+                <div class="col-xs-9">
+                    <input id="studentId" name="studentId" type="text" class="form-control" ng-model="ctrl.ilpInterview.studentId" readonly="ctrl.ilpInterview.id !== undefined">
+                </div>
+            </div>
+        </div>
+
+        <div class="row" permission="'ROLE_Developer'">
+            <div class="form-group">
+                <label for="academicYearId" class="control-label col-xs-3">Academic Year:</label>
+                <div class="col-xs-9">
+                    <academic-year-selection id="academicYearId" name="academicYearId" class="form-control" ng-model="ctrl.ilpInterview.academicYearId" readonly="ctrl.ilpInterview.id !== undefined"></academic-year-selection>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <label for="interviewType" class="control-label col-xs-3">Interview Type:</label>
+                <div class="col-xs-9">
+                    <ilp-interview-type-selection class="form-control" id="interviewType" name="interviewType" ng-model="ctrl.ilpInterview.interviewType" alt-null-text="'-- Select Interview Type --'" ng-change="ctrl.changeInterviewType()" ng-required="true" ng-if="ctrl.ilpInterview.id === undefined"></ilp-interview-type-selection>
+                    <p ng-if="ctrl.ilpInterview.id !== undefined">{{ ctrl.ilpInterview.interviewType.type }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" ng-show="ctrl.ilpInterview.interviewType.requireCourseGroupId === true">
+            <div class="form-group">
+                <label for="courseGroup" class="control-label col-xs-3">Course Group:</label>
+                <div class="col-xs-9">
+                    <course-group-selection class="form-control" course-groups="ctrl.courseGroups" ng-model="ctrl.ilpInterview.courseGroupId" ng-if="ctrl.ilpInterview.id === undefined" ng-required="ctrl.ilpInterview.interviewType.id == 1"></course-group-selection>
+                    <p ng-if="ctrl.ilpInterview.id !== undefined">{{ ctrl.ilpInterview._courseGroup.spec + ' - ' + ctrl.ilpInterview._courseGroup._course._levelDescription + ctrl.ilpInterview._courseGroup._course._subjectDescription }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <label for="interviewDate" class="control-label col-xs-3">Interview Date:</label>
+                <div class="col-xs-9">
+                    <div class="input-group" ng-if="ctrl.ilpInterview.id === undefined">
+                        <input type="text" class="form-control" id="interviewDate" name="interviewDate" ng-init="interviewDateDatePicker = false" ng-model="ctrl.ilpInterview.interviewDate" ng-required="true" ng-disabled="ctrl.ilpInterview.id !== undefined" uib-datepicker-popup="dd/MM/yyyy" is-open="interviewDateDatePicker" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="interviewDateDatePicker = !interviewDateDatePicker" ng-disabled="ctrl.ilpInterview.id !== undefined"><span class="glyphicon glyphicon-calendar"></span></button>
+                        </span>
+                    </div>
+                    <p ng-if="ctrl.ilpInterview.id !== undefined">{{ ctrl.ilpInterview.interviewDate | date:'dd/MM/yyyy hh:mm' }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <label for="staffId" class="control-label col-xs-3">Interview By:</label>
+                <div class="col-xs-9">
+                    <staff-selection class="form-control" id="staffId" name="staffId" ng-model="ctrl.ilpInterview.staffId" ng-required="true" ng-if="ctrl.ilpInterview.id === undefined"></staff-selection>
+                    <p ng-if="ctrl.ilpInterview.id !== undefined">{{ ctrl.ilpInterview._staffName }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" ng-show="ctrl.ilpInterview.id === undefined">
+            <div class="col-md-4 col-md-offset-4">
+                <button type="button" name="button" class="btn btn-default" data-toggle="collapse" data-target="#statementBankCollapse" aria-expanded="false" aria-controls="statementBankCollapse">Statement Bank</button>
+            </div>
+        </div>
+
+        <div id="statementBankCollapse" class="collapse">
+            <div class="row" ng-repeat="statement in ctrl.statementBank | orderBy:['+_iLPStatementBankType','+topic'] track by statement.id">
+                <div class="col-xs-2">
+                    {{ statement._iLPStatementBankType }}
+                </div>
+                <div class="col-xs-6">
+                    {{ statement.topic }}
+                </div>
+                <div class="col-xs-3">
+                    <button type="button" name="button" data-toggle="collapse" data-target="#statementBankCollapse" aria-expanded="false" aria-controls="statementBankCollapse" ng-click="ctrl.addStatement(statement)"><span class="glyphicon glyphicon-plus"></span> Add Statement</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Old Discussion Input -->
+        <!-- <div class="row">
+            <div class="form-group">
+                <label for="discussion" class="control-label col-xs-3">Discussion:</label>
+                <div class="col-xs-9">
+                    <textarea id="discussions" type="text" class="form-control" rows="8" ng-model="ctrl.ilpInterview.discussion" ng-required="true" pattern="[^[\]]+"></textarea>
+                </div>
+            </div>
+        </div> -->
+        <div class="row">
+            <div class="form-group">
+                <label for="discussion" class="control-label col-xs-3">Discussion:</label>
+                <div class="col-xs-9">
+                    <textarea ui-tinymce="tinymceOptions" id="discussion" name="discussion" ng-model="ctrl.ilpInterview.discussion" pattern="[^[\]]+" ng-required="ctrl.ilpInterview.letter.letterTypeId === 1"></textarea>
+                    <span class="validation-error" ng-show="ilpInterviewsEditForm.discussion.$error.pattern">Replace the square brackets with new values.</span>
+                    <span class="validation-error" ng-show="ilpInterviewsEditForm.discussion.$error.required">Discussion Required.</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Old Target Input -->
+        <!-- <div class=" row">
+                        <div class="form-group">
+                            <label for="target" class="control-label col-xs-3">Target:</label>
+                            <div class="col-xs-9">
+                                <textarea id="target" type="text" class="form-control" rows="5" ng-model="ctrl.ilpInterview.target" ng-required="ctrl.ilpInterview.targetByDate !== undefined && ctrl.ilpInterview.targetByDate !== null && ctrl.ilpInterview.targetByDate !== ''" pattern="[^[\]]+"></textarea>
+                            </div>
+                        </div>
+                </div> -->
+        <div class="row" ng-show="ctrl.ilpInterview.interviewType.requireTarget === true">
+            <div class="form-group">
+                <label for="target" class="control-label col-xs-3">Target:</label>
+                <div class="col-xs-9">
+                    <textarea ui-tinymce="tinymceOptions" id="target" name="target" ng-model="ctrl.ilpInterview.target" pattern="[^[\]]+" ng-required="ctrl.ilpInterview.letter.letterTypeId === 1"></textarea>
+                    <span class="validation-error" ng-show="ilpInterviewsEditForm.target.$error.pattern">Replace the square brackets with new values.</span>
+                    <span class="validation-error" ng-show="ilpInterviewsEditForm.target.$error.required">Target Required.</span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row" ng-show="ctrl.ilpInterview.interviewType.requireTarget === true">
+            <div class="form-group">
+                <label for="targetByDate" class="control-label col-xs-3">Target By Date:</label>
+                <div class="col-xs-9">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="targetByDate" name="targetByDate" ng-init="targetByDateDatePicker = false" ng-model="ctrl.ilpInterview.targetByDate" ng-required="ctrl.ilpInterview.target !== undefined && ctrl.ilpInterview.target !== null && ctrl.ilpInterview.target !== ''" uib-datepicker-popup="dd/MM/yyyy" is-open="targetByDateDatePicker" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="targetByDateDatePicker = !targetByDateDatePicker">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <label for="privateEntry" class="control-label col-xs-3">Private Entry:</label>
+                <div class="col-xs-9">
+                    <input type="checkbox" id="privateEntry" name="privateEntry" lass="form-control" include-blank="true" ng-model="ctrl.ilpInterview.privateEntry"></input>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" ng-show="ctrl.ilpInterview.interviewType.allowOfficeAction === true">
+            <div class="form-group">
+                <label for="officeAction" class="control-label col-xs-3">Office Action:</label>
+                <div class="col-xs-9">
+                    <office-action-selection id="officeAction" name="officeAction" class="form-control" ng-model="ctrl.ilpInterview.officeAction"></office-action-selection>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" ng-show="ctrl.ilpInterview.interviewType.allowOfficeAction === true">
+            <div class="form-group">
+                <label for="officeNotes" class="control-label col-xs-3">Office Notes:</label>
+                <div class="col-xs-9">
+                    <textarea id="officeNotes" name="officeNotes" type="test" class="form-control" rows="3" ng-model="ctrl.ilpInterview.officeNotes"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" ng-show="ctrl.ilpInterview.interviewType.allowOfficeAction === true">
+            <div class="form-group">
+                <label for="toFile" class="control-label col-xs-3">To File:</label>
+                <div class="col-xs-9">
+                    <input type="checkbox" id="toFile" name="toFile" class="form-control" include-blank="true" ng-model="ctrl.ilpInterview.toFile"></input>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="row" ng-show="ctrl.ilpInterview.referLip === true">
+            <div class="form-group">
+                <label for="privateEntry" class="control-label col-xs-3">Referred to LIP:</label>
+                <div class="col-xs-3">
+                    {{ ctrl.ilpInterview.referLip | yesNo }}
+                </div>
+                <label for="privateEntry" class="control-label col-xs-3">Referral Date:</label>
+                <div class="col-xs-3">
+                    {{ ctrl.ilpInterview.lipReferDate | date:'dd/MM/yyyy' }}
+                </div>
+            </div>
+        </div>
+
+        <div class="row" ng-show="ctrl.canSendLetter()">
+            <div class=" form-group">
+                <label for="typeId" class="control-label col-xs-3">Letter Type:</label>
+                <div class="col-xs-9">
+                    <letter-type-selection class="form-control" id="typeId" name="typeId" ng-model="letterTypeId" readonly="ctrl.ilpInterview.letter.id !== undefined"></letter-type-selection>
+                </div>
+            </div>
+        </div>
+
+        <div ng-if="letterTypeId === 1" ng-include="'js/directives/dialogs/edit-ilp/letters/yellow-letter.html'"></div>
+        <div ng-if="letterTypeId === 3" ng-include="'js/directives/dialogs/edit-ilp/letters/green-letter.html'"></div>
+        <div ng-if="letterTypeId === 4" ng-include="'js/directives/dialogs/edit-ilp/letters/interim-report-letter.html'"></div>
+
+        <div class="row" permission="'ROLE_Developer'">
+            <div class="col-xs-12" collapsible="'debugData1'" collapsible-title="'Debug Data'">
+                <pre>
+                {{ ctrl.ilpInterview | json }}
+                </pre>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="ctrl.cancel()" ng-disabled="submitted"> <span class="glyphicon glyphicon-ban-circle"></span> Cancel</button>
+        <button type="button" class="btn btn-primary" ng-click="ctrl.save()" ng-disabled="submitted || ilpInterviewsEditForm.$invalid || ilpInterviewsEditForm.$submitted"><span class="glyphicon glyphicon-save"></span> Save</button>
+        <button type="button" class="btn btn-primary" ng-click="ctrl.saveAndReferToLIP()" ng-disabled="submitted || ilpInterviewsEditForm.$invalid || ilpInterviewsEditForm.$submitted || ctrl.ilpInterview.referLip === true" ng-show="ctrl.ilpInterview.interviewType.allowLipReferral === true">
+            <span ng-show="ctrl.ilpInterview.referLip === false"><span class="glyphicon glyphicon-step-forward"></span> Save and Refer to LIP</span>
+            <span ng-show="ctrl.ilpInterview.referLip === true"><span class="glyphicon glyphicon-ok"></span> LIP Referral Made</span>
+        </button>
+        <button type="button" class="btn btn-primary" ng-click="ctrl.saveAndEmailRelatedStaff(ctrl.ilpInterview.studentId)" ng-disabled="submitted || ilpInterviewsEditForm.$invalid || ilpInterviewsEditForm.$submitted" ng-show="ctrl.ilpInterview.interviewType.allowEmailRelatedStaff === true">Save and Email Related Staff</button>
+        <button type="button" permission="'ROLE_Developer'" class="btn btn-primary" ng-click="ctrl.staffILPEmailNotification(ctrl.ilpInterview.studentId)" ng-disabled="submitted || ilpInterviewsEditForm.$invalid || ilpInterviewsEditForm.$submitted" ng-show="ctrl.ilpInterview.interviewType.allowEmailRelatedStaff === true">Save and Staff ILP Email Notification</button>
+    </div>
+
+</form>

@@ -1,0 +1,65 @@
+<div class="search-box student-search">
+    <div class="search-form">
+        <form class="form-inline" name="studentSearch">
+            <div class="form-group">
+                <label for="search-surname">Surname:</label>
+                <input id="search-surname" type="text" class="form-control input-sm" ng-model="ctrl.surname"></input>
+            </div>
+            <div class="form-group">
+                <label for="search-first-name">First Name:</label>
+                <input id="search-first-name" type="text" class="form-control input-sm" ng-model="ctrl.firstName"></input>
+            </div>
+            <div class="form-group">
+                <label for="search-stuent-id">Student ID:</label>
+                <input id="search-stuent-id" name="reference" type="text" class="form-control input-sm" ng-model="ctrl.reference" pattern="[0-9.]+"></input>
+                <span class="validation-error" ng-show="studentSearch.reference.$error.pattern">Please Enter Numeric characters</span>
+            </div>
+            <div class="form-group" ng-show="ctrl.showCandidateNo">
+                <label for="reference">Candidate No:</label>
+                <input id="candidateNo" name="candidateNo" type="text" class="form-control input-sm" ng-model="ctrl.candidateNo" pattern="[0-9.]+"></input>
+                <span class="validation-error" ng-show="studentSearch.candidateNo.$error.pattern">Please Enter Numeric characters</span>
+            </div>
+            <div class="form-group">
+                <button id="search-button" name="search-button" class="btn btn-sm btn-primary" ng-click="ctrl.search()">Search</button>
+                <button id="clear-button" name="clear-button" class="btn btn-sm btn-default" ng-click="ctrl.clear()">Clear</button>
+                <button id="toggle-results" name="toggle-results" class="btn btn-sm btn-info" type="button" ng-click="ctrl.toggleResults()" ng-disabled="!ctrl.hasResults()">Show/Hide Results</button>
+            </div>
+        </form>
+    </div>
+    <div class="message">{{ ctrl.message }}</div>
+    <div class="search-results" ng-show="ctrl.hasResults()">
+        <div id="search-results" class="collapsable" ng-show="ctrl.resultsVisible()">
+            <h4>Search Results </h4>
+            <table class="table table-responsive table-bordered table-hover table-condensed" ts-wrapper>
+                <thead>
+                    <th ts-criteria>ID</th>
+                    <th ts-criteria ts-default>Student</th>
+                    <th ts-criteria>Type</th>
+                    <th ts-criteria>TG</th>
+                    <th>Status</th>
+                    <th ng-show="ctrl.showCandidateNo">Candidate No</th>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="result in ctrl.results track by $index" ts-repeat>
+                        <td><a ng-click="ctrl.executeCallback({id: result.studentId})">{{ result.studentId }}</a></td>
+                        <td>{{ result.studentName }}
+                            <h5 style="display:inline; color:#F00" ng-if="result._similarNamedStudent"> (Student With Similar Name)</h5>
+                        </td>
+                        <td>{{ result.studentType }}</td>
+                        <td>{{ result.tutorGroup }}</td>
+                        <td>
+                            <span class="error" ng-show="result.endDate">LEFT</span>
+                            <span ng-show="!result.endDate">Current</span>
+                        </td>
+                        <td ng-show="ctrl.showCandidateNo">{{ result.candidateNo }}</td>
+                    </tr>
+                    <tr ng-show="!ctrl.hasResults()">
+                        <td colspan="4">No Results</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div ng-transclude></div>
+
+</div>

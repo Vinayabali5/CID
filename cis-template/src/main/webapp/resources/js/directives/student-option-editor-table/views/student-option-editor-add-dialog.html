@@ -1,0 +1,88 @@
+<form name="studentOptionEntryAddEditForm" role="form" novalidate show-validation>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="ctrl.cancel()">&times;</button>
+        <h4 class="modal-title">Search Entry Code</h4>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="form-group">
+                <label for="studentId" class="control-label col-xs-4">Student Id:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" class="form-control text ui-widget-content ui-corner-all" readonly ng-model="ctrl.studentId"></input>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <label for="resit" class="control-label col-xs-4">Resit:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="checkbox" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.resit"></input>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <label for="privateStudent" class="control-label col-xs-4">Private Student:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="checkbox" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.privateStudent"></input>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <h5 class="col-md-12"> Add Entry Code </h5>
+
+            <div class="search-box EntryCode-search col-md-12">
+                <div class="search-form col-md-8">
+                    <form class="form-inline">
+                        <div class="form-group">
+                            <label for="name" class="control-label col-xs-4">Entry Code Search:</label>
+                            <div class="col-xs-8 col-sm-8 col-md-8">
+                                <input type="text" class="form-control input-sm" ng-model="ctrl.optionEntryCode"></input>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-4">
+                    <button class="btn btn-sm btn-primary" ng-click="ctrl.search()">Search</button>
+                    <button class="btn btn-sm btn-default" ng-click="ctrl.clear()">Clear</button>
+                    <button class="btn btn-sm btn-info" ng-click="ctrl.toggleResults()" ng-disabled="!ctrl.hasResults()">Show/Hide Results</button>
+                </div>
+            </div>
+            <div class="message col-md-12">{{ ctrl.message }}</div>
+            <div class="col-md-12">
+                <div class="search-results col-md-12" ng-show="ctrl.hasResults()">
+                    <div class="collapsable" ng-show="ctrl.resultsVisible()">
+                        <h4>Search Results</h4>
+                        <table class="table table-responsive table-bordered table-hover table-condensed" ts-wrapper ts-item-name="Exam Options">
+                            <thead>
+                                <tr>
+                                    <th ts-criteria="optionEntryCode">Option Entry code</th>
+                                    <th ts-criteria="optionTitle">Option Title</th>
+                                    <th ts-criteria="syllabus.examSeries.examBoard.description">Exam Board </th>
+                                    <th ts-criteria="syllabus.examSeries.examSeries">Exam Series</th>
+                                    <th ts-criteria="syllabus.examSeries.examYear">Exam Year</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="result in ctrl.results | orderBy:['+optionEntryCode']" ts-repeat>
+                                    <td>{{ result.optionEntryCode }}</td>
+                                    <td>{{ result.optionTitle }}</td>
+                                    <td>{{ result.syllabus.examSeries.examBoard.description }}</td>
+                                    <td>{{ result.syllabus.examSeries.examSeries }}</td>
+                                    <td>{{ result.syllabus.examSeries.examYear }}</td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary" ng-click="ctrl.addOptionEntryCode(ctrl.studentId, result.id)">Add</button>
+                                    </td>
+                                </tr>
+                                <tr ng-show="!ctrl.hasResults()">
+                                    <td colspan="6">No Results</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

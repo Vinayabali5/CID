@@ -1,0 +1,120 @@
+<div class="row">
+
+    <div class="col-xs-12">
+        <h4>Request Interim Report Letter</h4>
+    </div>
+
+    <div class="col-xs-7">
+        <div class="row" ng-show="ctrl.ilpInterview.letter.regarding !== undefined">
+            <div class="form-group">
+                <label for="interimReportLetterRegarding" class="control-label col-xs-4 col-xl-2">Regarding</label>
+                <div class="col-xs-8 col-xl-10">
+                    <input id="interimReportLetterRegarding" type="text" name="interimReportLetterRegarding" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.ilpInterview.letter.regarding" readonly="true"></input>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" ng-show="ctrl.ilpInterview.letter.subject !== undefined">
+            <div class="form-group">
+                <label for="interimReportLetterSubject" class="control-label col-xs-4 col-xl-2">Subject</label>
+                <div class="col-xs-8 col-xl-10">
+                    <input id="interimReportLetterSubject" type="text" name="interimReportLetterSubject" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.ilpInterview.letter.subject" readonly="true"></input>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" permission="'ROLE_Developer'">
+            <div class="form-group">
+                <label for="studentId" class="control-label col-xs-4 col-xl-2">Student ID</label>
+                <div class="col-xs-8 col-xl-10">
+                    <input id="studentId" type="text" class="form-control" name="studentId" readonly ng-model="ctrl.ilpInterview.studentId">
+                </div>
+            </div>
+        </div>
+
+        <div class="row" permission="'ROLE_Developer'">
+            <div class="form-group">
+                <label for="id" class="control-label col-xs-4 col-xl-2">ILP Interview ID</label>
+                <div class="col-xs-8 col-xl-10">
+                    <input id="id" type="text" class="form-control" name="id" readonly ng-model="ctrl.ilpInterview.id">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <label for="interimReportLetterRequestedDate" class="control-label col-xs-4 col-xl-2">Requested Date:</label>
+                <div class="col-xs-8 col-xl-10">
+                    <div class="input-group">
+                        <input id="interimReportLetterRequestedDate" name="interimReportLetterRequestedDate" type="text" class="form-control" ng-init="interimReportLetterRequestedDatePicker = false" ng-model="ctrl.ilpInterview.letter.requestedDate" uib-datepicker-popup="dd/MM/yyyy" is-open="interimReportLetterRequestedDatePicker" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="interimReportLetterRequestedDatePicker = !interimReportLetterRequestedDatePicker"><span class="glyphicon glyphicon-calendar"></span></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <label for="interimReportLetterRequestedById" class="control-label col-xs-4 col-xl-2">Requested By:</label>
+                <div class="col-xs-8 col-xl-10">
+                    <staff-selection id="interimReportLetterRequestedById" name="interimReportLetterRequestedById" class="form-control" ng-model="ctrl.ilpInterview.letter.requestedById"></staff-selection>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <label for="interimReportLetterAuthorisedDate" class="control-label col-xs-4 col-xl-2">Authorised Date:</label>
+                <div class="col-xs-8 col-xl-10">
+                    <div class="input-group">
+                        <input id="interimReportLetterAuthorisedDate" type="text" name="interimReportLetterAuthorisedDate" class="form-control" ng-init="interimReportLetterAuthorisedDatePicker = false" ng-model="ctrl.ilpInterview.letter.authorisedDate" uib-datepicker-popup="dd/MM/yyyy" is-open="interimReportLetterAuthorisedDatePicker" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="interimReportLetterAuthorisedDatePicker = !interimReportLetterAuthorisedDatePicker"><span class="glyphicon glyphicon-calendar"></span></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <label for="interimReportLetterWrittenById" class="control-label col-xs-4 col-xl-2">Authorised By:</label>
+                <div class="col-xs-8 col-xl-10">
+                    <staff-selection id="interimReportLetterWrittenById" name="interimReportLetterWrittenById" class="form-control" ng-model="ctrl.ilpInterview.letter.writtenById"></staff-selection>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-5">
+        <div class="row">
+            <div class="form-group">
+                <label for="interimReportLetterIrWillAddress" class="control-label col-xs-8 col-xl-2">IR Will Address</label>
+                <div class="col-xs-4">
+                    <input id="interimReportLetterIrWillAddress" name="interimReportLetterIrWillAddress" type="checkbox" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.ilpInterview.letter.irWillAddress"></input>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <label for="interimReportLetterIrImproveAttendance" class="control-label col-xs-8 col-xl-2">IR Improve Attendance</label>
+                <div class="col-xs-4">
+                    <input id="interimReportLetterIrImproveAttendance" name="interimReportLetterIrImproveAttendance" type="checkbox" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.ilpInterview.letter.irImproveAttendance"></input>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <label for="interimReportLetterIrImproveEffort" class="control-label col-xs-8 col-xl-2">IR ImproveEffort</label>
+                <div class="col-xs-4">
+                    <input id="interimReportLetterIrImproveEffort" name="interimReportLetterIrImproveEffort" type="checkbox" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.ilpInterview.letter.irImproveEffort"></input>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

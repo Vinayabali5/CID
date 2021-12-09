@@ -1,0 +1,2 @@
+<h1>ILP Letters Editor </h1>
+<ilp-letter-editor letters="ctrl.letters"></ilp-letter-editor>

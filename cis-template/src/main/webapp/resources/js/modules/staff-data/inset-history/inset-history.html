@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="staff-data">
+        <h3><strong> {{ currentUser.person.firstName }} {{ currentUser.person.surname }} - Inset History</strong></h3>
+    </div>
+    <div class="row">
+        <p class="staff-data"><b><i>Please advise Principal's PA if there are any corrections that should be made.</i></b></p>
+    </div>
+    <div class="row">
+        <div class="table-responsive">
+            <h4>Previous Inset</h4>
+            <table class="table table-bordered table-hover table-condensed" ts-wrapper ts-item-name="Inset Detail">
+                <thead>
+                    <th>Course Title</td>
+                    <th>Notes</td>
+                    <th>Hours</td>
+                    <th ts-criteria="startDate" ts-default="descending">Course Timing</td>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="inset in staffInset" ts-repeat>
+                        <td>{{ inset.insetCourse.courseTitle }}</td>
+                        <td>{{ inset.insetCourse.courseNotes }}</td>
+                        <td>{{ inset.hours }}</td>
+                        <td>{{ inset.startDate | date:'dd/MM/yyyy' }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+</div>

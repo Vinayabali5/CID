@@ -1,0 +1,54 @@
+<table class="table table-responsive table-hover" ts-wrapper ts-item-name="Enrolment" ts-no-data-text="No Enrolments">
+    <thead>
+        <th ng-show="showAll || showId">Enrolment Id</th>
+        <th ng-show="showAll || showYear">Year</th>
+        <th ng-show="showAll || showStudent" ts-criteria="studentId">Student ID</th>
+        <th ng-show="showAll || showStudent" ts-criteria="student.person.surname + ',' +  (student.person.preferredName != null ? student.person.preferredName : student.person.firstName)" ts-default ts-filter>Student Name</th>
+        <th ng-show="showAll || showCourse" ts-criteria="_courseReference" ts-filter>Course</th>
+        <th ng-show="showAll || showCourseGroup" ts-criteria="_courseGroupReference" ts-filter>Class Code</th>
+        <th ts-criteria="startDate" ts-filter>Start Date</th>
+        <th ts-criteria="endDate" ts-filter>End Date</th>
+        <th ng-show="showAll || showIlr">Aim Type</th>
+        <th>Completion Status</th>
+        <th ng-show="showAll || showIlr">Outcome</th>
+        <th><span uib-tooltip="UCAS Predicted Grade">UCAS PG</span></th>
+        <th>Grade</th>
+
+        <th ng-show="showAll || showIlr" ts-criteria="course.learningAimReference"><span uib-tooltip="Learning Aim Reference/Qualification Aim Number">LAR/QAN</span></th>
+        <th ng-show="showAll || showIlr" ts-criteria="qualificationStartDate"><span uib-tooltip="Qualification Start Date">QSD</span></th>
+        <th ng-show="showAll || showIlr" ts-criteria="plannedEndDate"><span uib-tooltip="Planned End Date">PED</span></th>
+        <th ng-show="showAll || showIlr"><span uib-tooltip="Planned Learning Hours">PLH</span></th>
+        <th ng-show="showAll || showIlr"><span uib-tooltip="Planned Enrichment, Employability and Pastoral Hours">PEEPH</span></th>
+        <th ng-show="showAll || showIlr" ts-criteria="ilr">ILR</th>
+
+        <th ng-show="showAll || showMonitoring">Entry Status</th>
+        <th ng-show="showAll || showActions">Actions</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="enrolment in enrolments" ts-repeat ts-hide-no-data>
+            <td ng-show="showAll || showId">{{ enrolment.enrolmentId }}</td>
+            <td ng-show="showAll || showYear">{{ enrolment._academicYearCode }}</td>
+            <td ng-show="showAll || showStudent"><a ui-sref="student-editor.edit({ studentId: enrolment.studentId, tab:'enrolments'})" uib-tooltip="View Student Enrolments">{{ enrolment.studentId }}</a></td>
+            <td ng-show="showAll || showStudent">{{ enrolment.student.person.surname }}, {{ enrolment.student.person.preferredName != null ? enrolment.student.person.preferredName : enrolment.student.person.firstName }}</td>
+            <td ng-show="showAll || showCourse"><a ui-sref="course-record.course.view({ courseId: enrolment.courseId })">{{ enrolment._courseReference }}</a> - {{ enrolment._levelDescription }} {{ enrolment._subjectDescription }} </td>
+            <td ng-show="showAll || showCourseGroup"><a ui-sref="course-record.course-group.view({ courseGroupId: enrolment.courseGroupId })">{{ enrolment._courseGroupReference }}</a></td>
+
+            <td>{{ enrolment.startDate | date:'dd/MM/yyyy' }}</td>
+            <td>{{ enrolment.endDate | date:'dd/MM/yyyy' }}</td>
+            <td ng-show="showAll || showIlr">{{ enrolment._aimType.shortDescription }}</td>
+            <td>{{ enrolment._completionStatus.shortDescription }}</td>
+            <td ng-show="showAll || showIlr">{{ enrolment._outcome.shortDescription }}</td>
+            <td>{{ enrolment.reference._grade }}</td>
+            <td>{{ enrolment.grade }}</td>
+
+            <td ng-show="showAll || showIlr">{{ enrolment.course.learningAimReference }}</td>
+            <td ng-show="showAll || showIlr">{{ enrolment.qualificationStartDate | date:'dd/MM/yyyy' }}</td>
+            <td ng-show="showAll || showIlr">{{ enrolment.plannedEndDate | date:'dd/MM/yyyy' }}</td>
+            <td ng-show="showAll || showIlr">{{ enrolment.plh | notSet }}</td>
+            <td ng-show="showAll || showIlr">{{ enrolment.peeph | notSet }}</td>
+
+            <td ng-show="showAll || showIlr">{{ enrolment.ilr | yesNo }}</td>
+            <td ng-show="showAll || showMonitoring">{{ enrolment._centralMonitoring.description }}</td>
+            <td ng-show="showAll || showActions"><button class="btn btn-sm btn-primary" edit-ilp student-id="enrolment.studentId" course-group-id="enrolment.courseGroupId">Add Subject ILP</button></td>
+        </tr>
+</table>

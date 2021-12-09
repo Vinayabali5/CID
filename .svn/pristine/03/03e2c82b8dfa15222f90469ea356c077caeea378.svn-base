@@ -1,0 +1,10 @@
+rootProject.name = 'cis'
+
+include 'cis-api'
+include 'cis-data'
+include 'cis-template'
+
+
+//include 'cis-admissions'
+//include 'cis-exams'
+

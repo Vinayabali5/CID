@@ -1,0 +1,31 @@
+<table class="table table-responsive table-hover" ts-wrapper ts-item-name="Level">
+    <thead>
+        <th ts-criteria="code" ts-filter>Code</th>
+        <th ts-criteria="description" ts-filter>Description</th>
+        <th ts-criteria="academic">Academic</th>
+        <th ts-criteria="coreAimPriority">Core Aim Priority</th>
+        <th ts-criteria="sarInclude">Sar Include</th>
+        <th ts-criteria="rqfLevel">RQF Level</th>
+        <th ts-criteria="qualificationFramework">Qualification Framework</th>
+        <th ts-criteria="dfeQualName">DFE Qual Name</th>
+        <th ts-criteria="inUse">In Use</th>
+        <th ng-show="showActions">Actions</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="level in levels" ts-repeat>
+            <td>{{ level.code }}</td>
+            <td>{{ level.description }}</td>
+            <td>{{ level.academic | yesNo }}</td>
+            <td>{{ level.coreAimPriority }}</td>
+            <td>{{ level.sarInclude | yesNo }}</td>
+            <td>{{ level.rqfLevel }}</td>
+            <td>{{ level.qualificationFramework }}</td>
+            <td>{{ level.dfeQualName }}</td>
+            <td>{{ level.inUse | yesNo }}</td>
+            <td ng-show="showActions">
+                <button type="button" class="btn btn-primary btn-sm" ng-click="ctrl.editLevels(level.id)"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button ng-show="showActions" type="button" class="btn btn-primary btn-sm" ng-click="ctrl.addLevels()"><span class="glyphicon glyphicon-pencil"></span> Add</button>

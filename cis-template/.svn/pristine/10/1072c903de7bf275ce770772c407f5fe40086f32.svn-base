@@ -1,0 +1,2 @@
+<h1>Tutor Groups Editor</h1>
+<tutor-groups-editor tutor-groups="data" show-actions="true"></tutor-groups-editor>

@@ -1,0 +1,38 @@
+<div class="student-details container-fluid">
+
+    <div class="row">
+        <div class="col-md-4 col-sm-4 col-xs-4">Reference:</div>
+        <div class="col-md-8 col-sm-8 col-xs-8">{{ student.referenceNo }}</div>
+    </div>
+    <person-details person="student.person" show-dob="showAll || showDob" show-gender="showAll || showGender"></person-details>
+    <person-contact-details person="student.person"></person-contact-details>
+
+    <div class="row">
+        <div class="col-md-5 col-sm-5 col-xs-5">Student Email:</div>
+        <div class="col-md-7 col-sm-7 col-xs-7">{{ student.studentEmail }}</div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 col-sm-4 col-xs-4">ULN:</div>
+        <div class="col-md-8 col-sm-8 col-xs-8">{{ student.uln | notSet }}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 col-sm-4 col-xs-4">UCI:</div>
+        <div class="col-md-8 col-sm-8 col-xs-8">{{ student.uci | notSet }}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 col-sm-4 col-xs-4">Ethnicity:</div>
+        <div class="col-md-8 col-sm-8 col-xs-8">{{ student._ethnicityDescription }}</div>
+    </div>
+    <div class="row" ng-show="student.llddHealthProblemCategories.length !== 0">
+        <div class="col-md-4 col-sm-4 col-xs-4">
+            LLDD and Health Problems:
+        </div>
+        <div class="col-md-8 col-sm-8 col-xs-8">
+            <ul>
+                <li ng-repeat="prob in student.llddHealthProblemCategories">{{ prob.code }} - {{ prob.description }}</li>
+            </ul>
+        </div>
+    </div>
+    <div class="row error" ng-hide="hasData()">Student Details: No Data Provided</div>
+</div>

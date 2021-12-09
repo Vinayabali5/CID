@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>ijecg</Title>
+      <Shortcut>ijecg</Shortcut>
+      <Description>INNER JOIN on Enrolment and Course Group</Description>
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations />
+      <Code Language="sql"><![CDATA[[dbo].[enrolment] AS [e]
+INNER JOIN [dbo].[course_group] AS [cg]
+ON [cg].[course_group_id] = [e].[course_group_id]
+   AND [cg].[academic_year_id] = [e].[academic_year_id]]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

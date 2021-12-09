@@ -1,0 +1,24 @@
+<table id="examSeriesTable" class="table">
+    <thead>
+        <tr>
+            <th>Board Identifier</th>
+            <th>Board Code</th>
+            <th>Board Name</th>
+            <th>Description</th>
+            <th>Exam Year</th>
+            <th>Series</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="examSeries in examSeriesList | filter:ctrl.filterParams">
+            <td>{{ examSeries.examBoard.boardIdentifier }}</td>
+            <td>{{ examSeries.examBoard.boardCode }}</td>
+            <td>{{ examSeries.examBoard.name }}</td>
+            <td>{{ examSeries.examBoard.description }}</td>
+            <td>{{ examSeries.examYear }}</td>
+            <td>{{ examSeries.examSeries }}</td>
+            <td><input type="checkbox" ng-model="examSeries.selected" /></td>
+        </tr>
+    </tbody>
+</table>

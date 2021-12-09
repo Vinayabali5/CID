@@ -1,0 +1,18 @@
+<table class="table table-responsive table-hover" ts-wrapper ts-item-name="Possible Grade Set">
+    <thead>
+        <th ts-criteria="code">Code</th>
+        <th ts-criteria="description" ts-filter>Description</th>
+        <th ng-show="showActions">Actions</th>
+    </thead>
+    <tbody>
+        <tr></tr>
+        <tr ng-repeat="possibleGradeSet in possibleGradeSets" ts-repeat>
+            <td>{{ possibleGradeSet.code }}</td>
+            <td>{{ possibleGradeSet.description }}</td>
+            <td ng-show="showActions">
+                <button type="button" class="btn btn-primary btn-sm" ng-click="ctrl.editPossibleGradeSets(possibleGradeSet.id)"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button ng-show="showActions" type="button" class="btn btn-primary btn-sm" ng-click="ctrl.addPossibleGradeSets()"><span class="glyphicon glyphicon-pencil"></span> Add</button>

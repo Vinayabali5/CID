@@ -1,0 +1,4 @@
+<div class="form-group">
+    <label for="current-year">Year:</label>
+    <academic-year-selection class="form-control" id="current-year" readonly="readonly" ng-model="ctrl.currentYear.id"></academic-year-selection>
+</div>

@@ -1,0 +1,176 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="ctrl.cancel()">&times;</button>
+    <h4 class="modal-title" id="myToDoLabel">Create or Edit Student Special Category</h4>
+</div>
+
+<div class="modal-body">
+    <form id="studentSpecialCategoryEditForm" name="studentSpecialCategoryEditForm" role="form" novalidate show-validation>
+        <div class="row">
+
+            <div class="form-group col-sm-12 col-md-6">
+                <label for="staffConcerned" class="control-label col-xs-4">Staff Concerned</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <staff-selection id="staffConcerned" name="staffConcerned" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.specialCategory.staffConcernedId"></staff-selection>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12 col-md-6">
+                <label for="staffRequesting" class="control-label col-xs-4">Staff Requesting:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <staff-selection id="staffRequesting" name="staffRequesting" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.specialCategory.staffRequestingId"></staff-selection>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="form-group col-sm-12 col-md-6">
+                <label for="riskAssessmentCarriedOutBy" class="control-label col-xs-4">Risk Assessment Carried Out By</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <staff-selection id="riskAssessmentCarriedOutBy" name="riskAssessmentCarriedOutBy" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.specialCategory.riskAssessmentCarriedOutById"></staff-selection>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12 col-md-6">
+                <label for="riskAssessmentToBeCompletedBy" class="control-label col-xs-4">Risk Assessment To Be Completed By</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <staff-selection id="riskAssessmentToBeCompletedBy" name="riskAssessmentToBeCompletedBy" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.specialCategory.riskAssessmentToBeCompletedById"></staff-selection>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12 col-md-6">
+                <label for="riskAssessmentRequired" class="control-label col-xs-4">Risk Assessment Required</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="checkbox" id="riskAssessmentRequired" name="riskAssessmentRequired" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.specialCategory.riskAssessmentRequired"></input>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12 col-md-6">
+                <label for="riskAssessmentRaisedBy" class="control-label col-xs-4">Risk Assessment Raised By:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <staff-selection id="riskAssessmentRaisedBy" name="riskAssessmentRaisedBy" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.specialCategory.riskAssessmentRaisedById"></staff-selection>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+
+            <div class="form-group col-sm-12 col-md-6">
+                <label for="specialCategory" class="control-label col-xs-4">Special Category:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <special-category-selection id="specialCategory" name="specialCategory" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.specialCategory.specialCategoryId" required></special-category-selection>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12 col-md-6">
+                <label for="specialConfirmed" class="control-label col-xs-4">Special Confirmed</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="checkbox" id="specialConfirmed" name="specialConfirmed" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.specialCategory.specialConfirmed"></input>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12 col-md-6">
+                <label for="requestDate" class="control-label col-xs-4">Request Date</label>
+                <div class="input-group col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" id="requestDate" name="requestDate" class="form-control" ng-init="requestDatePicker = false" uib-datepicker-popup="dd/MM/yyyy" is-open="requestDatePicker" ng-model="ctrl.specialCategory.requestDate" />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="requestDatePicker = !requestDatePicker"><span class="glyphicon glyphicon-calendar"></span></button>
+                    </span>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12 col-md-6">
+                <label for="classificationDate" class="control-label col-xs-4">Classification Date</label>
+                <div class="input-group col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" id="classificationDate" name="classificationDate" class="form-control" ng-init="classificationDatePicker = false" uib-datepicker-popup="dd/MM/yyyy" is-open="classificationDatePicker" ng-model="ctrl.specialCategory.classificationDate" />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="classificationDatePicker = !classificationDatePicker"><span class="glyphicon glyphicon-calendar"></span></button>
+                    </span>
+
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12 col-md-6">
+                <label for="closedDate" class="control-label col-xs-4">Closed Date</label>
+                <div class="input-group col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" id="closedDate" name="closedDate" class="form-control" ng-init="closedDatePicker = false" uib-datepicker-popup="dd/MM/yyyy" is-open="closedDatePicker" ng-model="ctrl.specialCategory.closedDate" />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="closedDatePicker = !closedDatePicker"><span class="glyphicon glyphicon-calendar"></span></button>
+                    </span>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12 col-md-6">
+                <label for="informationConfidential" class="control-label col-xs-4">Information Confidential</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="checkbox" id="informationConfidential" name="informationConfidential" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.specialCategory.informationConfidential"></input>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12 col-md-6">
+                <label for="writtenEvidence" class="control-label col-xs-4">Written Evidence</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="checkbox" id="writtenEvidence" name="writtenEvidence" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.specialCategory.writtenEvidence"></input>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12 col-md-6">
+                <label for="passToStaffConcerned" class="control-label col-xs-4">Pass To Staff Concerned</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="checkbox" id="passToStaffConcerned" name="passToStaffConcerned" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.specialCategory.passToStaffConcerned"></input>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12 col-md-12">
+                <label for="monitoringNotes" class="control-label col-xs-4">Monitoring Notes</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <textarea type="text" name="monitoringNotes" id="monitoringNotes" ng-model="ctrl.specialCategory.monitoringNotes" class="form-control text ui-widget-content ui-corner-all" rows="1" cols="30"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12 col-md-12">
+                <label for="riskToStudentOrOthers" class="control-label col-xs-4">Risk To Student Or Others</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <textarea type="text" name="riskToStudentOrOthers" id="riskToStudentOrOthers" ng-model="ctrl.specialCategory.riskToStudentOrOthers" class="form-control text ui-widget-content ui-corner-all" rows="1" cols="30"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12 col-md-12">
+                <label for="emergencyContactNos" class="control-label col-xs-4">Emergency Contact Nos</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <textarea type="text" name="emergencyContactNos" id="emergencyContactNos" ng-model="ctrl.specialCategory.emergencyContactNos" class="form-control text ui-widget-content ui-corner-all" rows="1" cols="30"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12 col-md-12">
+                <label for="outsideAgenciesInvolved" class="control-label col-xs-4">Outside Agencies Involved</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <textarea type="text" name="outsideAgenciesInvolved" id="outsideAgenciesInvolved" ng-model="ctrl.specialCategory.outsideAgenciesInvolved" class="form-control text ui-widget-content ui-corner-all" rows="1" cols="30"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12 col-md-12">
+                <label for="toBeInformedPotentialRisks" class="control-label col-xs-4">To Be Informed Potential Risks</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <textarea type="text" name="toBeInformedPotentialRisks" id="toBeInformedPotentialRisks" ng-model="ctrl.specialCategory.toBeInformedPotentialRisks" class="form-control text ui-widget-content ui-corner-all" rows="1" cols="30"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12 col-md-12">
+                <label for="inEventEmergency" class="control-label col-xs-4">In Event Emergency</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <textarea type="text" name="inEventEmergency" id="inEventEmergency" ng-model="ctrl.specialCategory.inEventEmergency" class="form-control text ui-widget-content ui-corner-all" rows="2" cols="30"></textarea>
+                </div>
+            </div>
+        </div>
+    </form>
+
+</div>
+
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="ctrl.cancel()">
+        <span class="glyphicon glyphicon-ban-circle"></span> Cancel
+    </button>
+    <button type="button" class="btn btn-primary" ng-disabled="studentSpecialCategoryEditForm.$invalid || studentSpecialCategoryEditForm.$submitted" ng-click="ctrl.save()">
+        <span class="glyphicon glyphicon-save"></span> Save
+    </button>
+</div>

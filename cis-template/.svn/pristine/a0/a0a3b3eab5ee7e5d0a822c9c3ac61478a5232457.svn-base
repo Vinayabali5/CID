@@ -1,0 +1,27 @@
+<table class="table table-hover" ts-wrapper ts-item-name="Student Work Placement">
+    <thead>
+        <th ts-criteria ng-show="showAll || showStudent">Student</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Placement Hours</th>
+        <th>Work Placement Mode</th>
+        <th>Employer</th>
+        <th>Extra Details</th>
+        <th ng-show="showActions">Actions</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="studentWorkPlacement in ctrl.studentWorkPlacements" ts-repeat>
+            <td ng-show="showAll || showStudent">{{ studentWorkPlacement.studentId }}</td>
+            <td>{{ studentWorkPlacement.startDate | date:'dd/MM/yyyy' }}</td>
+            <td>{{ studentWorkPlacement.endDate | date:'dd/MM/yyyy' }}</td>
+            <td>{{ studentWorkPlacement.placementHours }}</td>
+            <td>{{ studentWorkPlacement._workPlacementModeDescription }}</td>
+            <td>{{ studentWorkPlacement.employer }}</td>
+            <td>{{ studentWorkPlacement.extraDetails }}</td>
+            <td ng-show="showActions">
+                <button type="button" class="btn btrn-sm btn-primary" ng-click="ctrl.editStudentWorkPlacement(studentWorkPlacement.id)"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button ng-show="showActions" type="button" class="btn btrn-sm btn-primary" ng-click="ctrl.addStudentWorkPlacement(ctrl.studentId)"><span class="glyphicon glyphicon-plus"></span> Add Student Work Placement</button>

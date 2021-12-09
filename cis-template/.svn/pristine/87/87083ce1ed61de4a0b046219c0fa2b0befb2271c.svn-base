@@ -1,0 +1,12 @@
+<div class="person-details">
+    <div ng-show="hasData()">
+        <div>Surname: {{ person.surname }} </div>
+        <div>First Name: {{ person.firstName }} </div>
+        <div ng-show="showAll || showDob">DoB: {{ person.dob | date:'dd/MM/yyyy' }}</div>
+        <div ng-show="showAll || showGender">Gender: {{ person._genderCode }}</div>
+        <div ng-show="showAll || showLegalSex">Legal Sex: {{ person._legalSexCode }}</div>
+
+        <div ng-transclude></div>
+    </div>
+    <div class="error" ng-hide="hasData()">Person Details: No Data Provided</div>
+</div>

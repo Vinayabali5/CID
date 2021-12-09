@@ -1,0 +1,75 @@
+<table class="table table-responsive table-hover" ts-wrapper ts-item-name="Course Group" ts-no-data-text="No Course Groups">
+    <thead>
+        <tr>
+            <th ng-show="showAll || showId">Course Group Id</th>
+            <th ng-show="showAll || showId">Course Id</th>
+            <th ng-show="showAll || showYear" ts-criteria="_yearDescription">Year</th>
+            <th ng-show="showAll || showYearGroup">Year Group</th>
+            <th ts-criteria="spec" ts-filter ts-default>Class Code</th>
+            <th ng-show="showAll || showDepartment" ts-criteria="_departmentDescription" ts-filter>Department</th>
+            <th ng-show="showAll || showDates" ts-criteria="startDate | date:'dd/MM/yyyy'">Start Date</th>
+            <th ng-show="showAll || showDates" ts-criteria="endDate | date:'dd/MM/yyyy'">End Date</th>
+            <th ng-show="showAll || showEnrolmentInfo">Total</th>
+            <th ng-show="includeReports">Reports</th>
+            <th ng-show="showAll || showActions">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="courseGroup in courseGroups" ts-repeat>
+            <td ng-show="showAll || showId">{{ courseGroup.id }}</td>
+            <td ng-show="showAll || showId">{{ courseGroup.courseId }}</td>
+            <td ng-show="showAll || showYear">{{ courseGroup._yearDescription }}</td>
+            <td ng-show="showAll || showYearGroup">{{ courseGroup._yearGroupDescription }}</td>
+            <td>
+                <a ng-show="includeLink" ui-sref="course-record.course-group.view({ courseGroupId: courseGroup.id })">{{ courseGroup.spec }}</a>
+                <span ng-hide="includeLink">{{ courseGroup.spec }}</span>
+            </td>
+            <td ng-show="showAll || showDepartment">{{ courseGroup._departmentDescription }}</td>
+            <td ng-show="showAll || showDates">{{ courseGroup.startDate | date:'dd/MM/yyyy' }}</td>
+            <td ng-show="showAll || showDates">{{ courseGroup.endDate | date:'dd/MM/yyyy' }}</td>
+            <td ng-show="showAll || showEnrolmentInfo">{{ courseGroup.enrolments.length }}</td>
+            <td ng-show="includeReports">
+                <report-link class="btn btn-sm btn-default" report-path="'/CID/Students/Class Lists/Class List with Various Information'" report-params="'CourseGroupMask='+courseGroup.spec" include-year="true">Class List</report-link>
+                <div class="btn-group">
+                    <button class="btn btn-sm btn-default dropdown-toggle" type="button" id="reports-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Reports <span class="caret"></span></button>
+                    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="reports-menu">
+                        <li class="dropdown-header">Class List Reports</li>
+                        <li>
+                            <report-link report-path="'/CID/Students/Class Lists/Class List with Photos'" report-format="'PDF'" report-params="'AcademicYear=' + courseGroup.yearId + '&CourseGroupMask=' + courseGroup.spec">Class List with Photos</report-link>
+                        </li>
+                        <li>
+                            <report-link report-path="'/CID/Students/Class Lists/Class List - Mark Sheet'" report-toolbar="true" report-params="'CourseGroupMask='+courseGroup.spec">Mark Sheet</report-link>
+                        </li>
+                        <li role="separator" class="divider"></li>
+                        <li class="dropdown-header">Timetable Reports</li>
+                        <li>
+                            <report-link report-path="'/CID/Timetabling/Timetable Student - Column'" report-params="'CourseGroupMask='+courseGroup.spec" include-year="true">Student Timetable - Column</report-link>
+                        </li>
+                        <li>
+                            <report-link report-path="'/CID/Timetabling/Timetable Course - Square'" report-params="'CourseSpec='+courseGroup.spec">Course Timetable - Square</report-link>
+                        </li>
+                        <li>
+                            <report-link report-path="'/CID/Timetabling/Timetable Course - Column'" report-params="'CourseGroupMask='+courseGroup.spec" include-year="true">Course Timetable - Column</report-link>
+                        </li>
+                        <li role="separator" class="divider"></li>
+                        <li class="dropdown-header">Attendance Reports</li>
+                        <li>
+                            <report-link report-path="'/CID/Attendance Monitoring/Student Attendance By Class'" report-params="'Course='+courseGroup.spec.substr(0,5)+'&Group='+courseGroup.spec.substr(6,20)">Student Attendance By Class</report-link>
+                        </li>
+                        <li>
+                            <report-link report-path="'/CID/Attendance Monitoring/Course Group Register between Dates'" report-params="'CourseGroupMask='+courseGroup.spec" include-year="true">Register between Dates</report-link>
+                        </li>
+                        <li role="separator" class="divider"></li>
+                        <li class="dropdown-header">Interim Reports</li>
+                        <li>
+                            <report-link report-path="'/CID/Interim Reports/Student Interim Report By Class'" report-params="'Course='+courseGroup.spec.substr(0,5)+'&Group='+courseGroup.spec.substr(6,20)" include-year="true">Student Interim Report By Class</report-link>
+                        </li>
+                    </ul>
+                </div>
+            </td>
+            <td ng-show="showAll || showActions">
+                <button class="btn btn-sm btn-primary" type="button" edit-course-group="courseGroup.id">Edit Course Group</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

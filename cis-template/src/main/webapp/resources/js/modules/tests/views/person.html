@@ -1,0 +1,7 @@
+<h3>Person Editor</h3>
+
+<input class="input-control" ng-model=ctrl.personId></input><button class="btn btn-sm btn-default" ng-click="ctrl.getPerson()">Get Person</button>
+<br />
+
+<person-details person="ctrl.person" show-all="true"></person-details>
+<person-editor person-id="ctrl.personId" person="ctrl.person"></person-editor>

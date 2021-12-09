@@ -1,0 +1,83 @@
+<form id="collegeFundPaymentEditForm" name="collegeFundPaymentEditForm" role="form" novalidate show-validation>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="ctrl.cancel()">&times;</button>
+        <h4 class="modal-title" id="myToDoLabel">Create or edit a CollegeFundPayment</h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+
+            <div class="form-group" ng-show="false">
+                <label for="studentId">Student ID</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" class="form-control" id="studentId" name="studentId" readonly ng-model="ctrl.collegeFundPayment.studentId">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="paymentDate" class="control-label col-xs-4">Payment Date</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="paymentDate" name="paymentDate" ng-init="paymentDatePicker = false" uib-datepicker-popup="dd/MM/yyyy" is-open="paymentDatePicker" ng-model="ctrl.collegeFundPayment.paymentDate" ng-required="true" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="paymentDatePicker = !paymentDatePicker"><span class="glyphicon glyphicon-calendar"></span></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="amount" class="control-label col-xs-4">Amount</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" class="form-control text ui-widget-content ui-corner-all" id="amount" name="amount" ng-model="ctrl.collegeFundPayment.amount" ng-required="true">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="chequeDate" class="control-label col-xs-4">ChequeDate</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="chequeDate" name="chequeDate" ng-init="chequeDatePicker = false" uib-datepicker-popup="dd/MM/yyyy" is-open="chequeDatePicker" ng-model="ctrl.collegeFundPayment.chequeDate" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="chequeDatePicker = !chequeDatePicker"><span class="glyphicon glyphicon-calendar"></span></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="payee" class="control-label col-xs-4">Payee</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" class="form-control text ui-widget-content ui-corner-all" id="payee" name="payee" ng-model="ctrl.collegeFundPayment.payee"></input>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="giftAid" class="control-label col-xs-4">Gift Aid</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="checkbox" class="form-control text ui-widget-content ui-corner-all" id="giftAid" name="giftAid" ng-model="ctrl.collegeFundPayment.giftAid"></input>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="cash" class="control-label col-xs-4">Cash</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="checkbox" class="form-control text ui-widget-content ui-corner-all" id="cash" name="cash" ng-model="ctrl.collegeFundPayment.cash"></input>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="ctrl.cancel()">
+            <span class="glyphicon glyphicon-ban-circle"></span> Cancel
+        </button>
+        <button type="button" class="btn btn-primary" ng-disabled="collegeFundPaymentEditForm.$invalid || collegeFundPaymentEditForm.$submitted" ng-click="ctrl.save()">
+            <span class="glyphicon glyphicon-save"></span> Save
+        </button>
+    </div>
+
+</form>

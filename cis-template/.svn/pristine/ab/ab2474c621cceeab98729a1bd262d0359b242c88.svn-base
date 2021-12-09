@@ -1,0 +1,285 @@
+<h1>College Information Database Reports</h1>
+<div class="report-list">
+    <div class="col-md-6">
+        <h4>Timetable Reports</h4>
+        <ul>
+            <li>
+                <report-link class="btn btn-default" report-path="'/CID/Timetabling/Timetable - Staff'" report-params="'Teacher=0'">Staff Timetable</report-link>
+            </li>
+            <li>
+                <report-link class="btn btn-default" report-path="'/CID/Timetabling/Timetable - Student'">Student
+                    Timetable</report-link>
+            </li>
+            <li>
+                <report-link class="btn btn-default" report-path="'/CID/Timetabling/Timetable - Room'" report-params="'Room=0'">Timetables Room - Square</report-link>
+            </li>
+            <li>
+                <report-link class="btn btn-default" report-path="'/CID/Timetabling/Timetable Room - Column'" include-year="true">Timetables Room - Column</report-link>
+            </li>
+            <li>
+                <report-link class="btn btn-default hidden" report-path="'/CID/Timetabling/Timetable Student - Square by Student List'" include-year="true">Timetable Student - Square by
+                    Student List</report-link>
+                <report-link class="btn btn-default hidden" report-path="'/CID/Timetabling/Alternative Student Timetable'" include-year="true">Timetable Student - Square by
+                    Student List</report-link>
+            </li>
+            <li>
+                <report-link class="btn btn-default" report-path="'/CID/Timetabling/Timetable Student - Column by Student List'" include-year="true">Timetable Student - Column by
+                    Student List</report-link>
+            </li>
+            <li>
+                <report-link class="btn btn-default" report-path="'/CID/Timetabling/Free Rooms and Staff for Period'" include-year="true">Free Rooms and Staff for Period</report-link>
+                <report-link class="btn btn-default hidden" report-path="'/CID/Timetabling/Free Rooms and Staff for Alternative Period'" include-year="true">Free Rooms and Staff for Period</report-link>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-6">
+        <h4>Tutor Group Lists</h4>
+        <ul>
+            <li>
+                <report-link class="btn btn-default" report-path="'/CID/Students/Tutor Group Lists/Tutor Group List - With Various Data'" include-year="true">Tutor Group List - With Various
+                    Data</report-link>
+            </li>
+            <li>
+                <report-link class="btn btn-default" report-path="'/CID/Students/Tutor Group Lists/Tutor Group List - With 1 to 3 Columns'" include-year="true">Tutor Group List - With 1 to 3
+                    Columns</report-link>
+            </li>
+            <li>
+                <report-link class="btn btn-default" report-path="'/CID/Students/Tutor Group Lists/Tutor Group List - With 1 to 3 Columns - Large'" include-year="true">Tutor Group List - With 1 to 3
+                    Columns - Large</report-link>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-6">
+        <h4>Course Lists</h4>
+        <ul>
+            <li>
+                <report-link class="btn btn-default" report-path="'/CID/Courses/Course Sizes'" include-year="true">Course
+                    Sizes</report-link>
+            </li>
+            <li>
+                <report-link class="btn btn-default" report-path="'/CID/Courses/Course Group Sizes'" report-toolbar="false" include-year="true">Course
+                    Group Sizes</report-link>
+            </li>
+            <li>
+                <report-link class="btn btn-default" report-path="'/CID/Courses/Current Support Groups'" report-toolbar="true" include-year="false">Current
+                    Support Groups</report-link>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-6">
+        <h4>Overall Attendance Monitoring</h4>
+        <ul>
+            <li>
+                <report-link class="btn btn-default" report-path="'/CID/Attendance Monitoring/Overall Attendance Figures'" report-toolbar="false">Overall Attendance Figures</report-link>
+            </li>
+            <li>
+                <report-link class="btn btn-default" report-path="'/CID/Attendance Monitoring/Overall Attendance Figures Detailed'" report-toolbar="false">Overall Attendance Figures
+                    Detailed</report-link>
+            </li>
+            <li>
+                <report-link class="btn btn-default" report-path="'/CID/Attendance Monitoring/Overall Attendance Figures For Specified Dates'" report-toolbar="true">Overall Attendance Figures For
+                    Specified Dates</report-link>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-6">
+        <h4>Attendance Monitoring</h4>
+        <ul>
+            <li>
+                <report-link class="btn btn-default" report-path="'/CID/Attendance Monitoring/Attendance Figures By Course'" report-toolbar="true">Attendance Figures by Course</report-link>
+            </li>
+            <li>
+                <report-link class="btn btn-default" report-path="'/CID/Attendance Monitoring/Attendance Figures For Specified Dates'" report-toolbar="true">Attendance Figures For
+                    Specified Dates</report-link>
+            </li>
+            <li>
+                <report-link class="btn btn-default" report-path="'/CID/Attendance Monitoring/Student Attendance By Class'" report-toolbar="true">Student Attendance By Class</report-link>
+            </li>
+            <li>
+                <report-link class="btn btn-default" report-path="'/CID/Attendance Monitoring/Student Attendance By Class For Specified Dates'" report-toolbar="true">Student Attendance By Class For
+                    Specified Dates</report-link>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-6">
+        <h4>Interim Reports</h4>
+        <ul>
+            <li>
+                <report-link class="btn btn-default" report-path="'/CID/Interim Reports/Interim Report Data By Course'" report-toolbar="true">Interim Report Data by Course</report-link>
+            </li>
+            <li class="hidden">
+                <report-link class="btn btn-default" report-path="'/CID/Interim Reports/Interim Report Data By Course'" report-toolbar="true">Interim Report Data By Course
+                    (Complete)</report-link>
+            </li>
+            <li>
+                <report-link class="btn btn-default" report-path="'/CID/Interim Reports/Interim Report Data By Tutor Group'" report-toolbar="true">Interim Report Data By Tutor
+                    Group</report-link>
+            </li>
+            <li>
+                <report-link class="btn btn-default" report-path="'/CID/Interim Reports/Student Interim Report By Department'" report-toolbar="true">Student Interim Report By
+                    Department</report-link>
+            </li>
+            <li class="hidden">
+                <report-link class="btn btn-default" report-path="'/CID/Students/Portal Responses/Student Targets/Post Interim Report Responses'" report-toolbar="true">Post Interim Report Responses</report-link>
+            </li>
+            <li class="hidden">
+                <report-link class="btn btn-default" report-path="'/CID/Students/Portal Responses/Student Targets/Total TutorGroup Responses'" report-toolbar="true">Total TutorGroup Responses</report-link>
+            </li>
+            <li>
+                <report-link class="btn btn-default" report-path="'/CID/Students/Portal Responses/L6Reports/Student Responses Not Completed'" report-toolbar="true">Student Responses Not Completed</report-link>
+            </li>
+            <li>
+                <report-link class="btn btn-default" report-path="'/CID/Students/Portal Responses/L6Reports/L6 Report Course Response Analysis'" report-toolbar="true">L6 Report Course Response
+                    Analysis</report-link>
+            </li>
+            <li>
+                <report-link class="btn btn-default" report-path="'/CID/Students/Portal Responses/L6Reports/L6 Year 1 End Report'" report-toolbar="true">L6 Year 1 End Report</report-link>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-6">
+        <h4>Learning Support</h4>
+        <ul>
+            <li>
+                <report-link class="btn btn-default" report-path="'/CID/Learning Support/Exam Concessions'">Exam
+                    Concessions</report-link>
+            </li>
+            <li>
+                <report-link class="btn btn-default" report-path="'/CID/Learning Support/Exam Concessions Applied For'">Exam
+                    Concessions Applied For</report-link>
+            </li>
+            <li>
+                <report-link class="btn btn-default" report-path="'/CID/Learning Support/Exam Concessions by Course Group'">Exam
+                    Concessions by Course Group</report-link>
+            </li>
+            <li>
+                <report-link class="btn btn-default" report-path="'/CID/Learning Support/LLDD Alphabetical'">LLDD
+                    Alphabetical</report-link>
+            </li>
+            <li>
+                <report-link class="btn btn-default" report-path="'/CID/Learning Support/LLDD By Referral Reason'">LLDD
+                    By Referral Reason</report-link>
+            </li>
+            <li>
+                <report-link class="btn btn-default" report-path="'/CID/Learning Support/LLDD By Tutor Group'">LLDD
+                    By Tutor Group</report-link>
+            </li>
+            <li>
+                <report-link class="btn btn-default" report-path="'/CID/Learning Support/LLDD List'">LLDD
+                    List</report-link>
+            </li>
+            <li>
+                <report-link class="btn btn-default" report-path="'/CID/Learning Support/Candidate Access Arrangements Consent Form'" include-year="true">Candidate Access Arrangements
+                    Consent Form</report-link>
+            </li>
+            <li>
+                <report-link class="btn btn-default" report-path="'/CID/Learning Support/EHCP Students'" include-year="true">EHCP Students</report-link>
+            </li>
+            <li>
+                <report-link class="btn btn-default" report-path="'/CID/Learning Support/Students With a Social Worker'" include-year="true">Student With a Social Worker</report-link>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-6">
+        <h4>Other Reports</h4>
+        <ul>
+            <li>
+                <report-link class="btn btn-default" report-path="'/CID/Students/Class Lists/Quick Class List'">Quick
+                    Class List</report-link>
+            </li>
+            <li>
+                <report-link class="btn btn-default" report-path="'/CID/Students/Student Address Information by Student List'" include-year="true">Student Address Information by
+                    Student List</report-link>
+            </li>
+            <li>
+                <report-link class="btn btn-default" report-path="'/CID/Students/Alphabetic Lists/Student List - Name and TG (3 Columns)'" include-year="true">Student List - Name and TG (3
+                    Columns)</report-link>
+            </li>
+            <li>
+                <report-link class="btn btn-default" report-path="'/CID/Students/Student List with Photos'" report-format="PDF" include-year="true">Student List
+                    with Photos</report-link>
+            </li>
+            <li>
+                <report-link class="btn btn-default" report-path="'/CID/Students/Student List with Contacts for SmartGroup'" report-format="PDF">Student List with Contacts for
+                    SmartGroup</report-link>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-6">
+        <h4>Exams Reports</h4>
+        <ul>
+            <li>
+                <report-link class="btn btn-default" report-path="'/CID/Exams/Results/Exam Results Residuals By Department'">Exam
+                    Results Residuals By Department</report-link>
+            </li>
+            <li>
+                <report-link class="btn btn-default" report-path="'/CID/Exams/Results/All Student Exam Results By Student'">All
+                    Student Exam Results By Student</report-link>
+            </li>
+            <li>
+                <report-link class="btn btn-default" report-path="'/CID/Exams/Results/All Student Exam Results By TG'">All
+                    Student Exam Results By TG</report-link>
+            </li>
+            <li>
+                <report-link class="btn btn-default" report-path="'/CID/Exams/Results/Exam Results By Course Spec Level 3'">Exam
+                    Results By Course Spec Level 3</report-link>
+            </li>
+            <li>
+                <report-link class="btn btn-default" report-path="'/CID/Exams/Results/Exam Results By Course Spec Level 2'">Exam
+                    Results By Course Spec Level 2</report-link>
+            </li>
+            <li>
+                <report-link class="btn btn-default" report-path="'/CID/Exams/Exams This Year'">Exams This
+                    Year</report-link>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-6" permission="['ROLE_Office Administration', 'ROLE_Careers', 'ROLE_	HOD', 'ROLE_HODCLDOL']">
+        <h4>Careers Reports</h4>
+        <ul>
+            <li>
+                <report-link class="btn btn-default" report-path="'/CID/Careers/Students Destination Details'">Students
+                    Destination Details</report-link>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-6" permission="['ROLE_Office Administration', 'ROLE_First Aid Coordinator']">
+        <h4>First Aid Reports</h4>
+        <ul>
+            <li>
+                <report-link class="btn btn-default" report-path="'/CID/Students/Student Medical Notes'">Student
+                    Medical Notes</report-link>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-6" permission="['ROLE_ID Violation']">
+        <h4>ID Violation Reports</h4>
+        <ul>
+            <li>
+                <report-link class="btn btn-default" report-path="'/CID/Administration/ID Violation/Students With Lost IDs To Print'" show-params="false" include-year="true">Students with
+                    Lost IDs to Print</report-link>
+            </li>
+            <li>
+                <report-link class="btn btn-default" report-path="'/CID/Administration/ID Violation/Students With Unreturned IDs'" show-params="false" include-year="true">Students with
+                    Unreturned IDs</report-link>
+            </li>
+            <li>
+                <report-link class="btn btn-default" report-path="'/CID/Administration/ID Violation/Tutor Groups With Unreturned IDs'" show-params="false" include-year="true">Tutor Groups
+                    with Unreturned IDs</report-link>
+            </li>
+            <li>
+                <report-link class="btn btn-default" report-path="'/CID/Students/Identity Violations between Dates'" show-params="false" include-year="true"> Identity Violations between
+                    Dates</report-link>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-6">
+        <h4>Covid</h4>
+        <ul>
+            <li>
+                <report-link class="btn btn-default" report-path="'/CID/Students/Portal Responses/Lockdown/Student Seating Plans By CourseGroup'" show-params="true">Student Seating Plan by Course
+                    Group</report-link>
+            </li>
+        </ul>
+    </div>
+</div>

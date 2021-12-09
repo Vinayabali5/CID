@@ -1,0 +1,25 @@
+angular.module('cid.tests', [
+    'ui.router',
+    'ui.bootstrap',
+    'ngResource',
+
+    'cid.app.constants',
+    'cid.app.variables',
+    'cid.search',
+    'SelectionBoxes',
+
+    // 'EnrolmentsTableDirective',
+    // 'PersonDetailsDirective',
+    // 'PersonDetailsLookupDirective',
+    // 'PersonContactDetailsDirective',
+    // 'PersonContactDetailsLookupDirective',
+    // 'StudentDetailsDirective',
+    // 'StudentDetailsLookupDirective',
+    // 'RegistersTableDirective',
+    // 'CorrespondencesTableDirective',
+    // 'ILPInterviewsTableDirective',
+    // 'StudentWarningDetailsDirective',
+    // 'StudentBursaryDetailsDirective',
+    // 'ExternalResultsArchiveTableDirective',
+    // 'StudentInterimReportsTableDirective',
+]);

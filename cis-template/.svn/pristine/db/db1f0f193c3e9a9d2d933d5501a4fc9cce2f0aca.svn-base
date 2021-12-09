@@ -1,0 +1,45 @@
+<div class="row">
+    <div class="col-md-2 col-md-offset-10">
+        <button ng-show="showFilter" type="button" class="btn btn-sm btn-primary" ng-click="showAbsenceFilters = !showAbsenceFilters">
+            Filters
+            <span class="glyphicon glyphicon-chevron-right" ng-if="showAbsenceFilters"></span>
+        </button>
+    </div>
+</div>
+<div class="row text-align:center" ng-if="showAbsenceFilters">
+    <div ng-show="showType" class="form-group col-sm-12 col-md-3 row">
+        <label for="reason" class="control-label col-xs-4">Leave Type</label>
+        <div class="col-xs-8">
+            <absence-reason-selection class="form-control" ng-model="filter.absenceReason.id"></absence-reason-selection>
+        </div>
+    </div>
+
+    <div ng-show="showDays" class="form-group col-sm-12 col-md-3 row">
+        <label for="daysAbsence" class="control-label col-xs-4">Days</label>
+        <div class="col-xs-8">
+            <input type="text" ng-model="filter.daysAbsence" class="form-control text ui-widget-content ui-corner-all">
+        </div>
+    </div>
+</div>
+
+
+<div class="table-responsive">
+    <table class="table table-bordered table-hover table-condensed" ts-wrapper ts-item-name="Staff Absence">
+        <thead>
+            <th ts-criteria="startDate" ts-default="descending">First Day</td>
+            <th>Last Day</td>
+            <th ts-criteria="daysAbsence">Days</td>
+            <th ts-criteria="reason">Leave Type</th>
+            <th>Details</td>
+        </thead>
+        <tbody>
+            <tr ng-repeat="absence in staffabsence | filter: reasonFilter | filter: filterType | filter: filter | filter: {'absenceReasonId': filter.absenceReason.id} : true" ts-repeat>
+                <td>{{ absence.startDate | date:'dd/MM/yyyy' }}</td>
+                <td>{{ absence.endDate | date:'dd/MM/yyyy' }}</td>
+                <td>{{ absence.daysAbsence }}</td>
+                <td>{{ absence.absenceReason.reason }}</td>
+                <td>{{ absence.comment }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

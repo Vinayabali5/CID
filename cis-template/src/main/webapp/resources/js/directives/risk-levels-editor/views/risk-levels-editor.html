@@ -1,0 +1,25 @@
+<table class="table table-responsive table-hover" ts-wrapper ts-item-name="Risk Level">
+    <thead>
+        <th ts-criteria="id" ng-show="showID || showAll">ID</th>
+        <th ts-criteria="code" ts-default ts-filter>Code</th>
+        <th ts-criteria="description" ts-filter>Description</th>
+        <th ts-criteria="priority">Priority</th>
+        <th ts-criteria="sendEmail">Send Email</th>
+        <th ts-criteria="sendEmailSafeguarding">Send Email Safeguarding</th>
+        <th ng-show="showActions">Actions</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="riskLevel in riskLevels | orderBy : ctrl.sortOrder" ts-repeat>
+            <td ng-show="showID || showAll">{{ riskLevel.id }}</td>
+            <td>{{ riskLevel.code }}</td>
+            <td>{{ riskLevel.description }}</td>
+            <td>{{ riskLevel.priority }}</td>
+            <td>{{ riskLevel.sendEmail | yesNo }}</td>
+            <td>{{ riskLevel.sendEmailSafeguarding | yesNo }}</td>
+            <td ng-show="showActions">
+                <button type="button" class="btn btn-primary btn-sm" ng-click="ctrl.editRiskLevels(riskLevel.id)"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button ng-show="showActions" type="button" class="btn btn-primary btn-sm" ng-click="ctrl.addRiskLevels()"><span class="glyphicon glyphicon-pencil"></span> Add</button>

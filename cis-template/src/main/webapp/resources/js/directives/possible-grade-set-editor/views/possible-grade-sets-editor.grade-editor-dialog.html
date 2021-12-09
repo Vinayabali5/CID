@@ -1,0 +1,82 @@
+{{ $scope }}
+<form id="possibleGradesEditForm" name="possibleGradesEditForm" role="form" novalidate show-validation>
+    <div class="modal-header">
+        <h4 class="modal-title" id="myToDoLabel">Add/Edit PossibleGrade</h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+            <div class="form-group" ng-show="true">
+                <label for="id" class="control-label col-xs-4">Possible Grade ID</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="id" name="id" type="text" class="form-control" readonly ng-model="possibleGrade.id">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="possibleGradeSet" class="control-label col-xs-4">Possible Grade Set:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <possible-grade-set-selection id="possibleGradeSet" name="possibleGradeSet" class="form-control" ng-model="possibleGrade.gradeSetId"></possible-grade-set-selection>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="code" class="control-label col-xs-4">Code:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="code" name="code" type="text" class="form-control" ng-model="possibleGrade.code">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="description" class="control-label col-xs-4">Description:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="description" name="description" type="text" class="form-control text ui-widget-content ui-corner-all" ng-model="possibleGrade.description"></input>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="grade" class="control-label col-xs-4">Grade:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="grade" name="grade" type="text" class="form-control text ui-widget-content ui-corner-all" ng-model="possibleGrade.grade"></input>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="ucasPoints" class="control-label col-xs-4">UCAS Points</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="ucasPoints" name="ucasPoints" type="text" class="form-control text ui-widget-content ui-corner-all" ng-model="possibleGrade.ucasPoints"></input>
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="useForKeyAssessment" class="control-label col-xs-4">Key Assessment Grade</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="useForKeyAssessment" name="useForKeyAssessment" type="checkbox" class="form-control text ui-widget-content ui-corner-all" ng-model="possibleGrade.useForKeyAssessment"></input>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="ucasPoints" class="control-label col-xs-4">Alias Points</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="ucasPoints" name="ucasPoints" type="text" class="form-control text ui-widget-content ui-corner-all" ng-model="possibleGrade.alisPoints"></input>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="ucasPoints" class="control-label col-xs-4">Alps Points</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="ucasPoints" name="ucasPoints" type="text" class="form-control text ui-widget-content ui-corner-all" ng-model="possibleGrade.alpsPoints"></input>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary" ng-click="save()">
+            <span class="glyphicon glyphicon-save"></span>
+            Save
+        </button>
+    </div>
+
+</form>

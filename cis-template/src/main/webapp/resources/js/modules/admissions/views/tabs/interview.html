@@ -1,0 +1,155 @@
+<div id="collapseInterviewDetails" name="collapseInterviewDetails">
+    <div class="row">
+        <div class="col-xs-12">
+            <fieldset>
+                <legend>Interview Outcome</legend>
+            </fieldset>
+        </div>
+
+        <div class="form-group col-md-3 col-sm-6">
+            <div class="form-group">
+                <label>Student Type:</label>
+                <div class="form-group">
+                    <student-type-selection id="studentType" name="studentType" class="form-control" alt-null-text="'-- Select Student Type --'" ng-model="interview.studentTypeId"></student-type-selection>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group col-md-3 col-sm-6">
+            <div class="form-group">
+                <label for="offerType">Offer Type:</label>
+                <div class="form-group">
+                    <offer-type-selection id="offerType" name="offerType" class="form-control" alt-null-text="'-- Select Offer Type --'" ng-model="interview.offerTypeId"></offer-type-selection>
+                </div>
+            </div>
+        </div>
+        <div class="form-group col-md-3 col-sm-6">
+            <div class="form-group">
+                <label for="interviewer">Interviewer:</label>
+                <div class="form-group">
+                    <staff-selection id="interviewer" name="" class="form-control" ng-model="interview.interviewerId"> </staff-selection>
+                </div>
+            </div>
+        </div>
+        <div class="form-group col-md-3 col-sm-6">
+            <div class="form-group">
+                <label for="interviewDate">Interview Date:</label>
+                <div class="form-group">
+                    <input type="text" id="interviewDate" name="interviewDate" class="form-control" placeholder="DD/MM/YYYY HH:MM" ng-model="interview.interviewDate" ng-pattern="/^([1-9]|([012][0-9])|(3[01]))\/([0]{0,1}[1-9]|1[012])\/\d\d\d\d\s([0-1]?[0-9]|2?[0-3]):([0-5]\d)$/" />
+                    <span class="validation-error" ng-show="interviewForm.interviewDate.$dirty && interviewForm.interviewDate.$invalid">Please enter the Date and Time in DD/MM/YYYY HH:MM Format</span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group col-md-3 col-sm-6">
+            <div class="form-group">
+                <label for="possibleAspire">Possible Aspire:</label>
+                <div class="form-group">
+                    <input id="possibleAspire" name="possibleAspire" type="checkbox" class="form-control" ng-model="interview.possibleAspire"> </input>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group col-md-3 col-sm-6">
+            <div class="form-group">
+                <label for="possibleMvd">Possible MVD (Medicine, Veterinary, Dentist):</label>
+                <div class="form-group">
+                    <input id="possibleMvd" name="possibleMvd" type="checkbox" class="form-control" ng-model="interview.possibleMvd"> </input>
+                </div>
+            </div>
+        </div>
+        <div class="form-group col-md-3 col-sm-6">
+            <div class="form-group">
+                <label for="learningSupportNeeds">Learning Support Needs:</label>
+                <div class="form-group">
+                    <input id="learningSupportOnIntro" name="learningSupportNeeds" type="checkbox" class="form-control" ng-model="interview.learningSupportNeeds"> </input>
+                </div>
+            </div>
+        </div>
+        <div class="form-group col-md-3 col-sm-6">
+            <div class="form-group">
+                <label for="learningSupportOnIntro">Additional Support needed on Intro Day:</label>
+                <div class="form-group">
+                    <input id="learningSupportOnIntro" name="learningSupportOnIntro" type="checkbox" class="form-control" ng-model="interview.learningSupportOnIntro"> </input>
+                </div>
+            </div>
+        </div>
+        <div class="form-group col-md-3 col-sm-6">
+            <div class="form-group">
+                <label for="schoolReportNotSeen">School Report Not Seen:</label>
+                <div class="form-group">
+                    <input id="schoolReportNotSeen" name="schoolReportNotSeen" type="checkbox" class="form-control" ng-model="interview.schoolReportNotSeen"></input>
+                </div>
+            </div>
+        </div>
+        <div class="form-group col-md-3 col-sm-6">
+            <div class="form-group">
+                <label for="noShowAtInterview">No Show at Interview:</label>
+                <div class="form-group">
+                    <input id="noShowAtInterview" name="noShowAtInterview" type="checkbox" class="form-control" ng-model="interview.noShowAtInterview"></input>
+                </div>
+            </div>
+        </div>
+        <div class="form-group col-md-3 col-sm-6">
+            <div class="form-group">
+                <label for="interviewBy">To Be Interviewed by at Enrolment:</label>
+                <div class="form-group">
+                    <input class="form-control" placeholder="To Be Interviewed By at Enrolment" ng-model="interview.interviewBy" type="text"></input>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12 col-md-6">
+        <div class="row">
+            <div class="col-xs-12">
+                <fieldsset>
+                    <legend>Course Requests</legend>
+                </fieldsset>
+            </div>
+        </div>
+        <course-request-editor show-actions="true" student-id="interview.studentId" request="requests"></course-request-editor>
+    </div>
+
+
+    <div class="col-xs-12 col-md-6">
+        <div class="row">
+            <div class="col-xs-12">
+                <fieldsset>
+                    <legend>Student Risk Level</legend>
+                </fieldsset>
+            </div>
+            <div class="col-xs-12 col-md-6">
+                <student-risk-level-editor permission="['ROLE_Pastoral', 'ROLE_Safeguarding', 'ROLE_Office Administration']" student-id="interview.studentId" student-risk-levels="studentRiskLevels" show-actions="true"></student-risk-level-editor>
+                <student-risk-level-details permission="'ROLE_Staff'" permission-not="['ROLE_Pastoral', 'ROLE_Safeguarding', 'ROLE_Office Administration']" student-risk-levels="studentRiskLevels"></student-risk-level-details>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-12">
+                <fieldsset>
+                    <legend>ILP Interviews</legend>
+                </fieldsset>
+            </div>
+            <div class="col-md-12">
+                <button class="btn btn-sm btn-primary" edit-ilp student-id="interview.studentId" interview-type-id=14>Add ILP</button><br />
+                <ilp-interviews-table ilp-interviews="ilpInterviews" show-filter="false" filter="{ typeId: 14 }" show-staff="true" show-course="false" show-letter-home="false" show-private="true"></ilp-interviews-table>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+</div>
+<div class="row fixed-bottom-right">
+    <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#collapseInterviewDetails" ng-click="save()">Save</button>
+</div>

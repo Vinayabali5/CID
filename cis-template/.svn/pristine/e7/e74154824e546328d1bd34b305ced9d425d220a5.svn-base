@@ -1,0 +1,31 @@
+<h1>Exam Basedata</h1>
+<div class="search-box search-form">
+    <form class="form-inline">
+        <div class="form-group">
+            <label for="series">Exam Year:</label>
+            <input id="exam-year" type="text" class="form-control input-sm" ng-model="ctrl.filterParams.examSeries.examYear"></input>
+        </div>
+        <div class="form-group">
+            <label for="year">Series:</label>
+            <input id="exam-series" type="text" class="form-control input-sm" ng-model="ctrl.filterParams.examSeries.examSeries"></input>
+        </div>
+        <div class="form-group">
+            <label for="code">Exam Board:</label>
+            <exam-board-selection class="form-control" include-blank="true" ng-model="ctrl.filterParams.examSeries.examBoard"></exam-board-selection>
+        </div>
+        <div class="form-group">
+            <label for="code">Exam Code:</label>
+            <input id="code" type="text" class="form-control input-sm" ng-model="ctrl.filterParams.code"></input>
+        </div>
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <input id="description" type="text" class="form-control input-sm" ng-model="ctrl.filterParams.title"></input>
+        </div>
+    </form>
+</div>
+<syllabus-table cur-exam-board="ctrl.curExamBoard" expandable="true" filter-params="ctrl.filterParams">
+    <base-data-edit-buttons add-callback="ctrl.add(syllabusData, optionData, componentData)" edit-callback="ctrl.edit(syllabusData, optionData, componentData)" view-students-callback="ctrl.viewStudents(syllabusData, optionData, componentData)"></base-data-edit-buttons>
+</syllabus-table>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ctrl.add()" uib-tooltip="Add Syllabus">Add</button>
+</div>

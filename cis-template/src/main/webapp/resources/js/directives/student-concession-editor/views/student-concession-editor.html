@@ -1,0 +1,23 @@
+<table class="table table-hover" ts-wrapper ts-item-name="Student Course Concession">
+    <thead>
+        <th ng-show="showAll ||  showStudent" ts-criteria="studentId">Student ID</th>
+        <th ts-criteria="course._levelDescription + course._subjectDescription" ts-default>Course</th>
+        <th ts-criteria="_concessionDescription">Concession</th>
+        <th>Extra Time Percentage</th>
+        <th ng-show="showActions">Action</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="concession in concessions" ts-repeat>
+            <td ng-show="showAll ||  showStudent">{{ concession.studentId }}</td>
+            <td>{{ concession.course.spec }} <span ng-show="showAll || showCourseDescription">- {{ concession.course._levelDescription }} {{ concession.course._subjectDescription }}</span></td>
+            <td>{{ concession._concessionDescription }}</td>
+            <td>{{ concession.extraTimePercentage }}</td>
+            <td ng-show="showActions">
+                <button class="btn btn-sm btn-primary" type="button" name="edit" ng-click="edit(concession)"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+                <button class="btn btn-sm btn-danger" type="button" name="edit" ng-click="delete(concession)"><span class="glyphicon glyphicon-remove"></span> Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button ng-show="showActions" class="btn btn-sm btn-primary" type="button" name="AddButton" ng-click="add()"><span class="glyphicon glyphicon-plus"></span> Add</button>
+<button ng-show="showActions" class="btn btn-sm btn-primary" type="button" name="AddButton" ng-click="addAllCourses()"><span class="glyphicon glyphicon-plus"></span> Add for all Courses</button>

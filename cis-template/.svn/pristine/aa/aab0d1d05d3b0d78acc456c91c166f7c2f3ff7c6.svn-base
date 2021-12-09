@@ -1,0 +1,23 @@
+<table class="table table-responsive table-hover" ts-wrapper ts-item-name="Central Monitoring Code">
+    <thead>
+        <th ts-criteria="id">Id</th>
+        <th ts-criteria="code">Code</th>
+        <th ts-criteria="description">Description</th>
+        <th>Warning Colour</th>
+        <th>Non Entry</th>
+        <th ng-show="showActions">Actions</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="centralMonitoring in centralMonitorings" ts-repeat>
+            <td>{{ centralMonitoring.id }}</td>
+            <td>{{ centralMonitoring.code }}</td>
+            <td>{{ centralMonitoring.description }}</td>
+            <td>{{ centralMonitoring.warningColour }}</td>
+            <td>{{ centralMonitoring.nonEntry | yesNo }}</td>
+            <td ng-show="showActions">
+                <button type="button" class="btn btn-primary btn-sm" ng-click="ctrl.editCentralMonitorings(centralMonitoring.id)"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button ng-show="showActions" type="button" class="btn btn-primary btn-sm" ng-click="ctrl.addCentralMonitorings()"><span class="glyphicon glyphicon-pencil"></span> Add</button>

@@ -1,0 +1,72 @@
+<ng-form name="{{ id }}addressEditForm">
+    <div class="row">
+        <div class="form-group">
+            <label for="{{ id }}line1" class="control-label col-xs-4">Line1:</label>
+            <div class="col-xs-8 col-sm-8 col-md-8">
+                <input id="{{ id }}line1" type="text" name="{{ id }}line1" class="form-control text ui-widget-content ui-corner-all" ng-model="address.line1" ng-required="required">
+                <span class="validation-error" ng-show="{{ id }}addressEditForm.{{ id }}line1.$dirty && {{ id }}addressEditForm.{{ id }}line1.$invalid">Address Line 1 is required</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="{{ id }}line2" class="control-label col-xs-4">Line2:</label>
+            <div class="col-xs-8 col-sm-8 col-md-8">
+                <input type="text" id="{{ id }}line2" name="{{ id }}line2" class="form-control text ui-widget-content ui-corner-all" ng-model="address.line2">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="{{ id }}line3" class="control-label col-xs-4">Line3:</label>
+            <div class="col-xs-8 col-sm-8 col-md-8">
+                <input type="text" id="{{ id }}line3" name="{{ id }}line3" class="form-control text ui-widget-content ui-corner-all" ng-model="address.line3">
+            </div>
+        </div>
+
+        <div class="form-group" ng-show="false">
+            <label for="{{ id }}line4" class="control-label col-xs-4">Line4:</label>
+            <div class="col-xs-8 col-sm-8 col-md-8">
+                <input type="text" id="{{ id }}line4" name="{{ id }}line4" class="form-control text ui-widget-content ui-corner-all" ng-model="address.line4">
+            </div>
+        </div>
+
+        <div class="form-group" ng-show="false">
+            <label for="{{ id }}line5" class="control-label col-xs-4">Line5:</label>
+            <div class="col-xs-8 col-sm-8 col-md-8">
+                <input type="text" id="{{ id }}line5" name="{{ id }}line5" class="form-control text ui-widget-content ui-corner-all" ng-model="address.line5">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="{{ id }}town" class="control-label col-xs-4">Town:</label>
+            <div class="col-xs-8 col-sm-8 col-md-8">
+                <input type="text" id="{{ id }}town" name="{{ id }}town" class="form-control text ui-widget-content ui-corner-all" ng-model="address.town">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="{{ id }}county" class="control-label col-xs-4">County:</label>
+            <div class="col-xs-8 col-sm-8 col-md-8">
+                <input type="text" id="{{ id }}county" name="{{ id }}county" class="form-control text ui-widget-content ui-corner-all" ng-model="address.county">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="{{ id }}postcode" class="control-label col-xs-4">Postcode:</label>
+            <div class="col-xs-8 col-sm-8 col-md-8">
+                <input type="text" id="{{ id }}postcode" name="{{ id }}postcode" class="form-control text ui-widget-content ui-corner-all" ng-model="address.postcode" ng-required="required">
+                <span class="validation-error" ng-show="{{ id }}addressEditForm.{{ id }}postcode.$dirty && {{ id }}addressEditForm.{{ id }}postcode.$invalid">Postcode is required</span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-xs-3 col-sm-3 col-md-3 col-md-offset-4">
+            <button type="button" class="btn btn-primary" ng-click="postcodeLookup(address.postcode)">Lookup</button>
+        </div>
+    </div>
+    <!-- <div class="row">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="cancel()"> <span class="glyphicon glyphicon-ban-circle"></span> Cancel</button>
+        <button type="submit" class="btn btn-primary" ng-disabled="addressEditForm.$invalid || addressEditForm.$submitted"><span class="glyphicon glyphicon-save"></span> Save</button>
+    </div> -->
+</ng-form>

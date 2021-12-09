@@ -1,0 +1,29 @@
+<table class="table table-hover" ts-wrapper ts-item-name="Student Entry Qualification">
+    <thead>
+        <th ts-criteria ng-show="showAll || showStudent">Student</th>
+        <th ts-criteria="_entryQualification._entryQualificationTypeDescription">Level</th>
+        <th ts-criteria="_entryQualification.title">Qualification Title</th>
+        <th>Exam Board</th>
+        <th ts-criteria="grade">Grade</th>
+        <th ts-criteria="date">Date</th>
+        <th>Checked</th>
+        <th ng-show="showActions">Actions</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="studentEntryQualification in ctrl.studentEntryQualifications" ts-repeat>
+            <td ng-show="showAll || showStudent">{{ studentEntryQualification.studentId }}</td>
+            <td>{{ studentEntryQualification._entryQualification._entryQualificationTypeDescription }}</td>
+            <td>{{ studentEntryQualification._entryQualification.title }}</td>
+            <td>{{ studentEntryQualification._examBoardName | notSet }}</td>
+            <td>{{ studentEntryQualification.grade }}</td>
+            <td>{{ studentEntryQualification.date | date:'dd/MM/yyyy' }}</td>
+            <td>{{ studentEntryQualification.checked | yesNo }}</td>
+            <td ng-show="showActions">
+                <button type="button" class="btn btrn-sm btn-primary" ng-click="ctrl.editStudentEntryQualification(studentEntryQualification.studentEntryQualificationId)"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+                <button type="button" class="btn btrn-sm btn-danger" ng-click="ctrl.deleteStudentEntryQualification(studentEntryQualification.studentEntryQualificationId)"><span class="glyphicon glyphicon-remove"></span> Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button ng-show="showActions" type="button" class="btn btrn-sm btn-primary" ng-click="ctrl.addStudentEntryQualification(ctrl.studentId)"><span class="glyphicon glyphicon-plus"></span> Add Entry Qualification</button>
+<button ng-show="showActions" type="button" class="btn btrn-sm btn-primary" ng-click="ctrl.markAllAsChecked(ctrl.studentId)"><span class="glyphicon glyphicon-pencil"></span> Mark All as Checked</button>

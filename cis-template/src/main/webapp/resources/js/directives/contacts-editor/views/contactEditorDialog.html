@@ -1,0 +1,146 @@
+<form id="contactEditForm" name="contactEditForm" role="form" novalidate show-validation>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="ctrl.cancel()">&times;</button>
+        <h4 class="modal-title" id="myToDoLabel">Create or edit a Contact</h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+            <div class="form-group" ng-show="false">
+                <label for="personId">Person ID</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" class="form-control" id="personId" name="personId" readonly ng-model="ctrl.contact.personId">
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="false">
+                <label for="contactId">Contact ID</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" class="form-control" id="contactId" name="contactId" readonly ng-model="ctrl.contact.contactId">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="contactType" class="control-label col-xs-4">Relation:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <contact-type-selection id="contactType" name="contactType" class="form-control" alt-null-text="'-- Select Contact Type --'" ng-model="ctrl.contact.contactTypeId" ng-required="true"></contact-type-selection>
+                    <span class="validation-error" ng-show="contactEditForm.contactType.$error.required">Mandatory Field</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="title" class="control-label col-xs-4">Title:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <title-selection id="title" name="title" class="form-control" alt-null-text="'-- Select Title --'" ng-model="ctrl.contact.contact.titleId"></title-selection>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="firstName" class="control-label col-xs-4">First Name</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" name="firstName" id="firstName" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.contact.contact.firstName">
+                    <!--                     <span class="validation-error" ng-show="contactEditForm.firstName.$error.pattern">Only characters, (a-z) and accent characters are allowed</span> -->
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="surname" class="control-label col-xs-4">Surname</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" minlength="2" id="surname" name="surname" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.contact.contact.surname" required></input>
+                    <!--                     <span class="validation-error" ng-show="contactEditForm.surname.$error.pattern">Only characters, (a-z) and accent characters are allowed</span> -->
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="home" class="control-label col-xs-4">Home</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" id="home" name="home" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.contact.contact.home" ng-pattern="/^[\d+ ]*$/"></input>
+                    <span class="validation-error" ng-show="contactEditForm.home.$error.pattern">Please enter valid phone number</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="mobile" class="control-label col-xs-4">Mobile</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" id="mobile" name="mobile" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.contact.contact.mobile" ng-pattern="/^[\d+ ]*$/"></input>
+                    <span class="validation-error" ng-show="contactEditForm.mobile.$error.pattern">Please enter valid phone number</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="work" class="control-label col-xs-4">Work</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" id="work" name="work" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.contact.contact.work" ng-pattern="/^[\d+ ]*$/"></input>
+                    <span class="validation-error" ng-show="contactEditForm.work.$error.pattern">Please enter valid phone number</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="email" class="control-label col-xs-4">Email</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" id="email" name="email" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.contact.contact.email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/"></input>
+                    <span class="validation-error" ng-show="contactEditForm.email.$error.pattern">Please enter valid email address</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="contactable" class="control-label col-xs-4">Contactable</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="checkbox" id="contactable" name="contactable" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.contact.contactable"></input>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="preferred" class="control-label col-xs-4">Preferred</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="checkbox" id="preferred" name="preferred" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.contact.preferred"></input>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="alternativeAddress" class="control-label col-xs-4">Alternative Address</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="checkbox" id="alternativeAddress" name="alternativeAddress" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.contact.alternativeAddress"></input>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="address-editor" class="control-label col-xs-4">Address</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <address-editor address-id="ctrl.contact.contact.addressId" ng-show="ctrl.contact.contact.addressId" address="ctrl.contact.contact.address"></address-editor>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-xs-12 col-sm-12 col-sm-12 col-md-12">
+                    <button type="button" class="btn btn-sm btn-primary" ng-if="ctrl.contact.alternativeAddress === false" ng-show="ctrl.contact.personId !== undefined" ng-hide="ctrl.contact.contact.addressId" ng-click="ctrl.addAddress(ctrl.personId)">
+                        <span class="glyphicon glyphicon-plus"></span>Add Address
+                    </button>
+                    <button type="button" class="btn btn-sm btn-primary" ng-if="ctrl.contact.alternativeAddress === true" ng-show="ctrl.contact.personId !== undefined" ng-hide="ctrl.contact.contact.addressId" ng-click="ctrl.addAddress(ctrl.personId)">
+                        <span class="glyphicon glyphicon-plus"></span>Add Alternative Address
+                    </button>
+                    <button type="button" class="btn btn-sm btn-primary" ng-show="ctrl.contact.contact.addressId" ng-click="ctrl.deleteAddress()">
+                        <span class="glyphicon glyphicon-remove"></span>Remove Address
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="ctrl.cancel()">
+            <span class="glyphicon glyphicon-ban-circle"></span> Cancel
+        </button>
+        <button type="button" class="btn btn-primary" ng-disabled="contactEditForm.$invalid || contactEditForm.$submitted" ng-click="ctrl.save()">
+            <span class="glyphicon glyphicon-save"></span> Save
+        </button>
+    </div>
+
+    <div class="row" permission="'ROLE_Developer'">
+        <div class="col-xs-12" collapsible="'debugData'" collapsible-title="'Debug Data'">
+            <pre>
+            {{ ctrl.contact | json }}
+            </pre>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,17 @@
+app:
+  name: cis-api
+
+server.servlet.context-path: /api
+
+spring:
+  profiles: 
+    include: 
+    - db-defaults
+    - secured
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 2MB
+      max-request-size: 10MB
+
+management.health.ldap.enabled: false

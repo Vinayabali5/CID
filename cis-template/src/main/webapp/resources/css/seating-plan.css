@@ -1,0 +1,55 @@
+.seating-plan-student-list > li {
+  padding-left: 0;
+  padding-right: 0;
+  display: flex;
+}
+
+.seating-plan-grid {
+    padding: 0;
+}
+
+.seating-plan-grid > tbody > tr > td > div > div {
+  padding-left: 0;
+  padding-right: 0;
+  display: block;
+}
+
+.seating-plan-grid > tbody > tr > td > div.list-group {
+  margin-right: 3px;
+  margin-bottom: 3px;
+}
+
+.seating-plan-grid > tbody > tr > td > div.list-group > .list-group-item > div {
+  display: flex;
+}
+
+.seating-plan-grid > tbody > tr > td > div.dndDragover > div {
+  background-color: grey;
+  color: white;
+  font-weight: bold;
+}
+
+.seating-plan-seat div {
+  display: flex;
+}
+
+@media screen and (max-height: 750px) {
+    .seating-plan-row > div {
+        max-height: 70vh;
+        overflow: scroll;
+    }
+}
+
+@media screen and (min-height: 750px) and (max-height: 850px) {
+    .seating-plan-row > div {
+        max-height: 75vh;
+        overflow: scroll;
+    }
+}
+
+@media screen and (min-height: 850px) {
+    .seating-plan-row > div {
+        max-height: 80vh;
+        overflow: scroll;
+    }
+}

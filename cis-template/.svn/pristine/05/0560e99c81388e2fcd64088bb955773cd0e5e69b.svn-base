@@ -1,0 +1,43 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="cancel()">&times;</button>
+    <h3 class="modal-title">Bulk Clear Seats Settings</h3>
+</div>
+
+<div class="modal-body">
+    <form>
+        <fieldset>
+            <div class="col-sm-12">
+                <div class="form-group col-sm-6">
+                    <label for="startRow" class="control-label col-xs-6 col-sm-6 col-md-6">Limit Row from:</label>
+                    <div class="input-group col-xs-2 col-sm-2 col-md-2">
+                        <input type="number" class="form-control" ng-model="assign.startRow" ng-init="assign.startRow=1" />
+                    </div>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="endRow" class="control-label col-xs-2 col-sm-2 col-md-2">to:</label>
+                    <div class="input-group col-xs-2 col-sm-2 col-md-2">
+                        <input type="number" class="form-control" ng-model="assign.endRow" ng-init="assign.endRow=numRows" />
+                    </div>
+                </div>
+
+                <div class="form-group col-sm-6">
+                    <label for="startCol" class="control-label col-xs-6 col-sm-6 col-md-6">Limit Column from:</label>
+                    <div class="input-group col-xs-2 col-sm-2 col-md-2">
+                        <select class="form-control" ng-model="assign.startCol" ng-init="assign.startCol=columns[0]" ng-options="x.column for x in columns"></select>
+                    </div>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="endCol" class="control-label col-xs-2 col-sm-2 col-md-2">to:</label>
+                    <div class="input-group col-xs-2 col-sm-2 col-md-2">
+                        <select class="form-control" ng-model="assign.endCol" ng-init="assign.endCol=columns[numCols-1]" ng-options="x.column for x in columns"></select>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="bulkClearSeats()">Bulk Clear Seats</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div>

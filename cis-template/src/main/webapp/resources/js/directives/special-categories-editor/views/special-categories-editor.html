@@ -1,0 +1,23 @@
+<table class="table table-responsive table-hover" ts-wrapper ts-item-name="Special Category" ts-item-name-plural="Special Categories">
+    <thead>
+        <th ts-criteria="code">Code</th>
+        <th ts-criteria="description">Description</th>
+        <th ts-criteria="details">Details</th>
+        <th ts-criteria="priority">Priority</th>
+        <th>Send Email</th>
+        <th ng-show="showActions">Actions</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="specialCategory in specialCategories" ts-repeat>
+            <td>{{ specialCategory.code }}</td>
+            <td>{{ specialCategory.description }}</td>
+            <td>{{ specialCategory.details }}</td>
+            <td>{{ specialCategory.priority }}</td>
+            <td>{{ specialCategory.sendEmail | yesNo }}</td>
+            <td ng-show="showActions">
+                <button type="button" class="btn btn-primary btn-sm" ng-click="ctrl.editSpecialCategories(specialCategory.id)"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button ng-show="showActions" type="button" class="btn btn-primary btn-sm" ng-click="ctrl.addSpecialCategories()"><span class="glyphicon glyphicon-pencil"></span> Add</button>

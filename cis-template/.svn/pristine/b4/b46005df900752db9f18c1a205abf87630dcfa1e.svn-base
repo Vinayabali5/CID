@@ -1,0 +1,80 @@
+<form id="studentCareersRecordEditForm" name="studentCareersRecordEditForm" role="form" novalidate show-validation>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="ctrl.cancel()">&times;</button>
+        <h4 class="modal-title" id="myToDoLabel">Create or Edit a Student Careers Record</h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+            <div class="form-group" ng-show="false">
+                <label for="studentId">Student ID</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="studentId" type="text" name="studentId" class="form-control" readonly ng-model="ctrl.studentCareersRecord.studentId">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="careersRecordType" class="control-label col-xs-4">Careers Record Type:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <careers_record_type-selection id="careersRecordType" name="careersRecordType" class="form-control" ng-model="ctrl.studentCareersRecord.careersRecordTypeId" ng-required="true"></careers_record_type-selection>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="startDate" class="control-label col-xs-4">Start Date</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <div class="input-group">
+                        <input type="text" id="startDate" name="startDate" class="form-control" ng-init="studentCareersRecordStartDatePicker = false" uib-datepicker-popup="dd/MM/yyyy" is-open="studentCareersRecordStartDatePicker" ng-model="ctrl.studentCareersRecord.startDate" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="studentCareersRecordStartDatePicker = !studentCareersRecordStartDatePicker"><span class="glyphicon glyphicon-calendar"></span></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="endDate" class="control-label col-xs-4">End Date</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <div class="input-group">
+                        <input type="text" id="endDate" name="endDate" class="form-control" ng-init="studentCareersRecordEndDatePicker = false" uib-datepicker-popup="dd/MM/yyyy" is-open="studentCareersRecordEndDatePicker" ng-model="ctrl.studentCareersRecord.endDate" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="studentCareersRecordEndDatePicker = !studentCareersRecordEndDatePicker"><span class="glyphicon glyphicon-calendar"></span></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="organiser" class="control-label col-xs-4">Organiser</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="organiser" type="text" name="organiser" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.studentCareersRecord.organiser"></input>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="employerInstitution" class="control-label col-xs-4">Employer/Institution</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="employerInstitution" type="text" name="employerInstitution" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.studentCareersRecord.employerInstitution"></input>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="note" class="control-label col-xs-4">Notes</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="note" type="text" name="note" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.studentCareersRecord.note"></input>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="ctrl.cancel()">
+            <span class="glyphicon glyphicon-ban-circle"></span> Cancel
+        </button>
+        <button type="button" class="btn btn-primary" ng-disabled="studentCareersRecordEditForm.$invalid || studentCareersRecordEditForm.$submitted" ng-click="ctrl.save()">
+            <span class="glyphicon glyphicon-save"></span> Save
+        </button>
+    </div>
+
+</form>

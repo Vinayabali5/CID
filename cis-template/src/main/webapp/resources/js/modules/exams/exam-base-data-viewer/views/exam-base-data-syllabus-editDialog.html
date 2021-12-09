@@ -1,0 +1,36 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="ctrl.cancel()">&times;</button>
+    <h3 class="modal-title" ng-if="ctrl.syllabus.id">Edit Syllabus details</h3>
+    <h3 class="modal-title" ng-if="!ctrl.syllabus.id">Add Syllabus details</h3>
+</div>
+<div class="modal-body">
+    <form>
+        <fieldset>
+            <div class="form-group row">
+                <label for="code" class="col-xs-6 col-sm-4 col-md-4 control-label">Code:</label>
+                <div class="col-xs-6 col-sm-8 col-sm-8 col-md-8">
+                    <input id="code" class="form-control" placeholder="Syllabus Code" ng-model="ctrl.syllabus.code" type="text"></input>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="title" class="col-xs-6 col-sm-4 col-md-4 control-label">Title:</label>
+                <div class="col-xs-6 col-sm-8 col-sm-8 col-md-8">
+                    <input id="title" class="form-control" placeholder="Syllabus Title" ng-model="ctrl.syllabus.title" type="text"></input>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="examSeries" class="col-xs-6 col-sm-4 col-md-4 control-label">Exam Series:</label>
+                <div class="col-xs-6 col-sm-8 col-sm-8 col-md-8">
+                    <exam-series-selection id="examSeries" class="form-control" ng-model="ctrl.syllabus.examSeries.id"></exam-series-selection>
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ctrl.save()">Save</button>
+    <button class="btn btn-warning" type="button" ng-click="ctrl.cancel()">Cancel</button>
+</div>

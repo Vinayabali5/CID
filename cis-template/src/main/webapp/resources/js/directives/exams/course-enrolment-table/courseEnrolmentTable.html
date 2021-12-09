@@ -1,0 +1,12 @@
+<table class="table">
+    <tbody>
+        <tr ng-repeat="student in group.studentList">
+            <td>{{ student.id }}</td>
+            <td>{{ student.person.firstName }}</td>
+            <td>{{ student.person.surname }}</td>
+            <td>
+                <input type="checkbox" ng-model="student._selected" />
+            </td>
+        </tr>
+    </tbody>
+</table>

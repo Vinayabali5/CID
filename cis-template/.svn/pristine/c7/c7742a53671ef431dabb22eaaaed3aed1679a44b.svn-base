@@ -1,0 +1,2 @@
+<span class="glyphicon glyphicon-ok alert-success" ng-show="valid"> Valid</span>
+<span class="glyphicon glyphicon-remove alert-danger" ng-hide="valid"> Invalid</span>

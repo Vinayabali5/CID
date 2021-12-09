@@ -1,0 +1,2 @@
+<h1>Exam Board Editor</h1>
+<exam-boards-editor exam-boards="data" show-actions="true"></exam-boards-editor>

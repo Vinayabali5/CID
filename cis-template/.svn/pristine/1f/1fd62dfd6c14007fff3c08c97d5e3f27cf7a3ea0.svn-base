@@ -1,0 +1,51 @@
+<form id="offerTypesEditForm" name="offerTypesEditForm" role="form" novalidate show-validation>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="ctrl.cancel()">&times;</button>
+        <h4 class="modal-title" id="myToDoLabel">Add/Edit OfferType</h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+
+            <div class="form-group" ng-show="true">
+                <label for="id" class="control-label col-xs-4">OfferType ID</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" class="form-control" id="id" name="id" readonly ng-model="ctrl.offerTypes.id">
+                </div>
+            </div>
+            <div class="form-group" ng-show="true">
+                <label for="code" class="control-label col-xs-4">Code</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" class="form-control" id="code" name="code" ng-model="ctrl.offerTypes.code">
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="description" class="control-label col-xs-4">Description:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" class="form-control text ui-widget-content ui-corner-all" id="description" name="description" ng-model="ctrl.offerTypes.description"></input>
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="considerWithdrawn" class="control-label col-xs-4">Consider As Enrolling:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="checkBox" class="form-control text ui-widget-content ui-corner-all" id="considerWithdrawn" name="considerWithdrawn" ng-model="ctrl.offerTypes.considerAsEnrolling"></input>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="ctrl.cancel()">
+            <span class="glyphicon glyphicon-ban-circle"></span>
+            Cancel
+        </button>
+        <button type="button" class="btn btn-primary" ng-click="ctrl.save()">
+            <span class="glyphicon glyphicon-save"></span>
+            Save
+        </button>
+    </div>
+
+</form>

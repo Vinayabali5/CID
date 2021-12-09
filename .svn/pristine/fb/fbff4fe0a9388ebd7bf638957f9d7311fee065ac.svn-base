@@ -1,0 +1,31 @@
+archivesBaseName = 'cis-student-records'
+version = '0.0.1'
+
+configurations.all {
+	resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+		if (details.requested.group == 'org.springframework') {
+			details.useVersion '4.2.5.RELEASE'
+		}
+	}
+}
+
+dependencies {
+    compile project(':cis-data')
+    
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.springframework.boot:spring-boot-starter-actuator')
+    
+	compile('org.springframework.boot:spring-boot-starter-security')
+	
+	compile("org.springframework.security:spring-security-ldap")
+	compile("org.springframework.ldap:spring-ldap-core:${springLdapVersion}")
+	compile("org.springframework:spring-tx")
+	
+	compile("org.springframework.session:spring-session-data-redis:${springSessionVersion}")
+	
+	compile("org.apache.directory.server:apacheds-server-jndi:1.5.5")
+	
+    compile('org.springframework.boot:spring-boot-devtools')
+    
+    compile('javax.inject:javax.inject:1')
+}

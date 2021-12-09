@@ -1,0 +1,16 @@
+<div class="previous-school-details container-fluid">
+    <div class="row">
+        <div class="col-sm-5 col-md-3">Reference Requested:</div>
+        <div class="col-sm-7 col-md-3">{{ studentAdmissions.refRequested | date:'dd/MM/yyyy' | notSet}}</div>
+        <div class="col-sm-5 col-md-3">Reference Received:</div>
+        <div class="col-sm-7 col-md-3">{{ studentAdmissions.refReceived | date:'dd/MM/yyyy' | notSet }}</div>
+        <div class="col-sm-5 col-md-3">Report Requested:</div>
+        <div class="col-sm-7 col-md-3">{{ studentAdmissions.schoolReportRequested | date:'dd/MM/yyyy' | notSet }}</div>
+        <div class="col-sm-5 col-md-3">Report Received:</div>
+        <div class="col-sm-7 col-md-3">{{studentAdmissions.schoolReportReceived | date:'dd/MM/yyyy' | notSet }}</div>
+        <div class="col-sm-5 col-md-3">School Report Status:</div>
+        <div class="col-sm-7 col-md-3">{{ studentAdmissions._schoolReportStatusDescription | notSet }}</div>
+        <div class="col-sm-5 col-md-3">Blue Card Date:</div>
+        <div class="col-sm-7 col-md-3">{{ studentAdmissions.blueCard | date: 'dd/MM/yyyy' | notSet }}</div>
+    </div>
+</div>

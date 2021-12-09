@@ -1,0 +1,46 @@
+<form id="studentWarningEditForm" name="studentWarningEditForm" role="form" novalidate ng-submit="ctrl.save()" show-validation>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="ctrl.cancel()">&times;</button>
+        <h4 class="modal-title">Edit StudentWarning</h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+
+            <div class="form-group">
+                <label for="attendanceMonitoring" class="control-label col-xs-4">Attendance:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <attendance-monitoring-selection id="attendanceMonitoring" name="attendanceMonitoring" class="form-control" include-blank="true" ng-model="ctrl.studentWarning.attendanceMonitoringId"></attendance-monitoring-selection>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="punctualityMonitoring" class="control-label col-xs-4">Punctuality:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <punctuality-monitoring-selection id="punctualityMonitoring" name="punctualityMonitoring" class="form-control" include-blank="true" ng-model="ctrl.studentWarning.punctualityMonitoringId"></punctuality-monitoring-selection>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="attendanceMonitorable" class="control-label col-xs-4">Attendance Monitorable By System</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="checkbox" id="attendanceMonitorable" name="attendanceMonitorable" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.studentWarning.attendanceMonitorable"></input>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="punctualityMonitorable" class="control-label col-xs-4">Punctuality Monitorable By System</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="checkbox" id="punctualityMonitorable" name="punctualityMonitorable" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.studentWarning.punctualityMonitorable"></input>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="ctrl.cancel()"> <span class="glyphicon glyphicon-ban-circle"></span> Cancel</button>
+        <button type="submit" class="btn btn-primary" ng-disabled="studentWarningEditForm.$invalid || studentWarningEditForm.$submitted"><span class="glyphicon glyphicon-save"></span> Save</button>
+    </div>
+
+</form>

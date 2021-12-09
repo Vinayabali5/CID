@@ -1,0 +1,24 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+}
+
+apply plugin: "com.diffplug.spotless"
+
+spotless {
+    java {
+         eclipse().configFile "${rootProject.projectDir}/style/cis-format.xml"
+    }
+    groovy {
+        excludeJava()
+        greclipse().configFile "${rootProject.projectDir}/style/cis-format.xml"
+    }
+    groovyGradle {
+    //    paddedCell()
+        target '*.gradle'
+        greclipse().configFile "${rootProject.projectDir}/style/cis-format.xml"
+    }
+}
+

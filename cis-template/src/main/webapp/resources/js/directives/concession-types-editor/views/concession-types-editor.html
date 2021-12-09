@@ -1,0 +1,23 @@
+<table class="table table-responsive table-hover" ts-wrapper ts-item-name="Concession Type">
+    <thead>
+        <th ts-criteria="id">ID</th>
+        <th ts-criteria="code" ts-filter>Code</th>
+        <th ts-criteria="description" ts-filter>Description</th>
+        <th ts-criteria="inUse" ts-filter>In Use</th>
+        <th ts-criteria="onExamTimetable" ts-filter>On Exam Timetable</th>
+        <th ng-show="showActions">Actions</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="concessionType in concessionTypes" ts-repeat>
+            <td>{{ concessionType.id }}</td>
+            <td>{{ concessionType.code }}</td>
+            <td>{{ concessionType.description }}</td>
+            <td>{{ concessionType.inUse | yesNo }}</td>
+            <td>{{ concessionType.onExamTimetable | yesNo }}</td>
+            <td ng-show="showActions">
+                <button type="button" class="btn btn-primary btn-sm" ng-click="ctrl.editConcessionTypes(concessionType.id)"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button ng-show="showActions" type="button" class="btn btn-primary btn-sm" ng-click="ctrl.addConcessionTypes()"><span class="glyphicon glyphicon-pencil"></span> Add</button>

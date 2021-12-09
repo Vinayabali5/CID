@@ -1,0 +1,27 @@
+<table class="table table-hover" ts-wrapper ts-item-name="Entry Qualification">
+    <thead>
+        <th ts-criteria="_entryQualificationTypeDescription" ts-filter>Entry Qualification Type </th>
+        <th ts-criteria="title" ts-filter>Title</th>
+        <th ts-criteria="shortCourse">Short Course </th>
+        <th ts-criteria="dataMatchCode">Data Match Code</th>
+        <th ts-criteria="webLinkCode">WebLinkCode</th>
+        <th ts-criteria="basicList">BasicList</th>
+        <th>Old Id</th>
+        <th ng-show="showActions">Actions</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="entryQualification in entryQualifications" ts-repeat>
+            <td>{{ entryQualification._entryQualificationTypeDescription }}</td>
+            <td>{{ entryQualification.title }}</td>
+            <td>{{ entryQualification.shortCourse | yesNo }}</td>
+            <td>{{ entryQualification.dataMatchCode }}</td>
+            <td>{{ entryQualification.webLinkCode }}</td>
+            <td>{{ entryQualification.basicList | yesNo }}</td>
+            <td>{{ entryQualification.OLDID }}</td>
+            <td ng-show="showActions">
+                <button type="button" class="btn btn-sm btn-primary" ng-click="ctrl.editEntryQualifications(entryQualification.id)"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button ng-show="showActions" type="button" class="btn btn-sm btn-primary" ng-click="ctrl.addEntryQualifications()"><span class="glyphicon glyphicon-plus"></span> Add</button>

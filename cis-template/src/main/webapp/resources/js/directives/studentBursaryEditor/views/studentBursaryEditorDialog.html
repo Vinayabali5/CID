@@ -1,0 +1,59 @@
+<form id="studentBursaryEditForm" name="studentBursaryEditForm" role="form" novalidate ng-submit="ctrl.save()" show-validation>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="ctrl.cancel()">&times;</button>
+        <h4 class="modal-title">Edit StudentBursary</h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+
+            <div class="form-group col-sm-12 col-md-6">
+                <label for="bursaryType" class="control-label col-xs-4">Bursary Type:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <bursary-type-selection id="bursaryType" name="bursaryType" class="form-control" include-blank="true" ng-model="ctrl.studentBursary.bursaryTypeId"></bursary-type-selection>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12 col-md-6" ng-show="false">
+                <label for="gb" class="control-label col-xs-4">Guaranteed Bursary:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="checkbox" name="gb" id="gb" ng-model="ctrl.studentBursary.gb" class="form-control text ui-widget-content ui-corner-all">
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12 col-md-6" ng-show="false">
+                <label for="db" class="control-label col-xs-4">Discretionary Bursary:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="checkbox" name="db" id="db" ng-model="ctrl.studentBursary.db" class="form-control text ui-widget-content ui-corner-all">
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12 col-md-6">
+                <label for="freeMealsEligibility" class="control-label col-xs-4">Free Meals Eligibility:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="checkbox" name="freeMealsEligibility" id="freeMealsEligibility" ng-model="ctrl.studentBursary.freeMealsEligibility" class="form-control text ui-widget-content ui-corner-all">
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12 col-md-6">
+                <label for="receivingFreeMeals" class="control-label col-xs-4">Receiving Free Meals:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="checkbox" name="receivingFreeMeals" id="receivingFreeMeals" ng-model="ctrl.studentBursary.receivingFreeMeals" class="form-control text ui-widget-content ui-corner-all">
+                </div>
+            </div>
+            <div class="form-group col-sm-12 col-md-6">
+                <label for="removedFromFreeMeals" class="control-label col-xs-4">Removed From Free Meals:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="checkbox" name="removedFromFreeMeals" id="removedFromFreeMeals" ng-model="ctrl.studentBursary.removedFromFreeMeals" class="form-control text ui-widget-content ui-corner-all">
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="ctrl.cancel()"> <span class="glyphicon glyphicon-ban-circle"></span> Cancel</button>
+        <button type="submit" class="btn btn-primary" ng-disabled="studentBursaryEditForm.$invalid || studentBursaryEditForm.$submitted"><span class="glyphicon glyphicon-save"></span> Save</button>
+    </div>
+
+</form>

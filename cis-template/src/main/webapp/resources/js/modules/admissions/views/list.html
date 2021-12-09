@@ -1,0 +1,21 @@
+<div>
+    <table class="table table-responsive table-bordered table-hover table-condensed">
+        <thead>
+            <th>Ref</th>
+            <th>Person</th>
+            <th>Status</th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="app in applicationListEntity.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) | orderBy : '+referenceNo' " class="ng-cloak">
+                <td><a ui-sref="admissions.edit({ studentId:app.studentId })">{{ app.referenceNo }}</a></td>
+                <td>{{ app.personName }}</td>
+                <td>{{ app.status }}</td>
+            </tr>
+            <tr ng-show="ctrl.noResults">
+                <td colspan="4">No Results</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div uib-pagination total-items="totalItems" ng-model="currentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages" items-per-page="itemsPerPage"></div>
+</div>

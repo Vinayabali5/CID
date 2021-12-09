@@ -1,0 +1,206 @@
+<form id="enrolmentEditForm" name="enrolmentEditForm" role="form" novalidate show-validation>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="ctrl.cancel()">&times;</button>
+        <h4 class="modal-title" id="myToDoLabel">Edit a Enrolment</h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+            <div class="form-group col-sm-12 col-md-6 row">
+                <label for="field_id" class="control-label col-xs-4">Enrolment ID</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    {{ ctrl.enrolment.enrolmentId }}
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12 col-md-6 row">
+                <label for="field_courseGroupSpec" class="control-label col-xs-4">Course Group Spec</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    {{ ctrl.enrolment._courseGroupReference }}
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-sm-12 col-md-6 row">
+                <label for="field_date" class="control-label col-xs-4">Start Date</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <div class="input-group">
+                        <input type="text" class="form-control" ng-init="enrolmentStartDatePicker = false" uib-datepicker-popup="dd/MM/yyyy" is-open="enrolmentStartDatePicker" ng-model="ctrl.enrolment.startDate">
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="enrolmentStartDatePicker = !enrolmentStartDatePicker">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12 col-md-6 row">
+                <label for="field_date" class="control-label col-xs-4">End Date</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <div class="input-group">
+                        <input type="text" class="form-control" ng-init="enrolmentEndDatePicker = false" uib-datepicker-popup="dd/MM/yyyy" is-open="enrolmentEndDatePicker" ng-model="ctrl.enrolment.endDate" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="enrolmentEndDatePicker = !enrolmentEndDatePicker">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-sm-12 col-md-12 row">
+                <label for="withdrawalReason" class="col-xs-4 col-sm-4 col-md-2 control-label">Withdrawal Reason:</label>
+                <div class="col-xs-8 col-sm-8 col-md-10">
+                    <withdrawal-reason-selection id="withdrawalReason" name="withdrawalReason" class="form-control" include-blank="true" ng-model="ctrl.enrolment.withdrawalReasonId"></withdrawal-reason-selection>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12 col-md-12 row">
+                <label for="centralMonitoring" class="col-xs-4 col-sm-4 col-md-2 control-label">Central Monitoring:</label>
+                <div class="col-xs-8 col-sm-8 col-md-10">
+                    <central-monitoring-selection id="centralMonitoring" name="centralMonitoring" class="form-control" include-blank="true" ng-model="ctrl.enrolment.centralMonitoringId"></central-monitoring-selection>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <hr />
+        </div>
+
+        <h4 class="row modal-title">ILR Fields</h4>
+
+        <div class="row">
+            <div class="form-group col-sm-12 col-md-6 row">
+                <label for="ilr" class="control-label col-xs-4">ILR Returns</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="ilr" name="ilr" type="checkbox" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.enrolment.ilr"></input>
+                </div>
+            </div>
+            <div class="form-group col-sm-12 col-md-6 row">
+                <label for="aimType" class="control-label col-xs-4">Aim Type:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <aim-type-selection id="aimType" name="aimType" class="form-control" ng-model="ctrl.enrolment.aimTypeId"></aim-type-selection>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-sm-12 col-md-6 row">
+                <label for="qualificationStartDate" class="control-label col-xs-4">Qualification Start Date</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <div class="input-group">
+                        <input type="text" id="qualificationStartDate" name="qualificationStartDate" class="form-control" ng-init="qualificationStartDatePicker = false" uib-datepicker-popup="dd/MM/yyyy" is-open="qualificationStartDatePicker" ng-model="ctrl.enrolment.qualificationStartDate">
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="qualificationStartDatePicker = !qualificationStartDatePicker">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12 col-md-6 row">
+                <label for="plannedEndDate" class="control-label col-xs-4">Planned End Date</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <div class="input-group">
+                        <input type="text" id="plannedEndDate" name="plannedEndDate" class="form-control" ng-init="plannedEndDatePicker = false" uib-datepicker-popup="dd/MM/yyyy" is-open="plannedEndDatePicker" ng-model="ctrl.enrolment.plannedEndDate">
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="plannedEndDatePicker = !plannedEndDatePicker">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-sm-12 col-md-6 row">
+                <label for="completionStatus" class="control-label col-xs-4">Completion Status:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <completion-status-selection id="completionStatus" name="completionStatus" class="form-control" ng-model="ctrl.enrolment.completionStatusId"></completion-status-selection>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12 col-md-6 row">
+                <label for="outcome" class="control-label col-xs-4">Outcome:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <outcome-selection id="outcome" name="outcome" class="form-control" ng-model="ctrl.enrolment.outcomeId"></outcome-selection>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-sm-12 col-md-6 row">
+                <label for="grade" class="control-label col-xs-4">Grade</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" id="grade" name="grade" ng-model="ctrl.enrolment.grade" class="form-control text ui-widget-content ui-corner-all">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-sm-12 col-md-6 row">
+                <label for="plh" class="control-label col-xs-4" uib-tooltip="Planned Learning Hours">PLH</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" id="plh" name="plh" ng-model="ctrl.enrolment.plh" class="form-control text ui-widget-content ui-corner-all">
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12 col-md-6 row">
+                <label for="peeph" class="control-label col-xs-4" uib-tooltip="Planned Employablility, Enrichment and Pastoral Hours">PEEPH</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" id="peeph" name="peeph" ng-model="ctrl.enrolment.peeph" class="form-control text ui-widget-content ui-corner-all">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-sm-12 col-md-6 row">
+                <label for="fundingModel" class="control-label col-xs-4">Funding Model:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <funding-model-selection id="fundingModel" name="fundingModel" class="form-control" include-blank="true" ng-model="ctrl.enrolment.fundingModelId"></funding-model-selection>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12 col-md-6 row">
+                <label for="learningAimReferenceOverride" class="control-label col-xs-4">Learning Aim Reference Override:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="learningAimReferenceOverride" name="learningAimReferenceOverride" class="form-control" ng-model="ctrl.enrolment.learningAimReferenceOverride"></input>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12 col-md-6 row">
+                <label for="sourceOfFunding" class="control-label col-xs-4">Source of Funding:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <source-of-funding-selection id="sourceOfFunding" name="sourceOfFunding" class="form-control" include-blank="true" ng-model="ctrl.enrolment.sourceOfFundingId"></source-of-funding-selection>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-sm-12 col-md-12 row">
+                <label for="notes" class="col-xs-4 col-sm-4 col-md-2 control-label" uib-tooltip="Notes">Notes:</label>
+                <div class="col-xs-8 col-sm-8 col-md-10">
+                    <textarea id="notes" name="notes" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.enrolment.notes"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="ctrl.cancel()">
+            <span class="glyphicon glyphicon-ban-circle"></span>
+            Cancel
+        </button>
+        <button type="button" class="btn btn-primary" ng-disabled="enrolmentEditForm.$invalid || enrolmentEditForm.$submitted" ng-click="ctrl.save()">
+            <span class="glyphicon glyphicon-save"></span>
+            Save
+        </button>
+    </div>
+
+</form>

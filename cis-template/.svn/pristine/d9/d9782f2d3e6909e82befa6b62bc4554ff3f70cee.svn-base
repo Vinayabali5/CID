@@ -1,0 +1,2 @@
+<h1>Holidays Editor</h1>
+<holidays-editor holidays="data" show-actions="true"></holidays-editor>

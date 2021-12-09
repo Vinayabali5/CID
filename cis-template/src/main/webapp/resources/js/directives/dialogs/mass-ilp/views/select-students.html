@@ -1,0 +1,13 @@
+<form id="selectStudent" name="selectStudent" role="form" novalidate show-validation>
+    <div class="modal-header">
+        <h4 class="modal-title" id="myToDoLabel">Select Students</h4>
+    </div>
+    <div class="modal-body">
+        <h4>Available for this student:</h4>
+        <div class="row">
+            <div class="col-xs-12">
+                <select ng-model="ilpInterview.studentList" ng-options="i.studentId as i.student.person.surname + ', ' + i.student.person.firstName || i.student.person.preferredName for i in studentList | orderBy:'student.person.surname'" multiple bs-duallistbox move-on-select="true" preserve-selection="moved" filter="true" select-min-height="400px" ng-required="true"></select>
+            </div>
+        </div>
+    </div>
+</form>

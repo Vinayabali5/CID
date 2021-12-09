@@ -1,0 +1,65 @@
+<form id="roomsEditForm" name="roomsEditForm" role="form" novalidate show-validation>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="ctrl.cancel()">&times;</button>
+        <h4 class="modal-title" id="myToDoLabel">Add/Edit Room</h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+            <div class="form-group">
+                <label for="code" class="control-label col-xs-4">Code:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="code" name="code" type="text" class="form-control" ng-model="ctrl.room.code" ng-required="true">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="description" class="control-label col-xs-4">Description:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="description" name="description" type="text" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.room.description" ng-required="true"></input>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="roomType" class="control-label col-xs-4">Room Type</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <room-type-selection id="roomType" name="roomType" class="form-control" include-blank="true" ng-model="ctrl.room.roomTypeId" ng-required="true"></room-type-selection>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="capacity" class="control-label col-xs-4">Capacity</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="capacity" name="capacity" type="text" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.room.capacity"></input>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="defaultRows" class="control-label col-xs-4">Default Rows</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="defaultRows" name="defaultRows" type="text" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.room.defaultRows"></input>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="defaultCols" class="control-label col-xs-4">Default Cols</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="defaultCols" name="defaultCols" type="text" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.room.defaultCols"></input>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="ctrl.cancel()">
+            <span class="glyphicon glyphicon-ban-circle"></span>
+            Cancel
+        </button>
+        <button type="button" class="btn btn-primary" ng-disabled="roomsEditForm.$invalid || roomsEditForm.$submitted" ng-click="ctrl.save()">
+            <span class="glyphicon glyphicon-save"></span>
+            Save
+        </button>
+    </div>
+
+</form>

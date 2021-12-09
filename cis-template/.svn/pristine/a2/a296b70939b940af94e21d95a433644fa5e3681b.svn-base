@@ -1,0 +1,19 @@
+<div class="modal-header">
+    <button type="button" class="close" ng-click="cancel()">&times;</button>
+    <h3 class="modal-title">Details for {{headerVal}}</h3>
+</div>
+<div class="modal-body">
+    <table class="table table-responsive-condensed">
+        <tbody>
+            <tr ng-repeat-start="(key, value) in dataSet" ng-if="checkNotHidden(key, value)" class="ng-cloak">
+                <td>{{key}}</td>
+                <td>{{value}}</td>
+            </tr>
+            <tr ng-if="checkObject(value)" ng-repeat-end="">
+                <td colspan="2">
+                    <!-- 					<ng-include="">	 -->
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

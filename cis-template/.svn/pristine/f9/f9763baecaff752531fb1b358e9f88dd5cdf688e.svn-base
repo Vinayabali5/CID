@@ -1,0 +1,2 @@
+<h1>Roles Editor</h1>
+<roles-editor roles="data" show-actions="true"></roles-editor>

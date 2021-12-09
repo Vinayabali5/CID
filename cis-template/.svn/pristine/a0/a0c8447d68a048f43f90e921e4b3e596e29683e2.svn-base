@@ -1,0 +1,8 @@
+<h1>Register Table</h1>
+
+<input ng-model=ctrl.studentId></input><button class="btn btn-sm" ng-click="ctrl.getRegisters()">Get Register</button>
+<br />
+<registers-table registers="ctrl.registers"></registers-table>
+
+<h3>Register Editor</h3>
+<registers-editor student-id="ctrl.studentId" registers="ctrl.registers"></registers-editor>

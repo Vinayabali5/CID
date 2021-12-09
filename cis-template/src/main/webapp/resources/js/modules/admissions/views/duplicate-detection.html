@@ -1,0 +1,45 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="ctrl.cancel()">&times;</button>
+    <h1 class="modal-title">Duplicate Matches Found</h1>
+</div>
+
+<div class="modal-body">
+    <table class="table table-responsive table-hover" id="Duplicate">
+        <thead>
+            <th>Surname</th>
+            <th>First Name</th>
+            <th>Middle Name(s)</th>
+            <th>Date of Birth</th>
+            <th>Home Telephone</th>
+            <th>Mobile Telephone</th>
+            <th>Address</th>
+            <th>Actions</th>
+        </thead>
+        <tbody>
+            <tr ng-repeat-start="app in duplicates.matches">
+                <td>{{ app.person.surname }}</td>
+                <td>{{ app.person.firstName }}</td>
+                <td>{{ app.person.middleNames }}</td>
+                <td>{{ app.person.dob | date:'dd/MM/yyyy' }}</td>
+                <td>{{ app.person.home | telNo }}</td>
+                <td>{{ app.person.mobile | telNo }}</td>
+                <td>
+                    <address-details address="app.person.address" ng-show="app.person.addressId"></address-details>
+                </td>
+                <td>
+                    <button class="btn btn-primary btn-sm" ng-click="selectTwin(app.person)"><span class="glyphicon glyphicon-pencil"></span>Select Twin</button>
+                </td>
+            </tr>
+            <tr ng-repeat-end>
+                <td colspan="7">
+                    <contacts-table contacts="app.person.contacts"></contacts-table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="modal-footer">
+    <button type="button" class="btn btn-primary" ng-click="clearApplication()">Cancel Application</button>
+    <button type="button" class="btn btn-primary" ng-click="continueApplication()">Continue</button>
+</div>

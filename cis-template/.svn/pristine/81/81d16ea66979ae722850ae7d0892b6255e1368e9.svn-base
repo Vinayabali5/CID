@@ -1,0 +1,91 @@
+<button class="btn btn-sm btn-primary help-button" type="button" data-toggle="collapse" data-target="#learningSupportHelp" aria-expanded="false" aria-controls="learningSupportHelp"><span class="glyphicon glyphicon-question-sign"></span> Help</button>
+<h3>Learning Support Information</h3>
+<div class="collapse" id="learningSupportHelp">
+    <div class="well">
+        <p>
+            This section is used to store various learning support information about the current student.
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-md-6">
+        <h3>Initial Assessment</h3>
+        <div class="row">
+            <div class="col-xs-4">Referral Notes:</div>
+            <div class="col-xs-8">{{ ctrl.learningSupport.referralNotes | blank }}</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4">Support Notes:</div>
+            <div class="col-xs-8">{{ ctrl.learningSupport.supportNotes | blank }}</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4"><strong>Previous Concessions:</strong></div>
+            <div class="col-xs-8"><strong>{{ ctrl.learningSupport.previousConcession | blank }}</strong></div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-md-6">
+        <h3>Exam Concessions Details</h3>
+        <div class="row">
+            <div class="col-xs-4">Concessions Being Investigated:</div>
+            <div class="col-xs-8">{{ ctrl.learningSupport.concessionApplication | yesNo }}</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4">Date of Assessment:</div>
+            <div class="col-xs-8">{{ ctrl.learningSupport.assessmentDate | date:'dd/MM/yyyy' }}</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4">Exam Concession Approved:</div>
+            <div class="col-xs-8">{{ ctrl.learningSupport.examConcessionApproved | yesNo }}</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4">BTEC Concession Approved:</div>
+            <div class="col-xs-8">{{ ctrl.learningSupport.btecConcessionApproved | yesNo }}</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4">FS Concession Approved:</div>
+            <div class="col-xs-8">{{ ctrl.learningSupport.fsConcessionApproved | yesNo }}</div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-md-6">
+        <div class="row">
+            <div class="col-xs-12 col-md-12">
+                <h3>Referral Reasons</h3>
+                <student-referral-reason-table student-referral-reason="ctrl.studentReferralReason" permission permission-not="['ROLE_Developer','ROLE_Learning Support']"></student-referral-reason-table>
+                <student-referral-reason-editor student-id="ctrl.student.id" student-referral-reason="ctrl.studentReferralReason" permission="['ROLE_Developer','ROLE_Learning Support']" show-actions="true"></student-referral-reason-editor>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-md-12">
+                <h3>LLDD Health Problems</h3>
+                <student-lldd-health-problem-category-table lldd-health-problem-category="ctrl.studentLLDDHealthProblemCategory" permission permission-not="['ROLE_Developer','ROLE_Learning Support', 'ROLE_Office Administration', 'ROLE_Admissions']"></student-lldd-health-problem-category-table>
+                <student-lldd-health-problem-category-editor student-id="ctrl.student.id" lldd-health-problem-category="ctrl.studentLLDDHealthProblemCategory" permission="['ROLE_Developer','ROLE_Learning Support', 'ROLE_Office Administration', 'ROLE_Admissions']" show-actions="true"></student-lldd-health-problem-category-editor>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-md-6">
+        <div class="row">
+            <div class="col-xs-12 col-md-12">
+                <h3>Course Concessions</h3>
+                <student-concession-table concessions="ctrl.studentCourseConcessions" permission permission-not="['ROLE_Developer','ROLE_Learning Support']"></student-concession-table>
+                <student-concession-editor student-id="ctrl.student.id" concessions="ctrl.studentCourseConcessions" permission="['ROLE_Developer','ROLE_Learning Support']" show-actions="true"></student-concession-editor>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-md-12">
+                <h3>Course Support Types</h3>
+                <student-course-support-types-editor student-id="ctrl.student.id" student-course-support-types="ctrl.studentCourseSupportTypes" permission="['ROLE_Developer', 'ROLE_Learning Support', 'ROLE_Office Administration', 'ROLE_LIP']" show-actions="true"></student-course-support-types-editor>
+                <student-course-support-types-editor student-id="ctrl.student.id" student-course-support-types="ctrl.studentCourseSupportTypes" permission permission-not="['ROLE_Developer', 'ROLE_Learning Support', 'ROLE_Office Administration', 'ROLE_LIP']" show-actions="false"></student-course-support-types-editor>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-md-12">
+        <h3>Learning Support ILP</h3>
+        <ilp-interviews-table ilp-interviews="ctrl.ilpInterviews" show-filter="false" filter="{_ilpInterviewTypeDescription : 'Learning Support'}" show-staff="true" show-letter-home="false""></ilp-interviews-table>
+    </div>
+</div>

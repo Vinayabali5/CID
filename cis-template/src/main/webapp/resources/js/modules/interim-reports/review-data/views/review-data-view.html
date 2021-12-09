@@ -1,0 +1,69 @@
+<div class="container">
+    <div class="staff-data">
+        <h3><strong>{{ currentUser.person.firstName }} {{ currentUser.person.surname }} - Review Data (for interim reports)</strong></h3>
+    </div>
+    <div class="staff-data">
+        <h5><strong>Review Details: {{ spec }}</strong></h5>
+    </div>
+
+    <table class="review-data table table-bordered table-striped table-hover table-condensed" ts-wrapper ts-item-name="Student">
+        <thead>
+            <th>Student Id</th>
+            <th ts-criteria="student.person.surname" ts-default="ascending">Student Name</th>
+            <th>TG</th>
+            <th>Risk</th>
+            <th>Motivation</th>
+            <th>Class Ethic</th>
+            <th>Deadlines</th>
+            <th>KA1</th>
+            <th>KA2</th>
+            <th>KA3</th>
+            <th class="review-data">YTD <br>Punct</th>
+            <th class="review-data">YTD <br>AdjPunct</th>
+            <th class="review-data">YTD <br>AdjAtt</th>
+            <th class="review-data">YTD <br>ActAtt</th>
+            <th class="review-data">Period<br>Punct</th>
+            <th class="review-data">Period <br>AdjPunct</th>
+            <th class="review-data">Period <br>AdjAtt</th>
+            <th class="review-data">Period <br>ActAtt</th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="reviewData in reviewStudentList" ts-repeat>
+                <td>{{ reviewData.studentId}}</td>
+                <td width="20%">{{ reviewData.student.person.surname + ', ' + reviewData.student.person.firstName }}</td>
+                <td>{{ reviewData.student.studentYears[0].tutorGroup.code  }}</td>
+                <td>{{ reviewData.student.riskLevel.code  }}</td>
+                <td>
+                    <interim-report-effort-grade-selection ng-model="reviewData.motivationId"></interim-report-effort-grade-selection>
+                </td>
+                <td>
+                    <interim-report-effort-grade-selection ng-model="reviewData.classEthicId"></interim-report-effort-grade-selection>
+                </td>
+                <td>
+                    <interim-report-effort-grade-selection ng-model="reviewData.timeManagementId"></interim-report-effort-grade-selection>
+                </td>
+                <td>
+                    <possible-grade-selection ng-model="reviewData.keyAssessment1Id"></possible-grade-selection>
+                </td>
+                <td>
+                    <possible-grade-selection ng-model="reviewData.keyAssessment2Id"></possible-grade-selection>
+                </td>
+                <td>
+                    <possible-grade-selection ng-model="reviewData.keyAssessment3Id"></possible-grade-selection>
+                </td>
+                <td class="review-data">{{ reviewData._YPunc * 100 | number:0 }}</td>
+                <td class="review-data">{{ reviewData._YAdjPunc * 100 | number:0 }}</td>
+                <td class="review-data">{{ reviewData._YAdjAtt * 100 | number:0 }}</td>
+                <td class="review-data">{{ reviewData._YActAtt * 100 | number:0 }}</td>
+                <td class="review-data">{{ reviewData._PeriodPunc * 100 | number:0 }}</td>
+                <td class="review-data">{{ reviewData._PeriodAdjPunc * 100 | number:0 }}</td>
+                <td class="review-data">{{ reviewData._PeriodAdjAtt * 100 | number:0 }}</td>
+                <td class="review-data">{{ reviewData._PeriodActAtt * 100 | number:0 }}</td>
+
+            </tr>
+    </table>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="save()">Submit Review</button>
+        <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+    </div>
+</div>

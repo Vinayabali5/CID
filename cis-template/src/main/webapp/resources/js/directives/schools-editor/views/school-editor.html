@@ -1,0 +1,31 @@
+<table class="table table-responsive table-hover" ts-wrapper ts-item-name="School">
+    <thead>
+        <th ts-criteria="name" ts-filter>Name</th>
+        <th ts-criteria="_typeDescription">Type</th>
+        <th ts-criteria="_priorityCode">Priority</th>
+        <th>Address</th>
+        <th>Telephone</th>
+        <th>Head</th>
+        <th>Contact Name</th>
+        <th>URN</th>
+        <th>Use In Online Applications</th>
+        <th ng-show="showActions">Actions</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="school in schools" ts-repeat>
+            <td>{{school.name}}</td>
+            <td>{{school._typeDescription}}</td>
+            <td>{{school._priorityCode}}</td>
+            <td>{{school.line1}}<br>{{school.line2}}<br>{{school.line3}}<br>{{school.postcode}}</td>
+            <td>{{school.telephone}}</td>
+            <td>{{school.headTitle}} {{school.headFirstName}} {{school.headSurname}}</td>
+            <td>{{school.contactTitle}} {{school.contactFirstName}} {{school.contactSurname}}</td>
+            <td>{{school.urn}}</td>
+            <td>{{school.useInOnlineApplications | yesNo }}</td>
+            <td ng-show="showActions">
+                <button type='button' class="btn btn-primary btn-sm" ng-click="ctrl.editSchools(school.id)"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button ng-show="showActions" type='button' class="btn btn-primary btn-sm" ng-click="ctrl.addSchools()"><span class="glyphicon glyphicon-pencil"></span> Add</button>

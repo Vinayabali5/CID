@@ -1,0 +1,1 @@
+<person-details person="ctrl.person" show-dob="showDob" show-gender="showGender" show-all="showAll"></person-details>

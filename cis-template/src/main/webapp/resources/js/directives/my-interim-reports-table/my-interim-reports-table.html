@@ -1,0 +1,15 @@
+    <table class="table table-responsive table-hover" ts-wrapper ts-item-name="Course Group">
+        <thead>
+            <th ts-criteria="CourseGroupSpec" ts-filter>Course Group Spec</th>
+            <th>Saved</th>
+            <th>Actions</th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="studentInterimReport in interimReports | orderBy: 'CourseGroupSpec'" ts-repeat>
+                <td>{{ studentInterimReport.CourseGroupSpec }}</td>
+                <td>{{ studentInterimReport.complete | yesNo }}</td>
+                <td>
+                    <button type="button" class="btn btrn-sm btn-primary" edit-interim-reports-due="studentInterimReport"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+                </td>
+            </tr>
+    </table>

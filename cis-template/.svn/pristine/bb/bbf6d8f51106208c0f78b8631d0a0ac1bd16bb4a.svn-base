@@ -1,0 +1,132 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="ctrl.cancel()">&times;</button>
+    <h4 class="modal-title" id="dialog-title">Edit an Interim Report</h4>
+</div>
+
+<div class="modal-body">
+    <div class="row">
+        <div class="form-group" ng-show="false">
+            <label for="studentId">Student ID</label>
+            <div class="col-xs-8 col-sm-8 col-md-8">
+                <input id="studentId" name="studentId" type="text" class="form-control" readonly ng-model="ctrl.studentInterimReport.studentId">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group">
+            <label for="staffId" class="control-label col-xs-4">Staff:</label>
+            <div class="col-xs-8 col-sm-8 col-md-8">
+                <staff-selection id="staffId" name="staffId" class="form-control" ng-model="ctrl.studentInterimReport.staffId"></staff-selection>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group">
+            <label for="interimReportId" class="control-label col-xs-4">Interim Report: </label>
+            <div class="col-xs-8 col-sm-8 col-md-8">
+                <interim-report-selection id="interimReportId" name="interimReportId" class="form-control" ng-model="ctrl.studentInterimReport.interimReportId"></interim-report-selection>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group">
+            <label for="motivation" class="control-label col-xs-4">Motivation: </label>
+            <div class="col-xs-8 col-sm-8 col-md-8">
+                <interim-report-effort-grade-selection id="motivationId" name="motivationId" class="form-control" ng-model="ctrl.studentInterimReport.motivationId"></interim-report-effort-grade-selection>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group">
+            <label for="classEthic" class="control-label col-xs-4">Class Ethic</label>
+            <div class="col-xs-8 col-sm-8 col-md-8">
+                <interim-report-effort-grade-selection id="classEthicId" name="classEthicId" class="form-control" ng-model="ctrl.studentInterimReport.classEthicId"></interim-report-effort-grade-selection>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group">
+            <label for="timeManagement" class="control-label col-xs-4">Time Management</label>
+            <div class="col-xs-8 col-sm-8 col-md-8">
+                <interim-report-effort-grade-selection id="timeManagementId" name="timeManagementId" class="form-control" ng-model="ctrl.studentInterimReport.timeManagementId"></interim-report-effort-grade-selection>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group">
+            <label for="currentPredictedGrade" class="control-label col-xs-4">Current Grade:</label>
+            <div class="col-xs-8 col-sm-8 col-md-8">
+                <possible-grade-selection id="currentPredictedGrade" name="currentPredictedGrade" class="form-control" ng-model="ctrl.studentInterimReport.currentPredictedGradeId"></possible-grade-selection>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group">
+            <label for="ka1" class="control-label col-xs-4">KA1:</label>
+            <div class="col-xs-8 col-sm-8 col-md-8">
+                <possible-grade-selection id="ka1" name="ka1" class="form-control" ng-model="ctrl.studentInterimReport.keyAssessment1Id"></possible-grade-selection>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group">
+            <label for="ka2" class="control-label col-xs-4">KA2:</label>
+            <div class="col-xs-8 col-sm-8 col-md-8">
+                <possible-grade-selection id="ka2" name="ka2" class="form-control" ng-model="ctrl.studentInterimReport.keyAssessment2Id"></possible-grade-selection>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group">
+            <label for="totalPossible" class="control-label col-xs-4">Total Possible</label>
+            <div class="col-xs-8 col-sm-8 col-md-8">
+                <input id="totalPossible" name="totalPossible" type="text" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.studentInterimReport.totalPossible"></input>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group">
+            <label for="absence" class="control-label col-xs-4">Absence</label>
+            <div class="col-xs-8 col-sm-8 col-md-8">
+                <input id="absence" name="absence" type="text" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.studentInterimReport.absence"></input>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group">
+            <label for="authorisedAbsence" class="control-label col-xs-4">Authorised Absence</label>
+            <div class="col-xs-8 col-sm-8 col-md-8">
+                <input id="authorisedAbsence" name="authorisedAbsence" type="text" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.studentInterimReport.authorisedAbsence"></input>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group">
+            <label for="late" class="control-label col-xs-4">Late</label>
+            <div class="col-xs-8 col-sm-8 col-md-8">
+                <input id="late" name="late" type="text" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.studentInterimReport.late"></input>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="ctrl.cancel()">
+        <span class="glyphicon glyphicon-ban-circle"></span> Cancel
+    </button>
+    <button type="button" class="btn btn-primary" ng-disabled="contactEditForm.$invalid || contactEditForm.$submitted" ng-click="ctrl.save()">
+        <span class="glyphicon glyphicon-save"></span> Save
+    </button>
+</div>

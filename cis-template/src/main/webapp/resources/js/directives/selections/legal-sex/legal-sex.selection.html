@@ -1,0 +1,4 @@
+<select id="{{ id }}" class="{{class}}" ng-disabled="readonly" ng-model="ngmodelvar" ng-required="ngRequired">
+    <option value="" alt-null-text="altNullText">{{ altNullText }}</option>
+    <option ng-repeat="i in ctrl.legalSexs" ng-selected="ngmodelvar == i.id" ng-value="{{ i.id }}" value="{{ i.id }}">{{ i.description }}</option>
+</select>

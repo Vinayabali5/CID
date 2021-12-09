@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>rv</Title>
+      <Shortcut>rv</Shortcut>
+      <Description>Report Variables: Generic</Description>
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations />
+      <Code Language="sql"><![CDATA[DECLARE
+    @AcademicYear int = [Data].[GetCurrentAcademicYearId](),
+    @RefDate date = GETDATE(),
+    @CourseMask varchar(100) = '%',
+    @CourseGroupMask varchar(100) = '%',
+    @CourseGroupExcludeMask varchar(100) = 'S-T[UL]T%',
+    @StudentTypeMask varchar(100) = '%',
+    @TutorGroupMask varchar(100) = '%',
+    @StartDate date = GETDATE() - 31,
+    @EndDate date = GETDATE() + 31;
+
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

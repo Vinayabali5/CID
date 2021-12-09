@@ -1,0 +1,70 @@
+<form id="departmentsEditForm" name="departmentsEditForm" role="form" novalidate show-validation>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="ctrl.cancel()">&times;</button>
+        <h4 class="modal-title" id="myToDoLabel">Add/Edit Department</h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+            <div class="form-group" ng-show="true">
+                <label for="id" class="control-label col-xs-4">Department ID</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" class="form-control" id="id" name="id" readonly ng-model="ctrl.departments.id">
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="name" class="control-label col-xs-4">Name</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" class="form-control" id="name" name="name" ng-model="ctrl.departments.name">
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="description" class="control-label col-xs-4">Description</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" class="form-control" id="description" name="description" ng-model="ctrl.departments.description">
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="facultyId" class="control-label col-xs-4">Faculty</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <faculty-selection class="form-control" include-blank="true" id="facultyId" name="facultyId" readonly="setReadonly" ng-model="ctrl.departments.facultyId"></faculty-selection>
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="hodId" class="control-label col-xs-4">HOD</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <staff-selection class="form-control" include-blank="true" id="hod" name="hod" readonly="setReadonly" ng-model="ctrl.departments.hodId"></staff-selection>
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="hod2Id" class="control-label col-xs-4">HOD2</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <staff-selection class="form-control" include-blank="true" id="hod2Id" name="hod2Id" readonly="setReadonly" ng-model="ctrl.departments.hod2Id"></staff-selection>
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="academic" class="control-label col-xs-4">Academic</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="checkbox" class="form-control" name="academic" id="academic" ng-model="ctrl.departments.academic">
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="ctrl.cancel()">
+            <span class="glyphicon glyphicon-ban-circle"></span> Cancel
+        </button>
+        <button type="button" class="btn btn-primary" ng-click="ctrl.save()">
+            <span class="glyphicon glyphicon-save"></span> Save
+        </button>
+    </div>
+
+</form>

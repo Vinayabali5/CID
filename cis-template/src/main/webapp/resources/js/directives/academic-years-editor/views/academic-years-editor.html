@@ -1,0 +1,31 @@
+<table class="table table-responsive table-hover" ts-wrapper ts-item-name="Academic Year">
+    <thead>
+        <th ts-criteria="id" ng-show="showID || showAll">ID</th>
+        <th ts-criteria="code" ts-default="descending" ts-filter>Code</th>
+        <th ts-criteria="description" ts-filter>Description</th>
+        <th ts-criteria="startDate">Start Date</th>
+        <th ts-criteria="endDate">End Date</th>
+        <th ts-criteria="startYear">Start Year</th>
+        <th ts-criteria="enumerationDate">Enumeration Date</th>
+        <th ts-criteria="teachingStartDate">Teaching Start Date</th>
+        <th ts-criteria="teachingEndDate">Teaching End Date</th>
+        <th ng-show="showActions">Actions</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="academicYear in academicYears | orderBy : ctrl.sortOrder" ts-repeat>
+            <td ng-show="showID || showAll">{{ academicYear.id }}</td>
+            <td>{{ academicYear.code }}</td>
+            <td>{{ academicYear.description }}</td>
+            <td>{{ academicYear.startDate | date:'dd/MM/yyyy' }}</td>
+            <td>{{ academicYear.endDate | date:'dd/MM/yyyy' }}</td>
+            <td>{{ academicYear.startYear }}</td>
+            <td>{{ academicYear.enumerationDate | date:'dd/MM/yyyy' }}</td>
+            <td>{{ academicYear.teachingStartDate | date:'dd/MM/yyyy' }}</td>
+            <td>{{ academicYear.teachingEndDate | date:'dd/MM/yyyy' }}</td>
+            <td ng-show="showActions">
+                <button type="button" class="btn btn-primary btn-sm" ng-click="ctrl.editAcademicYears(academicYear.id)"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button ng-show="showActions" type="button" class="btn btn-primary btn-sm" ng-click="ctrl.addAcademicYears()"><span class="glyphicon glyphicon-pencil"></span> Add</button>

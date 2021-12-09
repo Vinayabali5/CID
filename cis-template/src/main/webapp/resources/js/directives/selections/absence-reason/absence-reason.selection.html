@@ -1,0 +1,3 @@
+<select name="show-filter" ng-attr-id="{{ id }}" class="{{ class }}" ng-disabled="readonly" ng-model="ngmodelvar">
+    <option ng-repeat="i in ctrl.absenceReasons" ng-selected="ngmodelvar == i.id" ng-value="{{ i.id }}" value="{{ i.id }}">{{ i.reason }}</option>
+</select>

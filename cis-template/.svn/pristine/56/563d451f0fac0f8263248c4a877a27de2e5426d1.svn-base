@@ -1,0 +1,4 @@
+<div ng-show="true || visible">
+    <button ng-show="expanded && expandable" ng-click="expanded = false" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-minus"></span></button>
+    <button ng-show="!expanded && expandable" ng-click="expanded = true" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-plus"></span></button>
+</div>

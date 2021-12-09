@@ -1,0 +1,25 @@
+<table class="table table-responsive table-hover" ts-wrapper ts-item-name="Department">
+    <thead>
+        <th ts-criteria="name" ts-filter>Name</th>
+        <th ts-criteria="description" ts-filter>Description</th>
+        <th ts-criteria="_facultyDescription" ts-filter>Faculty</th>
+        <th>HOD</th>
+        <th>HOD2</th>
+        <th>Academic</th>
+        <th ng-show="showActions">Actions</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="department in departments" ts-repeat>
+            <td>{{ department.name }}</td>
+            <td>{{ department.description }}</td>
+            <td>{{department._facultyDescription}}</td>
+            <td>{{ department.hodId}} - {{ department._hodName}}</td>
+            <td>{{ department.hod2Id}} - {{ department._hod2Name}}</td>
+            <td>{{ department.academic | yesNo }}</td>
+            <td ng-show="showActions">
+                <button type="button" class="btn btn-primary btn-sm" ng-click="ctrl.editDepartments(department.id)"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button ng-show="showActions" type="button" class="btn btn-primary btn-sm" ng-click="ctrl.addDepartments()"><span class="glyphicon glyphicon-pencil"></span> Add</button>

@@ -1,0 +1,19 @@
+<div class="course-details">
+    <div class="row">
+        <div class="col-md-4 col-sm-6 col-xs-12">
+            <div>Course Code: {{ course.spec }}</div>
+            <div>Level: {{ course._levelDescription }}</div>
+            <div>Subject: {{ course._subjectDescription }}</div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12">
+            <div>Learning Aim Reference: {{ course.learningAimReference }}</div>
+            <div>Exam Board: {{ course._examBoardDescription }}</div>
+            <div>Syllabus Code: {{ course.syllabusCode }}</div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12">
+            <div>Valid From Year: {{ course._validFromCode | notSet }}</div>
+            <div>Valid To Year: {{ course._validToCode | notSet }}</div>
+        </div>
+    </div>
+    <!-- <div class="error" ng-hide="hasData()">Course Details: No Data Provided</div> -->
+</div>

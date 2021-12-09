@@ -1,0 +1,89 @@
+<form name="studentLearningSupportEditForm" role="form" novalidate show-validation>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="ctrl.cancel()">&times;</button>
+        <h4 class="modal-title">Edit Student Learning Support</h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+
+            <div class="form-group col-sm-12">
+                <label for="plh" class="col-xs-4 control-label">Referral Notes:</label>
+                <div class="col-xs-8">
+                    <textarea type="text" id="plh" name="plh" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.studentLearningSupport.referralNotes"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12">
+                <label for="supportNotes" class="col-xs-4 control-label">Support Notes:</label>
+                <div class="col-xs-8">
+                    <textarea type="text" id="supportNotes" name="supportNotes" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.studentLearningSupport.supportNotes"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12">
+                <label for="previousConcession" class="col-xs-4 control-label">Previous Concession:</label>
+                <div class="col-xs-8">
+                    <input type="text" id="previousConcession" name="previousConcession" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.studentLearningSupport.previousConcession"></input>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-6">
+                <label for="supportTypeId" class="col-xs-4 control-label">Support Type:</label>
+                <div class="col-xs-8">
+                    <support-type-selection class="form-control" id="supportTypeId" name="supportTypeId" include-blank="true" ng-model="ctrl.studentLearningSupport.supportTypeId"></support-type-selection>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-6">
+                <label for="assessmentDate" class="col-xs-4 control-label">Date of Assessment:</label>
+                <div class="col-xs-8">
+                    <div class="input-group">
+                        <input type="text" id="assessmentDate" name="assessmentDate" class="form-control" ng-init="assessmentDateDatePicker = false" uib-datepicker-popup="dd/MM/yyyy" is-open="assessmentDateDatePicker" ng-model="ctrl.studentLearningSupport.assessmentDate" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="assessmentDateDatePicker = !assessmentDateDatePicker">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-6">
+                <label for="concessionApplication" class="col-xs-4 control-label">Concession Application:</label>
+                <div class="col-xs-8">
+                    <input type="checkbox" id="concessionApplication" name="concessionApplication" ng-model="ctrl.studentLearningSupport.concessionApplication" class="form-control text ui-widget-content ui-corner-all">
+                </div>
+            </div>
+
+            <div class="form-group col-sm-6">
+                <label for="examConcessionApproved" class="col-xs-4 control-label">Exam Concession Approved:</label>
+                <div class="col-xs-8">
+                    <input type="checkbox" id="examConcessionApproved" name="examConcessionApproved" ng-model="ctrl.studentLearningSupport.examConcessionApproved" class="form-control text ui-widget-content ui-corner-all">
+                </div>
+            </div>
+
+            <div class="form-group col-sm-6">
+                <label for="btecConcessionApproved" class="col-xs-4 control-label">BTEC Concessions Approved:</label>
+                <div class="col-xs-8">
+                    <input type="checkbox" id="btecConcessionApproved" name="btecConcessionApproved" ng-model="ctrl.studentLearningSupport.btecConcessionApproved" class="form-control text ui-widget-content ui-corner-all">
+                </div>
+            </div>
+            <div class="form-group col-sm-6">
+                <label for="fsConcessionApproved" class="col-xs-4 control-label">Functional Skills Approved:</label>
+                <div class="col-xs-8">
+                    <input type="checkbox" id="fsConcessionApproved" name="fsConcessionApproved" ng-model="ctrl.studentLearningSupport.fsConcessionApproved" class="form-control text ui-widget-content ui-corner-all">
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="ctrl.cancel()"> <span class="glyphicon glyphicon-ban-circle"></span> Cancel</button>
+        <button type="submit" class="btn btn-primary" ng-disabled="studentLearningSupportEditForm.$invalid || studentLearningSupportEditForm.$submitted" ng-click="ctrl.save()">
+            <span class="glyphicon glyphicon-save"></span> Save
+        </button>
+    </div>
+
+</form>

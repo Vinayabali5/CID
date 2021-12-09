@@ -1,0 +1,30 @@
+server:
+  address: 127.0.0.1
+  port: 10180
+  contextPath: /student-records/
+  
+spring: 
+  profiles:
+    include: redis-enabled
+  
+security:
+  user:
+    password: password
+#  sessions: NEVER
+
+ldap:
+  url: ldap://reigate-dc5.reigate.ac.uk
+  port: 389
+  bindUser: CN=ldap-user,CN=Users,DC=reigate,DC=ac,DC=uk
+  bindPassword: password4ldap
+  userSearchBase: OU=Users,OU=Reigate College,DC=reigate,DC=ac,DC=uk
+  userSearchFilter: (sAMAccountName={0})
+  
+  
+logging: 
+    level:
+        uk.ac.reigate: INFO
+#        org.springframework.security: DEBUG
+#        org.springframework.web: DEBUG
+           
+        

@@ -1,0 +1,20 @@
+<table class="table table-responsive table-hover">
+    <thead>
+        <th ng-show="showAll || showStudent">Student</th>
+        <th>Entry Qualification Type</th>
+        <th>Entry Qualification Title</th>
+        <th>Grade</th>
+        <th>Date</th>
+        <th>Checked</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="studentEntryQualification in studentEntryQualifications">
+            <td ng-show="showAll || showStudent">{{ studentEntryQualification.studentId }}</td>
+            <td>{{ studentEntryQualification._entryQualification._entryQualificationTypeDescription }}</td>
+            <td>{{ studentEntryQualification._entryQualification.title }}</td>
+            <td>{{ studentEntryQualification.grade }}</td>
+            <td>{{ studentEntryQualification.date | date:'dd/MM/yyyy' }}</td>
+            <td>{{ studentEntryQualification.checked | yesNo }}</td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,28 @@
+<div class="request-details container-fluid">
+    <div class="row">
+        <table class="table table-responsive table-hover">
+            <thead>
+                <th ng-show="showAll || showStudent">StudentId</th>
+                <th>Request Code</th>
+                <th>Description</th>
+                <th ng-show="showActions">Actions</th>
+            </thead>
+            <tbody>
+                <tr ng-repeat="request in ctrl.request">
+                    <td ng-show="showAll || showStudent">{{ request.studentId }}</td>
+                    <td>{{ request.request | uppercase }}</td>
+                    <td>{{ request.description }}</td>
+                    <td ng-show="showActions">
+                        <button type="button" class="btn btn-primary btn-sm" ng-click="ctrl.editRequest(request.id)">
+                            <span class="glyphicon glyphicon-pencil"></span>Edit </button>
+                        <button type="button" class="btn btrn-sm btn-danger" ng-click="ctrl.deleteRequest(request.id)">
+                            <span class="glyphicon glyphicon-remove"></span> Delete</button>
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+
+        <button ng-show="showActions" type="button" class="btn btn-primary" ng-click="ctrl.addRequest(ctrl.studentId)">Add</button>
+    </div>
+</div>

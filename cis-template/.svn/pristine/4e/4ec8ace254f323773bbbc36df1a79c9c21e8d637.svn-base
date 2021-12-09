@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="staff-data">
+        <h3><strong> {{ staffDetails.person.firstName }} {{ staffDetails.person.surname }} - Personal Data</strong></h3>
+    </div>
+
+    <div class="row">
+        <p class="staff-data"><b><i>Please use 'Edit Personal Data' button to make General/Equality changes, or advise Personnel if there are any other corrections that should be made.</i></b></p>
+    </div>
+
+    <div class="BoxedList col-md-3">
+        <h4>General Data</h4>
+        <p>Staff No: <b>{{ staffDetails.id }}</b></p>
+        <p>Title: <b>{{ staffDetails.person.title.description }}</b></p>
+        <p>Surname: <b>{{ staffDetails.person.surname }}</b></p>
+        <p>Forenames: <b>{{ staffDetails.person.firstName }}</b></p>
+        <p>DOB: <b>{{ staffDetails.person.dob | date:'dd/MM/yyyy' }}</b></p>
+        <p>Nationality: <b>{{ staffDetails.nationality }}</b></p>
+        <p>Start Date: <b>{{ staffDetails.startDate | date:'dd/MM/yyyy' }}</b></p>
+        <p>Start Continuous Service: <b>{{ staffDetails.continualServiceStartDate | date:'dd/MM/yyyy' }}</b></p>
+        <hr>
+        <h4>Signature (Not your Name)</h4>
+        <p class="signature">Your signature is your <b>Job Title</b> as you wish it to appear under your name on automated letters/Emails being produced by the college systems.</p>
+        <p>Signature: <b>{{ staffDetails.signature }}</b></p>
+    </div>
+
+    <div class="BoxedList col-md-3">
+        <h4>Contact Details</h4>
+        <p>Address:<br><b>
+                <address-details address="staffDetails.person.address">
+            </b></p>
+        <p>Home: <b>{{ staffDetails.person.home | notSet }}</b></p>
+        <p>Mobile: <b>{{ staffDetails.person.mobile }}</b></p>
+        <p>Email: <b>{{ staffDetails.person.email }}</b></p>
+        <hr>
+        <h4>Emergency Contact</h4>
+        <p>Name: <b>{{ staffDetails.emergencyContactName }}</b></p>
+        <p>Relationship: <b>{{ staffDetails.emergencyContactRelationship }}</b></p>
+        <p>Number: <b>{{ staffDetails.emergencyContactNumber }}</b></p>
+    </div>
+
+    <div class="BoxedList col-md-3">
+        <h4>References</h4>
+        <p>Ni Number: <b>{{ staffDetails.niNumber }}</b></p>
+        <p>DFE Number: <b>{{ staffDetails.dfeNumber | notSet }}</b></p>
+        <p>Pay Number/Job Title:<br><b>{{ staffDetails.signature }}</b></p>
+        <hr>
+        <h4>Equality Data</h4>
+        <p>Gender: <b>{{ staffDetails.person.gender.description }}</b></p>
+        <p>Ethnicity: <b>{{ staffDetails.ethnicity.shortDescription }}</b></p>
+        <p>Disability: <b>{{ staffDetails.disability.disability }}</b></p>
+        <p>Marital Status: <b>{{ staffDetails.maritalStatus.maritalStatus }}</b></p>
+        <p>Religion: <b>{{ staffDetails.religion.religion }}</b></p>
+        <p>Sexual Orientation: <b>{{ staffDetails.sexualOrientation.sexualOrientation }}</b></p>
+    </div>
+
+</div>
+
+<div class="staff-data"><button type="button" ng-click="editStaffData(staffDetails.id)" class="btn btn-sm btn-primary"><span class="glyphicon glyphicon-pencil"></span> Edit Personal Data</button>
+</div>

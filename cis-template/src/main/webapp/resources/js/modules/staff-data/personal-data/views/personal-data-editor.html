@@ -1,0 +1,79 @@
+<form name="staffsEditForm" role="form" novalidate show-validation>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="cancel()">&times;</button>
+        <h4 class="modal-title">Edit Staff Personal Data</h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+            <h4><strong>General Data</strong></h4>
+            <div class="form-group" ng-show="true">
+                <label for="id" class="control-label col-xs-4">Staff ID</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" id="id" name="id" class="form-control" readonly ng-model="staff.id">
+                </div>
+            </div>
+            <div class="form-group" ng-show="true">
+                <label for="networkLogin" class="control-label col-xs-4">Network Login</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" id="networkLogin" name="networkLogin" class="form-control" readonly ng-model="staff.networkLogin">
+                </div>
+            </div>
+            <div class="form-group" ng-show="true">
+                <label for="nationality" class="control-label col-xs-4">Nationality:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" id="nationality" name="nationality" class="form-control" ng-model="staff.nationality">
+                </div>
+            </div>
+            <div class="form-group" ng-show="true">
+                <label for="nationality" class="control-label col-xs-4">Signature(Not your Name):</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" id="nationality" name="nationality" class="form-control" ng-model="staff.signature">
+                </div>
+            </div>
+            <h4><strong>Equality Data</strong></h4>
+            <div class="form-group" ng-show="true">
+                <label for="ethnicity" class="control-label col-xs-4">Ethnicity:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <ethnicity-selection id="ethnicity" name="ethnicity" class="form-control" ng-model="staff.ethnicityId"></ethnicity-selection>
+                </div>
+            </div>
+            <div class="form-group" ng-show="true">
+                <label for="disability" class="control-label col-xs-4">Disability:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <disability-selection id="disability" name="disability" class="form-control" alt-null-text="'-- Select Disability --'" ng-model="staff.disabilityId"></disability-selection>
+                </div>
+            </div>
+            <div class="form-group" ng-show="true">
+                <label for="maritalStatus" class="control-label col-xs-4">Marital Status:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <marital-status-selection id="maritalStatus" name="maritalStatus" class="form-control" alt-null-text="'-- Select Marital Status --'" ng-model="staff.maritalStatusId"></marital-status-selection>
+                </div>
+            </div>
+            <div class="form-group" ng-show="true">
+                <label for="religion" class="control-label col-xs-4">Religion:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <religion-selection id="religion" name="religion" class="form-control" alt-null-text="'-- Select Religion --'" ng-model="staff.religionId"></religion-selection>
+                </div>
+            </div>
+            <div class="form-group" ng-show="true">
+                <label for="sexualOrientation" class="control-label col-xs-4">Sexual Orientation:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <sexual-orientation-selection id="sexualOrientation" name="sexualOrientation" class="form-control" alt-null-text="'-- Select Sexual Oreintation --'" ng-model="staff.sexualOrientationId"></sexual-orientation-selection>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="cancel()">
+            <span class="glyphicon glyphicon-ban-circle"></span>
+            Cancel
+        </button>
+        <button type="button" class="btn btn-primary" ng-click="save()">
+            <span class="glyphicon glyphicon-save"></span>
+            Save
+        </button>
+    </div>
+
+</form>

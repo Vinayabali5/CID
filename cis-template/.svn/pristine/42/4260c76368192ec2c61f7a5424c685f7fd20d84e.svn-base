@@ -1,0 +1,77 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="ctrl.cancel()">&times;</button>
+    <h4 class="modal-title">Edit Enrolments <span ng-show="ctrl.student">for {{ ctrl.student.person.firstName }}</span></h4>
+</div>
+
+<div class="modal-body">
+    <div class="row">
+        <div class="col-md-8">
+            <ul class="list-unstyled">
+                <li class="row" ng-repeat="(i, spec) in ctrl.ttCheck.specs track by $index">
+                    <div class="col-md-6">
+                        <div class="input-group ">
+                            <input type="text" id="spec{{$index}}" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.ttCheck.specs[i]" />
+                            <course-spec-validity-lookup class="input-group-addon" spec="spec"></course-spec-validity-lookup>
+                            <div class="remove-enrolment input-group-addon" ng-click="ctrl.removeRequest(spec)">
+                                <span class="glyphicon glyphicon-remove"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <course-spec-lookup class="col-md-6" spec="spec"></course-spec-lookup>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <div>
+                New Request:
+                <div class="input-group">
+                    <input type="text" class="form-control" ng-model="ctrl.newRequest" ng-keypress="($event.which === 13)?ctrl.addRequest(ctrl.newRequest):0" />
+                    <span class="input-group-btn">
+                        <button class="form-control" class="btn btn-sm" ng-click="ctrl.addRequest(ctrl.newRequest)">Add Request</button>
+                    </span>
+                </div>
+            </div>
+            <div>
+                Programme Size: {{ ctrl.requestCount() }}
+            </div>
+            <div>
+                Change Date:
+                <div class="input-group">
+                    <input type="text" class="form-control" ng-init="changeDatePicker = false" uib-datepicker-popup="dd/MM/yyyy" is-open="changeDatePicker" ng-model="ctrl.changeDate" />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="changeDatePicker = !changeDatePicker"><span class="glyphicon glyphicon-calendar"></span></button>
+                    </span>
+                </div>
+            </div>
+
+            <div>
+                <h4>Validate Programme</h4>
+                <button class="btn btn-sm btn-primary" ng-disable="ctrl.loading" ng-click="ctrl.check()">Check</button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12" ng-hide="ctrl.loading">
+            <table class="table table-responsive table-stripped">
+                <thead>
+                    <th ng-repeat="request in ctrl.ttCheck.specs track by $index">Class {{ $index + 1 }}</th>
+                    <th>Actions</th>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="option in ctrl.ttCheck.options">
+                        <td ng-repeat="wc in option.courseGroups">{{ wc.spec }} ({{ wc.currentStudents }})</td>
+                        <td>
+                            <button class="btn btn-sm btn-success" ng-click="ctrl.selectOption(option)">Select</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-12" ng-show="ctrl.loading">
+            Checking for working combinations. Please wait ...
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-warning" data-dismiss="modal" ng-click="ctrl.cancel()"> <span class="glyphicon glyphicon-ban-circle"></span> Cancel</button>
+</div>

@@ -1,0 +1,154 @@
+<form id="schoolsEditForm" name="schoolsEditForm" role="form" novalidate show-validation>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="ctrl.cancel()">&times;</button>
+        <h4 class="modal-title" id="myToDoLabel">Add/Edit School</h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+            <div class="form-group" ng-show="true">
+                <label for="id" class="control-label col-xs-4">School ID</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="id" name="id" type="text" class="form-control" readonly ng-model="ctrl.schools.id">
+                </div>
+            </div>
+            <div class="form-group" ng-show="true">
+                <label for="name" class="control-label col-xs-4">Name</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="name" name="name" type="text" class="form-control" ng-model="ctrl.schools.name">
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="typeId" class="control-label col-xs-4">Type</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <school-type-selection class="form-control" include-blank="true" id="typeId" name="typeId" readonly="setReadonly" ng-model="ctrl.schools.typeId"></school-type-selection>
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="priorityId" class="control-label col-xs-4">Priority</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <school-priority-selection class="form-control" include-blank="true" id="priorityId" name="priorityId" readonly="setReadonly" alt-null-text="'-- Select School Priority --'" ng-model="ctrl.schools.priorityId"></school-priority-selection>
+                </div>
+            </div>
+
+            <div> <label for="priority">&nbsp;&nbsp;&nbsp;Address:</label></div>
+
+            <div class="form-group" ng-show="true">
+                <label for="line1" class="control-label col-xs-4">Line 1</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="line1" name="line1" type="text" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.schools.line1"></input>
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="line2" class="control-label col-xs-4">Line 2</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="line2" name="line2" type="text" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.schools.line2"></input>
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="line3" class="control-label col-xs-4">Line 3</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="line3" name="line3" type="text" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.schools.line3"></input>
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="postcode" class="control-label col-xs-4">Postcode</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="postcode" id="postcode" name="postcode" type="text" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.schools.postcode"></input>
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="telephone" class="control-label col-xs-4">Telephone</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="telephone" name="telephone" type="text" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.schools.telephone"></input>
+                </div>
+            </div>
+
+            <div>&nbsp;</div>
+
+            <div class="form-group" ng-show="true">
+                <label for="headtitle" class="control-label col-xs-4">Head Title</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="headTitle" name="headTitle" type="text" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.schools.headTitle"></input>
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="headFirstName" class="control-label col-xs-4">Head FirstName</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="headFirstName" name="headFirstName" type="text" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.schools.headFirstName"></input>
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="headSurname" class="control-label col-xs-4">Head Surname</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="headSurname" name="headSurname" type="text" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.schools.headSurname"></input>
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="contactTitle" class="control-label col-xs-4">Contact Title</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="contactTitle" name="contactTitle" type="text" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.schools.contactTitle"></input>
+                </div>
+            </div>
+
+
+            <div class="form-group" ng-show="true">
+                <label for="contactFirstName" class="control-label col-xs-4">Contact FirstName</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="contactFirstName" name="contactFirstName" type="text" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.schools.contactFirstName"></input>
+                </div>
+            </div>
+
+
+            <div class="form-group" ng-show="true">
+                <label for="contactSurName" class="control-label col-xs-4">Contact Surname</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="contactSurName" name="contactSurname" type="text" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.schools.contactSurname"></input>
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="contactEmail" class="control-label col-xs-4">Contact Email</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="contactEmail" name="contactEmail" type="text" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.schools.contactEmail"></input>
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="urn" class="control-label col-xs-4">URN</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="urn" name="urn" type="text" class="form-control" ng-model="ctrl.schools.urn">
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="useInOnlineApplications" class="control-label col-xs-4">Use in Online Applications</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="checkbox" id="useInOnlineApplications" name="useInOnlineApplications" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.schools.useInOnlineApplications"></input>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="ctrl.cancel()">
+            <span class="glyphicon glyphicon-ban-circle"></span>
+            Cancel
+        </button>
+        <button type="button" class="btn btn-primary" ng-click="ctrl.save()">
+            <span class="glyphicon glyphicon-save"></span>
+            Save
+        </button>
+    </div>
+
+</form>

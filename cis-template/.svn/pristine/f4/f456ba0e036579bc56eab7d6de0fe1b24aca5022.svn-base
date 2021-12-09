@@ -1,0 +1,71 @@
+<form id="attendanceMonitoringsEditForm" name="attendanceMonitoringsEditForm" role="form" novalidate show-validation>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="ctrl.cancel()">&times;</button>
+        <h4 class="modal-title" id="myToDoLabel">Edit Attendance Monitoring</h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+
+            <div class="form-group" ng-show="true">
+                <label for="id" class="control-label col-xs-4">Attendance Monitoring ID</label>
+                <div class="col-xs-8">
+                    <input type="text" class="form-control" name="id" id="id" readonly ng-model="ctrl.attendanceMonitorings.id">
+                </div>
+            </div>
+            <div class="form-group" ng-show="true">
+                <label for="code" class="control-label col-xs-4">Code</label>
+                <div class="col-xs-8">
+                    <input type="text" class="form-control" name="id" name="code" ng-model="ctrl.attendanceMonitorings.code">
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="description" class="control-label col-xs-4">Description:</label>
+                <div class="col-xs-8">
+                    <input type="text" class="form-control text ui-widget-content ui-corner-all" id="description" name="description" ng-model="ctrl.attendanceMonitorings.description"></input>
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="warningColour" class="control-label col-xs-4">Warning Colour:</label>
+                <div class="col-xs-8">
+                    <input type="text" class="form-control text ui-widget-content ui-corner-all" id="warningColour" name="warningColour" ng-model="ctrl.attendanceMonitorings.warningColour"></input>
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="htmlColour" class="control-label col-xs-4">HTML Colour:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="htmlColour" name="htmlColour" type="text" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.attendanceMonitorings.htmlColour"></input>
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="inUse" class="control-label col-xs-4">In Use:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="inUse" name="inUse" type="checkbox" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.attendanceMonitorings.inUse"></input>
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="nonEntry" class="control-label col-xs-4">Non Entry:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="nonEntry" name="nonEntry" type="checkbox" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.attendanceMonitorings.nonEntry"></input>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="ctrl.cancel()">
+            <span class="glyphicon glyphicon-ban-circle"></span>
+            Cancel
+        </button>
+        <button type="button" class="btn btn-primary" ng-click="ctrl.save()">
+            <span class="glyphicon glyphicon-save"></span>
+            Save
+        </button>
+    </div>
+
+</form>

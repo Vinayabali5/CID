@@ -1,0 +1,20 @@
+<h3>Student's Register</h3>
+<div class="row">
+    <div class="col-sm-10">
+        <fieldset>Display options:</fieldset>
+        <ul class="list-inline">
+            <li>
+                <input type="checkbox" ng-model="showFullAttendanceData"> Show All Attendance Data
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-12">
+        <student-overall-attendance-details student-overall-attendance="ctrl.studentOverallAttendance" show-all="showFullAttendanceData"></student-overall-attendance-details>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <registers-editor permission="'ROLE_Office Administration'" registers="ctrl.registers" show-filter="true" student-id="ctrl.studentId" show-actions="true"></registers-editor>
+        <registers-table permission permission-not="'ROLE_Office Administration'" registers="ctrl.registers"></registers-table>
+    </div>
+</div>

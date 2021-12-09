@@ -1,0 +1,28 @@
+<table class="table table-responsive table-hover" ts-wrapper ts-item-name="Staff" ts-item-name-plural="Staff">
+    <thead>
+        <th>ID</th>
+        <th ts-criteria="person.firstName" ts-filter>First Name</th>
+        <th ts-criteria="person.surname" ts-filter>Surname</th>
+        <th ts-criteria="initials" ts-filter>Initials</th>
+        <th ts-criteria="knownAs" ts-filter>KnownAs</th>
+        <th>Network Login </th>
+        <th ts-criteria="startDate">Start Date</th>
+        <th ts-criteria="endDate">End Date</th>
+        <th ng-show="showActions">Actions</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="staff in staffList" ts-repeat>
+            <td>{{ staff.id }}</td>
+            <td>{{ staff.person.firstName }}</td>
+            <td>{{ staff.person.surname }}</td>
+            <td>{{ staff.initials }}</td>
+            <td>{{ staff.knownAs }}</td>
+            <td>{{ staff.networkLogin }}</td>
+            <td>{{ staff.startDate | date:'dd/MM/yyyy' }}</td>
+            <td>{{ staff.endDate | date:'dd/MM/yyyy' }}</td>
+            <td ng-show="showActions">
+                <button type="button" class="btn btn-primary btn-sm" ng-click="ctrl.editStaffs(staff)"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

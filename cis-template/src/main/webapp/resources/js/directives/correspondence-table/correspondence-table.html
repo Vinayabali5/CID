@@ -1,0 +1,36 @@
+<table class="table table-responsive table-hover" ts-wrapper ts-item-name="Student Correspondence table">
+    <thead>
+        <th ng-show="showAll || showIds" ts-criteria>Student ID</th>
+        <th ts-criteria="date" ts-default="descending">Date</th>
+        <th ts-criteria="title">Message Title</th>
+        <th ts-criteria="correspondence">Correspondence</th>
+        <th ts-criteria="from">From</th>
+        <th ts-criteria="to">To</th>
+        <th ng-show="showAll || showIds">Course Group ID</th>
+        <th ng-show="showAll || showCourse" ts-criteria="_courseGroupSpec">Course Group</th>
+        <th ng-show="showAll || showCourse" ts-criteria="_courseGroupDescription">Course Group Description</th>
+        <th ng-show="showAll || showIds">Letter ID</th>
+        <th ng-show="showAll">Staff Advised</th>
+        <th ts-criteria="producedBy">Produced By</th>
+        <th>Private Entry</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="c in correspondence" ts-repeat>
+            <td ng-show="showAll || showIds">{{ c.studentId }}</td>
+            <td>{{ c.date | date:'dd/MM/yyyy' }}</td>
+            <td>{{ c.title }}</td>
+            <td>
+                <div class="correspondence-item" ng-bind-html="c.correspondence"></div>
+            </td>
+            <td>{{ c.from }}</td>
+            <td>{{ c.to }}</td>
+            <td ng-show="showAll || showIds">{{ c.courseId }}</td>
+            <td ng-show="showAll || showCourse">{{ c._courseGroupSpec }}</td>
+            <td ng-show="showAll || showCourse">{{ c._courseGroupDescription }}</td>
+            <td ng-show="showAll || showIds">{{ c.letterId }}</td>
+            <td ng-show="showAll">{{ c.staffAdvised }}</td>
+            <td>{{ c.producedBy }}</td>
+            <td>{{ c.privateEntry | yesNo }}</td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,62 @@
+<form name="studentLearningSupportVisitEditForm" role="form" novalidate show-validation>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="ctrl.cancel()">&times;</button>
+        <h4 class="modal-title">Create or edit a Student Learning Support Visit</h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+            <div class="form-group" ng-show="false">
+                <label for="studentId">Student ID</label>
+                <div class="col-xs-8">
+                    <input type="text" class="form-control" id="studentId" name="studentId" readonly ng-model="ctrl.studentLearningSupportVisit.studentId">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="duration" class="col-xs-4 control-label">Duration</label>
+                <div class="col-xs-8">
+                    <input type="text" id="duration" name="duration" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.studentLearningSupportVisit.duration"></input>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="details" class="col-xs-4 control-label">Details</label>
+                <div class="col-xs-8">
+                    <textarea type="text" id="details" name="details" class="form-control text ui-widget-content ui-corner-all" rows="8" ng-model="ctrl.studentLearningSupportVisit.details"></textarea>
+                    <!-- <input type="text" name="details" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.studentLearningSupportVisit.details"></input> -->
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="date" class="col-xs-4 control-label">Date</label>
+                <div class="col-xs-8">
+                    <div class="input-group">
+                        <input id="date" name="date" type="text" class="form-control" ng-init="studentLearningSupportVisitStartDatePicker = false" uib-datepicker-popup="dd/MM/yyyy" is-open="studentLearningSupportVisitStartDatePicker" ng-model="ctrl.studentLearningSupportVisit.date" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="studentLearningSupportVisitStartDatePicker = !studentLearningSupportVisitStartDatePicker"><span class="glyphicon glyphicon-calendar"></span></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="details" class="col-xs-4 control-label">Time</label>
+                <div class="col-xs-8">
+                    <input id="details" name="details" type="time" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.studentLearningSupportVisit.time" placeholder="HH:mm:ss" min="08:00:00" max="17:00:00" required></input>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="ctrl.cancel()">
+            <span class="glyphicon glyphicon-ban-circle"></span> Cancel
+        </button>
+        <button type="button" class="btn btn-primary" ng-disabled="studentLearningSupportVisitEditForm.$invalid || studentLearningSupportVisitEditForm.$submitted" ng-click="ctrl.save()">
+            <span class="glyphicon glyphicon-save"></span> Save
+        </button>
+    </div>
+
+</form>

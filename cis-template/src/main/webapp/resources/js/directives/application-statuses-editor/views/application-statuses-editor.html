@@ -1,0 +1,19 @@
+<table class="table table-responsive table-hover" ts-wrapper ts-item-name="Application Status" ts-item-name-plural="Application Statuses">
+    <thead>
+        <th ts-criteria="code" ts-filter>Code</th>
+        <th ts-criteria="description" ts-filter>Description</th>
+        <th>Consider Withdrawn</th>
+        <th ng-show="showActions">Actions</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="applicationStatus in applicationStatuses" ts-repeat>
+            <td>{{ applicationStatus.code }}</td>
+            <td>{{ applicationStatus.description }}</td>
+            <td>{{ applicationStatus.considerWithdrawn | yesNo }}</td>
+            <td ng-show="showActions">
+                <button type="button" class="btn btn-primary btn-sm" ng-click="ctrl.editApplicationStatuses(applicationStatus.id)"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button ng-show="showActions" type="button" class="btn btn-primary btn-sm" ng-click="ctrl.addApplicationStatuses()"><span class="glyphicon glyphicon-pencil"></span> Add</button>

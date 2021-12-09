@@ -1,0 +1,8 @@
+{
+    "validthis": false,
+    "overrides": {
+        "**/*.controller.js": {
+            "validthis": true
+        }
+    }
+}

@@ -1,0 +1,208 @@
+<div class="row">
+    <div class="col-xs-12">
+        <h4>Request Yellow Letter</h4>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12 col-md-6">
+        <div class="row" ng-show="ctrl.ilpInterview.letter.regarding !== undefined">
+            <div class="form-group">
+                <label for="yellowLetterRegarding" class="control-label col-xs-4 col-xl-2">Regarding</label>
+                <div class="col-xs-8 col-xl-10">
+                    <input id="yellowLetterRegarding" name="yellowLetterRegarding" type="text" name="yellowLetterRegarding" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.ilpInterview.letter.regarding" readonly="true"></input>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xs-12 col-md-6">
+        <div class="row" ng-show="ctrl.ilpInterview.letter.subject !== undefined">
+            <div class="form-group">
+                <label for="yellowLetterSubject" class="control-label col-xs-4 col-xl-2">Subject</label>
+                <div class="col-xs-8 col-xl-10">
+                    <input id="yellowLetterSubject" name="yellowLetterSubject" type="text" name="yellowLetterSubject" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.ilpInterview.letter.subject" readonly="true"></input>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12 col-md-6">
+        <div class="row" ng-show="ctrl.ilpInterview.letter.authorisedDate !== undefined">
+            <div class="form-group">
+                <label for="yellowLetterAuthorisedDate" class="control-label col-xs-4 col-xl-2">Authorised Date</label>
+                <div class="col-xs-8 col-xl-10">
+                    {{ ctrl.ilpInterview.letter.authorisedDate | date:'dd/MM/yyyy' }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xs-12 col-md-6">
+        <div class="row" ng-show="ctrl.ilpInterview.letter.letterDate !== undefined">
+            <div class="form-group">
+                <label for="yellowLetterDate" class="control-label col-xs-4 col-xl-2">Letter Date</label>
+                <div class="col-xs-8 col-xl-10">
+                    {{ ctrl.ilpInterview.letter.letterDate | date:'dd/MM/yyyy' }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12 col-md-6">
+        <div class="row" permission="'ROLE_Developer'">
+            <div class="form-group">
+                <label for="studentId" class="control-label col-xs-4 col-xl-2">Student ID</label>
+                <div class="col-xs-8 col-xl-10">
+                    <input id="studentId" type="text" class="form-control" name="studentId" readonly ng-model="ctrl.ilpInterview.studentId">
+                </div>
+            </div>
+        </div>
+
+        <div class="row" permission="'ROLE_Developer'">
+            <div class="form-group">
+                <label for="id" class="control-label col-xs-4 col-xl-2">ILP Interview ID</label>
+                <div class="col-xs-8 col-xl-10">
+                    <input id="id" type="text" class="form-control" name="id" readonly ng-model="ctrl.ilpInterview.id">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <label for="yellowLetterRequestedById" class="control-label col-xs-4 col-xl-2">Requested By:</label>
+                <div class="col-xs-8 col-xl-10">
+                    <staff-selection id="yellowLetterRequestedById" name="yellowLetterRequestedById" class="form-control" ng-model="ctrl.ilpInterview.letter.requestedById" readonly="ctrl.ilpInterview.letter.id !== undefined"></staff-selection>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <label for="yellowLetterRequestedDate" class="control-label col-xs-4 col-xl-2">Requested Date:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="yellowLetterRequestedDate" name="requestedDate" ng-init="yellowLetterRequestedDatePicker = false" ng-model="ctrl.ilpInterview.letter.requestedDate" readonly="ctrl.ilpInterview.letter.letterDate !== undefined && ctrl.ilpInterview.letter.letterDate !== null" uib-datepicker-popup="dd/MM/yyyy" is-open="yellowLetterRequestedDatePicker" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="yellowLetterRequestedDatePicker = !yellowLetterRequestedDatePicker"><span class="glyphicon glyphicon-calendar"></span></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" ng-show="false">
+            <div class="form-group">
+                <label for="yellowLetterWrittenById" class="control-label col-xs-4 col-xl-2">Authorised By:</label>
+                <div class="col-xs-8 col-xl-10">
+                    <staff-selection id="yellowLetterWrittenById" name="yellowLetterWrittenById" class="form-control" ng-model="ctrl.ilpInterview.letter.writtenById" readonly="ctrl.ilpInterview.letter.letterDate !== undefined && ctrl.ilpInterview.letter.letterDate !== null"></staff-selection>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <label for="yellowLetterStudentCopiedIn" class="control-label col-xs-8">Student to be copied in</label>
+                <div class="col-xs-4">
+                    <input type="checkbox" id="yellowLetterStudentCopiedIn" name="yellowLetterStudentCopiedIn" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.ilpInterview.letter.studentCopiedIn" readonly="ctrl.ilpInterview.letter.letterDate !== undefined && ctrl.ilpInterview.letter.letterDate !== null"></input>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <label for="yellowLetterNonEntryWarning" class="control-label col-xs-4">Warning Paragraph: </label>
+                <div class="col-xs-8">
+                    <letter-warning-paragraph-selection id="yellowLetterNonEntryWarning" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.ilpInterview.letter.nonEntryWarning" readonly="ctrl.ilpInterview.letter.letterDate !== undefined && ctrl.ilpInterview.letter.letterDate !== null"></letter-warning-paragraph-selection>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xs-12 col-md-6">
+        <div class="row">
+            <div class="form-group">
+                <label for="yellowReviewMeeting" class="control-label col-xs-8">Review Meeting</label>
+                <div class="col-xs-4">
+                    <input type="checkbox" id="yellowReviewMeeting" name="yellowReviewMeeting" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.ilpInterview.letter.reviewMeeting" readonly="ctrl.ilpInterview.letter.letterDate !== undefined && ctrl.ilpInterview.letter.letterDate !== null"></input>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <label for="yellowAttendance" class="control-label col-xs-8">Attendance</label>
+                <div class="col-xs-4">
+                    <input type="checkbox" id="yellowAttendance" name="yellowAttendance" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.ilpInterview.letter.attendance" readonly="ctrl.ilpInterview.letter.letterDate !== undefined && ctrl.ilpInterview.letter.letterDate !== null"></input>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <label for="yellowLetterBehaviour" class="control-label col-xs-8">Behaviour</label>
+                <div class="col-xs-4">
+                    <input type="checkbox" id="yellowLetterBehaviour" name="yellowLetterBehaviour" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.ilpInterview.letter.behaviour" readonly="ctrl.ilpInterview.letter.letterDate !== undefined && ctrl.ilpInterview.letter.letterDate !== null"></input>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <label for="yellowLetterHomework" class="control-label col-xs-8">Homework</label>
+                <div class="col-xs-4">
+                    <input type="checkbox" id="yellowLetterHomework" name="yellowLetterHomework" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.ilpInterview.letter.homework" readonly="ctrl.ilpInterview.letter.letterDate !== undefined && ctrl.ilpInterview.letter.letterDate !== null"></input>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <label for="yellowLetterPunctuality" class="control-label col-xs-8">Punctuality</label>
+                <div class="col-xs-4">
+                    <input type="checkbox" id="yellowLetterPunctuality" name="yellowLetterPunctuality" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.ilpInterview.letter.punctuality" readonly="ctrl.ilpInterview.letter.letterDate !== undefined && ctrl.ilpInterview.letter.letterDate !== null"></input>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <label for="yellowLetterFocus" class="control-label col-xs-8">Focus</label>
+                <div class="col-xs-4">
+                    <input type="checkbox" id="yellowLetterFocus" name="yellowLetterFocus" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.ilpInterview.letter.focus" readonly="ctrl.ilpInterview.letter.letterDate !== undefined && ctrl.ilpInterview.letter.letterDate !== null"></input>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <label for="yellowLetterDeadlines" class="control-label col-xs-8">Deadlines</label>
+                <div class="col-xs-4">
+                    <input type="checkbox" id="yellowLetterDeadlines" name="yellowLetterDeadlines" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.ilpInterview.letter.deadlines" readonly="ctrl.ilpInterview.letter.letterDate !== undefined && ctrl.ilpInterview.letter.letterDate !== null"></input>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <label for="yellowLetterIncompleteCoursework" class="control-label col-xs-8">Incomplete Course Work</label>
+                <div class="col-xs-4">
+                    <input type="checkbox" id="yellowLetterIncompleteCoursework" name="yellowLetterIncompleteCoursework" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.ilpInterview.letter.incompleteCoursework" readonly="ctrl.ilpInterview.letter.letterDate !== undefined && ctrl.ilpInterview.letter.letterDate !== null"></input>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <label for="yellowLetterInsufficientProgress" class="control-label col-xs-8">Insufficient Progress</label>
+                <div class="col-xs-4">
+                    <input type="checkbox" id="yellowLetterInsufficientProgress" name="yellowLetterInsufficientProgress" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.ilpInterview.letter.insufficientProgress" readonly="ctrl.ilpInterview.letter.letterDate !== undefined && ctrl.ilpInterview.letter.letterDate !== null"></input>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

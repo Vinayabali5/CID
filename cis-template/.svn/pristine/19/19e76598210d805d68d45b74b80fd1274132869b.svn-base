@@ -1,0 +1,2 @@
+<h1>Concession Types Editor</h1>
+<concession-types-editor concession-types="data" show-actions="true"></concession-types-editor>

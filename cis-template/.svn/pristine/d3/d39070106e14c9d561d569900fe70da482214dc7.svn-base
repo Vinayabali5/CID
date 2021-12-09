@@ -1,0 +1,3 @@
+<h1>Timetable</h1>
+
+<timetable-table timetable="timetable" show-actions="true"></timetable-table>

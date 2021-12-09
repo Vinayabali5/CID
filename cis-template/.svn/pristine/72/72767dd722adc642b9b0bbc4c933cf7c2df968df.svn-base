@@ -1,0 +1,97 @@
+<form id="studentSafetyPlanEditForm" name="studentSafetyPlanEditForm" role="form" novalidate show-validation>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="ctrl.cancel()">&times;</button>
+        <h4 class="modal-title" id="myToDoLabel">Create or edit a Student Safety Plan</h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+            <div class="form-group" ng-show="false">
+                <label for="studentId">Student ID</label>
+                <div class="col-xs-8">
+                    <textarea id="studentId" name="studentId" type="text" class="form-control" readonly ng-model="studentSafetyPlan.studentId">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="howToReduceRiskAtHome" class="control-label col-xs-4">How to reduce risk at home:</label>
+                <div class="col-xs-8">
+                    <textarea id="howToReduceRiskAtHome" name="howToReduceRiskAtHome" type="text" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.studentSafetyPlan.howToReduceRiskAtHome"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="warningSignsOrTriggers" class="control-label col-xs-4">Warning Signs Or Triggers:</label>
+                <div class="col-xs-8">
+                    <textarea id="warningSignsOrTriggers" name="warningSignsOrTriggers" type="text" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.studentSafetyPlan.warningSignsOrTriggers"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="pastActionsToHelp" class="control-label col-xs-4">Past Actions To Help:</label>
+                <div class="col-xs-8">
+                    <textarea id="pastActionsToHelp" name="pastActionsToHelp" type="text" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.studentSafetyPlan.pastActionsToHelp"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="actionsToCalmAndSoothe" class="control-label col-xs-4">Actions To Calm And Soothe:</label>
+                <div class="col-xs-8">
+                    <textarea id="actionsToCalmAndSoothe" name="actionsToCalmAndSoothe" type="text" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.studentSafetyPlan.actionsToCalmAndSoothe"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="whatToTellSelf" class="control-label col-xs-4">What To Tell Self:</label>
+                <div class="col-xs-8">
+                    <textarea id="whatToTellSelf" name="whatToTellSelf" type="text" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.studentSafetyPlan.whatToTellSelf"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="whoWouldbeSaidToFriend" class="control-label col-xs-4">Who Would be Said To Friend:</label>
+                <div class="col-xs-8">
+                    <textarea id="whoWouldbeSaidToFriend" name="whoWouldbeSaidToFriend" type="text" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.studentSafetyPlan.whoWouldbeSaidToFriend"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="whatCouldOthersDo" class="control-label col-xs-4">What Could Others Do:</label>
+                <div class="col-xs-8">
+                    <textarea id="whatCouldOthersDo" name="whatCouldOthersDo" type="text" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.studentSafetyPlan.whatCouldOthersDo"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="whoCanICall" class="control-label col-xs-4">Who Can I Call:</label>
+                <div class="col-xs-8">
+                    <textarea id="whoCanICall" name="whoCanICall" type="text" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.studentSafetyPlan.whoCanICall"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="completedWith" class="control-label col-xs-4">Completed By Staff:</label>
+                <div class="col-xs-8">
+                    <staff-selection id="completedWith" name="completedWith" class="form-control" ng-model="ctrl.studentSafetyPlan.completedWithId"></staff-selection>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="dateCompleted" class="control-label col-xs-4">Date Completed:</label>
+                <div class="col-xs-8">
+                    <div class="input-group ">
+                        <input type="text" id="dateCompleted" name="dateCompleted" class="form-control" ng-init="dateCompletedDatePicker = false" uib-datepicker-popup="dd/MM/yyyy" is-open="dateCompletedDatePicker" ng-model="ctrl.studentSafetyPlan.dateCompleted" />
+                        <span class="input-group-btn"><button type="button" class="btn btn-default" ng-click="dateCompletedDatePicker = !dateCompletedDatePicker"><span class="glyphicon glyphicon-calendar"></span></button></span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="ctrl.cancel()">
+            <span class="glyphicon glyphicon-ban-circle"></span> Cancel
+        </button>
+        <button type="button" class="btn btn-primary" ng-disabled="studentSafetyPlanEditForm.$invalid || studentSafetyPlanEditForm.$submitted" ng-click="ctrl.save()">
+            <span class="glyphicon glyphicon-save"></span> Save
+        </button>
+    </div>
+
+</form>

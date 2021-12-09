@@ -1,0 +1,7 @@
+<h1>Student Contact Preference Details</h1>
+<input ng-model=ctrl.studentId></input><button class="btn btn-sm" ng-click="ctrl.getStudent()">Get StudentContactPreferenceDetails</button>
+<br />
+
+
+<h1>Student Contact Preference Editor</h1>
+<student-contact-preferences-editor student-id="ctrl.studentId" student="ctrl.student"></student-contact-preferences-editor>

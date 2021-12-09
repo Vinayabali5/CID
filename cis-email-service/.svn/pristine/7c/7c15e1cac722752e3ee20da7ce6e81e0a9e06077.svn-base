@@ -1,0 +1,22 @@
+email:
+  username: cid.service@reigate.ac.uk
+  password: Cid$
+  default-sender: noreply@reigate.ac.uk
+  smtp-host: smtp.office365.com
+  smtp-port: 587
+  archive:
+    server: outlook.office365.com
+    port: 993
+    user: ${email.username}
+    password: ${email.password}
+    folder: Sent Items 
+
+
+ldap:
+  url: ldap://10.26.21.5
+  port: 389
+  bindUser: cn=moodleldap,ou=SysApps,ou=Users,ou=CC1-CORE,dc=CC1-CORE,dc=coulsdon,dc=edu
+  bindPassword: M00dl3$%
+  userSearchBase: ou=users,ou=cc1-core,dc=cc1-core,dc=coulsdon,dc=edu
+  userSearchFilter: (sAMAccountName={0})
+ 

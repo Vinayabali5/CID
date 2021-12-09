@@ -1,0 +1,61 @@
+<div class="col-md-2 col-md-offset-10">
+    <button ng-show="showFilter" type="button" class="btn btn-sm btn-primary" ng-click="ctrl.toggleVisibility()">
+        Filters
+        <span class="glyphicon glyphicon-chevron-right" ng-if="ctrl.visible"></span>
+    </button>
+</div>
+<div ng-if="ctrl.visible">
+    <div class="form-group col-sm-12 col-md-3 row">
+        <label for="subjectCode" class="control-label col-xs-4">Subject Code</label>
+        <div class="col-xs-8">
+            <input type="text" ng-model="registerFilter.subjectCode" class="form-control text ui-widget-content ui-corner-all">
+        </div>
+    </div>
+    <div class="form-group col-sm-12 col-md-3 row">
+        <label for="group" class="control-label col-xs-4">Group</label>
+        <div class="col-xs-8">
+            <input type="text" ng-model="registerFilter.group" class="form-control text ui-widget-content ui-corner-all">
+        </div>
+    </div>
+
+    <!--     <div class="form-group col-sm-12 col-md-3 row"> -->
+    <!--         <label for="_attendance.description" class="control-label col-xs-4">Attendance</label> -->
+    <!--         <div class="col-xs-8"> -->
+    <!--             <input type="text" ng-model="registerFilter._attendance.description" class="form-control text ui-widget-content ui-corner-all"> -->
+    <!--         </div> -->
+    <!--     </div> -->
+    <div class="form-group col-sm-12 col-md-3 row">
+        <label for="attendance" class="control-label col-xs-4">Attendance</label>
+        <div class="col-xs-8">
+            <attendance-code-selection class="form-control" alt-null-text="'-- Show All --'" ng-model="registerFilter.attendanceId"></attendance-code-selection>
+        </div>
+    </div>
+</div>
+<table class="table table-responsive table-hover" ts-wrapper ts-item-name="Register Mark">
+    <thead>
+        <th ts-criteria="studentId" ng-show="showAll || showStudentRef">Student Ref</th>
+        <th ts-criteria="sessionRef" ng-show="showAll || showSessionRef">Session Ref</th>
+        <th ts-criteria="subjectCode">Subject Code</th>
+        <th ts-criteria="group">Group</th>
+        <th>Attendance</th>
+        <th ts-criteria="sessionRef" ts-default="descending">Session Date</th>
+        <th ts-criteria="_sessionPeriod">Session Period</th>
+        <th>Notes</th>
+        <th ng-show="showActions">Actions</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="register in ctrl.registers | filter:registerFilter | filter: {'attendanceId':registerFilter.attendanceId}:true" ng-style="{ 'background-color': '{{register._attendance.htmlColour }}'}" ts-repeat>
+            <td ng-show="showAll || showStudentRef">{{ register.studentId }}</td>
+            <td ng-show="showAll || showSessionRef">{{ register.sessionRef }}</td>
+            <td>{{ register.subjectCode }}</td>
+            <td>{{ register.group }}</td>
+            <td>{{ register._attendance.description }}</td>
+            <td>{{ register._sessionDate | date:'EEE dd/MM/yyyy' }}</td>
+            <td>{{ register._sessionPeriod }}</td>
+            <td>{{ register.notes }}</td>
+            <td ng-show="showActions">
+                <button type="button" class="btn btn-primary btn-sm" ng-click="ctrl.editRegister(register.id)"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,8 @@
+<h1>Student Warning Details</h1>
+
+<input ng-model=ctrl.studentId></input><button class="btn btn-sm" ng-click="ctrl.getStudentWarning()">Get StudentWarningDetails</button>
+<br />
+<student-warning-details student-warning="ctrl.studentWarning"></student-warning-details>
+
+<h1>Student Warning editor</h1>
+<student-warning-editor student-id="ctrl.studentId" student-warning="ctrl.studentWarning"></student-warning-editor>

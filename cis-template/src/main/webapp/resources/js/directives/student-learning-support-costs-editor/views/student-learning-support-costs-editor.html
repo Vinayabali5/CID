@@ -1,0 +1,31 @@
+<table class="table table-hover">
+    <thead>
+        <th ng-show="showAll || showStudent">Student</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Hours Per Week</th>
+        <th>Weeks</th>
+        <th>Rate</th>
+        <th>Description</th>
+        <th>Period</th>
+        <th ng-show="showActions">Actions</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="studentLearningSupportCost in ctrl.studentLearningSupportCosts">
+            <td ng-show="showAll || showStudent">{{ studentLearningSupportCost.studentId }}</td>
+            <td>{{ studentLearningSupportCost.startDate | date:'dd/MM/yyyy' }}</td>
+            <td>{{ studentLearningSupportCost.endDate | date:'dd/MM/yyyy' }}</td>
+            <td>{{ studentLearningSupportCost.hoursPerWeek }}</td>
+            <td>{{ studentLearningSupportCost.weeks }}</td>
+            <td>{{ studentLearningSupportCost.rate }}</td>
+            <td>{{ studentLearningSupportCost.description }}</td>
+            <td>{{ studentLearningSupportCost.periodDescription }}</td>
+            <td ng-show="showActions">
+                <button type="button" class="btn btn-sm btn-primary" ng-click="ctrl.editStudentLearningSupportCost(studentLearningSupportCost.id)">
+                    <span class="glyphicon glyphicon-pencil"></span> Edit
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button ng-show="showActions" type="button" class="btn btn-sm btn-primary" ng-click="ctrl.addStudentLearningSupportCost(ctrl.studentId)"><span class="glyphicon glyphicon-plus"></span> Add</button>

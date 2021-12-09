@@ -1,0 +1,68 @@
+<uib-tabset active="active">
+    <uib-tab index="0" heading="Student Selection">
+        <div class="student-emailer-selection">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Filters</h1>
+                    <div class="form-group col-xs-12 col-md-6">
+                        <label class="control-label col-xs-4">Class Mask: </label>
+                        <div class="col-xs-8">
+                            <input type="text" class="form-control" ng-model="ctrl.filters.courseGroupMask"></input>
+                        </div>
+                    </div>
+                    <div class="form-group col-xs-12 col-md-6">
+                        <label class="control-label col-xs-4">Student Type Mask: </label>
+                        <div class="col-xs-8">
+                            <input type="text" class="form-control" ng-model="ctrl.filters.studentTypeMask"></input>
+                        </div>
+                    </div>
+                    <div class="form-group col-xs-12 col-md-6">
+                        <label class="control-label col-xs-4">Tutor Group Mask: </label>
+                        <div class="col-xs-8">
+                            <input type="text" class="form-control" ng-model="ctrl.filters.tutorGroupMask"></input>
+                        </div>
+                    </div>
+                    <div class="form-group col-xs-12 col-md-6">
+                        <label class="control-label col-xs-4">Include Withdrawn: </label>
+                        <div class="col-xs-8">
+                            <input type="checkbox" class="form-control" ng-model="ctrl.filters.includeWithdrawn"></input>
+                        </div>
+                    </div>
+                    <button class="btn btn-sm btn-default" ng-click="ctrl.applyFilter()">Apply Filter</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <select id="student-email-list-duallist" name="student-selector" multiple ng-model="ctrl.selected" ng-options="student.studentId as student.displayText for student in ctrl.studentList | orderBy : 'displayText'" bs-duallistbox filter="true" select-min-height="200"></select>
+                    <div permission="'ROLE_Developer'">
+                        {{ ctrl.selected }}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h4>Email Options:</h4>
+                    <div class="form-group col-xs-12 col-md-6">
+                        <label class="control-label col-xs-4">Email Students: </label>
+                        <div class="col-xs-8">
+                            <input type="checkbox" ng-model="ctrl.includeStudents"></input>
+                        </div>
+                    </div>
+                    <div class="form-group col-xs-12 col-md-6">
+                        <label class="control-label col-xs-4">Email Parents: </label>
+                        <div class="col-xs-8">
+                            <input type="checkbox" ng-model="ctrl.includeParents"></input>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </uib-tab>
+    <uib-tab index="1" heading="Email Details">
+        <div class="student-emailer-compose">
+            <textarea ckeditor="ctrl.editorOptions" ng-model="ctrl.emailMessage"></textarea> <br /><br />
+            <textarea class="form-control" ng-model="ctrl.emailMessage"></textarea>
+        </div>
+    </uib-tab>
+</uib-tabset>
+<button class="btn btn-primary" ng-click="ctrl.sendEmail()">Send Email</button>

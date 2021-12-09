@@ -1,0 +1,61 @@
+archivesBaseName = 'cis-data'
+version =  '0.4.2'
+
+ext { querydslSourcesDir = "src/main/generated-sources" }
+
+sourceSets {
+    main {
+        groovy {
+            srcDirs += querydslSourcesDir
+        }
+    }
+}
+
+bootJar.enabled = false
+
+jar {
+    enabled = true
+}
+
+jar.rootSpec.exclude "dev.properties"
+
+sourceCompatibility = javaLangVersion
+targetCompatibility = javaLangVersion
+
+dependencies {
+    // SQL Driver Library
+    implementation 'com.microsoft.sqlserver:mssql-jdbc'
+    
+    // Spring Boot Starter Libraries
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    //    implementation 'org.springframework.boot:spring-boot-starter-data-rest'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation('org.springframework.boot:spring-boot-starter-validation')
+    
+    implementation 'org.springframework:spring-core'
+    implementation 'org.springframework:spring-context'
+    implementation 'org.springframework.security:spring-security-core'
+    
+    // Generic libraries
+    implementation 'org.apache.commons:commons-lang3:3.3.2'
+    implementation "javax.xml.bind:jaxb-api:2.3.0"
+    
+    // Microsfot Office processing libraries
+    implementation "org.apache.poi:poi:${apachePoiVersion}"
+    implementation "org.apache.poi:poi-ooxml:${apachePoiVersion}"
+    
+    // jackson, for JSON and XML serialization
+    implementation "com.fasterxml.jackson.core:jackson-core:${jacksonVersion}"
+    implementation "com.fasterxml.jackson.core:jackson-annotations:${jacksonVersion}"
+    implementation "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}"
+    implementation "com.fasterxml.jackson.dataformat:jackson-dataformat-xml:${jacksonVersion}"
+    
+    // QueryDSL dependencies
+    //    implementation "com.querydsl:querydsl-jpa:${queryDslVersion}"
+    //    implementation "com.querydsl:querydsl-apt:${queryDslVersion}"
+    implementation "com.querydsl:querydsl-jpa"
+    implementation "com.querydsl:querydsl-apt"
+    
+    annotationProcessor("com.querydsl:querydsl-apt::jpa")
+    
+}

@@ -1,0 +1,7 @@
+<div class="row">
+    <div class="col-sm-12 col-md-12">
+        <h3>Course Concessions</h3>
+        <student-concession-table concessions="ctrl.studentCourseConcessions" permission permission-not="['ROLE_Developer','ROLE_Learning Support']"></student-concession-table>
+        <student-concession-editor student-id="ctrl.student.id" show-actions="true" concessions="ctrl.studentCourseConcessions" permission="['ROLE_Developer','ROLE_Learning Support']"></student-concession-editor>
+    </div>
+</div>

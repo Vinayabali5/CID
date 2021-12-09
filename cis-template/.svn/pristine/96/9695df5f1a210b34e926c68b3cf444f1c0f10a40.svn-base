@@ -1,0 +1,24 @@
+<table class="table table-responsive table-hover" ts-wrapper ts-item-name="Note">
+    <thead>
+        <th ng-show="showAll || showId" ts-criteria="personId">Note ID</th>
+        <th ng-show="showAll || showId" ts-criteria="personId">Person ID</th>
+        <th ts-criteria="typeId">Note Type</th>
+        <th ts-criteria="note">Note</th>
+        <th ts-criteria="note">Pastoral</th>
+        <th ng-show="showActions">Actions</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="note in notes" ts-repeat>
+            <td ng-show="showAll || showId">{{ note.id }}</td>
+            <td ng-show="showAll || showId">{{ note.personId }}</td>
+            <td>{{ note._typeDescription }}</td>
+            <td>{{ note.note }}</td>
+            <td>{{ note.pastoral | yesNo }}</td>
+            <td ng-show="showActions">
+                <button type="button" class="btn btn-primary btn-sm" ng-click="ctrl.editPersonNotes(note.id)"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+                <button type="button" ng-show="allowDelete" class="btn btrn-sm btn-danger" ng-click="ctrl.deletePersonNotes(note.id)"><span class="glyphicon glyphicon-remove"></span> Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button ng-show="showActions" type="button" class="btn btn-primary btn-sm" ng-click="ctrl.addPersonNotes()"><span class="glyphicon glyphicon-pencil"></span> Add</button>

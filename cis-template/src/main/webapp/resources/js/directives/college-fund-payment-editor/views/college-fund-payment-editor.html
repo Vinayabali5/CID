@@ -1,0 +1,36 @@
+<div class="college-fund-payment-details container-fluid">
+    <div class="row">
+        <table class="table table-responsive table-hover" ts-wrapper ts-item-name="College Fund Payment">
+            <thead>
+                <th ng-show="showAll || showStudent" ts-criteria="studentId">StudentId</th>
+                <th ts-criteria="paymentDate">Payment Date</th>
+                <th ts-criteria="amount">Amount</th>
+                <th ts-criteria="chequeDate">Cheque Date</th>
+                <th ts-criteria="payee">Payee</th>
+                <th>Gift Aid</th>
+                <th ts-criteria="cash">Cash</th>
+                <th ng-show="showActions">Actions</th>
+            </thead>
+            <tbody>
+                <tr ng-repeat="collegeFundPayment in ctrl.collegeFundPayment" ts-repeat>
+                    <td ng-show="showAll || showStudent">{{ concession.studentId }}</td>
+                    <td>{{ collegeFundPayment.paymentDate | date:'dd/MM/yyyy' }}</td>
+                    <td>{{ collegeFundPayment.amount }}</td>
+                    <td>{{ collegeFundPayment.chequeDate | date:'dd/MM/yyyy' }}</td>
+                    <td>{{ collegeFundPayment.payee }}</td>
+                    <td>{{ collegeFundPayment.giftAid | yesNo }}</td>
+                    <td>{{ collegeFundPayment.cash | yesNo }}</td>
+                    <td ng-show="showActions">
+                        <button type="button" class="btn btn-primary btn-sm" ng-click="ctrl.editCollegeFundPayment(collegeFundPayment.id)">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                            Edit
+                        </button>
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+
+        <button ng-show="showActions" type="button" class="btn btn-primary" ng-click="ctrl.addCollegeFundPayment(ctrl.studentId)">Add</button>
+    </div>
+</div>

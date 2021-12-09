@@ -1,0 +1,9 @@
+<div class="person-contact-details">
+    <div ng-show="person.home">Home: {{ person.home | telNo }} </div>
+    <div ng-show="person.mobile">Mobile: {{ person.mobile | telNo }} </div>
+    <div ng-show="person.work">Work: {{ person.work | telNo }}</div>
+    <div ng-show="person.email">EMail: {{ person.email }}</div>
+    <div ng-transclude></div>
+    <!-- <div class="error" ng-show="ctrl.message">{{ ctrl.message }}</div> -->
+    <div class="error" ng-hide="hasData()">Person Contact Details: No Data Provided</div>
+</div>

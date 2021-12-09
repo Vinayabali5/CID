@@ -1,0 +1,38 @@
+<table class="table table-responsive" id="syllabusDetails">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Exam Year</th>
+            <th>Exam Series</th>
+            <th>Exam Board</th>
+            <th>Board Identifier</th>
+            <th>Code</th>
+            <th>Title</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat-start="syllabus in syllabusList | orderBy: ['-examSeries.examYear','-examSeries.examSeries']">
+            <td><button class="btn btn-primary" type="button" ng-click="hideShow=(hideShow ? false : true)">+</button></td>
+            <td>{{ syllabus.examSeries.examYear }}</td>
+            <td>{{ syllabus.examSeries.examSeries }}</td>
+            <td>{{ syllabus.examSeries.examBoard.description }}</td>
+            <td>{{ syllabus.examSeries.examBoard.boardIdentifier }}</td>
+            <td>{{ syllabus.code }}</td>
+            <td>{{ syllabus.title }}</td>
+        </tr>
+        <tr ng-repeat-end>
+            <td colspan="7">
+                <table class="table table-responsive" ng-if="hideShow">
+                    <tr ng-repeat="option in syllabus.examOptions | orderBy: '+optionEntryCode'">
+                        <td> {{ option.optionEntryCode }} </td>
+                        <td> {{ option.optionTitle }} </td>
+                        <td><input type="checkbox" ng-model="option.courseOption.option.lowerEntry"> Lower </input>
+                            <input type="checkbox" ng-model="option.courseOption.option.upperEntry"> Upper </input>
+                            <input type="checkbox" ng-model="option.courseOption.option.intermediateEntry"> Intermediate </input>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>

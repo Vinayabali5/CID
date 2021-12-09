@@ -1,0 +1,21 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="ctrl.cancel()">&times;</button>
+    <h4 class="modal-title" id="myToDoLabel">{{ ctrl.dialogTitle }}</h4>
+</div>
+
+<div class="modal-body">
+    <course-search on-select="ctrl.selectCourse(course)"></course-search>
+
+
+    <form>
+        Date of Change: <input type="date" ng-model="ctrl.dateOfChange" />
+    </form>
+
+    <div class="debug" ng-show="false">
+        {{ ctrl.enrolment }}
+    </div>
+</div>
+
+<div class="modal-footer">
+    <button type="button" class="btn btn-warning" aria-hidden="true" ng-click="ctrl.cancel()">Cancel</button>
+</div>

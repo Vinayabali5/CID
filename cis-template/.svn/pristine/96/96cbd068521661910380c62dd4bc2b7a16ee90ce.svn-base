@@ -1,0 +1,14 @@
+<button class="btn btn-sm btn-primary help-button" type="button" data-toggle="collapse" data-target="#notesHelp" aria-expanded="false" aria-controls="notesHelp"><span class="glyphicon glyphicon-question-sign"></span> Help</button>
+<h3>Person Notes</h3>
+<div class="collapse" id="notesHelp">
+    <div class="well">
+        <p>
+            This section is used to store notes about the current student.
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <person-notes-editor notes="ctrl.studentNotes" person-id="ctrl.student.person.id" show-actions="hasAnyRole(['ROLE_Office Administration', 'ROLE_Safeguarding', 'ROLE_Admissions', 'ROLE_Pastoral'])" allow-delete="hasAnyRole(['ROLE_Office Administration', 'ROLE_Safeguarding', 'ROLE_Admissions'])"></person-notes-editor>
+    </div>
+</div>

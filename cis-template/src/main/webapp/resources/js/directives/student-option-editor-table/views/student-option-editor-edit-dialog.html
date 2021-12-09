@@ -1,0 +1,65 @@
+<form id="studentOptionEntryEditForm" name="studentOptionEntryEditForm" role="form" novalidate show-validation>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="ctrl.cancel()">&times;</button>
+        <h4 class="modal-title" id="myToDoLabel">Add / Edit Student Option Entry: {{ctrl.studentOptionEntry._optionEntryCode}} </h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+            <div class="form-group" ng-show="false">
+                <label for="id">Student ID:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="field_id" type="text" class="form-control" name="id" readonly ng-model="ctrl.studentOptionEntry.studentId">
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="false">
+                <label for="examOption" class="control-label col-xs-4">Exam Option ID:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="examOption" type="text" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.studentOptionEntry.examOptionId"></input>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="statusType" class="control-label col-xs-4">Status:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <status-type-selection id="statusType" class="form-control" ng-model="ctrl.studentOptionEntry.statusTypeId"></status-type-selection>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="ediStatusType" class="control-label col-xs-4">Edi Status:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <edi-status-type-selection id="ediStatusType" class="form-control" ng-model="ctrl.studentOptionEntry.ediStatusTypeId"></edi-status-type-selection>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="resit" class="control-label col-xs-4">Resit:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="resit" type="checkbox" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.studentOptionEntry.resit"></input>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="private" class="control-label col-xs-4">Private:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="private" type="checkbox" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.studentOptionEntry.privateStudent"></input>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="ctrl.cancel()">
+            <span class="glyphicon glyphicon-ban-circle"></span>
+            Cancel
+        </button>
+        <button type="button" class="btn btn-primary" ng-disabled="studentOptionEntryEditForm.$invalid || studentOptionEntryEditForm.$submitted" ng-click="ctrl.save()">
+            <span class="glyphicon glyphicon-save"></span>
+            Save
+        </button>
+    </div>
+
+</form>

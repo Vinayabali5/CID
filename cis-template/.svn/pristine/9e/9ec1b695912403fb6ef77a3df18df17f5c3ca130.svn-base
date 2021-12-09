@@ -1,0 +1,20 @@
+<table class="table table-responsive table-hover">
+    <thead>
+        <th ng-show="showAll || showStudent">Student</th>
+        <th>Previous Attendance Monitoring</th>
+        <th>Current Attendance Monitoring</th>
+        <th>Previous Punctuality Monitoring</th>
+        <th>Current Punctuality Monitoring</th>
+        <th>Change Date</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="warningCodeChange in warningCodeChanges">
+            <td ng-show="showAll || showStudent">{{ warningCodeChange.studentId }}</td>
+            <td>{{ warningCodeChange._previousAmDescription }}</td>
+            <td>{{ warningCodeChange._currentAmDescription }}</td>
+            <td>{{ warningCodeChange._previousPmDescription }}</td>
+            <td>{{ warningCodeChange._currentPmDescription }}</td>
+            <td>{{ warningCodeChange.changeDate | date: 'dd/MM/yyyy' }}</td>
+        </tr>
+    </tbody>
+</table>

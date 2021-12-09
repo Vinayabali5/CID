@@ -1,0 +1,42 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="cancel()">&times;</button>
+    <h3 class="modal-title">Select Custom/Internal Exam Students</h3>
+</div>
+
+<div class="modal-body">
+    <table class="table">
+        <tbody>
+            <tr>
+                <td colspan="4">Select All</td>
+                <td>
+                    <input type="checkbox" ng-model="groups._selected" indeterminate-checkbox child-list="groups.groupList" property="_selected" />
+                </td>
+            </tr>
+            <tr ng-repeat-start="group in groups.groupList" class="ng-cloak">
+                <td>
+                    <div ng-init="group._expanded=false">
+                        <expand visible="true" expandable="true" expanded="group._expanded"></expand>
+                    </div>
+                </td>
+                <td>{{ group._courseGroupReference }}</td>
+                <td>{{ group._levelDescription }}</td>
+                <td>{{ group._subjectDescription }}</td>
+                <td>
+                </td>
+                <td>
+                    <input type="checkbox" ng-model="group._selected" indeterminate-checkbox child-list="group.studentList" property="_selected" />
+                </td>
+            </tr>
+            <tr ng-if="group._expanded" ng-repeat-end>
+                <td colspan="5">
+                    <course-enrolment-table group="group"></course-enrolment-table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="save()">Save</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div>

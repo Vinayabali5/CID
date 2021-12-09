@@ -1,0 +1,31 @@
+<table class="table table-responsive table-hover" ts-wrapper ts-item-name="Faculty" ts-item-name-plural="Faculties">
+    <thead>
+        <th ts-criteria="code" ts-filter>Code</th>
+        <th ts-criteria="description" ts-filter>Description</th>
+        <th class="text-center"><span uib-tooltip="Head Of Faculty">HoF</span></th>
+        <th class="text-center"><span uib-tooltip="Pastoral Director">PD</span></th>
+        <th class="text-center"><span uib-tooltip="Associate Pastoral Director">APD</span></th>
+        <th class="text-center"><span uib-tooltip="Director of Learning">DoL</span></th>
+        <th class="text-center"><span uib-tooltip="Associate Director of Learning">ADoL</span></th>
+        <th>Valid From</th>
+        <th>Valid To</th>
+        <th ng-show="showActions">Actions</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="faculty in faculties" ts-repeat>
+            <td>{{ faculty.code }}</td>
+            <td>{{ faculty.description }}</td>
+            <td class="text-center"><span uib-tooltip="{{faculty._hofName}}">{{ faculty._hofInitials }}</span></td>
+            <td class="text-center"><span uib-tooltip="{{faculty._pdName}}">{{ faculty._pdInitials }}</span></td>
+            <td class="text-center"><span uib-tooltip="{{faculty._apdName}}">{{ faculty._apdInitials }}</span></td>
+            <td class="text-center"><span uib-tooltip="{{faculty._dolName}}">{{ faculty._dolInitials }}</span></td>
+            <td class="text-center"><span uib-tooltip="{{faculty._adolName}}">{{ faculty._adolInitials }}</span></td>
+            <td>{{ faculty.validFrom | date:'dd/MM/yyyy'}}</td>
+            <td>{{ faculty.validTo | date:'dd/MM/yyyy'}}</td>
+            <td ng-show="showActions">
+                <button type="button" class="btn btn-primary btn-sm" ng-click="ctrl.editFaculties(faculty.id)"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button ng-show="showActions" type="button" class="btn btn-primary btn-sm" ng-click="ctrl.addFaculties()"><span class="glyphicon glyphicon-pencil"></span> Add</button>

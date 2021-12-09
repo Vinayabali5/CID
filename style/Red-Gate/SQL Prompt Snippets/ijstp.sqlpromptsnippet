@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>ijstp</Title>
+      <Shortcut>ijstp</Shortcut>
+      <Description>Inner Join Student - Person </Description>
+      <Author />
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations />
+      <Code Language="sql"><![CDATA[INNER JOIN [dbo].[student] AS [s]
+ON [s].[student_id] = [sy].[student_id]
+INNER JOIN [dbo].[person] AS [p]
+ON [p].[person_id] = [s].[person_id]]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

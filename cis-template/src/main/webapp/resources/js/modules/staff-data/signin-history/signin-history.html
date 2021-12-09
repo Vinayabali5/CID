@@ -1,0 +1,37 @@
+<div class="table-responsive">
+
+
+    <div class="container">
+        <div class="staff-data">
+            <h3><strong> {{ currentUser.person.firstName }} {{ currentUser.person.surname }} - College Sign In History</strong></h3>
+        </div>
+
+        <div class="row">
+            <div class="table-responsive">
+                <h4>Sign In History</h4>
+                <select ng-model="sel" ng-change="filter()">
+                    <option value="">--Select Month--</option>
+                    <option ng-repeat="month in months" value="{{month.number}}">{{month.month}}</option>
+                </select>
+
+                <table class="table table-bordered table-hover table-condensed" ts-wrapper ts-item-name="Signin Detail">
+                    <thead>
+                        <th ts-criteria="signinTime" ts-default="descending">Sign In Date</td>
+                        <th>Sign In Time</td>
+                        <th>Sign Out Time</td>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="signin in staffSignin" ts-repeat>
+                            <td>{{ signin.signinTime | date:'EEEE dd/MM/yyyy' }}</td>
+                            <td>{{ signin.signinTime | date:'HH:mm' }}</td>
+                            <td>{{ signin.signoutTime | date:'HH:mm' }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>

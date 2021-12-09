@@ -1,0 +1,17 @@
+<table class="table table-responsive table-hover" ts-wrapper>
+    <thead>
+        <th ts-criteria="code">ILP Letter Type</th>
+        <th ts-criteria="description">Require Authorisation</th>
+        <th ng-show="showActions">Actions</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="letterType in letterTypes |  orderBy:ctrl.sortOrder " ts-repeat>
+            <td>{{ letterType.type }}</td>
+            <td>{{ letterType.requireAuthorisation | yesNo }}</td>
+            <td ng-show="showActions">
+                <button type="button" class="btn btn-primary btn-sm" ng-click="ctrl.editLetterTypes(letterType.id)"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button ng-show="showActions" type="button" class="btn btn-primary btn-sm" ng-click="ctrl.addLetterTypes()"><span class="glyphicon glyphicon-pencil"></span> Add</button>

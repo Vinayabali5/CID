@@ -1,0 +1,4 @@
+<button type="button" class="btn btn-sm btn-primary" ng-click="ctrl.editStudentAdmission(studentAdmission.id)">
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit Student Admission
+</button>

@@ -1,0 +1,21 @@
+<table class="table table-responsive table-hover" ts-wrapper ts-item-name="Block">
+    <thead>
+        <th ts-criteria="code" ts-filter>Code</th>
+        <th ts-criteria="description" ts-filter>Description</th>
+        <th>HTML color</th>
+        <th>Access color</th>
+        <th ng-show="showActions">Actions</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="block in blocks" ts-repeat>
+            <td>{{ block.code }}</td>
+            <td>{{ block.description }}</td>
+            <td>{{ block.htmlColour }}</td>
+            <td>{{ block.accessColour }}</td>
+            <td ng-show="showActions">
+                <button type="button" class="btn btn-primary btn-sm" ng-click="ctrl.editBlocks(block.id)"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button ng-show="showActions" type="button" class="btn btn-primary btn-sm" ng-click="ctrl.addBlocks()"><span class="glyphicon glyphicon-pencil"></span> Add</button>

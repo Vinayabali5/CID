@@ -1,0 +1,100 @@
+<form id="cristalRoomsEditForm" name="cristalRoomsEditForm" role="form" novalidate show-validation>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="ctrl.cancel()">&times;</button>
+        <h4 class="modal-title" id="myToDoLabel">Add/Edit Cristal Room</h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+            <div class="form-group">
+                <label for="roomId" class="control-label col-xs-4">Room Id:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="roomId" name="roomId" type="text" class="form-control" readonly ng-model="ctrl.cristalRoom.roomId">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="roomName" class="control-label col-xs-4">Room Name:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="roomName" name="roomName" type="text" class="form-control" ng-model="ctrl.cristalRoom.roomName">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="computerName" class="control-label col-xs-4">Computer Name:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="computerName" name="computerName" type="text" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.cristalRoom.computerName"></input>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="tutorOffice" class="control-label col-xs-4">Tutor Office</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="tutorOffice" name="tutorOffice" type="checkbox" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.cristalRoom.tutorOffice"></input>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <hr />
+        </div>
+
+        <h4 class="row modal-title">Extra Fields</h4>
+
+        <div class="row">
+            <div class="form-group">
+                <label for="autoStart" class="control-label col-xs-4">Auto Start</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="autoStart" name="autoStart" type="checkbox" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.cristalRoom.autoStart"></input>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="securityCodeNotRequired" class="control-label col-xs-4">Security Code Not Required</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="securityCodeNotRequired" name="securityCodeNotRequired" type="checkbox" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.cristalRoom.securityCodeNotRequired"></input>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmRoomChange" class="control-label col-xs-4">Confirm Room Change</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="confirmRoomChange" name="confirmRoomChange" type="checkbox" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.cristalRoom.confirmRoomChange"></input>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmStaffChange" class="control-label col-xs-4">Confirm Staff Change</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="confirmStaffChange" name="confirmStaffChange" type="checkbox" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.cristalRoom.confirmStaffChange"></input>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmTimeChange" class="control-label col-xs-4">Confirm Time Change</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="confirmTimeChange" name="confirmTimeChange" type="checkbox" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.cristalRoom.confirmTimeChange"></input>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="mayPrint" class="control-label col-xs-4">May Print</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="mayPrint" name="mayPrint" type="checkbox" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.cristalRoom.mayPrint"></input>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="ctrl.cancel()">
+            <span class="glyphicon glyphicon-ban-circle"></span>
+            Cancel
+        </button>
+        <button type="button" class="btn btn-primary" ng-click="ctrl.save()">
+            <span class="glyphicon glyphicon-save"></span>
+            Save
+        </button>
+    </div>
+
+</form>

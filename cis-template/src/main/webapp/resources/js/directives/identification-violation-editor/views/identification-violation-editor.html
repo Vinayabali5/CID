@@ -1,0 +1,26 @@
+<table class="table table-responsive table-hover" ts-wrapper ts-item-name="Identification Violation">
+    <thead>
+        <th ts-criteria="studentId">Student ID</th>
+        <th ts-criteria="date">Date</th>
+        <th class="text-center">Returned</th>
+        <th class="text-center">ID Lost</th>
+        <th class="text-center">Printed</th>
+        <th class="text-center">ID Number</th>
+        <th ng-show="showActions">Actions</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="idViolation in identificationViolations" ts-repeat>
+            <td>{{ idViolation.studentId }}</td>
+            <td>{{ idViolation.date | date:'dd/MM/yyyy' }}</td>
+            <td class="text-center">{{ idViolation.returned | yesNo }}</td>
+            <td class="text-center">{{ idViolation.lost | yesNo }}</td>
+            <td class="text-center">{{ idViolation.printed | yesNo }}</td>
+            <td class="text-center">{{ idViolation.id_number }}</td>
+            <td ng-show="showActions">
+                <button type="button" class="btn btn-sm btn-primary" ng-click="ctrl.editIdentificationViolation(idViolation.id)"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+                <button type="button" class="btn btn-sm btn-danger" ng-click="ctrl.deleteIdentificationViolation(idViolation.id)"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button ng-show="showActions" type="button" class="btn btn-sm btn-primary" ng-click="ctrl.addIdentificationViolation()"><span class="glyphicon glyphicon-plus"></span> Add</button>

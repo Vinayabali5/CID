@@ -1,0 +1,1 @@
+ALTER TABLE application ALTER COLUMN reference_no SET DEFAULT '160001'; 

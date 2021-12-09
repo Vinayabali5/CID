@@ -1,0 +1,43 @@
+<h1>Welcome to the College Information Database</h1>
+<div>
+    <p>Use the top menu to navigate to the different section of the system.</p>
+</div>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="row">
+            <div class="col-md-12">
+                <h3>My Teaching Groups</h3>
+                <course-groups-table course-groups="teachingGroups" show-department="true" show-dates="true" show-enrolment-info="false" include-reports="true" include-link="true"></course-groups-table>
+            </div>
+        </div>
+        <div class="row" ng-show="courseLeaderGroups">
+            <div class="col-md-12">
+                <h3>My Course Leader Groups</h3>
+                <course-groups-table course-groups="courseLeaderGroups" show-department="true" show-dates="true" show-enrolment-info="false" include-reports="true" include-link="true"></course-groups-table>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="row">
+            <div class="col-md-12">
+                <h3>My Timetable</h3>
+                <timetable-table timetable="timetable" show-teacher="false"></timetable-table>
+                <report-link class="btn btn-default" report-path="'/CID/Timetabling/Timetable - Staff'" report-params="'Teacher='+user.staffId " report-format="'PDF'">Print Timetable</report-link>
+            </div>
+        </div>
+        <div class="row" ng-show="hodGroups">
+            <div class="col-md-12">
+                <h3>My Head of Department Groups</h3>
+                <course-groups-table course-groups="hodGroups" show-department="true" show-dates="true" show-enrolment-info="false" include-reports="true" include-link="true"></course-groups-table>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6" permission="['ROLE_Developer']">
+        <div class="row">
+            <div class="col-md-12">
+                <h3>My Interim Reports</h3>
+                <my-interim-reports-table interim-reports="studentInterimReports" filter-params=filterParams></my-interim-reports-table>
+            </div>
+        </div>
+    </div>
+</div>

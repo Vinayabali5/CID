@@ -1,0 +1,20 @@
+<div class="row">
+    <div class="container">
+        <div class="staff-data">
+            <h3><strong> {{ currentUser.person.firstName }} {{ currentUser.person.surname }} - Staff Absence</strong></h3>
+        </div>
+        <div class="table-responsive">
+            <h4>Historical Sickness</h4>
+            <staff-absence-table staffabsence="staffabsence" filter="{reason:'Sick'}" show-filter="true" show-days="true"></staff-absence-table>
+        </div>
+        <div class="table-responsive">
+            <h4>Historical Annual Leave</h4>
+            <staff-absence-table staffabsence="staffabsence" filter="{reason:'Annual Leave'}" show-filter="true" show-days="true"></staff-absence-table>
+        </div>
+
+        <div class="table-responsive">
+            <h4>Historical Other</h4>
+            <staff-absence-table staffabsence="staffabsence" filter="{reason:'!Annual Leave'}" filter-type="{reason:'!Sick'}" show-filter="true" show-days="true" show-type="true"></staff-absence-table>
+        </div>
+    </div>
+</div>

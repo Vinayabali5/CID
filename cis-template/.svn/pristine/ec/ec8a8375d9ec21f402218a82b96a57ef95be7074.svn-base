@@ -1,0 +1,61 @@
+<div class="studentSpecialCategoryEditor">
+    <uib-tabset active="0">
+        <uib-tab index="-1" heading="Error" ng-hide="ctrl.hasData()">
+            <div class="error">StudentSpecialCategory Details: No Data Provided</div>
+        </uib-tab>
+        <uib-tab index="0" heading="Guide">
+            <div class="special-category-tab ">
+                To complete a new special category form click the "+" tab.
+            </div>
+        </uib-tab>
+        <uib-tab ng-class="" index="$index + 1" heading="{{ $index + 1 }}" ng-repeat="specialCategory in ctrl.specialCategories track by $index">
+            <div class="special-category-tab container-fluid">
+                <div class="row" ng-show="false">
+                    <div class="col-md-4">Student Id:</div>
+                    <div class="col-md-8" ng-bind="specialCategory.studentId">{{ specialCategory.studentId }}</div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">Special Category:</div>
+                    <div class="col-md-8">{{ specialCategory._specialCategoryCode }}</div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">Special Confirmed:</div>
+                    <div class="col-md-8">{{ specialCategory.specialConfirmed | yesNo }}</div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">Classification Date:</div>
+                    <div class="col-md-8">{{ specialCategory.classificationDate | date:'dd/MM/yyyy' }}</div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">Closed Date:</div>
+                    <div class="col-md-8">{{ specialCategory.closedDate | date:'dd/MM/yyyy' }}</div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">Monitoring Notes:</div>
+                    <div class="col-md-8">{{ specialCategory.monitoringNotes }}</div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="button" ng-click="ctrl.editStudentSpecialCategory(specialCategory.id)" class="btn btn-primary btn-sm">
+                            <span class="glyphicon glyphicon-pencil"></span> Edit
+                        </button>
+                        <report-link class="btn btn-default btn-sm" report-path="'/CID/Students/Secure Reports/Student Special Category Form'" report-format="'PDF'" report-params="'StudentList='+specialCategory.studentId+'&StudentSpecialCategoryID='+specialCategory.id" include-year="true"><span class="glyphicon glyphicon-print"></span> Print</report-link>
+                    </div>
+                </div>
+            </div>
+
+
+        </uib-tab>
+
+        <uib-tab index="99" heading="+" select="ctrl.addStudentSpecialCategory(ctrl.studentId)" ng-show="ctrl.hasId()">
+        </uib-tab>
+
+    </uib-tabset>
+
+</div>

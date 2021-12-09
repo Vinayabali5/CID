@@ -1,0 +1,34 @@
+<table class="table table-responsive table-hover" ts-wrapper ts-item-name="Period">
+    <thead>
+        <th ts-criteria="code" ts-filter>Code</th>
+        <th ts-criteria="description" ts-filter>Description</th>
+        <th ts-criteria="_blockDescription" ts-filter>Block</th>
+        <th ts-criteria="startTime">Start Time</th>
+        <th ts-criteria="endTime">End Time</th>
+        <th ts-criteria="day">Day</th>
+        <th ts-criteria="dayPeriod">Day Period</th>
+        <th ts-criteria="boxNo">Box No</th>
+        <th ts-criteria="cristalPeriod">Cristal Period</th>
+        <th ts-criteria="defaultPeriodText">Default Period Text</th>
+        <th ng-show="showActions">Actions</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="period in periods" ts-repeat>
+            <td>{{ period.code}}</td>
+            <td>{{ period.description}}</td>
+            <td>{{ period._blockDescription}}</td>
+            <td>{{ period.startTime |date:'HH:mm'}}</td>
+            <td>{{ period.endTime |date:'HH:mm'}}</td>
+            <td>{{ period.day}}</td>
+            <td>{{ period.dayPeriod }}</td>
+            <td>{{ period.boxNo }}</td>
+            <td>{{ period.cristalPeriod }}</td>
+            <td>{{ period.defaultPeriodText | notSet }}</td>
+            <td ng-show="showActions">
+                <button type='button' class="btn btn-primary btn-sm" ng-click="ctrl.editPeriods(period.id)"><span class="glyphicon glyphicon-pencil"></span>Edit</button>
+            </td>
+        </tr>
+
+    </tbody>
+</table>
+<button ng-show="showActions" type='button' class="btn btn-primary btn-sm" ng-click="ctrl.addPeriods()"><span class="glyphicon glyphicon-pencil"></span>Add</button>

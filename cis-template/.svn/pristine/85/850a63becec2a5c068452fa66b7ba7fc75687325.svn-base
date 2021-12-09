@@ -1,0 +1,16 @@
+<div class="induction-details container-fluid">
+    <div class="row">
+        <div class="col-sm-5 col-md-3">Cannot Attend Introduction Day:</div>
+        <div class="col-sm-7 col-md-3">{{ studentAdmissions.cannotAttendIntroDay | yesNo}} </div>
+        <div class="col-sm-5 col-md-3">Cannot Attend Induction Day:</div>
+        <div class="col-sm-7 col-md-3">{{ studentAdmissions.cannotAttendInductionDay | yesNo }}</div>
+        <div class="col-sm-5 col-md-3">Additional Learning Support On Intro Day:</div>
+        <div class="col-sm-7 col-md-3">{{ studentAdmissions.learningSupportOnIntro | yesNo }}</div>
+        <div class="col-sm-5 col-md-3">Date of Induction:</div>
+        <div class="col-sm-7 col-md-3">{{ studentAdmissions.inductionDate | date:'dd/MM/yyyy' | notSet }}</div>
+        <div class="col-sm-5 col-md-3">Enrolment Interview Date:</div>
+        <div class="col-sm-7 col-md-3">{{studentAdmissions.enrolmentInterviewDate | date:'dd/MM/yyyy HH:mm' | notSet }}</div>
+        <div class="col-sm-5 col-md-3">To Be Interviewed by at Enrolment:</div>
+        <div class="col-sm-7 col-md-3">{{ studentAdmissions.interviewBy | notSet }} </div>
+    </div>
+</div>

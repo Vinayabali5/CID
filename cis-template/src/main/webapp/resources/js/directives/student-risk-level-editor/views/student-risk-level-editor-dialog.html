@@ -1,0 +1,98 @@
+<form id="studentRiskLevelEditForm" name="studentRiskLevelEditForm" role="form" novalidate show-validation>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="ctrl.cancel()">&times;</button>
+        <h4 class="modal-title" id="myToDoLabel">Create or Edit Student Risk Level</h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+            <div class="form-group">
+                <label for="riskLevel" class="control-label col-xs-4">Risk Level</label>
+                <div class="col-xs-8">
+                    <risk-level-selection id="riskLevel" name="riskLevel" class="form-control text ui-widget-content ui-corner-all" alt-null-text="'-- Select Risk Level --'" ng-model="ctrl.studentRiskLevel.riskLevelId" ng-required="true"></risk-level-selection>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <label for="staffRequesting" class="control-label col-xs-4">Staff Requesting:</label>
+                <div class="col-xs-8">
+                    <staff-selection id="staffRequesting" name="staffRequesting" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.studentRiskLevel.staffRequestingId" ng-required="true"></staff-selection>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <label for="dateRequested" class="control-label col-xs-4">Date Requested</label>
+                <div class="col-xs-8">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="dateRequested" name="dateRequested" ng-init="dateRequestedDatePicker = false" uib-datepicker-popup="dd/MM/yyyy" is-open="dateRequestedDatePicker" ng-model="ctrl.studentRiskLevel.dateRequested" ng-required="true" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="dateRequestedDatePicker = !dateRequestedDatePicker"><span class="glyphicon glyphicon-calendar"></span></button>
+                        </span>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <label for="confidential" class="control-label col-xs-4">Confidential</label>
+                <div class="col-xs-8">
+                    <input type="checkbox" id="confidential" name="confidential" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.studentRiskLevel.confidential"></input>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <label for="evidence" class="control-label col-xs-4">Evidence</label>
+                <div class="col-xs-8">
+                    <input type="checkbox" id="evidence" name="evidence" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.studentRiskLevel.evidence"></input>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <label for="riskAssessmentRequired" class="control-label col-xs-4">Risk Assessment Required</label>
+                <div class="col-xs-8">
+                    <input type="checkbox" id="riskAssessmentRequired" name="riskAssessmentRequired" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.studentRiskLevel.riskAssessmentRequired"></input>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <label for="safetyPlanRequired" class="control-label col-xs-4">Safety Plan Required</label>
+                <div class="col-xs-8">
+                    <input type="checkbox" id="safetyPlanRequired" name="safetyPlanRequired" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.studentRiskLevel.safetyPlanRequired"></input>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <label for="dateForReview" class="control-label col-xs-4">Date For Review</label>
+                <div class="col-xs-8">
+                    <div class="input-group">
+                        <input type="text" id="dateForReview" name="dateForReview" class="form-control" ng-init="dateForReviewDatePicker = false" uib-datepicker-popup="dd/MM/yyyy" is-open="dateForReviewDatePicker" ng-model="ctrl.studentRiskLevel.dateForReview" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="dateForReviewDatePicker = !dateForReviewDatePicker"><span class="glyphicon glyphicon-calendar"></span></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <label for="riskNotes" class="control-label col-xs-4">Risk Notes</label>
+                <div class="col-xs-8">
+                    <textarea type="text" id="riskNotes" name="riskNotes" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.studentRiskLevel.riskNotes" rows="2" cols="30" ng-required="true"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="ctrl.cancel()"><span class="glyphicon glyphicon-ban-circle"></span> Cancel</button>
+        <button type="button" class="btn btn-primary" ng-disabled="studentRiskLevelEditForm.$invalid || studentRiskLevelEditForm.$submitted" ng-click="ctrl.save()"><span class="glyphicon glyphicon-save"></span> Save</button>
+    </div>
+</form>

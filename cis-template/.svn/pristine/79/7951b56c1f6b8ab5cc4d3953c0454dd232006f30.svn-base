@@ -1,0 +1,191 @@
+<h3>
+    Student Details:
+    <span class="similar-named-warning" ng-if="ctrl.student._similarNamedStudent">Student With Similar Name</span>
+</h3>
+<div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-5">
+        <student-summary student="ctrl.student"></student-summary>
+        <student-warning-details student-warning="ctrl.warnings"></student-warning-details>
+    </div>
+    <div class="col-sm-12 col-md-6 col-lg-5">
+        <student-year-details student-year="ctrl.studentYear"></student-year-details>
+        <pastoral-monitor-details pastoral-monitor="ctrl.pastoralMonitor"></pastoral-monitor-details>
+    </div>
+    <div class="col-sm-12 col-md-12 col-lg-2">
+        <div class="row">
+            <student-image class="col-xs-6 col-sm-6 col-md-6 col-lg-12" student-id="ctrl.student.id"></student-image>
+            <!-- <div class="special-category-banner col-xs-4 col-sm-6 col-md-6 col-lg-12">{{ ctrl.student._specialCategoryCode }}</div> -->
+            <div class="special-category-banner col-xs-4 col-sm-6 col-md-6 col-lg-12">{{ ctrl.student._riskLevelCode }}</div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="student-reports col-sm-12 col-md-6 col-lg-5">
+        <report-link class="btn btn-sm btn-default" report-path="'/CID/Timetabling/Timetable - Student'" report-toolbar="true" report-params="'StudentList='+ctrl.student.id">Student Timetable</report-link>
+        <report-link class="btn btn-sm btn-default" report-path="'/CID/Attendance Monitoring/Student Overall Attendance By Course'" report-toolbar="false" report-params="'AdmNo='+ctrl.student.id">Attendance by Course</report-link>
+        <report-link class="btn btn-sm btn-default" report-path="'/CID/Interim Reports/Interim Report'" report-toolbar="true" report-params="'Students='+ctrl.student.id">Interim Report Viewer</report-link>
+        <word-generator permission="['ROLE_Developer', 'ROLE_Office Administration']" student-id="ctrl.student.id"></word-generator>
+        <report-link class="btn btn-sm btn-default" report-path="'/CID/Exams/Student Exam Timetables'" report-format="'PDF'" report-params="'Students='+ctrl.student.id+'&ExamSeriesCharacter=B'" include-year="true">November Exam Timetable</report-link>
+        <report-link class="btn btn-sm btn-default" report-path="'/CID/Exams/Student Exam Timetables'" report-format="'PDF'" report-params="'Students='+ctrl.student.id+'&ExamSeriesCharacter=6'" include-year="true">Summer Exam Timetable</report-link>
+        <div class="btn-group">
+            <button class="btn btn-sm btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><span class="glyphicon glyphicon-print"></span> Print Forms <span class="caret"></span></button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
+                <li>
+                    <report-link report-path="'/CID/Students/Course Change Form'" report-format="'PDF'" report-params="'StudentList='+ctrl.student.id" include-year="true">Course Change Form</report-link>
+                </li>
+                <li>
+                    <report-link report-path="'/CID/Students/BTEC Course Change Form'" report-format="'PDF'" report-params="'StudentList='+ctrl.student.id" include-year="true">BTEC Course Change Form</report-link>
+                </li>
+                <li role="separator" class="divider" permission="['ROLE_Developer', 'ROLE_Office Administration', 'ROLE_Welcome Team']"></li>
+                <li class="dropdown-header" permission="['ROLE_Developer', 'ROLE_Office Administration', 'ROLE_Admissions', 'ROLE_Welcome Team']">Admission/Enrolment Forms</li>
+                <li permission="['ROLE_Developer', 'ROLE_Office Administration', 'ROLE_Admissions', 'ROLE_Welcome Team']">
+                    <report-link report-path="'/CID/Admissions/Enrolment/RA1 Enrolment Form by Student List'" report-format="'PDF'" report-params="'StudentList='+ctrl.student.id" include-year="true">RA1 Enrolment Form</report-link>
+                </li>
+                <li permission="['ROLE_Developer', 'ROLE_Office Administration', 'ROLE_Admissions']">
+                    <report-link report-path="'/CID/Admissions/Enrolment/RA2 Results on Entry by Student List'" report-format="'PDF'" report-params="'StudentList='+ctrl.student.id" include-year="true">RA2 Results on Entry Form</report-link>
+                </li>
+                <li permission="['ROLE_Developer', 'ROLE_Office Administration', 'ROLE_Admissions']">
+                    <report-link report-path="'/CID/Admissions/Enrolment/RA3 Contact Details Check by Student List'" report-format="'PDF'" report-params="'StudentList='+ctrl.student.id" include-year="true">RA3 Contact Details Check Form</report-link>
+                </li>
+                <li role="separator" class="divider"></li>
+                <li class="dropdown-header">Change of Status Forms</li>
+                <li>
+                    <report-link report-path="'/CID/Attendance Monitoring/Change Of Status Form'" report-format="'PDF'" report-params="'Students='+ctrl.student.id + '&ChangeType=AM/PM'" include-year="false">NP/NE For Attendance/Punctuality</report-link>
+                </li>
+                <li>
+                    <report-link report-path="'/CID/Attendance Monitoring/Change Of Status Form'" report-format="'PDF'" report-params="'Students='+ctrl.student.id + '&ChangeType=CM'" include-year="false">NP/NE For Subject</report-link>
+                </li>
+                <li>
+                    <report-link report-path="'/CID/Attendance Monitoring/Change Of Status Form'" report-format="'PDF'" report-params="'Students='+ctrl.student.id + '&ChangeType=RDA/RDP'" include-year="false">RISK OF DISCONTINUATION Attendance/Punctuality</report-link>
+                </li>
+                <li>
+                    <report-link report-path="'/CID/Attendance Monitoring/Change Of Status Form'" report-format="'PDF'" report-params="'Students='+ctrl.student.id + '&ChangeType=RDC'" include-year="false">RISK OF DISCONTINUATION For Subject</report-link>
+                </li>
+                <li role="separator" class="divider" permission="['ROLE_Developer', 'ROLE_Office Administration']"></li>
+                <li permission="['ROLE_Developer', 'ROLE_Office Administration']">
+                    <report-link report-path="'/CID/Students/Learning Agreement'" report-format="'PDF'" report-params="'StudentList='+ctrl.student.id" include-year="true">Learning Agreement</report-link>
+                </li>
+                <li permission="['ROLE_Developer', 'ROLE_Office Administration', 'ROLE_Pastoral']">
+                    <report-link report-path="'/CID/Students/Early Leavers Form'" report-format="'PDF'" report-params="'student='+ctrl.student.id" include-year="false">Early Leavers Form</report-link>
+                </li>
+                <li permission="['ROLE_Developer', 'ROLE_Office Administration', 'ROLE_Learning Support']">
+                    <report-link report-path="'/CID/Learning Support/Candidate Access Arrangements Consent Form'" report-format="'PDF'" report-params="'StudentList='+ctrl.student.id" include-year="false">Candidate Access Arrangements Consent Form</report-link>
+                </li>
+                <li permission="['ROLE_Developer', 'ROLE_Office Administration', 'ROLE_Pastoral']">
+                    <report-link report-path="'/CID/Students/Break in Learning Form'" report-format="'PDF'" report-params="'StudentList='+ctrl.student.id" include-year="true">Break in Learning Form</report-link>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="student-actions col-sm-12 col-md-6 col-lg-7">
+        <student-summary-editor student-id="ctrl.student.id" student="ctrl.student" permission="['ROLE_Developer','ROLE_Office Administration', 'ROLE_Welcome Team']"></student-summary-editor>
+        <person-card-editor person="ctrl.student.person" permission="['ROLE_Developer','ROLE_Office Administration', 'ROLE_Reception', 'ROLE_ID Card Updater']"></person-card-editor>
+        <student-year-editor student-id="ctrl.student.id" year-id="ctrl.year.id" student-year="ctrl.studentYear" permission="['ROLE_Developer', 'ROLE_Office Administration']"></student-year-editor>
+        <student-uci-editor student="ctrl.student" permission="['ROLE_Quals on Entry']" permission-not="['ROLE_Office Administration']"></student-uci-editor>
+        <student-warning-editor student-id="ctrl.student.id" student-warning="ctrl.warnings" permission="['ROLE_Developer', 'ROLE_Office Administration']"></student-warning-editor>
+        <pastoral-monitor-editor student-id="ctrl.student.id" pastoral-monitor="ctrl.pastoralMonitors" permission="['ROLE_Developer', 'ROLE_Pastoral Monitor']"></pastoral-monitor-editor>
+        <student-bursary-editor student-bursary="ctrl.studentBursary" permission="['ROLE_Developer', 'ROLE_Office Administration']"></student-bursary-editor>
+        <student-learning-support-editor student-id="ctrl.student.id" student-learning-support="ctrl.learningSupport" permission="['ROLE_Developer', 'ROLE_Office Administration', 'ROLE_Learning Support']"></student-learning-support-editor>
+        <student-withdrawal student-id="ctrl.studentYear.studentId" year-id="ctrl.studentYear.yearId" permission="['ROLE_Developer', 'ROLE_Office Administration', 'ROLE_Careers']"></student-withdrawal>
+    </div>
+</div>
+
+<uib-tabset active="activeTab">
+    <uib-tab classes="tab-sm" index="'personal'" heading="Personal Details">
+        <div class="container-fluid" ng-include="'js/modules/studentEditor/views/tabs/student-details.html'"></div>
+    </uib-tab>
+
+    <uib-tab classes="tab-sm" index="'notes'" heading="Notes" permission="['ROLE_Office Administration','ROLE_Pastoral', 'ROLE_Safeguarding', 'ROLE_Reception']">
+        <div class="container-fluid" ng-include="'js/modules/studentEditor/views/tabs/notes.html'"></div>
+    </uib-tab>
+
+    <uib-tab classes="tab-sm" index="'enrolments'" heading="Enrolments">
+        <div class="container-fluid" ng-include="'js/modules/studentEditor/views/tabs/enrolments.html'"></div>
+    </uib-tab>
+
+    <uib-tab classes="tab-sm" index="'qoe'" heading="Entry Qualifications">
+        <div class="container-fluid" ng-include="'js/modules/studentEditor/views/tabs/entry-qualifications.html'"></div>
+    </uib-tab>
+
+    <uib-tab classes="tab-sm" index="'exam-entry'" heading="Exam Entry Details" permission="['ROLE_Developer', 'ROLE_Exams Officer']">
+        <div class="container-fluid" ng-include="'js/modules/studentEditor/views/tabs/exam-entry.html'"></div>
+    </uib-tab>
+
+    <uib-tab classes="tab-sm" index="'exam-results'" heading="Exam Results">
+        <div class="container-fluid" ng-include="'js/modules/studentEditor/views/tabs/exam-results.html'"></div>
+    </uib-tab>
+
+    <uib-tab classes="tab-sm" index="'register'" heading="Register">
+        <div class="container-fluid" ng-include="'js/modules/studentEditor/views/tabs/register.html'"></div>
+    </uib-tab>
+
+    <uib-tab classes="tab-sm" index="'ilp'" heading="ILP Interviews">
+        <div class="container-fluid" ng-include="'js/modules/studentEditor/views/tabs/ilp-interviews.html'"></div>
+    </uib-tab>
+
+    <uib-tab classes="tab-sm" index="'correspondence'" heading="Correspondence">
+        <div class="container-fluid" ng-include="'js/modules/studentEditor/views/tabs/correspondence.html'"></div>
+    </uib-tab>
+
+    <uib-tab classes="tab-sm" index="'learning-support'" heading="Learning Support">
+        <div class="container-fluid" ng-include="'js/modules/studentEditor/views/tabs/learning-support.html'"></div>
+    </uib-tab>
+
+    <uib-tab classes="tab-sm" index="'learning-support-costs'" heading="Learning Support Costs" permission="['ROLE_Developer','ROLE_Learning Support']">
+        <div class="container-fluid" ng-include="'js/modules/studentEditor/views/tabs/learning-support-costs.html'"></div>
+    </uib-tab>
+
+    <uib-tab classes="tab-sm" index="'learning-support-visits'" heading="Learning Support Visits" permission="['ROLE_Developer','ROLE_Learning Support']">
+        <div class="container-fluid" ng-include="'js/modules/studentEditor/views/tabs/learning-support-visits.html'"></div>
+    </uib-tab>
+
+    <uib-tab classes="tab-sm" index="'interim-reports'" heading="Interim Reports">
+        <div class="container-fluid" ng-include="'js/modules/studentEditor/views/tabs/interim-reports.html'"></div>
+    </uib-tab>
+
+    <uib-tab classes="tab-sm" index="'concessions'" heading="Concession" permission="['ROLE_Exams Officer']">
+        <div class="container-fluid" ng-include="'js/modules/studentEditor/views/tabs/concessions.html'"></div>
+    </uib-tab>
+
+    <uib-tab classes="tab-sm" index="'alternative-uci'" heading="Alternative UCIs" permission="['ROLE_Developer', 'ROLE_Exams Officer']">
+        <div class="container-fluid" ng-include="'js/modules/studentEditor/views/tabs/alternative-ucis.html'"></div>
+    </uib-tab>
+
+    <uib-tab classes="tab-sm" index="'admissions'" heading="Admissions Details" permission="['ROLE_Developer', 'ROLE_Office Administration', 'ROLE_Admissions']">
+        <div class="container-fluid" ng-include="'js/modules/studentEditor/views/tabs/admissions-details.html'"></div>
+    </uib-tab>
+
+    <uib-tab classes="tab-sm" index="'school-reference-details'" heading="School Reference Details" permission="['ROLE_Developer', 'ROLE_Office Administration', 'ROLE_Admissions']">
+        <div class="container-fluid" ng-include="'js/modules/studentEditor/views/tabs/school-references.html'"></div>
+    </uib-tab>
+
+    <uib-tab classes="tab-sm" index="'warning-code-change'" heading="Warning Code Change">
+        <div class="container-fluid" ng-include="'js/modules/studentEditor/views/tabs/warning-code-changes.html'"></div>
+    </uib-tab>
+
+    <uib-tab classes="tab-sm" index="'id-violations'" heading="ID Violations" permission="['ROLE_Developer','ROLE_ID Violation']">
+        <div class="container-fluid" ng-include="'js/modules/studentEditor/views/tabs/id-violations.html'"></div>
+    </uib-tab>
+
+    <uib-tab classes="tab-sm" index="'risk-assessment'" heading="Risk Assessment" permission="['ROLE_Developer','ROLE_Pastoral','ROLE_Safeguarding','ROLE_Safeguarding - Viewer']">
+        <div class="container-fluid" ng-include="'js/modules/studentEditor/views/tabs/risk-assessment.html'"></div>
+    </uib-tab>
+
+    <uib-tab classes="tab-sm" index="'safety-plan'" heading="Safety Plan" permission="['ROLE_Developer','ROLE_Pastoral','ROLE_Office Administration','ROLE_Safeguarding']">
+        <div class="container-fluid" ng-include="'js/modules/studentEditor/views/tabs/safety-plan.html'"></div>
+    </uib-tab>
+
+    <uib-tab classes="tab-sm" index="'careers'" heading="Careers">
+        <div class="container-fluid" ng-include="'js/modules/studentEditor/views/tabs/careers.html'"></div>
+    </uib-tab>
+
+    <uib-tab classes="tab-sm" index="'volunteering'" heading="Volunteering">
+        <div class="container-fluid" ng-include="'js/modules/studentEditor/views/tabs/volunteering.html'"></div>
+    </uib-tab>
+
+    <uib-tab classes="tab-sm" index="'student-files'" heading="Student Files" permission="['ROLE_Developer','ROLE_Office Administration','ROLE_Admissions','ROLE_Pastoral','ROLE_Safeguarding', 'ROLE_Exams Officer', 'ROLE_Welcome Team']">
+        <div class="container-fluid" ng-include="'js/modules/studentEditor/views/tabs/student-files.html'"></div>
+    </uib-tab>
+
+</uib-tabset>

@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="staff-data">
+        <h3><strong> {{ currentUser.person.firstName }} {{ currentUser.person.surname }} - Staff Payments</strong></h3>
+    </div>
+    <div class="row">
+        <p class="staff-data"><b><i>Please advise Personnel if there are any corrections that should be made.</i></b></p>
+    </div>
+    <div class="row">
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover table-condensed" ts-wrapper ts-item-name="Staff Payment">
+                <thead>
+                    <th>Payment Details</td>
+                    <th ts-criteria="startDate" ts-default="descending">Month Recorded</td>
+                    <th>Quantity</th>
+                    <th>Rate(GBP)</td>
+                    <th>Total(GBP)</td>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="payment in staffpayment" ts-repeat>
+                        <td>{{ payment.paymentReason.paymentReason }}</td>
+                        <td>{{ payment.startDate | date:'dd/MM/yyyy' }}</td>
+                        <td>{{ payment.sessions }}</td>
+                        <td>{{ payment.ratePerSession }}</td>
+                        <td>{{ payment._totalPaid }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+</div>

@@ -1,0 +1,70 @@
+<form id="examBoardsEditForm" name="examBoardsEditForm" role="form" novalidate show-validation>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="cancel()">&times;</button>
+        <h3 class="modal-title">Add exam board</h3>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+
+            <div class="form-group">
+                <label for="id" class="col-xs-6 col-sm-4 col-md-4 control-label">Exam Board ID</label>
+                <div class="col-xs-6 col-sm-8 col-sm-8 col-md-8">
+                    <input name="id" class="form-control" placeholder="ID" ng-model="ctrl.examBoards.id" required="true" type="text"></input>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="boardIdentifier" class="col-xs-6 col-sm-4 col-md-4 control-label">Board Identifier</label>
+                <div class="col-xs-6 col-sm-8 col-sm-8 col-md-8">
+                    <input name="boardIdentifier" class="form-control" placeholder="Board Identifier" ng-model="ctrl.examBoards.boardIdentifier" minlength="2" maxlength="2" required="true" type="text" ng-keyup="change($event)"></input>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="boardCode" class="col-xs-6 col-sm-4 col-md-4 control-label">Board Code:</label>
+                <div class="col-xs-6 col-sm-8 col-sm-8 col-md-8">
+                    <input name="boardCode" class="form-control" placeholder="Exam Board Code" ng-model="ctrl.examBoards.boardCode" required="true" type="text"></input>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="boardName" class="col-xs-6 col-sm-4 col-md-4 control-label">Board Name:</label>
+                <div class="col-xs-6 col-sm-8 col-sm-8 col-md-8">
+                    <input name="boardName" class="form-control" placeholder="Board Name" ng-model="ctrl.examBoards.name" type="text"></input>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="description" class="col-xs-6 col-sm-4 col-md-4 control-label">Description:</label>
+                <div class="col-xs-6 col-sm-8 col-sm-8 col-md-8">
+                    <input name="description" class="form-control" placeholder="Description" ng-model="ctrl.examBoards.description" type="text"></input>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="boardCentreNumber" class="col-xs-6 col-sm-4 col-md-4 control-label">Centre Number:</label>
+                <div class="col-xs-6 col-sm-8 col-sm-8 col-md-8">
+                    <input name="boardCentreNumber" class="form-control" placeholder="Board Centre Number" ng-model="ctrl.examBoards.boardCentreNumber" type=" text"></input>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="telephoneNo" class="col-xs-6 col-sm-4 col-md-4 control-label">Telephone No:</label>
+                <div class="col-xs-6 col-sm-8 col-sm-8 col-md-8">
+                    <input name="telephoneNo" class="form-control" placeholder="Telephone No" ng-model="ctrl.examBoards.telephoneNo" type="text"></input>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="ctrl.cancel()">
+            <span class="glyphicon glyphicon-ban-circle"></span>
+            Cancel
+        </button>
+        <button type="button" class="btn btn-primary" ng-click="ctrl.add()">
+            <span class="glyphicon glyphicon-save"></span>
+            Save
+        </button>
+    </div>
+</form>

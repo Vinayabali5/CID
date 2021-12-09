@@ -1,0 +1,1 @@
+<button type="button" ng-click="ctrl.editStudentSafetyPlan(ctrl.studentSafetyPlan.studentId)" class="btn btn-sm btn-primary"><span class="glyphicon glyphicon-pencil"></span> Add/Edit Safety Plan</button>

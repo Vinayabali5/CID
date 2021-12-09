@@ -1,0 +1,5 @@
+<select id="{{ id }}" class="{{class}}" ng-disabled="readonly" ng-model="ngmodelvar" ng-required="ngRequired">
+    <option value="" ng-value="{{ null }}" ng-show="includeBlank">-- none --</option>
+    <option value="{{ i.id }}" ng-repeat="i in ctrl.staff | orderBy:'person.surname'" ng-selected="ngmodelvar == i.id" ng-value="{{ i.id }}">{{ i.initials }} - {{ i.person.surname }}, {{ i.person.firstName }}</option>
+    <option value="" ng-show="ctrl.staff.length == 0">-- Loading Data --</option>
+</select>

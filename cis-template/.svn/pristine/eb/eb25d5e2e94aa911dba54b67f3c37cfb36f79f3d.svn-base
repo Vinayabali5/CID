@@ -1,0 +1,40 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="concel()">&times;</button>
+    <h3 class="modal-title">Add/edit seating plan room</h3>
+</div>
+<div class="modal-body">
+    <div class="row">
+
+        <!-- <div class="message">{{ msg }}</div> -->
+        <div class="form-group col-sm-12 col-md-12">
+            <label for="room" class="control-label col-sm-3 col-md-3">Room:</label>
+            <div class="input-group col-sm-9 col-md-9">
+                <room-selection class="form-control" include-blank="true" ng-model="examRoom.room.id" ng-change="setRowColValues()"></room-selection>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+
+        <div class="form-group col-sm-12 col-md-6">
+            <label for="rows" class="col-xs-6 col-sm-6 col-md-6 control-label">Rows:</label>
+            <div class="input-group col-xs-2 col-sm-2 col-md-2">
+                <input type="number" class="form-control" ng-model="examRoom.rows" ng-disabled="(examRoom.room.id === undefined)" min="1" />
+            </div>
+            <div class="message col-xs-4 col-sm-4 col-md-4">{{ rowsMsg }}</div>
+        </div>
+
+        <div class="form-group col-sm-12 col-md-6">
+            <label for="cols" class="col-xs-6 col-sm-6 col-md-6 control-label">Columns:</label>
+            <div class="input-group col-xs-2 col-sm-2 col-md-2">
+                <input type="number" class="form-control" ng-model="examRoom.cols" ng-disabled="(examRoom.room.id === undefined)" min="1" />
+            </div>
+            <div class="message col-xs-4 col-sm-4 col-md-4">{{ colsMsg }}</div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn" type="button" ng-click="setDefaults()" ng-disabled="rowsAndColsSet()">Save Defaults</button>
+    <button class="btn btn-primary" type="button" ng-click="save()" ng-disabled="rowsAndColsSet()">Save Room</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div>

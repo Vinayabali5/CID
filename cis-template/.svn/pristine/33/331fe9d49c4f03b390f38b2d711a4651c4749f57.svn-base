@@ -1,0 +1,12 @@
+<table class="table table-responsive">
+    <tbody>
+        <tr ng-repeat="note in noteList" class="ng-cloak">
+            <td>{{note.id}}</td>
+            <td>{{note.note}}</td>
+            <td>{{note._typeDescription}}</td>
+            <td>
+                <ng-transclude></ng-transclude>
+            </td>
+        </tr>
+    </tbody>
+</table>

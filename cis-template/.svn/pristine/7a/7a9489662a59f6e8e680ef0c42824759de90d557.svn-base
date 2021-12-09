@@ -1,0 +1,27 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="ctrl.cancel()">&times;</button>
+    <h4 class="modal-title" id="myToDoLabel">{{ ctrl.dialogTitle }}</h4>
+</div>
+
+<div class="modal-body">
+    List of available Course Groups:
+    <ul>
+        <li ng-repeat="courseGroup in ctrl.courseGroupOptions">
+            {{ courseGroup.spec }}
+            <button class="btn btn-default btn-sm" ng-click="ctrl.selectCourseGroup(courseGroup)" ng-hide="courseGroup.id == ctrl.enrolment.courseGroupId">Select</button>
+            <span class="bg-warning" ng-show="courseGroup.spec == ctrl.enrolment._courseGroupReference">(Current Group)</span>
+        </li>
+    </ul>
+
+    <form>
+        Date of Change: <input type="date" ng-model="ctrl.dateOfChange" />
+    </form>
+
+    <div class="debug" ng-show="false">
+        {{ ctrl.enrolment }}
+    </div>
+</div>
+
+<div class="modal-footer">
+    <button type="button" class="btn btn-warning" aria-hidden="true" ng-click="ctrl.cancel()">Cancel</button>
+</div>

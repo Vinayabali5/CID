@@ -1,0 +1,11 @@
+<div class="address-details" ng-show="address !== undefined || address !== null">
+    <div>{{ address.line1 }}</div>
+    <div>{{ address.line2 }}</div>
+    <div>{{ address.line3 }}</div>
+    <div>{{ address.line4 }}</div>
+    <div>{{ address.line5 }}</div>
+    <div>{{ address.town }}</div>
+    <div>{{ address.county }}</div>
+    <div>{{ address.postcode }}</div>
+</div>
+<div class="error" ng-hide="address !== undefined || address !== null">Address Details: No Data Provided</div>

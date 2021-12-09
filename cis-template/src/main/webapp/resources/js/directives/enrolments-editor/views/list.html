@@ -1,0 +1,58 @@
+<table class="table table-responsive table-hover" ts-wrapper ts-item-name="Enrolment" ts-item-name-plural="Enrolment">
+    <thead>
+        <th ng-show="showAll || showId" ts-criteria="enrolmentId">Enrolment Id</th>
+        <th ng-show="showAll || showStudent" ts-criteria="studentId">Student</th>
+        <th ng-show="showAll || showYear" ts-criteria="_academicYearCode">Year</th>
+        <th ts-criteria="_courseReference">Course</th>
+        <th ts-criteria="_courseGroupReference">Class Code</th>
+        <th ts-criteria="startDate">Start Date</th>
+        <th ts-criteria="endDate">End Date</th>
+        <th ng-show="showAll || showIlr" ts-criteria="_aimType.shortDescription">Aim Type</th>
+        <th>Completion Status</th>
+        <th ng-show="showAll || showIlr" ts-criteria="_outcome.shortDescription">Outcome</th>
+        <th><span uib-tooltip="UCAS Predicted Grade">UCAS PG</span></th>
+        <th ts-criteria="grade">Grade</th>
+
+        <th ng-show="showAll || showIlr" ts-criteria="course.learningAimReference"><span uib-tooltip="Learning Aim Reference/Qualification Aim Number">LAR/QAN</span></th>
+        <th ng-show="showAll || showIlr" ts-criteria="qualificationStartDate"><span uib-tooltip="Qualification Start Date">QSD</span></th>
+        <th ng-show="showAll || showIlr" ts-criteria="plannedEndDate"><span uib-tooltip="Planned End Date">PED</span></th>
+        <th ng-show="showAll || showIlr"><span uib-tooltip="Planned Learning Hours">PLH</span></th>
+        <th ng-show="showAll || showIlr"><span uib-tooltip="Planned Enrichment, Employability and Pastoral Hours">PEEPH</span></th>
+        <th ng-show="showAll || showIlr" ts-criteria="ilr">ILR</th>
+
+        <th ng-show="showAll || showMonitoring" ts-criteria="_centralMonitoring.description">Entry Status</th>
+        <th ng-show="showActions">Actions</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="enrolment in ctrl.enrolments | orderBy : ['-endDate', '+_courseReference', '-startDate']" ts-repeat>
+            <td ng-show="showAll || showId">{{ enrolment.enrolmentId }}</td>
+            <td ng-show="showAll || showStudent">{{ enrolment.studentId }}</td>
+            <td ng-show="showAll || showYear">{{ enrolment._academicYearCode }}</td>
+            <td><a ui-sref="course-record.course.view({ courseId: enrolment.courseId })">{{ enrolment._courseReference }}</a> - {{ enrolment._levelDescription }} {{ enrolment._subjectDescription }}</td>
+            <td><a ui-sref="course-record.course-group.view({ courseGroupId: enrolment.courseGroupId })">{{ enrolment._courseGroupReference }}</a></td>
+
+            <td>{{ enrolment.startDate | date:'dd/MM/yyyy' }}</td>
+            <td>{{ enrolment.endDate | date:'dd/MM/yyyy' }}</td>
+            <td ng-show="showAll || showIlr">{{ enrolment._aimType.shortDescription }}</td>
+            <td>{{ enrolment._completionStatus.shortDescription }}</td>
+            <td ng-show="showAll || showIlr">{{ enrolment._outcome.shortDescription }}</td>
+            <td>{{ enrolment.reference._grade }}</td>
+            <td>{{ enrolment.grade }}</td>
+
+            <td ng-show="showAll || showIlr">{{ enrolment.course.learningAimReference }}</td>
+            <td ng-show="showAll || showIlr">{{ enrolment.qualificationStartDate | date:'dd/MM/yyyy' }}</td>
+            <td ng-show="showAll || showIlr">{{ enrolment.plannedEndDate | date:'dd/MM/yyyy' }}</td>
+            <td ng-show="showAll || showIlr">{{ enrolment.plh | notSet }}</td>
+            <td ng-show="showAll || showIlr">{{ enrolment.peeph | notSet }}</td>
+
+            <td ng-show="showAll || showIlr">{{ enrolment.ilr | yesNo }}</td>
+            <td ng-show="showAll || showMonitoring">{{ enrolment._centralMonitoring.description }}</td>
+            <td ng-show="showActions">
+                <button type="button" class="btn btn-primary btn-sm" ng-click="ctrl.editEnrolment(enrolment.enrolmentId)"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+                <button class="btn btn-default btn-sm" ng-click="ctrl.withdraw(enrolment)" ng-hide="enrolment.endDate !== null" data-toggle="tooltip" data-placement="top" title="Withdraw">WD</button>
+            </td>
+        </tr>
+        <tr ng-show="enrolments.size() == 0">
+            <td row-span="5">No Results</td>
+        </tr>
+</table>

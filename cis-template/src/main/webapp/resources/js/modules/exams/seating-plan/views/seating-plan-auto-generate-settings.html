@@ -1,0 +1,190 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="cancel()">&times;</button>
+    <h3 class="modal-title">Seating Plan Student Settings</h3>
+</div>
+
+<div class="modal-body">
+    <form>
+        <fieldset>
+            <div class="col-sm-6 col-md-6 col-lg-6">
+                <div class="form-group">
+                    <label for="fillDirection" class="control-label">Primary Fill direction:</label>
+                    <div class="input-group" ng-init="assign.fillDirection='down'">
+                        <label class="radio-inline">
+                            <div uib-tooltip="Start at row 1, and fill towards lastrow.">
+                                <input type="radio" ng-model="assign.fillDirection" value="down">
+                                <span class="glyphicon glyphicon-arrow-down"></span>
+                                </input>
+                            </div>
+                        </label>
+                        <label class="radio-inline">
+                            <div uib-tooltip="Start at last row, and fill towards row 1.">
+                                <input type="radio" ng-model="assign.fillDirection" value="up">
+                                <span class="glyphicon glyphicon-arrow-up"></span>
+                                </input>
+                            </div>
+                        </label>
+                        <label class="radio-inline">
+                            <div uib-tooltip="Start at rightmost column, and fill towards column A">
+                                <input type="radio" ng-model="assign.fillDirection" value="left">
+                                <span class="glyphicon glyphicon-arrow-left"></span>
+                                </input>
+                            </div>
+                        </label>
+                        <label class="radio-inline">
+                            <div uib-tooltip="Start at column A, and fill towards rightmost column.">
+                                <input type="radio" ng-model="assign.fillDirection" value="right">
+                                <span class="glyphicon glyphicon-arrow-right"></span>
+                                </input>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="secondaryFillDirection" class="control-label">Secondary Fill Direction:</label>
+                    <div class="input-group" ng-init="assign.secondaryFillDirection='asc'">
+                        <label class="radio-inline">
+                            <input type="radio" ng-model="assign.secondaryFillDirection" value="asc">
+                            <div ng-if="assign.fillDirection=='down' || assign.fillDirection=='up'" uib-tooltip="Start at row 1">
+                                <span class="glyphicon glyphicon-arrow-right"></span>
+                            </div>
+                            <div ng-if="assign.fillDirection=='left' || assign.fillDirection=='right'" uib-tooltip="Start at column A">
+                                <span class="glyphicon glyphicon-arrow-down"></span>
+                            </div>
+                            </input>
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" ng-model="assign.secondaryFillDirection" value="desc">
+                            <div ng-if="assign.fillDirection=='down' || assign.fillDirection=='up'" uib-tooltip="Start at last row">
+                                <span class="glyphicon glyphicon-arrow-left"></span>
+                            </div>
+                            <div ng-if="assign.fillDirection=='left' || assign.fillDirection=='right'" uib-tooltip="Start at rightmost column">
+                                <span class="glyphicon glyphicon-arrow-up"></span>
+                            </div>
+                            </input>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="snake" class="control-label">Snake:</label>
+                    <div class="input-group" ng-init="assign.snake=true">
+                        <label class="radio-inline">
+                            <input type="radio" ng-model="assign.snake" ng-value="true">
+                            <div ng-if="assign.fillDirection=='down'" uib-tooltip="Snake students. First column fills down from row 1, next column fills up from bottom.">
+                                <span class="glyphicon glyphicon-arrow-down"></span>
+                                <span class="glyphicon glyphicon-arrow-up"></span>
+                            </div>
+                            <div ng-if="assign.fillDirection=='up'" uib-tooltip="Snake students. First column fills up from bottom, next column fills down from row 1.">
+                                <span class="glyphicon glyphicon-arrow-up"></span>
+                                <span class="glyphicon glyphicon-arrow-down"></span>
+                            </div>
+                            <div ng-if="assign.fillDirection=='left'" class="col-sm-12 col-md-12 col-lg-12" uib-tooltip="Snake students. First row fills left from column Z to column A, next row fills right from column A to column Z.">
+                                <div class="row">
+                                    <span class="glyphicon glyphicon-arrow-left"></span>
+                                </div>
+                                <div class="row">
+                                    <span class="glyphicon glyphicon-arrow-right"></span>
+                                </div>
+                            </div>
+                            <div ng-if="assign.fillDirection=='right'" class="col-sm-12 col-md-12 col-lg-12" uib-tooltip="Snake students. First row fills right from column A to column Z, next row fills left from column Z to column A.">
+                                <div class="row">
+                                    <span class="glyphicon glyphicon-arrow-right"></span>
+                                </div>
+                                <div class="row">
+                                    <span class="glyphicon glyphicon-arrow-left"></span>
+                                </div>
+                            </div>
+                            </input>
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" ng-model="assign.snake" ng-value="false">
+                            <div ng-if="assign.fillDirection=='down'" uib-tooltip="Normal fill. All columns fill down starting at row 1.">
+                                <span class="glyphicon glyphicon-arrow-down"></span>
+                                <span class="glyphicon glyphicon-arrow-down"></span>
+                            </div>
+                            <div ng-if="assign.fillDirection=='up'" uib-tooltip="Normal fill. All columns fill up, starting at the back, towards row 1.">
+                                <span class="glyphicon glyphicon-arrow-up"></span>
+                                <span class="glyphicon glyphicon-arrow-up"></span>
+                            </div>
+                            <div ng-if="assign.fillDirection=='left'" class="col-sm-12 col-md-12 col-lg-12" uib-tooltip="Normal fill. All rows fill left from column Z to column A.">
+                                <div class="row">
+                                    <span class="glyphicon glyphicon-arrow-left"></span>
+                                </div>
+                                <div class="row">
+                                    <span class="glyphicon glyphicon-arrow-left"></span>
+                                </div>
+                            </div>
+                            <div ng-if="assign.fillDirection=='right'" class="col-sm-12 col-md-12 col-lg-12" uib-tooltip="Normal fill. All rows fill right from column A to column Z.">
+                                <div class="row">
+                                    <span class="glyphicon glyphicon-arrow-right"></span>
+                                </div>
+                                <div class="row">
+                                    <span class="glyphicon glyphicon-arrow-right"></span>
+                                </div>
+                            </div>
+                            </input>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="fillRowsNotColumns" class="control-label">Fill Rows Or Column:</label>
+                    <div class="input-group" ng-init="assign.fillRowsNotColumns=true">
+                        <label class="radio-inline">
+                            <div uib-tooltip="Fills rows. Columns might be empty.">
+                                <input type="radio" ng-model="assign.fillRowsNotColumns" ng-value="true">
+                                <span class="glyphicon glyphicon-resize-vertical"></span>
+                                </input>
+                            </div>
+                        </label>
+                        <label class="radio-inline">
+                            <div uib-tooltip="Use all columns. Rows might not be full.">
+                                <input type="radio" ng-model="assign.fillRowsNotColumns" ng-value="false">
+                                <span class="glyphicon glyphicon-resize-horizontal"></span>
+                                </input>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-md-6 col-lg-6">
+                <div class="form-group col-sm-12 col-md-12 row">
+                    <label for="startRow" class="control-label col-xs-6 col-sm-6 col-md-6">Limit Row from:</label>
+                    <div class="input-group col-xs-2 col-sm-2 col-md-2">
+                        <input type="number" class="form-control" ng-model="assign.startRow" ng-init="assign.startRow=1" />
+                    </div>
+                    <label for="endRow" class="control-label col-xs-2 col-sm-2 col-md-2">to:</label>
+                    <div class="input-group col-xs-2 col-sm-2 col-md-2">
+                        <input type="number" class="form-control" ng-model="assign.endRow" ng-init="assign.endRow=numRows" />
+                    </div>
+                </div>
+
+                <div class="form-group col-sm-12 col-md-12 row">
+                    <label for="startCol" class="control-label col-xs-6 col-sm-6 col-md-6">Limit Column from:</label>
+                    <div class="input-group col-xs-2 col-sm-2 col-md-2">
+                        <select class="form-control" ng-model="assign.startCol" ng-init="assign.startCol=columns[0]" ng-options="x.column for x in columns"></select>
+                    </div>
+                    <label for="endCol" class="control-label col-xs-2 col-sm-2 col-md-2">to:</label>
+                    <div class="input-group col-xs-2 col-sm-2 col-md-2">
+                        <select class="form-control" ng-model="assign.endCol" ng-init="assign.endCol=columns[numCols-1]" ng-options="x.column for x in columns"></select>
+                    </div>
+                </div>
+
+                <div class="form-group col-sm-12 col-md-12 row">
+                    <label for="newRowColExam" class="control-label col-xs-11 col-sm-11 col-md-11">Start new row/column for each exam:</label>
+                    <div class="input-group col-xs-1 col-sm-1 col-md-1">
+                        <input type="checkbox" class="form-control" ng-model="assign.newRowColExam" ng-init="assign.newRowColExam=false" />
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="autoGenerateSeatingPlans()">Auto Generate Seating Plan</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div>

@@ -1,0 +1,9 @@
+log4j.rootLogger=ERROR, A
+
+log4j.appender.A=org.apache.log4j.ConsoleAppender log4j.appender.A.layout=org.apache.log4j.PatternLayout
+log4j.appender.A.layout.ConversionPattern=%-5p [%t]: %m%n
+
+log4j.logger.uk.ac.reigate=DEBUG, B
+
+log4j.appender.B=org.apache.log4j.ConsoleAppender log4j.appender.B.layout=org.apache.log4j.PatternLayout
+log4j.appender.B.layout.ConversionPattern=%r [%t] %p %c %x - %m%n

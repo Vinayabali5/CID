@@ -1,0 +1,62 @@
+<form id="identificationViolationEditForm" name="identificationViolationEditForm" role="form" novalidate show-validation>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="ctrl.cancel()">&times;</button>
+        <h4 class="modal-title" id="myToDoLabel">Add/Edit ID Violation</h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="form-group row">
+            <label for="date" class="col-xs-4 control-label">Date</label>
+            <div class="col-xs-8">
+                <div class="input-group">
+                    <input id="date" name="date" type="text" class="form-control" ng-init="date = false" uib-datepicker-popup="dd/MM/yyyy" is-open="date" ng-model="ctrl.identificationViolation.date">
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="date = !date"><span class="glyphicon glyphicon-calendar"></span></button>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="returned" class="col-xs-8 control-label">Returned:</label>
+            <div class="col-xs-4">
+                <input type="checkbox" class="form-control text ui-widget-content ui-corner-all" id="returned" name="returned" ng-model="ctrl.identificationViolation.returned"></input>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="lost" class="col-xs-8 control-label">ID Lost:</label>
+            <div class="col-xs-4">
+                <input type="checkbox" class="form-control text ui-widget-content ui-corner-all" id="lost" name="lost" ng-model="ctrl.identificationViolation.lost"></input>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="printed" class="col-xs-8 control-label">Printed:</label>
+            <div class="col-xs-4">
+                <input type="checkbox" class="form-control text ui-widget-content ui-corner-all" id="printed" name="printed" ng-model="ctrl.identificationViolation.printed"></input>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="replacementPaidFor" class="col-xs-8 control-label">Replacement Paid For:</label>
+            <div class="col-xs-4">
+                <input type="checkbox" class="form-control text ui-widget-content ui-corner-all" id="replacementPaidFor" name="replacementPaidFor" ng-model="ctrl.identificationViolation.replacementPaidFor"></input>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="id_number" class="col-xs-4 control-label">ID Number:</label>
+            <div class="col-xs-8">
+                <input type="text" class="form-control text ui-widget-content ui-corner-all" id="id_number" name="id_number" ng-model="ctrl.identificationViolation.id_number"></input>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="ctrl.cancel()">
+            <span class="glyphicon glyphicon-ban-circle"></span>
+            Cancel
+        </button>
+        <button type="button" class="btn btn-primary" ng-click="ctrl.save()">
+            <span class="glyphicon glyphicon-save"></span>
+            Save
+        </button>
+    </div>
+
+</form>

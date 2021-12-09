@@ -1,0 +1,32 @@
+<table class="table table-responsive table-hover">
+    <thead>
+        <th ng-show="showAll || showStudent">Student</th>
+        <th ng-show="showAll || showYear">Year</th>
+        <th>Candidate No</th>
+        <th ng-show="showAll || showBoard">Board Identifier</th>
+        <th ng-show="showAll || showBoard">Board Name</th>
+        <th ng-show="showAll || showSeries">Exam Series</th>
+        <th ng-show="showAll || showSeries">Exam Year</th>
+        <th>Code</th>
+        <th>Exam Option</th>
+        <th>Score</th>
+        <th>Grade</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="result in results | orderBy:['-_academicYearCode','-examYear','-examSeries','+_boardName']">
+            <td ng-show="showAll || showStudent">{{ result.studentId }}</td>
+            <td ng-show="showAll || showYear">{{ result._academicYearCode }}</td>
+            <td>{{ result.candidateNo }}</td>
+            <td ng-show="showAll || showBoard">{{ result.boardIdentifier }}</td>
+            <td ng-show="showAll || showBoard">{{ result._boardName }}</td>
+            <td ng-show="showAll || showSeries">{{ result.examSeries }}</td>
+            <td ng-show="showAll || showSeries">{{ result.examYear }}</td>
+            <td>{{ result.resultCode }}</td>
+            <td>{{ result._examOptionTitle }}</td>
+            <td>{{ result.score }}</td>
+            <td>{{ result.grade }}</td>
+        </tr>
+        <tr ng-show="results.size() == 0">
+            <td row-span="5">No Results</td>
+        </tr>
+</table>

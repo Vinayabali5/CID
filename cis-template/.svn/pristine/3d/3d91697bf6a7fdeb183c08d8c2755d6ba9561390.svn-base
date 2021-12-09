@@ -1,0 +1,11 @@
+<table class="table table-responsive">
+    <tbody>
+        <tr ng-repeat="component in componentList" class="ng-cloak">
+            <td>{{component.code}}</td>
+            <td>{{component.title}}</td>
+            <td>
+                <ng-transclude></ng-transclude>
+            </td>
+        </tr>
+    </tbody>
+</table>

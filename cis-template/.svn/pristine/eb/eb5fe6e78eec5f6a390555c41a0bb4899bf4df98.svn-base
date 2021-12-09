@@ -1,0 +1,10 @@
+<tr ng-repeat="row in lists.rows">
+    <td ng-repeat="std in row.columns">
+        <div class="list-group" dnd-list="std.student" dnd-effect-allowed="moveLink" dnd-external-sources="true" dnd-disable-if="std.blocked == true || std.student[0].studentId != null" dnd-drop="planDrop(std, $index, item)">
+            <div dnd-draggable="std.student" data-container="body" ng-class="(std.blocked == true) ? ['list-group-item', 'disabled'] : ['list-group-item', 'list-group-item-info']">
+                <seating-plan-seat student="std" uib-tooltip-template="'js/modules/exams/seating-plan/views/seating-plan-seat-tooltip.html'" ng-attr-tooltip-placement="{{(std.col == 0) ? 'right' : 'left'}}" tooltip-enable="(std.student[0].studentId !== null)" callback="clearSeat(std)"></seating-plan-seat>
+            </div>
+        </div>
+    </td>
+    <div class="clearfix"></div>
+</tr>

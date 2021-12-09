@@ -1,0 +1,19 @@
+app:
+  name: cis-template
+
+#server:
+#  port: 10201
+
+spring:
+#  profiles:
+#    active: dev
+#  pidfile: ${app.name}.pid
+
+  devtools:
+    livereload:
+      enabled: false
+    restart:
+      enabled: false
+      
+beanlogger: 
+  enabled: false

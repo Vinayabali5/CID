@@ -1,0 +1,116 @@
+<form id="levelsEditForm" name="levelsEditForm" role="form" novalidate show-validation>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="ctrl.cancel()">&times;</button>
+        <h4 class="modal-title" id="myToDoLabel">Add/Edit Level</h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+            <div class="form-group" ng-show="true">
+                <label for="id" class="control-label col-xs-4">Level ID</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="id" name="id" type="text" class="form-control" readonly ng-model="ctrl.levels.id">
+                </div>
+            </div>
+            <div class="form-group" ng-show="true">
+                <label for="code" class="control-label col-xs-4">Code</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="code" name="code" type="text" class="form-control" ng-model="ctrl.levels.code">
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="description" class="control-label col-xs-4">Description:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="description" name="description" type="text" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.levels.description"></input>
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="possibleGradeSet" class="control-label col-xs-4">Possible Grade Set</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <possible-grade-set-selection id="possibleGradeSet" name="possibleGradeSet" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.levels.possibleGradeSetId"></possible-grade-set-selection>
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="progressionTo" class="control-label col-xs-4">Progression To:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <select id="progressionTo" name="progressionTo" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.levels.progressionTo">
+                        <option value=""> NULL </option>
+                        <option ng-selected="ctrl.levels.progressionTo" ng-value="{{ ctrl.levels.progressionTo }}" value="{{ ctrl.levels.progressionTo }}">{{ ctrl.levels.progressionTo }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="alisQualCode" class="control-label col-xs-4">ALIS Qualification Code:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="alisQualCode" name="alisQualCode" type="text" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.levels.alisQualCode"></input>
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="academic" class="control-label col-xs-4">Academic:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="aacademic" name="academic" type="checkbox" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.levels.academic"></input>
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="coreAimPriority" class="control-label col-xs-4">Core Aim Priority:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="coreAimPriority" type="text" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.levels.coreAimPriority"></input>
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="sarInclude" class="control-label col-xs-4">Sar Include:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="sarInclude" name="sarInclude" type="checkbox" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.levels.sarInclude"></input>
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="rqfLevel" class="control-label col-xs-4">RQF Level:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="rqfLevel" name="rqfLevel" type="text" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.levels.rqfLevel"></input>
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="qualificationFramework" class="control-label col-xs-4">Qualification Framework:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="qualificationFramework" name="qualificationFramework" type="text" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.levels.qualificationFramework"></input>
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="dfeQualName" class="control-label col-xs-4">DFE Qual Name:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="dfeQualName" name="dfeQualName" type="text" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.levels.dfeQualName"></input>
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="inUse" class="control-label col-xs-4">In Use:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="inUse" name="inUse" type="checkbox" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.levels.inUse"></input>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="ctrl.cancel()">
+            <span class="glyphicon glyphicon-ban-circle"></span>
+            Cancel
+        </button>
+        <button type="button" class="btn btn-primary" ng-click="ctrl.save()">
+            <span class="glyphicon glyphicon-save"></span>
+            Save
+        </button>
+    </div>
+
+</form>

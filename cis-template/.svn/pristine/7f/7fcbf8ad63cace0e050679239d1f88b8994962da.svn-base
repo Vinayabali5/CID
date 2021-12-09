@@ -1,0 +1,72 @@
+<form id="possibleGradeSetsEditForm" name="possibleGradeSetsEditForm" role="form" novalidate show-validation>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="ctrl.cancel()">&times;</button>
+        <h4 class="modal-title" id="myToDoLabel">Add/Edit Possible Grade Set</h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+            <div class="form-group" ng-show="true">
+                <label for="id" class="control-label col-xs-4">Possible grade set ID</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="id" name="id" type="text" class="form-control" name="id" readonly ng-model="ctrl.possibleGradeSet.id">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="code" class="control-label col-xs-4">Code:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="code" name="code" type="text" class="form-control" name="code" ng-model="ctrl.possibleGradeSet.code">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="description" class="control-label col-xs-4">Description:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="description" name="description" type="text" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.possibleGradeSet.description"></input>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-xs-8 col-sm-8 col-md-8">
+                <table class="table table-responsive table-hover" ts-wrapper ts-item-name="Possible Grade">
+                    <thead>
+                        <th ts-criteria="code">Code</th>
+                        <th ts-criteria="description">Description</th>
+                        <th>Grade </th>
+                        <th>UCAS Points</th>
+                        <th>Alias Points</th>
+                        <th>Alps Points</th>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="possibleGrade in ctrl.possibleGradeSet.grades" ts-repeat>
+                            <td>{{ possibleGrade.code }}</td>
+                            <td>{{ possibleGrade.description }}</td>
+                            <td>{{ possibleGrade.grade }}</td>
+                            <td>{{ possibleGrade.ucasPoints}} </td>
+                            <td>{{ possibleGrade.alisPoints }}</td>
+                            <td>{{ possibleGrade.alpsPoints }}</td>
+                            <td>
+                                <button type="button" class="btn btn-primary btn-sm" ng-click="ctrl.editPossibleGrade(possibleGrade)"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button type="button" class="btn btn-primary btn-sm" ng-click="ctrl.addPossibleGrade()"><span class="glyphicon glyphicon-pencil"></span> Add</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="ctrl.cancel()">
+            <span class="glyphicon glyphicon-ban-circle"></span>
+            Cancel
+        </button>
+        <button type="button" class="btn btn-primary" ng-click="ctrl.save()">
+            <span class="glyphicon glyphicon-save"></span>
+            Save
+        </button>
+    </div>
+
+</form>

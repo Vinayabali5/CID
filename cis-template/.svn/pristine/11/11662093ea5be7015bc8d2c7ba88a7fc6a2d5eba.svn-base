@@ -1,0 +1,36 @@
+<table class="table table-responsive table-hover" ts-wrapper ts-item-name="Letter">
+    <thead>
+        <th ng-show="showAll || showId" ts-criteria="id">Letter Id</th>
+        <th ts-criteria="_pendingName">Pending</th>
+        <th ng-show="showAll || showStudent" ts-criteria="studentId">Student</th>
+        <th ng-show="showAll || showYear" ts-criteria="_academicYearCode">Year</th>
+        <th ts-criteria="regarding">Regarding</th>
+        <th ts-criteria="subject">Subject</th>
+        <th ts-criteria="requestedDate">Requested Date</th>
+        <th ts-criteria="authorisedDate" ts-default="descending">Authorised Date</th>
+        <th ts-criteria="letterDate">Letter Date</th>
+        <th ts-criteria="_letterType">Letter Type</th>
+        <th ts-criteria="_correspondenceType">Method</th>
+        <th ng-show="showActions">Actions</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="letter in letters" ts-repeat>
+            <td ng-show="showAll || showId">{{ letter.id }}</td>
+            <td>{{ letter._pendingName }}</td>
+            <td ng-show="showAll || showStudent">{{ letter.studentId }}</td>
+            <td ng-show="showAll || showYear">{{ letter._academicYearCode }}</td>
+            <td>{{ letter.regarding }}</td>
+            <td>{{ letter.subject }}</td>
+            <td>{{ letter.requestedDate  | date:'dd/MM/yyyy hh:mm' }}</td>
+            <td>{{ letter.authorisedDate  | date:'dd/MM/yyyy hh:mm' }}</td>
+            <td>{{ letter.letterDate | date:'dd/MM/yyyy'}}</td>
+            <td>{{ letter._letterType }}</td>
+            <td>{{ letter._correspondenceType }}</td>
+            <td ng-show="showActions">
+                <button type="button" class="btn btn-sm btn-primary" ng-click="ctrl.editILPLetter(letter.id)"><span class="glyphicon glyphicon-envelope"></span> Review Letter</button>
+                <button type="button" class="btn btn-sm btn-primary" ng-click="ctrl.togglePending(letter)"><span class="glyphicon glyphicon-user"></span> Toggle Pending</button>
+                <button type="button" class="btn btn-sm btn-danger" ng-click="ctrl.deleteILPLetter(letter.id)" ng-hide="letter.letterDate !== null" data-toggle="tooltip" data-placement="top" title="Delete"><span class="glyphicon glyphicon-remove"></span> Delete Letter</button>
+                <button type="button" class="btn btn-sm btn-danger" ng-click="ctrl.deleteILPEntry(letter.id)" ng-hide="letter.letterDate !== null" data-toggle="tooltip" data-placement="top" title="Delete"><span class="glyphicon glyphicon-remove"></span> Delete ILP Entry</button>
+            </td>
+        </tr>
+</table>

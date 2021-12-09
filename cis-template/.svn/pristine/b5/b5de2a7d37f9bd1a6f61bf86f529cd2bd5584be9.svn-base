@@ -1,0 +1,4 @@
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#{{ collapsible }}" aria-expanded="false" aria-controls="{{ collapsible }}">{{ collapsibleTitle }}</button>
+<div class="collapse" id="{{ collapsible }}">
+    <ng-transclude></ng-transclude>
+</div>

@@ -1,0 +1,74 @@
+<div class="student-year-details">
+    <div class="row">
+        <div class="col-xs-5">Academic Year:</div>
+        <div class="col-xs-7">{{ ctrl.studentYear._yearCode }}</div>
+    </div>
+    <div class="row">
+        <div class="col-xs-5">Year Applied:</div>
+        <div class="col-xs-7">{{ ctrl.studentYear._yearApplied }}</div>
+    </div>
+    <div class="row">
+        <div class="col-xs-5">Student Type:</div>
+        <div class="col-xs-7">{{ ctrl.studentYear._studentTypeCode | notSet }}</div>
+    </div>
+    <div class="row">
+        <div class="col-xs-5">Tutor Group:</div>
+        <div class="col-xs-7">{{ ctrl.studentYear._tutorGroupCode | notSet }}</div>
+    </div>
+    <div class="row">
+        <div class="col-xs-5">Tutor:</div>
+        <div class="col-xs-7">{{ ctrl.studentYear._tutorInitials | notSet }} - {{ ctrl.studentYear._tutorName | notSet }}</div>
+    </div>
+    <div class="row">
+        <div class="col-xs-5">Senior Tutor Initial:</div>
+        <div class="col-xs-7">{{ ctrl.studentYear._seniorTutorInitials | notSet }} - {{ ctrl.studentYear._seniorTutorName | notSet }}</div>
+    </div>
+    <div class="row">
+        <div class="col-xs-5">PD Initial:</div>
+        <div class="col-xs-7">{{ ctrl.studentYear._pastoralDirectorInitials | notSet }} - {{ ctrl.studentYear._pastoralDirectorName | notSet }}</div>
+    </div>
+    <div class="row" ng-show="ctrl.studentYear._associatePastoralDirectorInitials != null">
+        <div class="col-xs-5">APD Initial:</div>
+        <div class="col-xs-7">{{ ctrl.studentYear._associatePastoralDirectorInitials | notSet }} - {{ ctrl.studentYear._associatePastoralDirectorName | notSet }}</div>
+    </div>
+    <div class="row">
+        <div class="col-xs-5">Start Date:</div>
+        <div class="col-xs-7">{{ ctrl.studentYear.startDate | date:'dd/MM/yyyy' }}
+            <span class="error" ng-show="ctrl.nonStarter()">NON-STARTER</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-5">End Date:</div>
+        <div class="col-xs-7">{{ ctrl.studentYear.endDate | date:'dd/MM/yyyy' }}
+            <span class="error" ng-show="ctrl.hasLeft()">LEFT</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-5">PLH/PEEPH:</div>
+        <div class="col-xs-7">{{ ctrl.studentYear.plh | notSet }} / {{ ctrl.studentYear.peeph | notSet }}</div>
+    </div>
+    <div class="row">
+        <div class="col-xs-5">Candidate No:</div>
+        <div class="col-xs-7">{{ ctrl.studentYear.candidateNo | notSet }} <span ng-show="ctrl.studentYear.externalCandidate">(External)</span></div>
+    </div>
+    <div class="row">
+        <div class="col-xs-5" ng-class="{'highlight-student': ctrl.studentYear.ehc === true}">ECHP:</div>
+        <div class="col-xs-7" ng-class="{'highlight-student': ctrl.studentYear.ehc === true}">{{ ctrl.studentYear.ehc | yesNo }}</div>
+    </div>
+    <div class="row">
+        <div class="col-xs-5" ng-class="{'highlight-student': ctrl.studentYear.sen === true}">SEN:</div>
+        <div class="col-xs-7" ng-class="{'highlight-student': ctrl.studentYear.sen === true}">{{ ctrl.studentYear.sen | yesNo }}</div>
+    </div>
+    <div class="row">
+        <div class="col-xs-5" ng-class="{'highlight-student': ctrl.studentYear.onContract === true}">On Contract:</div>
+        <div class="col-xs-7" ng-class="{'highlight-student': ctrl.studentYear.onContract === true}">{{ ctrl.studentYear.onContract | yesNo }}</div>
+    </div>
+    <div class="row">
+        <div class="col-xs-5" ng-class="{'highlight-student': ctrl.studentYear.breakInLearning === true}">On Break In Learning:</div>
+        <div class="col-xs-7" ng-class="{'highlight-student': ctrl.studentYear.breakInLearning === true}">{{ ctrl.studentYear.breakInLearning | yesNo }}</div>
+    </div>
+    <div class="row">
+        <div class="col-xs-5" ng-class="{'highlight-student': ctrl.studentYear.onMentoring === true}">On Mentoring:</div>
+        <div class="col-xs-7" ng-class="{'highlight-student': ctrl.studentYear.onMentoring === true}">{{ ctrl.studentYear.onMentoring | yesNo }}</div>
+    </div>
+</div>

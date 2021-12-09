@@ -1,0 +1,12 @@
+<h1>Test Contact Details</h1>
+
+
+<input ng-model=ctrl.personId></input><button class="btn btn-sm" ng-click="ctrl.getContacts()">Get Contacts</button>
+<br />
+
+<h3>Corresponding Contact Details (with personId and contacts)</h3>
+<contacts-editor person-id="ctrl.personId" contacts="ctrl.contacts"></contacts-editor>
+
+
+<h3>Corresponding Contact Details (with just contacts)</h3>
+<contacts-editor contacts="ctrl.contacts"></contacts-editor>

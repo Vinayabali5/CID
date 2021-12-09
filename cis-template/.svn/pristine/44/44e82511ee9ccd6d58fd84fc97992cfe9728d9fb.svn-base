@@ -1,0 +1,19 @@
+<table class="table table-responsive table-hover" ts-wrapper ts-item-name="Referral Reason">
+    <thead>
+        <th>ID</th>
+        <th ts-criteria="reason" ts-filter>Reason </th>
+        <th ts-criteria="_llddHealthProblemCategoryDescription">LLDD Health Problem</th>
+        <th ng-show="showActions">Actions</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="referralReason in referralReasons" ts-repeat>
+            <td>{{ referralReason.id }}</td>
+            <td>{{ referralReason.reason }}</td>
+            <td>{{ referralReason._llddHealthProblemCategoryDescription }}</td>
+            <td ng-show="showActions">
+                <button type="button" class="btn btn-primary btn-sm" ng-click="ctrl.editReferralReasons(referralReason.id)"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button ng-show="showActions" type="button" class="btn btn-primary btn-sm" ng-click="ctrl.addReferralReasons()"><span class="glyphicon glyphicon-pencil"></span> Add</button>

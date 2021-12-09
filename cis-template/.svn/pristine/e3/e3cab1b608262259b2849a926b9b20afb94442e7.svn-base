@@ -1,0 +1,22 @@
+<div class="admission-details container-fluid">
+    <div class="row">
+        <div class="col-sm-5 col-md-3">Application Status:</div>
+        <div class="col-sm-7 col-md-3">{{ studentAdmissions._statusDescription | notSet}}</div>
+        <div class="col-sm-5 col-md-3">Offer Type:</div>
+        <div class="col-sm-7 col-md-3">{{ studentAdmissions._offerTypeDescription | notSet}}</div>
+        <div class="col-sm-5 col-md-3">Possible Aspire:</div>
+        <div class="col-sm-7 col-md-3">{{ studentAdmissions.possibleAspire | yesNo }}</div>
+        <div class="col-sm-5 col-md-3">Year Applied:</div>
+        <div class="col-sm-7 col-md-3">{{ studentAdmissions.yearApplied.description | notSet}}</div>
+        <div class="col-sm-5 col-md-3">Application Received:</div>
+        <div class="col-sm-7 col-md-3">{{ studentAdmissions.received | date :'dd/MM/yyyy' | notSet}}</div>
+        <div class="col-sm-5 col-md-3">Acceptance Received:</div>
+        <div class="col-sm-7 col-md-3">{{ studentAdmissions.acceptanceReceived | date :'dd/MM/yyyy' | notSet}}</div>
+        <div class="col-sm-5 col-md-3">Ethnicity:</div>
+        <div class="col-sm-7 col-md-3">{{ studentAdmissions._ethnicityShortDescription | notSet}}</div>
+        <div class="col-sm-5 col-md-3">Free Meals While At School:</div>
+        <div class="col-sm-7 col-md-3">{{ studentAdmissions.freeMealsWhileAtSchool | yesNo }}</div>
+        <div class="col-sm-5 col-md-3">Parents University Educated:</div>
+        <div class="col-sm-7 col-md-3">{{ studentAdmissions.parentsUniversityEducated | yesNo }}</div>
+    </div>
+</div>

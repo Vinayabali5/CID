@@ -1,0 +1,9 @@
+<h3>Address Editor</h3>
+
+<input ng-model=ctrl.addressId></input><button class="btn btn-sm" ng-click="ctrl.getAddress()">Get Address</button>
+<br />
+<h1>Address Details </h1>
+<address-details address="ctrl.address"></address-details>
+
+<h1>Address Editor </h1>
+<address-editor address-id="ctrl.addressId" address="ctrl.address"></address-editor>

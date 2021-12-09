@@ -1,0 +1,15 @@
+<md-dialog>
+    <md-dialog-content>
+        <div class="md-dialog-content">
+            <p><strong>This will create any missing entry code for students based on their current enrolments, this operation cannot be undone.</strong></p>
+            <p></p>
+            <p><strong>Are you sure that you want to continue?</strong></p>
+        </div>
+    </md-dialog-content>
+    <md-dialog-actions>
+        <md-button ng-click="cancel()" class="md-primary">
+            <report-link report-path="'/CID/Exams/Student Option Entry Confirmation'" report-format="PDF" include-year="true">OK</report-link>
+        </md-button>
+        <md-button ng-click="cancel()" class="md-primary">Cancel</md-button>
+    </md-dialog-actions>
+</md-dialog>

@@ -1,0 +1,48 @@
+<div class="form-group col-md-12 col-sm-12">
+    <table class="table table-responsive table-hover">
+        <thead>
+            <th>Contact Type</th>
+            <th>Title</th>
+            <th>First Name</th>
+            <th>Surname</th>
+            <th>Home</th>
+            <th>Mobile</th>
+            <th>Work</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Contactable</th>
+            <th>Preferred</th>
+            <th>Alternative Address</th>
+            <th ng-show="showActions">Actions</th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="contact in ctrl.contacts" ng-class="{'non-contactable': contact.contactable === false}">
+                <td>{{ contact._contactTypeDescription }}</td>
+                <td>{{ contact.contact._titleDescription }}</td>
+                <td>{{ contact.contact.firstName }}</td>
+                <td>{{ contact.contact.surname }}</td>
+                <td>{{ contact.contact.home | telNo }}</td>
+                <td>{{ contact.contact.mobile | telNo }}</td>
+                <td>{{ contact.contact.work | telNo }}</td>
+                <td>{{ contact.contact.email }}</td>
+                <td>
+                    <address-details address="contact.contact.address" ng-show="contact.contact.addressId"></address-details>
+                </td>
+                <td>{{ contact.contactable | yesNo }}</td>
+                <td>{{ contact.preferred | yesNo }}</td>
+                <td>{{ contact.alternativeAddress | yesNo }}</td>
+                <td ng-show="showActions">
+                    <button type="button" class="btn btn-primary btn-sm" ng-click="ctrl.editContact(contact.id)">
+                        <span class="glyphicon glyphicon-pencil"></span> Edit
+                    </button>
+                    <button type="button" class="btn btn-danger btn-sm" ng-click="ctrl.deleteContact(contact.id)">
+                        <span class="glyphicon glyphicon-trash"></span> Delete
+                    </button>
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+
+    <button ng-show="showActions" type="button" class="btn btn-primary" ng-show="ctrl.personId !== undefined" ng-click="ctrl.addContact(ctrl.personId)">Add Contact</button>
+</div>

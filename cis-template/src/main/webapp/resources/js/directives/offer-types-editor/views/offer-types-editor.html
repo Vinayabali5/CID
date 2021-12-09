@@ -1,0 +1,19 @@
+<table class="table table-responsive table-hover" ts-wrapper ts-item-name="Offer Type">
+    <thead>
+        <th ts-criteria="code" ts-filter>Code</th>
+        <th ts-criteria="description" ts-filter>Description</th>
+        <th>Consider As Enrolling</th>
+        <th ng-show="showActions">Actions</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="offerType in offerTypes" ts-repeat>
+            <td>{{ offerType.code }}</td>
+            <td>{{ offerType.description }}</td>
+            <td>{{ offerType.considerAsEnrolling | yesNo }}</td>
+            <td ng-show="showActions">
+                <button type="button" class="btn btn-primary btn-sm" ng-click="ctrl.editOfferTypes(offerType.id)"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button ng-show="showActions" type="button" class="btn btn-primary btn-sm" ng-click="ctrl.addOfferTypes()"><span class="glyphicon glyphicon-pencil"></span> Add</button>

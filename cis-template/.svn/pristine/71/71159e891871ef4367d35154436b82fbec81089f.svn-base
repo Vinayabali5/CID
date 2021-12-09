@@ -1,0 +1,40 @@
+<div>
+    <table id="basedataTable" class="table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Exam Year</th>
+                <th>Exam Series</th>
+                <th colspan="2">Exam Board</th>
+                <th>Code</th>
+                <th>Title</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat-start="syllabus in ctrl.syllabusList | filter:filterParams | orderBy:ctrl.paginationInfo.order | limitTo:ctrl.paginationInfo.pageSize:ctrl.paginationInfo.startItem" class="ng-cloak">
+                <td>
+                    <div ng-init="syllabus._expanded = false">
+                        <expand visible="true" expandable="expandable" expanded="syllabus._expanded"></expand>
+                    </div>
+                </td>
+                <td>{{ syllabus.examSeries.examYear }}</td>
+                <td>{{ syllabus.examSeries.examSeries }}</td>
+                <td>{{ syllabus.examSeries.examBoard.boardIdentifier }}</td>
+                <td>{{ syllabus.examSeries.examBoard.description }}</td>
+                <td>{{ syllabus.code }}</td>
+                <td>{{ syllabus.title }}</td>
+                <td>
+                    <ng-transclude></ng-transclude>
+                </td>
+            </tr>
+            <tr ng-show="(syllabus._expanded) || (expandable == false)" ng-repeat-end="">
+                <td colspan="8">
+                    <option-table syllabus-id="syllabus.id" expandable="expandable">
+                        <ng-transclude></ng-transclude>
+                    </option-table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

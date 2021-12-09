@@ -1,0 +1,16 @@
+<div class="col-sm-12 col-md-4">
+    <table class="table table-hover">
+        <thead>
+            <th ng-show="showAll">Student ID</th>
+            <th>Concession</th>
+            <th>Extra Time Percentage</th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="studentConcessionType in ctrl.studentConcessionTypes">
+                <td ng-show="showAll">{{ studentConcessionType.studentId }}</td>
+                <td>{{ studentConcessionType._concessionDescription }}</td>
+                <td>{{ studentConcessionType.extraTimePercentage }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,84 @@
+<div class="row">
+    <div class="col-xs-12">
+        <fieldset>
+            <legend>Interview Information</legend>
+        </fieldset>
+    </div>
+
+
+    <div class="form-group col-md-3 col-sm-6">
+        <div class="form-group">
+            <label for="careerAims">Career/University aims:</label>
+            <div class="form-group">
+                <textarea class="form-control" placeholder="Career/University aims" ng-model="interview.careerAims" id="careerAims" name="careerAims" rows="3" cols="30" type="text"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="form-group col-md-3 col-sm-6">
+        <div class="form-group">
+            <label for="workVoluntaryExperience">Work experience:</label>
+            <div class="form-group">
+                <textarea class="form-control" placeholder="Work experience" ng-model="interview.workVoluntaryExperience" id="workVoluntaryExperience" name="workVoluntaryExperience" rows="3" cols="30" type="text"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="form-group col-md-3 col-sm-6">
+        <div class="form-group">
+            <label for="hobbiesInterestsOtherAchievements">Hobbies, interests and other achievements:</label>
+            <div class="form-group">
+                <textarea class="form-control" placeholder="Hobbies, interests and other achievements" ng-model="interview.hobbiesInterestsOtherAchievements" rows="3" cols="30" type="text"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="form-group col-md-3 col-sm-6">
+        <div class="form-group">
+            <label for="learningSupportNeedsDetails">Learning Support Needs:</label>
+            <div class="form-group">
+                <textarea class="form-control" placeholder="Learning Support Needs" ng-model="interview.learningSupportNeedsDetails" id="learningSupportNeedsDetails" rows="3" cols="30" type="text"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="form-group col-md-3 col-sm-6">
+        <div class="form-group">
+            <label for="favoriteSubject">Favourite subjects:</label>
+            <div class="form-group">
+                <textarea class="form-control" placeholder="Favourite subjects" ng-model="interview.favoriteSubject" id="favoriteSubject" name="favoriteSubject" rows="3" cols="30" type="text"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="form-group col-md-3 col-sm-6">
+        <div class="form-group">
+            <label for="courseworkOrExams">Coursework/Exams/both:</label>
+            <div class="form-group">
+                <textarea class="form-control" placeholder="Coursework/Exams/both" ng-model="interview.courseworkOrExams" id="courseworkOrExams" name="courseworkOrExams" rows="3" cols="30" type="text"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="form-group col-md-3 col-sm-6">
+        <div class="form-group">
+            <label for="reasonsForReigateCollege">Reasons for choosing Reigate College:</label>
+            <div class="form-group">
+                <textarea class="form-control" placeholder="Reasons for choosing Reigate College" ng-model="interview.reasonsForReigateCollege" id="reasonsForReigateCollege" name="reasonsForReigateCollege" rows="3" cols="30" type="text"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="form-group col-md-3 col-sm-6">
+        <div class="form-group">
+            <label for="otherSchoolCollegeAppliedFor">Place at another College or School:</label>
+            <div class="form-group">
+                <textarea class="form-control" placeholder="Place at another College or School" ng-model="interview.otherSchoolCollegeAppliedFor" id="otherSchoolCollegeAppliedFor" name="otherSchoolCollegeAppliedFor" rows="3" cols="30" type="text"></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-xs-12 col-md-6">
+    <div class="row">
+        <div class="col-xs-12">
+            <fieldsset>
+                <legend>Course Requests</legend>
+            </fieldsset>
+        </div>
+    </div>
+    <course-request-editor show-actions="false" student-id="interview.studentId" request="requests"></course-request-editor>
+</div>

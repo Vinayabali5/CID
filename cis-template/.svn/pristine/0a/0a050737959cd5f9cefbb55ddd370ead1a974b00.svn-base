@@ -1,0 +1,229 @@
+body {
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	padding-top: 60px;
+}
+
+td, th {
+	font-family: inherit;
+}
+
+table.review-data td.review-data{
+	width: 4%;
+	text-align:center;
+	font-size: x-small
+}
+
+table.review-data th.review-data{
+	font-size: x-small
+}
+
+.error {
+    color: #FF0000;
+}
+
+.spinner {
+	background-image: url("../imgs/loading.gif");
+    height: 200px;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.search-box {
+	background-color: #f5f5f5;
+	border: 1px dashed #eee;
+	padding: 5px;
+	z-index: 900;
+}
+
+.student-search .message {
+    font-weight: bold;
+}
+
+img.student-image {
+    height: 180px;
+}
+
+.special-category-tab, .student-risk-level-tab {
+    border: 1px solid;
+    padding: 5px
+}
+
+.report-list ul {
+    list-style: none;
+}
+
+.special-category-banner {
+	color: red;
+	opacity: 0.5;
+	font-size: 6em;
+}
+
+.risk-warning {
+	color: red;
+	font-size: 2em;
+}
+
+.navbar-brand,
+.navbar li a {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.fixed-bottom-right {
+    position: fixed;
+    right: 2em;
+    bottom: 0.5em;
+		z-index: 1000;
+}
+
+.side-bar, .side-bar-global {
+	padding-left: 20px;
+}
+
+.validation-error {
+	color: #FF0000;
+}
+
+.non-contactable {
+	color: #FF0000;
+}
+
+.highlight-student {
+	color: #FF0000;
+}
+
+.navbar li b {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+li.dropdown:hover > .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu > li > report-link > a, .dropdown-menu > li > report-loader > a  {
+    display: block;
+    padding: 3px 10px;
+    color: #333;
+		clear: both;
+		font-weight: normal;
+		line-height: 1.42857143;
+    white-space: nowrap;
+}
+
+
+.dropdown-menu > li > report-link > a:hover, .dropdown-menu > li > report-link > a:focus,
+.dropdown-menu > li > report-loader > a:hover, .dropdown-menu > li > report-loader > a:focus {
+    color: #262626;
+    text-decoration: none;
+    background-color: #f5f5f5;
+}
+
+/*
+.dropdown-menu-right > li > report-link > a, .dropdown-menu-right > li > report-loader > a  {
+	right: 0;
+	left: auto;
+}
+*/
+
+.settings-menu {
+	width: 300px;
+}
+
+
+.colour-preview {
+	display:block;
+	border: 1px solid grey;
+	border-radius: 5px;
+	width: 32px;
+	height: 32px;
+}
+
+.text-smaller {
+  font-size: smaller
+    /*
+xx-small|x-small|small|large|x-large|xx-large|smaller|larger|length|initial|inherit;
+     */
+}
+
+.debug-json {
+  max-height: 150px;
+
+}
+
+.nav-tabs > li.uib-tab > a {
+	border: 1px solid #337ab7;
+	border-bottom-color: transparent;
+}
+
+.nav-tabs > li.uib-tab.active > a {
+	color: #fff;
+	cursor: default;
+	background-color: #337ab7; //#fff;
+	border: 1px solid #ddd;
+	border-bottom-color: transparent;
+}
+
+.tab-sm {
+	padding: 0px 0px;
+	font-size: small;
+}
+
+.filter-box {
+	border: 1px solid #337ab7;
+}
+
+.staff-data {
+  border-spacing: 2px;
+  text-align:center;
+}
+
+.signature {
+	font-size: x-small;
+}
+
+.BoxedList {
+	border: 1px solid #9EB570;
+	margin: 10px;
+	background: #ebebeb;
+	padding: 12px 12px;
+	border-radius: 5px;
+
+}
+
+.solid {
+	border-top: 3px solid #bbb;
+}
+.no-padding {
+	padding: 0;
+}
+
+button.help-button {
+  float: right !important;
+}
+
+@media (min-width: 768px) {
+  .modal-xl {
+    width: 90%;
+    max-width:1200px;
+  }
+
+	.modal-xxl {
+    width: 90%;
+    max-width:1500px;
+  }
+}
+
+.remove-enrolment {
+	cursor: pointer;
+}
+
+.course-request-entry {
+	text-transform: uppercase;
+}
+
+.similar-named-warning {
+	color: ff0000;
+	font-size: 1em;
+}

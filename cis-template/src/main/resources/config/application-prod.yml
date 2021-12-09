@@ -1,0 +1,10 @@
+server: 
+  port: 10209
+
+spring:
+  jpa:
+    show_sql: false
+  pid:
+    file: prod.pid
+
+resourceLocation: /resources/dist/

@@ -1,0 +1,16 @@
+<div class="row">
+    <div class="col-xs-8">Bursary:</div>
+    <div class="col-xs-4">{{ studentBursary._bursaryTypeDescription }}</div>
+</div>
+<div class="row">
+    <div class="col-xs-8">Free Meals Eligibility:</div>
+    <div class="col-xs-4">{{ studentBursary.freeMealsEligibility | yesNo }}</div>
+</div>
+<div class="row">
+    <div class="col-xs-8">Receiving Free Meals:</div>
+    <div class="col-xs-4">{{ studentBursary.receivingFreeMeals | yesNo }}</div>
+</div>
+<div class="row">
+    <div class="col-xs-8">Removed from free meals:</div>
+    <div class="col-xs-4">{{ studentBursary.removedFromFreeMeals | yesNo }}</div>
+</div>

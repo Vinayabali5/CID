@@ -1,0 +1,2 @@
+<button type="button" class="btn btn-sm btn-default" ng-click="ctrl.studentLetter(studentId)">Student Letter</button>
+<button type="button" class="btn btn-sm btn-default" ng-click="ctrl.parentLetter(studentId)">Parent Letter</button>

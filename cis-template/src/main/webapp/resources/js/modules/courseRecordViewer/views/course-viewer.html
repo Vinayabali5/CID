@@ -1,0 +1,64 @@
+<div class="row">
+    <div class="col-xs-12">
+        <h3>Course Details: {{ course._levelDescription }} {{ course._subjectDescription}}</h3>
+        <course-details course="course"></course-details>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-md-6">
+        <div class="row">
+            <div class="col-xs-12">
+                <h4>Reports</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <report-link class="btn btn-default" report-path="'/CID/Courses/Student Course List with Various Information'" report-format="MHTML" report-params="'CourseMask=' + course.spec" include-year="true">Student Course List With Various Information</report-link>
+                <span class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="reports-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Course Reports <span class="caret"></span></button>
+                    <ul class="dropdown-menu" aria-labelledby="reports-menu">
+                        <li>
+                            <report-link report-path="'/CID/TimeTabling/Timetable Course - Column'" report-params="'CourseGroupMask=%'+course.spec +'%'" include-year="true">Timetables Course - Column</report-link>
+                        </li>
+                        <li>
+                            <report-link report-path="'/CID/TimeTabling/Timetable Course - Square'" report-params="'CourseSpec='+course.spec">Timetables Course - Square</report-link>
+                        </li>
+                        <li>
+                            <report-link report-path="'/CID/Attendance Monitoring/Attendance Figures By Course'" report-params="'Course=%-'+course.spec">Attendance Figures By Course</report-link>
+                        </li>
+                    </ul>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-md-6">
+        <div class="row">
+            <div class="col-xs-12">
+                <h4>Actions</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <button class="btn btn-primary" type="button" name="button" mass-ilp course-id="course.id" permission="['ROLE_Developer', 'ROLE_Staff']">Create Mass ILP Interview</button>
+                <button class="btn btn-primary" type="button" name="button" bulk-careers-record course-id="course.id" permission="['ROLE_Developer', 'ROLE_Office Administration', 'ROLE_Careers']">Bulk Careers Records</button>
+                <button class="btn btn-default" type="button" name="button" edit-course="course.id" permission="'ROLE_Developer'">Edit Course</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+        <uib-tabset active="activeTab">
+            <uib-tab classes="tab-sm" index="'course'" heading="Course Groups">
+                <h4>Course Groups</h4>
+                <course-groups-table course-groups="courseGroups" show-year="true" show-dates="true" show-enrolment-info="false" include-reports="true" include-link="true"></course-groups-table>
+            </uib-tab>
+
+            <uib-tab classes="tab-sm" index="'enrolments'" heading="Enrolments">
+                <h4>Enrolments</h4>
+                <enrolments-table enrolments="enrolments" show-student="true" show-course-group="true" show-status="true" show-monitoring="true" show-actions="true" initial-sort="+student.person.surname"></enrolments-table>
+            </uib-tab>
+        </uib-tabset>
+    </div>
+</div>

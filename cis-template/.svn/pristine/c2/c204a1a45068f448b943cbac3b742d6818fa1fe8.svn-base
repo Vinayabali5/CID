@@ -1,0 +1,8 @@
+{
+  "location": "",
+  "profile": "",
+  "apiUrl": "API URL HERE",
+  "reportUrl": "REPORT SERVER URL HERE",
+  "studentImagesUrl": "STUDENT IMAGES URL HERE",
+  "debug": "false"
+}

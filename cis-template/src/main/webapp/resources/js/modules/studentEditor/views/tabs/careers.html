@@ -1,0 +1,38 @@
+<div class="row">
+    <div class="col-sm-12">
+        <h3>Careers Records</h3>
+        <student-careers-records-editor student-id="ctrl.student.id" student-careers-records="ctrl.studentCareersRecords" show-actions="true" permission="['ROLE_Developer', 'ROLE_System Admin', 'ROLE_Office Administration', 'ROLE_Pastoral', 'ROLE_Careers']"></student-careers-records-editor>
+        <student-careers-records-editor student-id="ctrl.student.id" student-careers-records="ctrl.studentCareersRecords" show-actions="false" permission permission-not="['ROLE_Developer', 'ROLE_System Admin', 'ROLE_Office Administration', 'ROLE_Pastoral', 'ROLE_Careers']"></student-careers-records-editor>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <h3>Careers ILP</h3>
+        <ilp-interviews-table ilp-interviews="ctrl.ilpInterviews" filter="{_ilpInterviewTypeDescription : 'Interview with Careers Advisor'} && {_ilpInterviewTypeDescription : 'Careers'}" show-filter="false" show-staff="true" show-private="true" show-letter-home="false"></ilp-interviews-table>
+    </div>
+</div>
+
+<div class=" row">
+    <div class="col-sm-12">
+        <h3>Extended Work Placements</h3>
+        <student-work-placements-editor student-id="ctrl.student.id" student-work-placements="ctrl.studentWorkPlacements" show-actions="false" permission permission-not="['ROLE_Developer', 'ROLE_System Admin', 'ROLE_Office Administration', 'ROLE_Pastoral', 'ROLE_Careers']"></student-work-placements-editor>
+        <student-work-placements-editor student-id="ctrl.student.id" student-work-placements="ctrl.studentWorkPlacements" show-actions="true" permission="['ROLE_Developer', 'ROLE_System Admin', 'ROLE_Office Administration', 'ROLE_Pastoral', 'ROLE_Careers']"></student-work-placements-editor>
+    </div>
+</div>
+
+<div class=" row">
+    <div class="col-sm-12">
+        <h3>Destination fields</h3>
+        <div class="row">
+
+            <div class="col-sm-5 col-md-3"><strong>Destination:</strong></div>
+            <div class="col-sm-5 col-md-3">{{ ctrl.studentYear.destination.description }}</div>
+            <div class="col-sm-5 col-md-3"><strong>College Employer:</strong></div>
+            <div class="col-sm-5 col-md-3">{{ ctrl.studentYear.destinationCollegeEmployer }}</div>
+            <div class="col-sm-5 col-md-3"><strong>Course Career:</strong></div>
+            <div class="col-sm-5 col-md-3">{{ ctrl.studentYear.destinationCourseCareer }}</div>
+
+        </div>
+    </div>
+</div>

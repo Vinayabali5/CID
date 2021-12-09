@@ -1,0 +1,17 @@
+<button class="btn btn-sm btn-primary help-button" type="button" data-toggle="collapse" data-target="#examEntryHelp" aria-expanded="false" aria-controls="examEntryHelp"><span class="glyphicon glyphicon-question-sign"></span> Help</button>
+<h3>Student Exam Entry Details</h3>
+<div class="collapse" id="examEntryHelp">
+    <div class="well">
+        <p>
+            This displays the exam entries and the status of those entries. The Status describes if the exam entry is meant to be a Live or Withdrawn entry. The EDI Status shows if the exam entry has been processed into an EDI file.
+        </p>
+        <p>
+            The following describes a number of operations that may need to be performed on a given exam entry:
+        </p>
+        <ul>
+            <li>To make an amendment to a exam entry set the EDI Status to "R - Ready". </li>
+            <li>To remove an exam entry set the Status to "W - Withdrawn/Removed". </li>
+        </ul>
+    </div>
+</div>
+<student-option-editor-table student-option-entries="ctrl.studentOptionEntries" student-id="ctrl.student.id"></student-option-editor-table>

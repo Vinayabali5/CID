@@ -1,0 +1,61 @@
+<div class="person-details">
+    <div class="row" ng-show="hasData() && person.titleId">
+        <div class="col-xs-4">Title:</div>
+        <div class="col-xs-8">{{ person._titleDescription }}</div>
+    </div>
+    <div class="row" ng-show="hasData()">
+        <div class="col-xs-4">Surname:</div>
+        <div class="col-xs-8">{{ person.surname }}</div>
+    </div>
+    <div class="row" ng-show="hasData()">
+        <div class="col-xs-4">Legal Surname:</div>
+        <div class="col-xs-8">{{ person.legalSurname }}</div>
+    </div>
+    <div class="row" ng-show="hasData()">
+        <div class="col-xs-4">First Name:</div>
+        <div class="col-xs-8">{{ person.firstName }}</div>
+    </div>
+    <div class="row" ng-show="hasData() && person.middleNames">
+        <div class="col-xs-4">Middle Names:</div>
+        <div class="col-xs-8">{{ person.middleNames }}</div>
+    </div>
+    <div class="row" ng-show="hasData() && person.preferredName">
+        <div class="col-xs-4">Preferred Name:</div>
+        <div class="col-xs-8">{{ person.preferredName }}</div>
+    </div>
+    <div class="row" ng-show="hasData() && person.previousSurname">
+        <div class="col-xs-4">Previous Surname:</div>
+        <div class="col-xs-8">{{ person.previousSurname }}</div>
+    </div>
+    <div class="row" ng-show="hasData() && (showAll || showDob) && person.dob">
+        <div class="col-xs-4">DoB:</div>
+        <div class="col-xs-8">{{ person.dob | date:'dd/MM/yyyy' }}</div>
+    </div>
+    <div class="row" ng-show="hasData() && (showAll || showGender) && person._genderCode">
+        <div class="col-xs-4">Gender:</div>
+        <div class="col-xs-8">{{ person._genderCode }}</div>
+    </div>
+    <div class="row" ng-show="hasData() && (showAll || showLegalSex) && person._legalSexCode">
+        <div class="col-xs-4">Legal Sex:</div>
+        <div class="col-xs-8">{{ person._legalSexCode }}</div>
+    </div>
+    <div class="row" ng-show="hasData() && (showAll || showTelephoneNos)">
+        <div class="col-xs-4">Home:</div>
+        <div class="col-xs-8">{{ person.home | telNo }}</div>
+    </div>
+    <div class="row" ng-show="hasData() && (showAll || showTelephoneNos) && person.mobile">
+        <div class="col-xs-4">Mobile:</div>
+        <div class="col-xs-8">{{ person.mobile | telNo }}</div>
+    </div>
+    <div class="row" ng-show="hasData() && (showAll || showTelephoneNos) && person.work">
+        <div class="col-xs-4">Work:</div>
+        <div class="col-xs-8">{{ person.work | telNo }}</div>
+    </div>
+
+    <div class="row" ng-show="hasData() && (showAll || showEmail) && person.email">
+        <div class="col-xs-4">EMail (personal):</div>
+        <div class="col-xs-8">{{ person.email }}</div>
+    </div>
+
+    <div class="error" ng-hide="hasData()">Person Details: No Data Provided</div>
+</div>

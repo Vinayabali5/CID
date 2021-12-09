@@ -1,0 +1,27 @@
+<table class="table table-responsive table-hover" ts-wrapper ts-item-name="Tutor Group" ts-no-data-text="No Tutor Groups">
+    <thead>
+        <th ts-criteria="code" ts-filter ts-default>Code</th>
+        <th ts-criteria="description" ts-filter>Description</th>
+        <th ts-criteria="_facultyDesc">Faculty</th>
+        <th ts-criteria="_roomCode" ts-filter>Room</th>
+        <th ts-criteria="_seniorTutorInitials" ts-filter>Senior Tutor</th>
+        <th ts-criteria="_tutorInitials" ts-filter>Tutor</th>
+        <th ts-criteria="inUse">In Use</th>
+        <th ng-show="showActions">Actions</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="tutorGroup in tutorGroups" ts-repeat>
+            <td>{{tutorGroup.code}}</td>
+            <td>{{tutorGroup.description}}</td>
+            <td>{{tutorGroup._facultyDesc}}</td>
+            <td>{{tutorGroup._roomCode}}</td>
+            <td>{{tutorGroup._seniorTutorInitials}} - {{tutorGroup._seniorTutorName}}</td>
+            <td>{{tutorGroup._tutorInitials}} - {{tutorGroup._tutorName}}</td>
+            <td>{{tutorGroup.inUse| yesNo}}</td>
+            <td ng-show="showActions">
+                <button type='button' class="btn btn-primary btn-sm" ng-click="ctrl.editTutorGroups(tutorGroup.id)"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button ng-show="showActions" type='button' class="btn btn-primary btn-sm" ng-click="ctrl.addTutorGroups()"><span class="glyphicon glyphicon-pencil"></span> Add</button>

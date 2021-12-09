@@ -1,0 +1,495 @@
+<form name="applicationForm" class="form" ng-action="createApplication()">
+
+    <div class="row">
+        <div class="col-xs-12">
+            <fieldset>
+                <legend>Application Details</legend>
+            </fieldset>
+        </div>
+        <div class="col-xs-6">
+            <div class="form-group">
+                <label for="received" class="col-xs-6 col-sm-4 control-label">Date Received:</label>
+                <div class="col-xs-6 col-sm-8">
+                    <div class="input-group">
+                        <input type="text" id="received" name="received" class="form-control" ng-init="applicationReceived = false" uib-datepicker-popup="dd/MM/yyyy" is-open="applicationReceived" placeholder="DD/MM/YYYY" ng-model="application.received" ng-required="true" />
+                        <span class="validation-error" ng-show="applicationForm.received.$dirty && applicationForm.received.$invalid">Please enter the valid Date Format DD/MM/YYYY</span>
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" ng-click="applicationReceived = !applicationReceived"><span class="glyphicon glyphicon-calendar"></span></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 col-md-6">
+            <div class="rows">
+                <div class="col-xs-12">
+                    <fieldsset>
+                        <legend>Personal Details</legend>
+                    </fieldsset>
+                </div>
+            </div>
+            <div class="rows">
+                <div class="form-group">
+                    <label for="firstName" class="col-xs-6 col-sm-4 control-label">First Name:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control" id="firstName" name="firstName" placeholder="First Name" ng-model="application.firstName" minlength="1" type="text" required></input>
+                        <span class="validation-error" ng-show="applicationForm.firstName.$dirty && applicationForm.firstName.$invalid">Please enter at least 1 character</span>
+                    </div>
+                </div>
+            </div>
+            <div class="rows">
+                <div class="form-group">
+                    <label for="middleNames" class="col-xs-6 col-sm-4 control-label">Middle Name(s):</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control" id="middleNames" name="middleNames" placeholder="Middle Name(s)" ng-model="application.middleNames" minlength="2" type="text"></input>
+                    </div>
+                </div>
+            </div>
+            <div class="rows">
+                <div class="form-group">
+                    <label for="surname" class="col-xs-6 col-sm-4 control-label">Surname:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control" type="text" id="surname" name="surname" placeholder="Surname" ng-model="application.surname" minlength="2" ng-required="true" ng-blur="validate()"></input>
+                        <span class="validation-error" ng-show="applicationForm.surname.$dirty && applicationForm.surname.$invalid">Please enter at least 2 characters</span>
+                    </div>
+                </div>
+            </div>
+            <div class="rows">
+                <div class="form-group">
+                    <label for="preferredName" class="col-xs-6 col-sm-4 control-label">Preferred Name:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control" type="text" id="preferredName" name="preferredName" minlength="2" placeholder="Preferred Name" ng-model="application.preferredName"></input>
+                    </div>
+                </div>
+            </div>
+            <div class="rows">
+                <div class="form-group">
+                    <label for="previousSurname" class="col-xs-6 col-sm-4 control-label">Previous Surname:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control" type="text" id="previousSurname" name="previousSurname" placeholder="Previous Surname" ng-model="application.previousSurname"></input>
+                    </div>
+                </div>
+            </div>
+            <div class="rows">
+                <div class="form-group">
+                    <label for="legalSurname" class="col-xs-6 col-sm-4 control-label">Legal Surname:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control" type="text" id="legalSurname" name="legalSurname" placeholder="Legal Surname" ng-model="application.legalSurname"></input>
+                    </div>
+                </div>
+            </div>
+            <div class="rows">
+                <div class="form-group">
+                    <label for="dob" class="col-xs-6 col-sm-4 control-label">Date of Birth:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="dob" name="dob" ng-init="dob = false" uib-datepicker-popup="dd/MM/yyyy" is-open="dob" placeholder="DD/MM/YYYY" ng-model="application.dob" ng-required="true" ng-blur="validate()" />
+                            <span class="validation-error" ng-show="applicationForm.dob.$dirty && applicationForm.dob.$invalid">Please enter the valid Date Format DD/MM/YYYY</span>
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" ng-click="dob = !dob"><span class="glyphicon glyphicon-calendar"></span></button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="rows">
+                <div class="form-group">
+                    <label for="legalSex" class="col-xs-6 col-sm-4 control-label">Legal Sex:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <legal-sex-selection class="form-control" id="legalSex" name="legalSex" alt-null-text="'-- Select Legal Sex --'" ng-model="application.legalSexId" ng-required="true"></legal-sex-selection>
+                    </div>
+                </div>
+            </div>
+            <div class="rows">
+                <div class="form-group">
+                    <label for="gender" class="col-xs-6 col-sm-4 control-label">Gender:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <gender-selection class="form-control" id="gender" name="gender" alt-null-text="'-- Select Gender --'" ng-model="application.genderId"></gender-selection>
+                    </div>
+                </div>
+            </div>
+            <div class="rows">
+                <div class="form-group">
+                    <label for="home" class="col-xs-6 col-sm-4 control-label">Home Telephone:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control" type="tel" id="home" name="home" placeholder="Home Telephone" ng-model="application.home"></input>
+                    </div>
+                </div>
+            </div>
+            <div class="rows">
+                <div class="form-group">
+                    <label for="mobile" class="col-xs-6 col-sm-4 control-label">Mobile Telephone:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control" type="tel" id="mobile" name="mobile" placeholder="Mobile Telephone" ng-model="application.mobile"></input>
+                    </div>
+                </div>
+            </div>
+            <div class="rows">
+                <div class="form-group">
+                    <label for="email" class="col-xs-6 col-sm-4 control-label">Student Email:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control" type="email" id="email" name="email" placeholder="Student Email" ng-model="application.email"></input>
+                    </div>
+                </div>
+            </div>
+            <div class="rows">
+                <div class="form-group">
+                    <label for="resident" class="col-xs-6 col-sm-4 control-label">Resident:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control" type="checkbox" id="resident" name="resident" ng-model="application.resident"></input>
+                    </div>
+                </div>
+            </div>
+            <div class="rows">
+                <div class="form-group">
+                    <label for="countryOfResidence" class="col-xs-6 col-sm-4 control-label">Country Of Residence:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control" type="text" id="countryOfResidence" name="countryOfResidence" placeholder="Country Of Residence" ng-model="application.countryOfResidence"></input>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="main-address-form" class="col-xs-12 col-md-6">
+            <div class="rows">
+                <div class="col-xs-12">
+                    <fieldset>
+                        <legend>Address Details</legend>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="rows">
+                <div class="col-xs-12">
+                    <address-lookup id="personal" name="personal" address="application.address" required="true"></address-lookup>
+
+                </div>
+            </div>
+        </div>
+        <div class="form-group col-sm-12 col-md-6">
+            <div class="rows">
+                <div class="col-xs-12">
+                    <fieldsset>
+                        <legend>Sibling Details</legend>
+                    </fieldsset>
+                </div>
+            </div>
+            <div class="rows">
+                <div class="form-group">
+                    <label for="sibling" class="col-xs-6 col-sm-4 control-label">Sibling at College:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control" type="checkbox" id="sibling" name="sibling" ng-model="application.sibling"></input>
+                    </div>
+                </div>
+            </div>
+            <div class="rows">
+                <div class="form-group">
+                    <label for="siblingName" class="col-xs-6 col-sm-4 control-label">Sibling Name:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control" placeholder="Sibling Name" id="siblingName" name="siblingName" ng-model="application.siblingName" minlength="2" type="text"></input>
+                    </div>
+                </div>
+            </div>
+            <div class="rows">
+                <div class="form-group">
+                    <label for="siblingYear" class="col-xs-6 col-sm-4 control-label">Sibling Year:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control" placeholder="Sibling Year" id="siblingYear" name="siblingYear" ng-model="application.siblingYear" minlength="4" type="text"></input>
+                    </div>
+                </div>
+            </div>
+            <div class="rows">
+                <div class="form-group">
+                    <label for="siblingAdmNo" class="col-xs-6 col-sm-4 control-label">Sibling AdmNo:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control" placeholder="Sibling AdmNo" id="siblingAdmNo" name="siblingAdmNo" ng-model="application.siblingAdmNo" minlength="4" type="text"></input>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-md-12">
+            <div class="row">
+                <div class="col-xs-12">
+                    <fieldsset>
+                        <legend>Correspondence Details</legend>
+                    </fieldsset>
+                </div>
+            </div>
+            <!-- Contact 1 -->
+            <div class="contact col-xs-12 col-md-6">
+                <h4>Contact 1</h4>
+                <div class="form-group">
+                    <label class="control-label col-xs-4" for="contacts0contactType">Contact Type:</label>
+                    <div class="col-xs-8 col-sm-8 col-md-8">
+                        <contact-type-selection class="form-control" id="contacts0contactTypeId" name="contacts0contactTypeId" alt-null-text="'-- Select Contact Type --'" ng-model="application.contacts[0].contactType.id" readonly="application.contacts[0].contact.firstName && application.contacts[0].contact.surname"></contact-type-selection>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-xs-4" for="contacts0.title">Title:</label>
+                    <div class="col-xs-8 col-sm-8 col-md-8">
+                        <title-selection class="form-control" readonly="!(application.contacts[0].contactType.id)" id="contacts0titleId" name="contacts0titleId" alt-null-text="'-- Select Title --'" ng-model="application.contacts[0].contact.title.id"></title-selection>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="contacts0firstName" class="col-xs-6 col-sm-4 control-label">First Name:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control" placeholder="First Name" id="contacts0firstName" name="contacts0firstName" ng-disabled="!(application.contacts[0].contactType.id)" ng-required="application.contacts[0].contactType.id" ng-model="application.contacts[0].contact.firstName" minlength="1" type="text"></input>
+                        <span class="validation-error" ng-show="applicationForm.contacts0firstName.minlength">Please enter at least 1 character</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="contacts0surname" class="col-xs-6 col-sm-4 control-label">Surname:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control" placeholder="Surname" id="contacts0surname" name="contacts0surname" ng-disabled="!(application.contacts[0].contactType.id)" ng-required="application.contacts[0].contactType.id" ng-model="application.contacts[0].contact.surname" minlength="2" type="text"></input>
+                        <span class="validation-error" ng-show="applicationForm.contacts0surname.$error.minlength">Please enter at least 2 characters</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="contacts0home" class="col-xs-6 col-sm-4 control-label">Home:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control" placeholder="Home" id="contacts0home" name="contacts0home" ng-disabled="!(application.contacts[0].contactType.id)" ng-model="application.contacts[0].contact.home" type="text"></input>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="contacts0mobile" class="col-xs-6 col-sm-4 control-label">Mobile:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control" placeholder="Mobile" id="contacts0mobile" name="contacts0mobile" ng-disabled="!(application.contacts[0].contactType.id)" ng-model="application.contacts[0].contact.mobile" type="text"></input>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="contacts0work" class="col-xs-6 col-sm-4 control-label">Work:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control" placeholder="Work" id="contacts0work" name="contacts0work" ng-disabled="!(application.contacts[0].contactType.id)" ng-model="application.contacts[0].contact.work" type="text"></input>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="contacts0email" class="col-xs-6 col-sm-4 control-label">Email:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control" placeholder="Email" id="contacts0email" name="contacts0email" ng-disabled="!(application.contacts[0].contactType.id)" ng-model="application.contacts[0].contact.email" type="text"></input>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="contacts0contactable" class="col-xs-6 col-sm-4 control-label">Contactable:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control" type="checkbox" id="contacts0contactable" name="contacts0contactable" ng-disabled="!(application.contacts[0].contactType.id)" ng-model="application.contacts[0].contactable"></input>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="contacts0preferred" class="col-xs-6 col-sm-4 control-label">Preferred:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control" type="checkbox" id="contacts0preferred" name="contacts0preferred" ng-disabled="!(application.contacts[0].contactType.id)" ng-model="application.contacts[0].preferred"></input>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-primary" ng-disabled="application.contacts[0].contactType.id === undefined" ng-click="collapsed0=!collapsed0">Add Address</button>
+                <div class="contact-dialog-container" ng-show="collapsed0">
+                    <div id="contacts0addressForm" class="col-xs-12 col-md-12 contact-address-dialog postcode-lookup-address">
+                        <fieldset>
+                            <legend>Contact 1 Address</legend>
+                        </fieldset>
+                        <div class="col-xs-12">
+                            <address-lookup id="contact0address" name="contact0address" address="application.contacts[0].contact.address"></address-lookup>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact col-xs-12 col-md-6">
+                <h4>Contact 2</h4>
+                <div class="form-group">
+                    <label class="control-label col-xs-4" for="contacts1contactType">Contact Type:</label>
+                    <div class="col-xs-8 col-sm-8 col-md-8">
+                        <contact-type-selection class="form-control" id="contacts1contactTypeId" name="contacts1contactTypeId" alt-null-text="'-- Select Contact Type --'" ng-model="application.contacts[1].contactType.id" readonly="application.contacts[1].contact.firstName && application.contacts[1].contact.surname"></contact-type-selection>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-xs-4" for="contacts1title">Title:</label>
+                    <div class="col-xs-8 col-sm-8 col-md-8">
+                        <title-selection class="form-control" id="contacts1titleId" readonly="!(application.contacts[1].contactType.id)" name="contacts1titleId" alt-null-text="'-- Select Title --'" ng-model="application.contacts[1].contact.title.id"></title-selection>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="contacts1firstName" class="col-xs-6 col-sm-4 control-label">First Name:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control" id="contacts1firstName" name="contacts1firstName" ng-disabled="!(application.contacts[1].contactType.id)" placeholder="First Name" ng-required="application.contacts[1].contactType.id" ng-model="application.contacts[1].contact.firstName" minlength="2" type="text"></input>
+                        <span class="validation-error" ng-show="applicationForm.contacts1firstName.$error.minlength">Please enter at least 2 characters</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="contacts1surname" class="col-xs-6 col-sm-4 control-label">Surname:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control" id="contacts1surname" name="contacts1surname" ng-disabled="!(application.contacts[1].contactType.id)" placeholder="Surname" ng-required="application.contacts[1].contactType.id" ng-model="application.contacts[1].contact.surname" minlength="2" type="text"></input>
+                        <span class="validation-error" ng-show="applicationForm.contacts1surname.$error.minlength">Please enter at least 2 characters</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="contacts1home" class="col-xs-6 col-sm-4 control-label">Home:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control" id="contacts1home" name="contacts1home" ng-disabled="!(application.contacts[1].contactType.id)" placeholder="Home" ng-model="application.contacts[1].contact.home" type="text"></input>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="contacts1mobile" class="col-xs-6 col-sm-4 control-label">Mobile:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control" id="contacts1mobile" name="contacts1mobile" ng-disabled="!(application.contacts[1].contactType.id)" placeholder="Mobile" ng-model="application.contacts[1].contact.mobile" type="text"></input>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="contacts1work" class="col-xs-6 col-sm-4 control-label">Work:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control" id="contacts1work" name="contacts1work" ng-disabled="!(application.contacts[1].contactType.id)" placeholder="Work" ng-model="application.contacts[1].contact.work" type="text"></input>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="contacts1email" class="col-xs-6 col-sm-4 control-label">Email:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control" id="contacts1email" ng-disabled="!(application.contacts[1].contactType.id)" placeholder="Email" ng-model="application.contacts[1].contact.email" type="text"></input>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="contacts1contactable" class="col-xs-6 col-sm-4 control-label">Contactable:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control" id="contacts1contactable" name="contacts1contacble" type="checkbox" ng-disabled="!(application.contacts[1].contactType.id)" ng-model="application.contacts[1].contactable"></input>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="contacts1preferred" class="col-xs-6 col-sm-4 control-label">Preferred:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control" id="contacts1preferred" name="contacts1preferred" type="checkbox" ng-disabled="!(application.contacts[1].contactType.id)" ng-model="application.contacts[1].preferred"></input>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-primary" ng-disabled="application.contacts[1].contactType.id === undefined" ng-click="collapsed1=!collapsed1">Add Address</button>
+                <div class="contact-dialog-container" ng-show="collapsed1">
+                    <div id="contacts1addressForm" class="col-xs-12 col-md-12 contact-address-dialog postcode-lookup-address">
+                        <fieldset>
+                            <legend>Contact 2 Address</legend>
+                        </fieldset>
+
+                        <div class="col-xs-12">
+                            <address-lookup id="contact1address" name="contact1address" address="application.contacts[1].contact.address"></address-lookup>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 col-md-6">
+            <div class="row">
+                <div class="col-xs-12">
+                    <fieldsset>
+                        <legend>Previous School</legend>
+                    </fieldsset>
+                </div>
+            </div>
+            <div class="rows">
+                <div class="form-group">
+                    <label for="school" class="col-xs-6 col-sm-4 control-label">Previous School:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <school-selection class="form-control" id="school" name="school" alt-null-text="'-- Select School --'" ng-model="application.schoolId" ng-required="true"></school-selection>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-md-6">
+            <div class="rows">
+                <div class="col-xs-12">
+                    <fieldset>
+                        <legend>Student Details</legend>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="rows">
+                <div class="form-group">
+                    <label for="uln" class="col-xs-6 col-sm-4 control-label">Unique Learner No:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control" placeholder="Unique Learner No" id="uln" name="uln" ng-model="application.uln" type="text"></input>
+                    </div>
+                </div>
+            </div>
+            <div class="rows">
+                <div class="form-group">
+                    <label for="uci" class="col-xs-6 col-sm-4 control-label">Unique Candidate Identifier:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control" placeholder="Unique Candidate Identifier" id="uci" name="uci" ng-model="application.uci" type="text" maxlength="13"></input>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-md-6">
+            <fieldset>
+                <legend>Admissions Notes</legend>
+            </fieldset>
+            <div class="rows">
+                <div class="form-group">
+                    <label for="admissionsNotes" class="col-xs-6 col-sm-4 control-label">Admissions Notes:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <textarea class="form-control" placeholder="Admissions Notes" id="admissionsNotes" name="admissionsNotes" ng-model="application.admissionsNotes" rows="5" cols="30" type="text"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-md-6">
+            <div class="rows">
+                <div class="col-xs-12">
+                    <fieldsset>
+                        <legend>Course Requests</legend>
+                    </fieldsset>
+                </div>
+            </div>
+            <div class="rows">
+                <div class="form-group">
+                    <label for="request1" class="col-xs-6 col-sm-4 control-label">1:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control course-request-entry" id="request1" name="request1" type="text" placeholder="1" ng-model="application.requests[0].request"></input>
+                    </div>
+                </div>
+            </div>
+            <div class="rows">
+                <div class="form-group">
+                    <label for="request2" class="col-xs-6 col-sm-4 control-label">2:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control course-request-entry" id="request2" name="request2" type="text" placeholder="2" ng-model="application.requests[1].request"></input>
+                    </div>
+                </div>
+            </div>
+            <div class="rows">
+                <div class="form-group">
+                    <label for="request3" class="col-xs-6 col-sm-4 control-label">3:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control course-request-entry" id="request3" name="request3" type="text" placeholder="3" ng-model="application.requests[2].request"></input>
+                    </div>
+                </div>
+            </div>
+            <div class="rows">
+                <div class="form-group">
+                    <label for="request4" class="col-xs-6 col-sm-4 control-label">4:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control course-request-entry" id="request4" name="request4" type="text" placeholder="4" ng-model="application.requests[3].request"></input>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row fixed-bottom-right">
+        <button type="button" class="btn btn-primary" ng-click="save()" ng-disabled="applicationForm.$invalid">Save</button>
+        <button type="button" class="btn btn-default" ng-click="cancel()">Cancel</button>
+    </div>
+
+    <div class="row" permission="'ROLE_Developer'">
+        <div class="col-xs-12" collapsible="'debugData'" collapsible-title="'Debug Data'">
+            <pre>
+            {{ application | json }}
+            </pre>
+        </div>
+    </div>
+</form>

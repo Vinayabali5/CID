@@ -1,0 +1,12 @@
+[Unit]
+Description=CIS Student Records UI - Demo Version
+After=syslog.target
+
+[Service]
+User=root
+Environment="SPRING_PROFILES_ACTIVE=demo" "SERVER_PORT=10205" "PIDFILE=demo.pid" "PORTFILE=demo.port"
+ExecStart=/opt/cis/cis-template/cis-template-0.1.5.war
+SuccessExitStatus=143
+
+[Install]
+WantedBy=multi-user.target

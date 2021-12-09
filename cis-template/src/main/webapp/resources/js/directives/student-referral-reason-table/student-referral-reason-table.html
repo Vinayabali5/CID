@@ -1,0 +1,19 @@
+<div class="row">
+    <table class="table table-responsive table-hover">
+        <thead>
+            <th ng-show="showAll || showStudent">StudentId</th>
+            <th>Referral Reason</th>
+            <th>Primary</th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="referralReason in studentReferralReason">
+                <td ng-show="showAll || showStudent">{{ referralReason.studentId }}</td>
+                <td>{{ referralReason._referralReasonDescription }}</td>
+                <td>{{ referralReason.primary | yesNo }}</td>
+            </tr>
+            <tr ng-show="studentReferralReason.length == 0">
+                <td colspan="2">No Referral Resaons</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

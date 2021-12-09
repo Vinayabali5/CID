@@ -1,0 +1,24 @@
+<table class="table table-responsive table-hover" ts-wrapper ts-item-name="Timetabled Period">
+    <thead>
+        <th ts-criteria="_period.day + '-' + _period.dayPeriod" ts-default>Period</th>
+        <th ts-criteria="_roomCode" ng-show="showAll || showRoom">Room</th>
+        <th ng-show="showAll || showTeacher" ts-criteria="_teacherInitials">Teacher</th>
+        <th ts-criteria="_courseGroupSpec">Course Group</th>
+        <th>Start Time</th>
+        <th>End Time</th>
+        <th ng-show="showAll || showValidity">Valid From</th>
+        <th ng-show="showAll || showValidity">Valid To</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="tt in timetable" ts-repeat>
+            <td>{{ tt._period.description}}</td>
+            <td ng-show="showAll || showRoom">{{ tt._room.code }}</td>
+            <td ng-show="showAll || showTeacher">{{ tt._teacherInitials }}</td>
+            <td>{{ tt._courseGroupSpec }}</td>
+            <td>{{ tt._startTime | date:'HH:mm' }}</td>
+            <td>{{ tt._endTime | date:'HH:mm' }}</td>
+            <td ng-show="showAll || showValidity">{{ tt.validFrom | date:'dd/MM/yyyy' }}</td>
+            <td ng-show="showAll || showValidity">{{ tt.validTo | date:'dd/MM/yyyy' }}</td>
+        </tr>
+    </tbody>
+</table>

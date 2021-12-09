@@ -1,0 +1,17 @@
+<table class="table table-responsive table-hover" ts-wrapper ts-item-name="Subject">
+    <thead>
+        <th ts-criteria="code" ts-filter>Code</th>
+        <th ts-criteria="description" ts-filter>Description</th>
+        <th ng-show="showActions">Actions</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="subject in subjects" ts-repeat>
+            <td>{{ subject.code }}</td>
+            <td>{{ subject.description }}</td>
+            <td ng-show="showActions">
+                <button type="button" class="btn btn-primary btn-sm" ng-click="ctrl.editSubjects(subject.id)"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button ng-show="showActions" type="button" class="btn btn-primary btn-sm" ng-click="ctrl.addSubjects()"><span class="glyphicon glyphicon-pencil"></span> Add</button>

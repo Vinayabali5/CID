@@ -1,0 +1,56 @@
+# The following settings are used to configure the main spring project and the database connection
+spring:
+    profiles: 
+        include: secured, db-defaults, mail
+    datasource:
+        url: jdbc:sqlserver://${DB_SERVER};databaseName=${DB_NAME}
+        username: ${DB_USERNAME}
+        password: ${DB_PASSWORD}
+
+# The following settings are used to configure the CID service 
+cid:
+  serviceUser:
+    domainName: ${SERVICE_USER_DOMAIN}
+    username: ${SERVICE_USERNAME}
+    password: ${SERVICE_PASSWORD}
+
+# The following settings are used to configure the LDAP authentication
+ldap:
+  enabled: true
+  url: ldap://${LDAP_SERVER} 
+  port: 389
+  bindUser: ${LDAP_BIND_USER}
+  bindPassword: ${LDAP_BIND_PASSWORD}
+  userSearchBase: ${LDAP_USER_SEARCH_BASE}
+  userSearchFilter: (sAMAccountName={0})
+  
+# The following settings are used to configure the postcode lookup system
+postcode: 
+  lookup:
+    key: ${POSTCODE_KEY}
+    username: ${POSTCODE_USERNAME}
+
+# The following settings are used to configure the email integration 
+email:
+  username: ${EMAIL_USERNAME}
+  password: ${EMAIL_PASSWORD}
+  default-sender: ${EMAIL_DEFAULT_SENDER}
+  smtp-host: ${EMAIL_SERVER}
+  smtp-port: ${EMAIL_PORT}
+  archive:
+    server: ${EMAIL_ARCHIVE_SERVER}
+    port: ${EMAIL_ARCHIVE_PORT}
+    user: ${email.username}
+    password: ${email.password}
+    folder: Sent Items
+
+# The following settings are used to configure where the various files are stored
+file-store:
+  student-files: ${STUDENT_FILES_ROOT}
+
+# The following settings are used to control the internal audit system
+audit:
+  enabled: true
+  consoleLog: true
+  databaseLog: true
+   

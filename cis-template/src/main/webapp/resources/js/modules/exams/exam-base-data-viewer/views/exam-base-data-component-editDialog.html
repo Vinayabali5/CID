@@ -1,0 +1,124 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="ctrl.cancel()">&times;</button>
+    <h3 class="modal-title" ng-if="ctrl.component.id">Edit Component details</h3>
+    <h3 class="modal-title" ng-if="!ctrl.component.id">Add Component details</h3>
+</div>
+<div class="modal-body">
+    <form>
+        <fieldset>
+            <div class="form-group row">
+                <label for="code" class="col-xs-6 col-sm-4 col-md-4 control-label">Code:</label>
+                <div class="col-xs-6 col-sm-8 col-sm-8 col-md-8">
+                    <input id="code" class="form-control" placeholder="Code" ng-model="ctrl.component.code" type="text"></input>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="title" class="col-xs-6 col-sm-4 col-md-4 control-label">Title:</label>
+                <div class="col-xs-6 col-sm-8 col-sm-8 col-md-8">
+                    <input id="title" class="form-control" placeholder="Title" ng-model="ctrl.component.title" type="text"></input>
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <label for="examDate" class="col-xs-6 col-sm-4 col-md-4 control-label">Exam Date: </label>
+                <div class="col-xs-6 col-sm-8 col-md-8">
+                    <div class="input-group">
+                        <input id="examDate" type="text" class="form-control" ng-init="examDateDatePicker=false" ng-model="ctrl.component.timetableDate" uib-datepicker-popup="dd/MM/yyyy" is-open="examDateDatePicker" />
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="examDateDatePicker=!examDateDatePicker">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="session" class="col-xs-6 col-sm-4 col-md-4 control-label">Session:</label>
+                <div class="col-xs-6 col-md-8 col-sm-8">
+                    <div id="session" class="input-group">
+                        <input type="radio" class="radio-inline" ng-model="ctrl.component.timetableSession" value="A">AM</input>
+                        <input type="radio" class="radio-inline" ng-model="ctrl.component.timetableSession" value="P">PM</input>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="timeAllowed" class="col-xs-6 col-sm-4 col-md-4 control-label">Time Allowed:</label>
+                <div class="col-xs-6 col-sm-8 col-sm-8 col-md-8">
+                    <input id="timeAllowed" class="form-control" placeholder="Time Allowed" ng-model="ctrl.component.timeAllowed" type="text"></input>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="maximumMark" class="col-xs-6 col-sm-4 col-md-4 control-label">Maximum Marks:</label>
+                <div class="col-xs-6 col-sm-8 col-sm-8 col-md-8">
+                    <input id="maximumMark" class="form-control" placeholder="Maximum Marks" ng-model="ctrl.component.maximumMark" type="text"></input>
+                </div>
+            </div>
+        </fieldset>
+
+
+        <div class="panel panel-default" ng-init="collapseAdditional=true" ng-model="collapseAdditional" ng-click="collapseAdditional=!collapseAdditional">
+            <div class="panel-heading" data-toggle="collapse">
+                <h3 class="panel-title">
+                    <span ng-if="collapseAdditional">
+                        <span class="glyphicon glyphicon-plus-sign"></span> Show Additional Component Details
+                    </span>
+                    <span ng-if="!collapseAdditional">
+                        <span class="glyphicon glyphicon-minus-sign"></span> Hide Additional Component Details
+                    </span>
+                </h3>
+            </div>
+        </div>
+
+        <fieldset>
+            <div uib-collapse="collapseAdditional">
+
+                <div class="form-group row">
+                    <label for="timetabled" class="col-xs-6 col-sm-4 col-md-4 control-label">Timetabled:</label>
+                    <div class="col-xs-6 col-md-8 col-sm-8">
+                        <select id="timetabled" class="form-control" ng-model="ctrl.component.timetabled">
+                            <option type="radio" class="radio-inline" value="T">T - Timetabled</option>
+                            <option type="radio" class="radio-inline" value="C">C - Centre-specified timetable</option>
+                            <option type="radio" class="radio-inline" value="N">N - Not timetabled</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="teacherMarks" class="col-xs-6 col-sm-4 col-md-4 control-label">Teacher Marks:</label>
+                    <div class="col-xs-6 col-md-8 col-sm-8">
+                        <select id="teacherMarks" class="form-control" ng-model="ctrl.component.teacherMarks">
+                            <option type="radio" class="radio-inline" value="Y">Y - Teacher marks are required</option>
+                            <option type="radio" class="radio-inline" value="N">N - Teacher marks not required</option>
+                            <option type="radio" class="radio-inline" value="G">G - Teacher submits grade</option>
+                            <option type="radio" class="radio-inline" value="E">E - Teacher submits coursework</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="dueDate" class="col-xs-6 col-sm-4 col-md-4 control-label">Due Date: </label>
+                    <div class="col-xs-6 col-sm-8 col-md-8">
+                        <div class="input-group">
+                            <input id="dueDate" type="text" class="form-control" ng-init="dueDateDatePicker=false" ng-model="ctrl.component.dueDate" uib-datepicker-popup="dd/MM/yyyy" is-open="dueDateDatePicker" />
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-click="dueDateDatePicker=!dueDateDatePicker">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ctrl.save()">Save</button>
+    <button class="btn btn-warning" type="button" ng-click="ctrl.cancel()">Cancel</button>
+</div>

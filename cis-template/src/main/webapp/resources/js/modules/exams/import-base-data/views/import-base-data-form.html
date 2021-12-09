@@ -1,0 +1,14 @@
+<p>This section of the CID system is used to allow the exam boards base data files to be uploaded to the CID system. Please use the uploader below to select all of the files required for a base data import.</p>
+<p>A successful import will req uire the following files to be selected:
+<ul>
+    <li>Syllabus File</li>
+    <li>Option File</li>
+    <li>Component File</li>
+    <li>Link File</li>
+</ul>
+</p>
+<p>Please note that the system currently does not provide updates on the progress of the uplaod. </p>
+<form>
+    <div class="btn btn-primary btn-upload" upload-button url="{{ ctrl.getUploadUrl() }}" param="files" data="files" ngf-select="uploadFiles($files)" multiple="multiple" required="true">Select Base Data Files to Upload</div>
+
+</form>

@@ -1,0 +1,27 @@
+<table class="table table-responsive table-hover" ts-wrapper ts-item-name="Punctuality Monitoring Code">
+    <thead>
+        <th ts-criteria="id">ID</th>
+        <th ts-criteria="code">Code</th>
+        <th ts-criteria="description">Description</th>
+        <th> Warning Colour</th>
+        <th>HTML Colour</th>
+        <th>In Use</th>
+        <th>Non Entry</th>
+        <th ng-show="showActions">Actions</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="punctualityMonitoring in punctualityMonitorings" ts-repeat>
+            <td>{{ punctualityMonitoring.id }}</td>
+            <td>{{ punctualityMonitoring.code }}</td>
+            <td>{{ punctualityMonitoring.description }}</td>
+            <td>{{ punctualityMonitoring.warningColour }}</td>
+            <td>{{ punctualityMonitoring.htmlColour }}</td>
+            <td>{{ punctualityMonitoring.inUse | yesNo }}</td>
+            <td>{{ punctualityMonitoring.nonEntry | yesNo }}</td>
+            <td ng-show="showActions">
+                <button type="button" class="btn btn-primary btn-sm" ng-click="ctrl.editPunctualityMonitorings(punctualityMonitoring.id)"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button ng-show="showActions" type="button" class="btn btn-primary btn-sm" ng-click="ctrl.addPunctualityMonitorings()"><span class="glyphicon glyphicon-pencil"></span> Add</button>

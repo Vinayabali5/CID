@@ -1,0 +1,2 @@
+<h1>Cristal Rooms Editor</h1>
+<cristal-rooms-editor cristal-rooms="data" show-actions="true"></cristal-rooms-editor>

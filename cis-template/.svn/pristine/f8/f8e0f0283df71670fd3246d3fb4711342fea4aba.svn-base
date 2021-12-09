@@ -1,0 +1,33 @@
+<div permission="'ROLE_Developer'">
+    <h4>Debug Info
+        <span style="font-size: small;">
+            (
+            <label for="debug-info.show-hide">Show</label>
+            <input id="debug-info.show-hide" type="checkbox" ng-model="ctrl.show" ng-click="ctrl.toggleShow()" />
+            )
+        </span>
+    </h4>
+    <div style="font-size: x-small;" ng-show="ctrl.show">
+        <div>URL: {{ ctrl.url }}</div>
+        <div>Current User:
+            <pre class="text-smaller debug-json">{{ ctrl.currentUser | json }}</pre>
+        </div>
+        <div>Current Year:
+            <pre class="text-smaller debug-json">{{ ctrl.currentYear | json }}</pre>
+        </div>
+        <div>User Settings:
+            <pre class="text-smaller debug-json">{{ ctrl.userGlobals | json }}</pre>
+        </div>
+        <div>Global Settings:
+            <pre class="text-smaller debug-json">{{ ctrl.globals | json }}</pre>
+        </div>
+        <div>
+            State information:
+            <pre class="text-smaller debug-json">{{ ctrl.state | json }}</pre>
+        </div>
+        <!-- <br/> Current State: {{ ctrl.stateInformation.toState }} -->
+        <!-- <br/> Current Params: {{ ctrl.stateInformation.toStateParams }} -->
+        <!-- <br/> Previous State: {{ ctrl.stateInformation.fromState }} -->
+        <!-- <br/> Previous Params: {{ ctrl.stateInformation.fromStateParams }} -->
+    </div>
+</div>

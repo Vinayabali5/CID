@@ -1,0 +1,80 @@
+<div class="studentRiskLevelEditor">
+    <uib-tabset active="active">
+        <uib-tab index="0" heading="Guide">
+            <div class="student-risk-level-tab ">
+                To complete a new Student Risk Level form click the "+" tab.
+            </div>
+        </uib-tab>
+        <uib-tab index="$index + 1" heading="{{ studentRiskLevel._riskLevelCode }} - {{ studentRiskLevel._riskLevelDescription }}" ng-repeat="studentRiskLevel in ctrl.studentRiskLevels track by $index">
+            <div class="student-risk-level-tab container-fluid">
+                <div class="row" ng-show="false">
+                    <div class="col-md-4">Student Id:</div>
+                    <div class="col-md-8" ng-bind="studentRiskLevel.studentId">{{ studentRiskLevel.studentId }}</div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">Risk Level:</div>
+                    <div class="col-md-8">{{ studentRiskLevel._riskLevelDescription }}</div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">Staff Requesting:</div>
+                    <div class="col-md-8">{{ studentRiskLevel._staffRequestingName }}</div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">Confidential:</div>
+                    <div class="col-md-8">{{ studentRiskLevel.confidential | yesNo }}</div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">Evidence:</div>
+                    <div class="col-md-8">{{ studentRiskLevel.evidence | yesNo }}</div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">Risk Assessment Required:</div>
+                    <div class="col-md-8">{{ studentRiskLevel.riskAssessmentRequired | yesNo }}</div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">Safety Plan Required:</div>
+                    <div class="col-md-8">{{ studentRiskLevel.safetyPlanRequired | yesNo }}</div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">Date Requested:</div>
+                    <div class="col-md-8">{{ studentRiskLevel.dateRequested | date:'dd/MM/yyyy' }}</div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">Date for review:</div>
+                    <div class="col-md-8">{{ studentRiskLevel.dateForReview | date:'dd/MM/yyyy' }}</div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">Risk Notes:</div>
+                    <div class="col-md-8">{{ studentRiskLevel.riskNotes }}</div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="button" ng-click="ctrl.editStudentRiskLevel(studentRiskLevel.id)" class="btn btn-primary btn-sm">
+                            <span class="glyphicon glyphicon-pencil"></span> Edit
+                        </button>
+                    </div>
+                    <div class="col-md-12">
+                        <button type="button" permission="['ROLE_Safeguarding', 'ROLE_Office Administration']" ng-click="ctrl.deleteStudentRiskLevel($index, studentRiskLevel.id)" class="btn btrn-sm btn-danger">
+                            <span class="glyphicon glyphicon-pencil"></span> Delete
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </uib-tab>
+
+        <uib-tab index="99" heading="+" select="ctrl.addStudentRiskLevel(ctrl.studentId)" ng-show="ctrl.hasId()">
+        </uib-tab>
+
+    </uib-tabset>
+
+</div>

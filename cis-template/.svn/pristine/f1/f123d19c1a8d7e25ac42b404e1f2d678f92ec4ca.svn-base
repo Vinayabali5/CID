@@ -1,0 +1,40 @@
+<form name="studentReferralReasonEditorDialogForm" role="form" novalidate show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="ctrl.cancel()">&times;</button>
+        <h4 class="modal-title">Add/Edit Student Referral Reason</h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+            <div class="form-group">
+                <label for="studentId" class="control-label col-xs-4">Student ID:</label>
+                <div class="col-xs-8">
+                    <input type="text" id="studentId" name="studentId" class="form-control" ng-model="ctrl.studentReferralReason.studentId" readonly></input>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="referralReason" class="control-label col-xs-4">Referral Reason: </label>
+                <div class="col-xs-8">
+                    <referral-reason-selection id="referralReason" name="referralReason" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.studentReferralReason.referralReasonId" ng-required="true"></referral-reason-selection>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="primary" class="control-label col-xs-4">Primary:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="checkbox" id="primary" name="primary" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.studentReferralReason.primary"></input>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" name="button" ng-click="ctrl.save()" ng-disabled="studentReferralReasonEditorDialogForm.$invalid">
+            <span class="glyphicon glyphicon-save"></span>
+            Save</button>
+        <button class="btn btn-default" type="button" name="button" data-dismiss="modal" ng-click="ctrl.cancel()">
+            <span class="glyphicon glyphicon-ban-circle"></span>
+            Cancel</button>
+    </div>
+    </div>
+</form>

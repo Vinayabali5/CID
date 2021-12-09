@@ -1,0 +1,111 @@
+ <form name="selectDetails" role="form" novalidate show-validation>
+
+     <div class="col-xs-12">
+         <fieldset>
+             <legend>Add Mass ILP Interviews</legend>
+         </fieldset>
+     </div>
+
+     <div class="modal-body">
+         <div class="row">
+             <div class="form-group">
+                 <label for="interviewTypeId" class="control-label col-xs-3">Interview Type:</label>
+                 <div class="col-xs-9">
+                     <ilp-interview-type-selection class="form-control" id="interviewTypeId" alt-null-text="'-- Select Interview Type --'" name="interviewType" ng-model="ilpInterview.interviewTypeId" ng-required="true"></ilp-interview-type-selection>
+                 </div>
+             </div>
+         </div>
+
+         <div class="row">
+             <div class="form-group">
+                 <label for="interviewDate" class="control-label col-xs-3">Interview Date:</label>
+                 <div class="col-xs-9">
+                     <div class="input-group">
+                         <input type="text" class="form-control" id="interviewDate" name="interviewDate" ng-init="interviewDateDatePicker = false" ng-model="ilpInterview.interviewDate" uib-datepicker-popup="dd/MM/yyyy" is-open="interviewDateDatePicker" />
+                         <span class="input-group-btn">
+                             <button type="button" class="btn btn-default" ng-click="interviewDateDatePicker = !interviewDateDatePicker"><span class="glyphicon glyphicon-calendar"></span></button>
+                         </span>
+                     </div>
+                 </div>
+             </div>
+         </div>
+
+         <div class="row">
+             <div class="form-group">
+                 <label for="staffId" class="control-label col-xs-3">Interview By:</label>
+                 <div class="col-xs-9">
+                     <staff-selection class="form-control" id="staffId" name="staffId" ng-model="ilpInterview.staffId"></staff-selection>
+                 </div>
+             </div>
+         </div>
+
+         <div class="row">
+             <div class="form-group">
+                 <label for="discussion" class="control-label col-xs-3">Discussion:</label>
+                 <div class="col-xs-9">
+                     <textarea ui-tinymce="tinymceOptions" id="discussion" name="discussion" ng-model="ilpInterview.discussion" ng-required="true"></textarea>
+                     <span class="validation-error" ng-show="massILPInterviewForm.discussion.$dirty && massILPInterviewForm.discussion.$invalid">Discussion Required.</span>
+                 </div>
+             </div>
+         </div>
+
+         <div class="row">
+             <div class="form-group">
+                 <label for="target" class="control-label col-xs-3">Target:</label>
+                 <div class="col-xs-9">
+                     <textarea ui-tinymce="tinymceOptions" id="target" name="target" ng-model="ilpInterview.target"></textarea>
+                 </div>
+             </div>
+         </div>
+
+         <div class="row">
+             <div class="form-group">
+                 <label for="targetDate" class="control-label col-xs-3">Target By Date:</label>
+                 <div class="col-xs-9">
+                     <div class="input-group">
+                         <input type="text" class="form-control" id="targetDate" name="targetDate" ng-init="targetDateDatePicker = false" ng-model="ilpInterview.targetDate" ng-required="ilpInterview.target !== undefined && ilpInterview.target !== null && ilpInterview.target !== ''" uib-datepicker-popup="dd/MM/yyyy" is-open="targetDateDatePicker" />
+                         <span class="input-group-btn">
+                             <button type="button" class="btn btn-default" ng-click="targetDateDatePicker = !targetDateDatePicker">
+                                 <span class="glyphicon glyphicon-calendar"></span>
+                             </button>
+                         </span>
+                     </div>
+                 </div>
+             </div>
+         </div>
+
+         <div class="row" ng-show="false">
+             <div class="form-group">
+                 <label for="lipReferralDate" class="control-label col-xs-3">LIP Referral Date:</label>
+                 <div class="col-xs-9">
+                     <div class="input-group">
+                         <input type="text" class="form-control" id="lipReferralDate" name="lipReferralDate" ng-init="lipReferralDateDatePicker = false" ng-model="ilpInterview.lipReferralDate" uib-datepicker-popup="dd/MM/yyyy" is-open="lipReferralDateDatePicker" />
+                         <span class="input-group-btn">
+                             <button type="button" class="btn btn-default" ng-click="lipReferralDateDatePicker = !lipReferralDateDatePicker">
+                                 <span class="glyphicon glyphicon-calendar"></span>
+                             </button>
+                         </span>
+                     </div>
+                 </div>
+             </div>
+         </div>
+
+         <div class="row" ng-show="false">
+             <div class="form-group">
+                 <label for="referLip" class="control-label col-xs-3">Refer LIP:</label>
+                 <div class="col-xs-9">
+                     <input type="checkbox" id="referLip" name="referLip" lass="form-control" include-blank="true" ng-model="ilpInterview.referLip"></input>
+                 </div>
+             </div>
+         </div>
+
+         <div class="row">
+             <div class="form-group">
+                 <label for="privateEntry" class="control-label col-xs-3">Private Entry:</label>
+                 <div class="col-xs-9">
+                     <input type="checkbox" id="privateEntry" name="privateEntry" lass="form-control" include-blank="true" ng-model="ilpInterview.privateEntry"></input>
+                 </div>
+             </div>
+         </div>
+     </div>
+ </form>

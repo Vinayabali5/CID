@@ -1,0 +1,103 @@
+<div class="row">
+    <div class="col-xs-12">
+        <h3>Course Group Details: {{ courseGroup.spec }}</h3>
+        <course-group-details course-group="courseGroup"></course-group-details>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-md-6">
+        <div class="row">
+            <div class="col-xs-12">
+                <h4>Reports</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <report-link class="btn btn-default" report-path="'/CID/Students/Class Lists/Class List with Various Information'" report-params="'CourseGroupMask='+courseGroup.spec" include-year="true">Class List</report-link>
+
+                <span class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="reports-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Course Group Reports <span class="caret"></span></button>
+                    <ul class="dropdown-menu" aria-labelledby="reports-menu">
+                        <li class="dropdown-header">Class List Reports</li>
+                        <li>
+                            <report-link report-path="'/CID/Students/Class Lists/Class List with Photos'" report-format="'PDF'" report-params="'AcademicYear=' + courseGroup.yearId + '&CourseGroupMask=' + courseGroup.spec">Class List with Photos</report-link>
+                        </li>
+                        <li>
+                            <report-link report-path="'/CID/Students/Class Lists/Class List - Mark Sheet'" report-toolbar="true" report-params="'CourseGroupMask='+courseGroup.spec">Mark Sheet</report-link>
+                        </li>
+                        <li role="separator" class="divider"></li>
+                        <li class="dropdown-header">Timetable Reports</li>
+                        <li>
+                            <report-link report-path="'/CID/Timetabling/Timetable Student - Column'" report-params="'CourseGroupMask='+courseGroup.spec" include-year="true">Student Timetable - Column</report-link>
+                        </li>
+                        <li>
+                            <report-link report-path="'/CID/Timetabling/Timetable Course - Square'" report-params="'CourseSpec='+courseGroup.spec">Course Timetable - Square</report-link>
+                        </li>
+                        <li>
+                            <report-link report-path="'/CID/Timetabling/Timetable Course - Column'" report-params="'CourseGroupMask='+courseGroup.spec" include-year="true">Course Timetable - Column</report-link>
+                        </li>
+                        <li role="separator" class="divider"></li>
+                        <li class="dropdown-header">Attendance Reports</li>
+                        <li>
+                            <report-link report-path="'/CID/Attendance Monitoring/Student Attendance By Class'" report-params="'Course='+courseGroup.spec.substr(0,5)+'&Group='+courseGroup.spec.substr(6,20)">Student Attendance By Class</report-link>
+                        </li>
+                        <li>
+                            <report-link report-path="'/CID/Attendance Monitoring/Course Group Register between Dates'" report-params="'CourseGroupMask='+courseGroup.spec" include-year="true">Register between Dates</report-link>
+                        </li>
+                        <li role="separator" class="divider"></li>
+                        <li class="dropdown-header">Interim Reports</li>
+                        <li>
+                            <report-link report-path="'/CID/Interim Reports/Student Interim Report By Class'" report-params="'Course='+courseGroup.spec.substr(0,5)+'&Group='+courseGroup.spec.substr(6,20)" include-year="true">Student Interim Report By Class</report-link>
+                        </li>
+                    </ul>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-md-6">
+        <div class="row">
+            <div class="col-xs-12">
+                <h4>Actions</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <button class="btn btn-primary" type="button" name="button" mass-ilp course-group-id="courseGroup.id" permission="['ROLE_Developer', 'ROLE_Staff']">Create Mass ILP Interview</button>
+                <button class="btn btn-primary" type="button" name="button" mass-letter="courseGroup.id" permission="['ROLE_Developer', 'ROLE_Staff']">Create Mass ILP Letter</button>
+                <button class="btn btn-primary" type="button" name="button" bulk-careers-record course-group-id="courseGroup.id" permission="['ROLE_Developer', 'ROLE_Office Administration', 'ROLE_Careers']">Bulk Careers Records</button>
+                <button class="btn btn-default" type="button" name="button" edit-course-group="courseGroup.id" permission="'ROLE_Developer'">Edit Course Group</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <uib-tabset active="activeTab">
+            <uib-tab classes="tab-sm" index="'enrolments'" heading="Enrolments">
+                <h4>Enrolments</h4>
+                <enrolments-table enrolments="enrolments" show-student="true" show-course="false" show-status="true" show-monitoring="true" show-actions="true"></enrolments-table>
+            </uib-tab>
+
+            <uib-tab classes="tab-sm" index="'ilp'" heading="ILP Interviews">
+                <h4>ILP Interviews</h4>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <fieldset>Display Options:</fieldset>
+                        <ul class="list-inline">
+                            <li>
+                                <input type="checkbox" ng-model="showILPTargets" ng-init="showILPTargets = true"> Show Targets
+                            </li>
+                            <li>
+                                <input type="checkbox" ng-model="showStudentTargets" ng-init="showStudentTargets = true" ng-change="toggleStudentTargets()"> Show Student Targets
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-2" permissions="'ROLE_Developer'">
+                        {{ filter }}
+                    </div>
+                </div>
+                <ilp-interviews-table ilp-interviews="ilpInterviews" filter="filter" show-filter="true" show-student="true" show-course="false" show-course-group="true" show-staff="true" show-targets="showILPTargets" show-private="showPrivate"></ilp-interviews-table>
+            </uib-tab>
+        </uib-tabset>
+    </div>
+</div>

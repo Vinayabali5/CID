@@ -1,0 +1,19 @@
+<table class="table table-responsive table-hover" ts-wrapper>
+    <thead>
+        <th ts-criteria="code">Code</th>
+        <th ts-criteria="description" ts-filter>Description</th>
+        <th>Exclude TT Check</th>
+        <th ng-show="showActions">Actions</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="yearGroup in yearGroups |  orderBy:ctrl.sortOrder " ts-repeat>
+            <td>{{ yearGroup.code }}</td>
+            <td>{{ yearGroup.description }}</td>
+            <td>{{ yearGroup.excludeTTCheck | yesNo }}</td>
+            <td ng-show="showActions">
+                <button type="button" class="btn btn-primary btn-sm" ng-click="ctrl.editYearGroups(yearGroup.id)"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button ng-show="showActions" type="button" class="btn btn-primary btn-sm" ng-click="ctrl.addYearGroups()"><span class="glyphicon glyphicon-pencil"></span> Add</button>

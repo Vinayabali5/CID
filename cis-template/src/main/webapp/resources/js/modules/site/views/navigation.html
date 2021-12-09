@@ -1,0 +1,184 @@
+<ul class="nav navbar-nav" role="tablist">
+    <li class="collapse" permission="['ROLE_Developer', 'ROLE_Admissions', 'ROLE_Admissions - Data Entry', 'ROLE_Admissions - Interviewer']" ui-sref-active="{'active': 'admissions.**'}">
+        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admissions <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+            <li permission="['ROLE_Developer', 'ROLE_Admissions']" ui-sref-active="active"><a ui-sref="admissions.new">New Application</a></li>
+            <li permission="['ROLE_Developer', 'ROLE_Admissions']" ui-sref-active="active"><a ui-sref="admissions.list">Application List</a></li>
+            <li permission="['ROLE_Developer', 'ROLE_Admissions']" ui-sref-active="active"><a ui-sref="admissions.search">Search</a></li>
+            <li permission="['ROLE_Developer', 'ROLE_Admissions', 'ROLE_Admissions - Data Entry', 'ROLE_Admissions - Interviewer']" ui-sref-active="active"><a ui-sref="admissions.interview">Interview</a></li>
+            <li permission="['ROLE_Developer', 'ROLE_Admissions', 'ROLE_Admissions - Data Entry']" ui-sref-active="active"><a ui-sref="admissions.acceptance-registration">Acceptance & Registration</a></li>
+        </ul>
+    </li>
+    <li permission="['ROLE_Developer', 'ROLE_Staff']" ui-sref-active="active"><a href="#" ui-sref="student-editor">Student Record</a></li>
+    <li class="collapse" permission="['ROLE_Developer', 'ROLE_Staff']" ui-sref-active="{'active': 'course-record.**'}">
+        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Course Records <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+            <li ui-sref-active="active"><a ui-sref="course-record">Search</a></li>
+            <li ui-sref-active="active"><a ui-sref="course-record.course.list">Course List</a></li>
+            <li ui-sref-active="active"><a ui-sref="course-record.course-group.list">Course Group List</a></li>
+        </ul>
+    </li>
+    <li class="collapse" permission="['ROLE_Developer', 'ROLE_Exams Officer']" ui-sref-active="{'active': 'exams.**'}">
+        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Exams <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+            <li permission="['ROLE_Developer', 'ROLE_Exams Officer']" ui-sref-active="active"><a ui-sref="exams.import-base-data">Import Base Data</a></li>
+            <!-- <li permission="['ROLE_Developer', 'ROLE_Exams Officer']" ui-sref-active="active"><a ui-sref="exams.exam-base-data-viewer">Basedata Viewer</a></li> -->
+            <li permission="['ROLE_Developer', 'ROLE_Exams Officer']" ui-sref-active="active"><a ui-sref="exams.course-details">Course Exam Details</a></li>
+            <li permission="['ROLE_Developer', 'ROLE_Exams Officer']" ui-sref-active="active"><a ui-sref="exams.generate-entries">Generate Entries</a></li>
+            <li permission="['ROLE_Developer', 'ROLE_Exams Officer']" ui-sref-active="active"><a ui-sref="exams.generate-edi">Generate EDI File</a></li>
+            <li permission="['ROLE_Developer', 'ROLE_Exams Officer']" ui-sref-active="active"><a ui-sref="exams.seating-plan">Exam Seating Plans</a></li>
+        </ul>
+    </li>
+    <li permission="['ROLE_Developer', 'ROLE_Office Administration']" ui-sref-active="active"><a href="#" ui-sref="ilp-letters">ILP Letters</a></li>
+    <li permission="['ROLE_Developer', 'ROLE_Staff']" ui-sref-active="active"><a href="#" ui-sref="site.reports">Reports</a></li>
+    <li class="collapse" permission="'ROLE_Developer'" ui-sref-active="{'active': 'test.**'}">
+        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tests <span class="caret"></span></a>
+        <ul class="dropdown-menu" ng-include="'js/modules/tests/views/menu.html'"></ul>
+    </li>
+    <li class="dropdown" permission="['ROLE_Developer', 'ROLE_System Admin', 'ROLE_Core Data', 'ROLE_Timetabling', 'ROLE_Exams Officer', 'ROLE_Admissions', 'ROLE_IT Support']" ui-sref-active="{'active': 'data.**'}">
+        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Data <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+            <li class="dropdown-submenu" permission="['ROLE_Developer', 'ROLE_System Admin', 'ROLE_Core Data', 'ROLE_Timetabling']" ui-sref-active="{'active': 'data.core.**'}">
+                <a tabindex="-1" href="#">Core Data</a>
+                <ul class="dropdown-menu">
+                    <li permission="['ROLE_Developer', 'ROLE_System Admin', 'ROLE_Timetabling']" ui-sref-active="active"><a href="#" ui-sref="data.core.academic-years">Academic Year</a></li>
+                    <li permission="['ROLE_Developer', 'ROLE_System Admin', 'ROLE_Timetabling']" ui-sref-active="active"><a href="#" ui-sref="data.core.holidays">Holidays</a></li>
+                    <li role="separator" class="divider" permission="['ROLE_Developer', 'ROLE_System Admin', 'ROLE_Timetabling']"></li>
+                    <li permission="['ROLE_Developer', 'ROLE_System Admin', 'ROLE_Timetabling']" ui-sref-active="active"><a href="#" ui-sref="data.core.year-groups">Year Groups</a></li>
+                    <li permission="['ROLE_Developer', 'ROLE_System Admin', 'ROLE_Timetabling']" ui-sref-active="active"><a href="#" ui-sref="data.core.levels">Levels</a></li>
+                    <li permission="['ROLE_Developer', 'ROLE_System Admin', 'ROLE_Timetabling']" ui-sref-active="active"><a href="#" ui-sref="data.core.subjects">Subjects</a></li>
+                    <li role="separator" class="divider" permission="['ROLE_Developer', 'ROLE_System Admin', 'ROLE_Timetabling']"></li>
+                    <li permission="['ROLE_Developer', 'ROLE_System Admin', 'ROLE_Core Data', 'ROLE_Timetabling']" ui-sref-active="active"><a href="#" ui-sref="data.core.departments">Departments</a></li>
+                    <li permission="['ROLE_Developer', 'ROLE_System Admin', 'ROLE_Core Data', 'ROLE_Timetabling']" ui-sref-active="active"><a href="#" ui-sref="data.core.faculties">Faculties</a></li>
+                    <li permission="['ROLE_Developer', 'ROLE_System Admin', 'ROLE_Core Data', 'ROLE_Timetabling']" ui-sref-active="active"><a href="#" ui-sref="data.core.tutor-groups">Tutor Groups</a></li>
+                </ul>
+            </li>
+            <li class="dropdown-submenu" permission="['ROLE_Developer', 'ROLE_IT Support']" ui-sref-active="{'active': 'data.cristal.**'}">
+                <a tabindex="-1" href="#">Cristal Data</a>
+                <ul class="dropdown-menu">
+                    <li permission="['ROLE_Developer', 'ROLE_IT Support']" ui-sref-active="active"><a href="#" ui-sref="data.cristal.cristal-rooms">Cristal Rooms</a></li>
+                </ul>
+            </li>
+            <li class="dropdown-submenu" permission="['ROLE_Developer', 'ROLE_System Admin', 'ROLE_Core Data']" ui-sref-active="{'active': 'data.monitoring.**'}">
+                <a tabindex="-1" href="#">Monitoring Data</a>
+                <ul class="dropdown-menu">
+                    <li permission="['ROLE_Developer', 'ROLE_System Admin', 'ROLE_Core Data']" ui-sref-active="active"><a href="#" ui-sref="data.monitoring.attendance-monitorings">Attendance Monitoring</a></li>
+                    <li permission="['ROLE_Developer', 'ROLE_System Admin', 'ROLE_Core Data']" ui-sref-active="active"><a href="#" ui-sref="data.monitoring.central-monitorings">Central Monitoring</a></li>
+                    <li permission="['ROLE_Developer', 'ROLE_System Admin', 'ROLE_Core Data']" ui-sref-active="active"><a href="#" ui-sref="data.monitoring.punctuality-monitorings">Punctuality Monitoring</a></li>
+                </ul>
+            </li>
+            <li class="dropdown-submenu" permission="['ROLE_Developer', 'ROLE_System Admin', 'ROLE_Timetabling']" ui-sref-active="{'active': 'data.timetabling.**'}">
+                <a tabindex="-1" href="#">Timetabling Data</a>
+                <ul class="dropdown-menu">
+                    <li permission="['ROLE_Developer', 'ROLE_System Admin', 'ROLE_Timetabling']" ui-sref-active="active"><a href="#" ui-sref="data.timetabling.blocks">Blocks</a></li>
+                    <li permission="['ROLE_Developer', 'ROLE_System Admin', 'ROLE_Timetabling']" ui-sref-active="active"><a href="#" ui-sref="data.timetabling.periods">Periods</a></li>
+                    <li permission="['ROLE_Developer', 'ROLE_System Admin', 'ROLE_Timetabling']" ui-sref-active="active"><a href="#" ui-sref="data.timetabling.rooms">Rooms</a></li>
+                </ul>
+            </li>
+            <li class="dropdown-submenu" permission="['ROLE_Developer', 'ROLE_System Admin', 'ROLE_Core Data']" ui-sref-active="{'active': 'data.ilp.**'}">
+                <a tabindex="-1" href="#">ILP Data</a>
+                <ul class="dropdown-menu">
+                    <li permission="['ROLE_Developer', 'ROLE_System Admin', 'ROLE_Core Data']" ui-sref-active="active"><a href="#" ui-sref="data.ilp.interview-types">ILP Interview Type</a></li>
+                    <li permission="['ROLE_Developer', 'ROLE_System Admin', 'ROLE_Core Data']" ui-sref-active="active"><a href="#" ui-sref="data.ilp.letter-types">ILP Letter Type</a></li>
+                    <li permission="['ROLE_Developer', 'ROLE_System Admin', 'ROLE_Core Data']" ui-sref-active="active"><a href="#" ui-sref="data.ilp.correspondence-types">ILP Correspondence Type</a></li>
+                    <li permission="['ROLE_Developer', 'ROLE_System Admin', 'ROLE_Core Data']" ui-sref-active="active"><a href="#" ui-sref="data.ilp.statement-bank-types">ILP Statement Bank Type</a></li>
+                    <li permission="['ROLE_Developer', 'ROLE_System Admin', 'ROLE_Core Data']" ui-sref-active="active"><a href="#" ui-sref="data.ilp.statement-banks">ILP Statement Bank</a></li>
+                </ul>
+            </li>
+            <li class="dropdown-submenu" permission="['ROLE_Developer', 'ROLE_System Admin']" ui-sref-active="{'active': 'data.learning-support.**'}">
+                <a tabindex="-1" href="#">Learning Support Data</a>
+                <ul class="dropdown-menu">
+                    <li permission="['ROLE_Developer', 'ROLE_System Admin']" ui-sref-active="active"><a href="#" ui-sref="data.learning-support.concession-types">Concession Types</a></li>
+                    <li permission="['ROLE_Developer', 'ROLE_System Admin']" ui-sref-active="active"><a href="#" ui-sref="data.learning-support.referral-reasons">Referral Reason</a></li>
+                    <li permission="['ROLE_Developer', 'ROLE_System Admin']" ui-sref-active="active"><a href="#" ui-sref="data.learning-support.special-categories">Special Category</a></li>
+                    <li permission="['ROLE_Developer', 'ROLE_System Admin']" ui-sref-active="active"><a href="#" ui-sref="data.learning-support.support-types">Support Types</a></li>
+                </ul>
+            </li>
+            <li class="dropdown-submenu" permission="['ROLE_Developer', 'ROLE_System Admin']" ui-sref-active="{'active': 'data.safeguarding.**'}">
+                <a tabindex="-1" href="#">Safeguarding Data</a>
+                <ul class="dropdown-menu">
+                    <li permission="['ROLE_Developer', 'ROLE_System Admin']" ui-sref-active="active"><a href="#" ui-sref="data.safeguarding.risk-levels">Risk Levels</a></li>
+                </ul>
+            </li>
+            <li class="dropdown-submenu" permission="['ROLE_Developer', 'ROLE_System Admin', 'ROLE_Admissions']" ui-sref-active="{'active': 'data.admissions.**'}">
+                <a tabindex="-1" href="#">Admissions Data</a>
+                <ul class="dropdown-menu">
+                    <li permission="['ROLE_Developer', 'ROLE_System Admin', 'ROLE_Admissions']" ui-sref-active="active"><a href="#" ui-sref="data.admissions.schools">Schools</a></li>
+                    <li permission="['ROLE_Developer', 'ROLE_System Admin', 'ROLE_Admissions']" ui-sref-active="active"><a href="#" ui-sref="data.admissions.application-statuses">Application Status</a></li>
+                    <li permission="['ROLE_Developer', 'ROLE_System Admin', 'ROLE_Admissions']" ui-sref-active="active"><a href="#" ui-sref="data.admissions.offer-types">Offer Types</a></li>
+                    <li role="separator" class="divider" permission="['ROLE_Developer', 'ROLE_System Admin', 'ROLE_Admissions']"></li>
+                    <li permission="['ROLE_Developer', 'ROLE_System Admin', 'ROLE_Admissions']" ui-sref-active="active"><a href="#" ui-sref="data.admissions.entry-qualifications">Entry Quaifications</a></li>
+                    <li permission="['ROLE_Developer', 'ROLE_System Admin', 'ROLE_Admissions']" ui-sref-active="active"><a href="#" ui-sref="data.admissions.entry-qualification-types">Entry Quaification Types</a></li>
+                </ul>
+            </li>
+            <li class="dropdown-submenu" permission="['ROLE_Developer', 'ROLE_System Admin']" ui-sref-active="{'active': 'data.system.**'}">
+                <a tabindex="-1" href="#">System Data</a>
+                <ul class="dropdown-menu">
+                    <li permission="['ROLE_Developer', 'ROLE_System Admin']" ui-sref-active="active"><a href="#" ui-sref="data.system.settings">Settings</a></li>
+                    <li permission="['ROLE_Developer', 'ROLE_System Admin']" ui-sref-active="active"><a href="#" ui-sref="data.system.text-lookups">Text Lookup</a></li>
+                    <li permission="['ROLE_Developer', 'ROLE_System Admin']" ui-sref-active="active"><a href="#" ui-sref="data.system.letter-templates">Letter Template</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li permission="['ROLE_Developer', 'ROLE_System Admin']" ui-sref-active="active"><a href="#" ui-sref="data.system.reporting-periods">Reporting Period</a></li>
+                    <li permission="['ROLE_Developer', 'ROLE_System Admin']" ui-sref-active="active"><a href="#" ui-sref="data.system.possible-grade-sets">Possible Grade Set</a></li>
+                </ul>
+            </li>
+            <li class="dropdown-submenu" permission="['ROLE_Developer', 'ROLE_System Admin']" ui-sref-active="{'active': 'data.security.**'}">
+                <a tabindex="-1" href="#">Security Data</a>
+                <ul class="dropdown-menu">
+                    <li permission="['ROLE_Developer', 'ROLE_System Admin']" ui-sref-active="active"><a href="#" ui-sref="data.security.roles">Database Roles</a></li>
+                    <li permission="['ROLE_Developer', 'ROLE_System Admin']" ui-sref-active="active"><a href="#" ui-sref="data.security.staff">Staff</a></li>
+                </ul>
+            </li>
+            <li class="dropdown-submenu" permission="['ROLE_Developer', 'ROLE_System Admin', 'ROLE_Exams Officer']" ui-sref-active="{'active': 'data.exams.**'}">
+                <a tabindex="-1" href="#">Exams Data</a>
+                <ul class="dropdown-menu">
+                    <li permission="['ROLE_Developer', 'ROLE_System Admin', 'ROLE_Exams Officer']" ui-sref-active="active"><a href="#" ui-sref="data.exams.exam-boards">Exam Boards</a></li>
+                    <li permission="['ROLE_Developer', 'ROLE_System Admin', 'ROLE_Exams Officer']" ui-sref-active="active"><a href="#" ui-sref="data.exams.exam-series">Exam Series</a></li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+
+    <li class="collapse" permission="['ROLE_Developer', 'Role_Staff']" ui-sref-active="{'active': 'staff-data.**'}">
+        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Data <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+            <li ui-sref-active="active"><a ui-sref="staff-data.personal-data">Personal Data</a></li>
+            <!--             <li ui-sref-active="active"><a ui-sref="staff-data.personal-data">Staff Appraisal</a></li> -->
+            <li ui-sref-active="active"><a ui-sref="staff-data.payment-data">Staff Payments</a></li>
+            <li ui-sref-active="active"><a ui-sref="staff-data.absence-data">Staff Absence</a></li>
+            <li ui-sref-active="active"><a ui-sref="staff-data.inset-history">Inset History</a></li>
+            <li ui-sref-active="active"><a ui-sref="staff-data.signin-history">College Sign In History</a></li>
+            <!--             <li ui-sref-active="active"><a ui-sref="staff-data.personal-data">Line Manager Options</a></li> -->
+        </ul>
+    </li>
+    <li class="collapse" permission="['ROLE_Developer']" ui-sref-active="{'active': 'interim-reports.**'}">
+        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Interim Reports<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+            <li ui-sref-active="active"><a ui-sref="interim-reports.review-data">Interim Reports Due</a></li>
+            <li ui-sref-active="active"><a ui-sref="interim-reports.staff-interim-reports">My Interim Reports</a></li>
+        </ul>
+    </li>
+</ul>
+
+<ul class="nav navbar-nav navbar-right">
+    <li class="dropdown" permission="['ROLE_Developer', 'ROLE_Exams Officer']" ui-sref-active="active">
+        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Settings <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+            <li class="form-inline" role="settings">
+                <div class="form-group">
+                    <label for="sideBar" class="col-md-8">Show Side Bar:</label>
+                    <div class="col-md-4">
+                        <input type="checkbox" name="sideBar" class="form-control" ng-model="globals.sideBar">
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <form class="navbar-form navbar-right" role="settings">
+            <current-year-selector readonly="false"></current-year-selector>
+        </form>
+    </li>
+    <li ng-show="!ctrl.authenticated()"><a href="#" ui-sref="login">Log In</a></li>
+    <li ng-show="ctrl.authenticated()"><a href="#" ui-sref="logout">Logout</a></li>
+</ul>

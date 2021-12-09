@@ -1,0 +1,21 @@
+<div class="row">
+    <h3>Student Enrolment</h3>
+    <div class="col-sm-8">
+        <fieldset>Display Options:</fieldset>
+        <ul class="list-inline">
+            <li>
+                <input type="checkbox" ng-model="showILR"> Show ILR
+            </li>
+        </ul>
+    </div>
+
+    <div class="col-md-12" permission="['ROLE_Office Administration', 'ROLE_Enrolment Manager', 'ROLE_Exams Officer']">
+        <enrolments-editor student-id="ctrl.student.id" enrolments="ctrl.enrolments" show-year="true" show-ilr="showILR" show-actions="true" show-status="true" show-monitoring="true"></enrolments-editor>
+        <enrolment-manager student="ctrl.student" enrolments="ctrl.enrolments" permission="['ROLE_Office Administration', 'ROLE_Enrolment Manager']"></enrolment-manager>
+        <report-link class="btn btn-sm btn-default" report-path="'/CID/Students/Course Change Form'" report-format="'PDF'" report-params="'StudentId='+ctrl.student.id" permission="['ROLE_Office Administration', 'ROLE_Enrolment Manager']">Course Change Form</report-link>
+    </div>
+    <div class="col-md-12" permission permission-not="['ROLE_Office Administration','ROLE_Exams Officer']">
+        <enrolments-table enrolments="ctrl.enrolments" show-year="true" show-course="true" show-ilr="showILR" show-course-group="true" show-status="true" show-monitoring="true"></enrolments-table>
+        <enrolment-manager student="ctrl.student" enrolments="ctrl.enrolments" permission="'ROLE_Enrolment Manager'"></enrolment-manager>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+<table class="table table-responsive table-hover" ts-wrapper ts-item-name="Possible Grade">
+    <thead>
+        <th ts-criteria="code">Code</th>
+        <th ts-criteria="description">Description</th>
+        <th>Grade </th>
+        <th>UCAS Points</th>
+        <th ng-show="showActions">Actions</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="possibleGrade in possibleGrades" ts-repeat>
+            <td>{{ possibleGrade._possibleGradeSet.code }}</td>
+            <td>{{ possibleGrade._possibleGradeSet.description }}</td>
+            <td>{{ possibleGrade.grade }}</td>
+            <td>{{ possibleGrade.ucasPoints}} </td>
+            <td ng-show="showActions">
+                <button type="button" class="btn btn-primary btn-sm" ng-click="ctrl.editPossibleGrades(possibleGrade.id)"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button ng-show="showActions" type="button" class="btn btn-primary btn-sm" ng-click="ctrl.addPossibleGrades()"><span class="glyphicon glyphicon-pencil"></span> Add</button>

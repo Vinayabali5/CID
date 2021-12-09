@@ -1,0 +1,24 @@
+<div class="row">
+    <div class="col-sm-4">
+        <p layout="row">{{ student._candidateNo }}</p>
+        <p layout="row">{{ student._surname }}</p>
+        <p layout="row">{{ student._firstName }}</p>
+    </div>
+    <div class="col-sm-8">
+        <div layout="row">{{ student._examComponentCode }}</div>
+        <div layout="row">{{ student._examComponentTitle | limitTo: 12 }}</div>
+
+        <div ng-if="student.examSeatingPlanId != null" layout="row">
+            <div class="col-sm-3">{{ student._examRoomRoomCode }}</div>
+            <div class="col-sm-6" ng-if="displayOptions.roomDescription === true">{{ student._examRoomRoomDescription | limitTo: 6 }}</div>
+            <div class="col-sm-3">{{ student.label }}</div>
+        </div>
+    </div>
+</div>
+<div class="row" ng-show="student._courseConcessions.length > 0 && displayOptions.studentConcessions === true">
+    <div class="col-sm-12">
+        <div ng-repeat="concession in student._courseConcessions">
+            <p>{{ concession._concessionDescription }}</p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+<table class="table table-responsive">
+    <tbody>
+        <tr ng-repeat="room in roomList" class="ng-cloak">
+            <td>{{room.code}}</td>
+            <td>{{room.description}}</td>
+            <td>{{room.defaultRows}}</td>
+            <td>{{room.defaultCols}}</td>
+            <td>
+                <ng-transclude></ng-transclude>
+            </td>
+        </tr>
+    </tbody>
+</table>

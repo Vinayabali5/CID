@@ -1,0 +1,87 @@
+<h1>Test Page</h1>
+
+<div ng-init="setReadonly = false">
+    <h2>Selection Boxes</h2>
+
+    Read Only: <input type="checkbox" ng-model="setReadonly"> {{ setReadonly }}<br />
+    <br />
+    Academic Year: <academic-year-selection id="academicYear" readonly="setReadonly" ng-model="academicYear"></academic-year-selection> <span>Data: {{ academicYear }}</span><br>
+    Aim Type: <aim-type-selection id="aimType" readonly="setReadonly" ng-model="aimType"></aim-type-selection> <span>Data: {{ aimType }}</span><br>
+    Application Status: <application-status-selection id="appStat" readonly="setReadonly" ng-model="appStat"></application-status-selection> <span>Data: {{ appStat }}</span><br>
+    Attendance code:<attendance-code-selection id="attendanceCode" readonly="setReadonly" ng-model="attendanceCode"></attendance-code-selection> <span>Data: {{ attendanceCode }}</span><br>
+    Attendance Monitoring:<attendance-monitoring-selection id="attendanceMonitoring" readonly="setReadonly" ng-model="attendanceMonitoring"></attendance-monitoring-selection> <span>Data: {{ attendanceMonitoring }}</span><br>
+    Block: <block-selection id="block" readonly="setReadonly" ng-model="block"></block-selection> <span>Data: {{ block }}</span><br>
+    BursaryType:<bursary-type-selection id="bursaryType" readonly="setReadonly" ng-model="bursaryType"></bursary-type-selection><span>Data: {{ bursaryTypes }}</span> <br>
+    Central Monitoring:<central-monitoring-selection id="centralMonitoring" readonly="setReadonly" ng-model="centralMonitoring"></central-monitoring-selection> <span>Data: {{ centralMonitoring }}</span><br>
+    College Fund Paid: <college-fund-paid-selection id="cfp" readonly="setReadonly" ng-model="cfp"></college-fund-paid-selection> <span>Data: {{ cfp }}</span><br>
+    Careers Record Type: <careers_record_type-selection id="careersRecordType" readonly="setReadonly" ng-model="careersRecordType"></careers_record_type-selection> <span>Data: {{ careersRecordType }}</span><br>
+    Completion Status: <completion-status-selection id="completionStat" readonly="setReadonly" ng-model="completionStat"></completion-status-selection> <span>Data: {{ completionStat }}</span><br>
+    Concession:<concession-selection id="concessions" readonly="setReadonly" ng-model="concessions"></concession-selection> <span>Data: {{ concessions }}</span><br>
+    Contact Type:<contact-type-selection id="contactType" readonly="setReadonly" ng-model="contactType"></contact-type-selection> <span>Data: {{ contactType }}</span><br>
+    Correspondence Type:<correspondence-type-selection id="correspondenceType" readonly="setReadonly" ng-model="correspondenceType"></correspondence-type-selection> <span>Data: {{ correspondenceType }}</span><br>
+    Course:<course-selection id="course" readonly="setReadonly" ng-model="course"></course-selection> <span>Data: {{ course }}</span><br>
+    Course Group:<course-group-selection id="courseGroup" readonly="setReadonly" ng-model="courseGroup"></course-group-selection> <span>Data: {{ courseGroup }}</span><br>
+    Department:<department-selection id="department" readonly="setReadonly" ng-model="department"></department-selection> <span>Data : {{ department }}</span><br>
+    Destination: <destination-selection id="destination" readonly="setReadonly" ng-model="destination"></destination-selection> <span>Data: {{ destination }}</span><br>
+    English Condition of funding:<english-condition-of-funding-selection id="englishConditionOfFunding" readonly="setReadonly" ng-model="englishConditionOfFunding"></english-condition-of-funding-selection> <span>Data: {{ englishConditionOfFunding }}</span><br>
+    EntryQualification:<entry-qualification-selection id="entryQualification" readonly="setReadonly" ng-model="entryQualification"></entry-qualification-selection><span>Data: {{ entryQualification }}</span><br>
+    EntryQualificationType:<entry-qualification-type-selection id="entryQualificationType" readonly="setReadonly" ng-model="entryQualificationType"></entry-qualification-type-selection><span>Data: {{ entryQualificationType }}</span><br>
+    Ethnicity:<ethnicity-selection id="ethnicity" readonly="setReadonly" ng-model="ethnicity"></ethnicity-selection><span>Data: {{ ethnicity }}</span><br>
+    Exam Board:<exam-board-selection id="examBoard" readonly="setReadonly" ng-model="examBoard"></exam-board-selection><span>Data: {{ examBoard }}</span><br>
+    Faculty:<faculty-selection id="faculty" readonly="setReadonly" ng-model="faculty"></faculty-selection><span>Data: {{ faculty }}</span><br>
+    File Category:<file-category-selection id="fileCategory" readonly="setReadonly" ng-model="fileCategory"></file-category-selection><span>Data: {{ fileCategories }}</span><br>
+    Funding Model:<funding-model-selection id="fundingModel" readonly="setReadonly" ng-model="fundingModel"></funding-model-selection><span>Data: {{ fundingModel }}</span><br>
+    Gender:<gender-selection id="gender" readonly="setReadonly" ng-model="gender"></gender-selection><span>Data: {{ gender }}</span> <br>
+    Legal Sex:<legal-sex-selection id="legalSex" readonly="setReadonly" ng-model="legalSex"></legal-sex-selection><span>Data: {{ legalSex }}</span> <br>
+    Interview Category:<interview-category-selection id="interviewCategory" readonly="setReadonly" ng-model="interviewCategory"></interview-category-selection> <span>Data: {{ interviewCategory }}</span><br>
+    ILPInterview Type:<ilp-interview-type-selection id="iLPInterviewType" readonly="setReadonly" ng-model="iLPInterviewType"></ilp-interview-type-selection> <span>Data: {{ iLPInterviewType }}</span><br>
+    Interim Report:<interim-report-selection id="interimReport" readonly="setReadonly" ng-model="interimReport"></interim-report-selection> <span>Data: {{ interimReport }}</span><br>
+    LetterType:<letter-type-selection id="letterType" readonly="setReadonly" ng-model="letterType"></letter-type-selection> <span>Data: {{ letterType }}</span><br>
+    Level:<level-selection id="level" readonly="setReadonly" ng-model="level"></level-selection><span>Data: {{ level }}</span><br>
+    LLDD Health Problem:<lLDD-health-problem-selection id="LLDDHealthProblem" readonly="setReadonly" ng-model="LLDDHealthProblem"></lLDD-health-problem-selection><span>Data: {{ LLDDHealthProblem }}</span><br>
+    LLDD Health Problem Category:<lLDD-health-problem-category-selection id="LLDDHealthProblemCategory" readonly="setReadonly" ng-model="LLDDHealthProblemCategory"></lLDD-health-problem-category-selection><span>Data: {{ LLDDHealthProblemCategory }}</span><br>
+    Maths Condition of funding:<maths-condition-of-funding-selection id="mathsConditionOfFunding" readonly="setReadonly" ng-model="mathsConditionOfFunding"></maths-condition-of-funding-selection> <span>Data: {{ ediStatusType }}</span><br>
+    Nationality:<nationality-selection id="nationality" readonly="setReadonly" ng-model="nationality"></nationality-selection><span>Data: {{ nationality }}</span><br>
+    Note Type:<note-type-selection id="noteType" readonly="setReadonly" ng-model="noteType"></note-type-selection><span>Data: {{ noteType }}</span><br>
+    Offer Type:<offer-type-selection id="offerType" readonly="setReadonly" ng-model="offerType"></offer-type-selection><span>Data: {{ offerType }}</span><br>
+    Outcome:<outcome-selection id="outcome" readonly="setReadonly" ng-model="outcome"></outcome-selection><span>Data: {{ outcome }}</span><br>
+    Period:<period-selection id="period" readonly="setReadonly" ng-model="period"></period-selection><span>Data: {{ period }}</span><br>
+    Possible Grade:<possible-grade-selection id="possibleGrades" readonly="setReadonly" ng-model="possibleGrades"></possible-grade-selection><span>Data: {{ possibleGrades }}</span><br>
+    Possible Grade Set:<possible-grade-set-selection id="possibleGradeSets" readonly="setReadonly" ng-model="possibleGradeSets"></possible-grade-set-selection><span>Data: {{ possibleGradeSets }}</span><br>
+    Prior Attainment:<prior-attainment-selection id="priorAttainment" readonly="setReadonly" ng-model="priorAttainment"></prior-attainment-selection><span>Data: {{ priorAttainment }}</span><br>
+    Programme Type:<programme-type-selection id="programmeTypes" readonly="setReadonly" ng-model="programmeTypes"></programme-type-selection><span>Data: {{ programmeTypes }}</span><br>
+    Punctuality Monitoring:<punctuality-monitoring-selection id="punctualityMonitoring" readonly="setReadonly" ng-model="punctualityMonitoring"></punctuality-monitoring-selection> <span>Data: {{ punctualityMonitoring }}</span><br>
+    ReferralReason:<referral-reason-selection id="referralReason" readonly="setReadonly" ng-model="role"></referral-reason-selection><span>Data: {{ referralReasons }}</span> <br>
+    Restricted Use Indicator:<restricted-use-indicator-selection id="rui" readonly="setReadonly" ng-model="rui"></restricted-use-indicator-selection><span>Data: {{ rui }}</span><br>
+    Risk Level:<risk-level-selection id="riskLevel" readonly="setReadonly" ng-model="riskLevel"></risk-level-selection><span>Data: {{ riskLevel }}</span><br>
+    Roles:<role-selection id="role" readonly="setReadonly" ng-model="role"></role-selection><span>Data: {{ roles }}</span> <br>
+    Room:<room-selection id="room" readonly="setReadonly" ng-model="room"></room-selection><span>Data: {{ room }}</span><br>
+    RoomType:<room-type-selection id="roomType" readonly="setReadonly" ng-model="roomType"></room-type-selection><span>Data: {{ roomType }}</span><br>
+    School:<school-selection id="school" readonly="setReadonly" ng-model="school"></school-selection><span>Data: {{ school }}</span><br>
+    School Priority:<school-priority-selection id="schoolPriority" readonly="setReadonly" ng-model="schoolPriority"></school-priority-selection><span>Data: {{ schoolPriority }}</span><br>
+    School Report Status:<school-report-status-selection id="schoolReportStatus" readonly="setReadonly" ng-model="schoolReportStatus"></school-report-status-selection><span>Data: {{ schoolReportStatus }}</span><br>
+    School Type:<school-type-selection id="schooLType" readonly="setReadonly" ng-model="schoolType"></school-type-selection><span>Data: {{ schoolType }}</span><br>
+    Source of Funding:<source-of-funding-selection id="sourceOfFunding" readonly="setReadonly" ng-model="sourceOfFunding"></source-of-funding-selection><span>Data: {{ sourceOfFunding }}</span><br>
+    Special Category:<special-category-selection id="specialCategory" readonly="setReadonly" ng-model="specialCategory"></special-category-selection><span>Data: {{ specialCategory }}</span><br>
+    Staff:<staff-selection id="staff" readonly="setReadonly" ng-model="staff"></staff-selection><span>Data: {{ staff }}</span><br>
+    Staff Type:<staff-type-selection id="staffType" readonly="setReadonly" ng-model="staffType"></staff-type-selection><span>Data: {{ staffType }}</span><br>
+    Statement Bank Type:<statement-bank-type-selection id="statementBankType" readonly="setReadonly" ng-model="statementBankType"></statement-bank-type-selection><span>Data: {{ statementBankType }}</span><br>
+    Status Type:<status-type-selection id="statusType" readonly="setReadonly" ng-model="statusType"></status-type-selection><span>Data: {{ statusType }}</span><br>
+    Student Remark Permission:<student-remark-permission-selection id="studentRemarkPermission" readonly="setReadonly" ng-model="studentRemarkPermission"></student-remark-permission-selection><span>Data: {{ studentRemarkPermission }}</span> <br>
+    Student Type:<student-type-selection id="studentType" readonly="setReadonly" ng-model="studentType"></student-type-selection><span>Data: {{ studentType }}</span><br>
+    Subject:<subject-selection id="subject" readonly="setReadonly" ng-model="subject"></subject-selection><span>Data: {{ subject }}</span><br>
+    Support Type:<support-type-selection id="supportType" readonly="setReadonly" ng-model="supportType"></support-type-selection><span>Data: {{ supportType }}</span><br>
+    Title:<title-selection id="title" readonly="setReadonly" ng-model="title"></title-selection><span>Data: {{ title }}</span><br>
+    Tutor Group:<tutor-group-selection id="tutorGroup" readonly="setReadonly" ng-model="tutorGroup"></tutor-group-selection><span>Data: {{ tutorGroup }}</span><br>
+    Valid Tutor Groups:<valid-tutor-groups-selection id="tutorGroup" readonly="setReadonly" ng-model="tutorGroup"></valid-tutor-groups-selection><span>Data: {{ tutorGroup }}</span><br>
+    Withdrawal Reason:<withdrawal-reason-selection id="withdrawalReason" readonly="setReadonly" ng-model="withdrawalReason"></withdrawal-reason-selection><span>Data: {{ withdrawalReason }}</span><br>
+    Work placement Mode:<work-placement-mode-selection id="workPlacementMode" readonly="setReadonly" ng-model="workPlacementMode"></work-placement-mode-selection><span>Data: {{ workPlacementMode }}</span><br>
+    Year Group:<year-group-selection id="yearGroup" readonly="setReadonly" ng-model="yearGroup"></year-group-selection><span>Data: {{ yearGroup }}</span><br>
+    Edi Status Type:<edi-status-type-selection id="ediStatusType" readonly="setReadonly" ng-model="ediStatusType">
+        </edi-status-selection> <span>Data: {{ ediStatusType }}</span><br>
+        Religion:<religion-selection id="religion" readonly="setReadonly" ng-model="religion"><span>Data: {{ religion }}</span></religion-selection>
+        Marital Status:<marital-status-selection id="maritalStatus" readonly="setReadonly" ng-model="maritalStatus"><span>Data: {{ maritalStatus }}</span></marital-status-selection>
+        Disability:<disability-selection id="disability" readonly="setReadonly" ng-model="disability"><span>Data: {{ disability }}</span></disability-selection>
+        Sexual Orientation:<sexual-orientation-selection id="sexualOrientation" readonly="setReadonly" ng-model="sexualOrientation"><span>Data: {{ sexualOrientation }}</span></sexual-orientation-selection>
+
+</div>

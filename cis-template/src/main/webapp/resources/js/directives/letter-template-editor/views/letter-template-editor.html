@@ -1,0 +1,20 @@
+<table class="table table-responsive table-hover" ts-wrapper ts-item-name="Letter Template">
+    <thead>
+        <th ts-criteria="name">Name</th>
+        <th ts-criteria="description">Description</th>
+        <th ts-criteria="templateText">Template Text</th>
+        <th>In Use</th>
+        <th ng-show="showActions">Actions</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="letterTemplate in letterTemplates" ts-repeat>
+            <td>{{ letterTemplate.name }}</td>
+            <td>{{ letterTemplate.description }}</td>
+            <td>{{ letterTemplate.templateText }}</td>
+            <td>{{ letterTemplate.inUse | yesNo}}</td>
+            <td ng-show="showActions">
+                <button type="button" class="btn btn-primary btn-sm" ng-click="ctrl.editLetterTemplate(letterTemplate.id)"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+            </td>
+        </tr>
+</table>
+<button ng-show="showActions" type="button" class="btn btn-primary btn-sm" ng-click="ctrl.addLetterTemplate()"><span class="glyphicon glyphicon-pencil"></span> Add</button>

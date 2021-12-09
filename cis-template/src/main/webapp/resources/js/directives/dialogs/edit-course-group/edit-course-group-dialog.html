@@ -1,0 +1,225 @@
+<form id="courseGroupEditForm" name="courseGroupEditForm" role="form" role="form" novalidate show-validation>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="cancel()">&times;</button>
+        <h4 class="modal-title">Edit Course Group</h4>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="form-group col-sm-12 col-md-6">
+                <label for="spec" class="control-label col-xs-4">Course Group Spec:</label>
+                <div class="col-xs-8">
+                    <input type="text" id="spec" name="spec" class="form-control" ng-model="courseGroup.spec" readonly>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12 col-md-6">
+                <label for="yearGroup" class="control-label col-xs-4">Year Group:</label>
+                <div class="col-xs-8">
+                    <year-group-selection id="yearGroup" name="yearGroup" class="form-control" ng-model="courseGroup.yearGroupId"></year-group-selection>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-xs-12">
+                <label for="course" class="control-label col-xs-4 col-md-2">Course:</label>
+                <div class="col-xs-8 col-md-10">
+                    <course-selection id="course" name="course" class="form-control" ng-model="courseGroup.courseId"></course-selection>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-sm-12 col-md-6">
+                <label for="groupCode" class="control-label col-xs-4">Group Code:</label>
+                <div class="col-xs-8">
+                    <input id="groupCode" name="groupCode" class="form-control" ng-model="courseGroup.code"></input>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12 col-md-6">
+                <label for="department" class="control-label col-xs-4">Department:</label>
+                <div class="col-xs-8">
+                    <department-selection id="department" name="department" class="form-control" ng-model="courseGroup.departmentId"></department-selection>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12 col-md-6">
+                <label for="courseLeader" class="control-label col-xs-4">Course Leader:</label>
+                <div class="col-xs-8">
+                    <staff-selection id="courseLeader" name="courseLeader" class="form-control" ng-model="courseGroup.courseLeaderId"></staff-selection>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12 col-md-6">
+                <label for="yearId" class="control-label col-xs-4">Academic Year:</label>
+                <div class="col-xs-8">
+                    <academic-year-selection id="yearId" name="yearId" class="form-control" ng-model="courseGroup.yearId"></academic-year-selection>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12 col-md-6">
+                <label for="startDate" class="control-label col-xs-4">Start Date:</label>
+                <div class="col-xs-8">
+                    <div class="input-group">
+                        <input id="startDate" name="startDate" type="text" class="form-control" ng-init="startDateDatePicker = false" uib-datepicker-popup="dd/MM/yyyy" is-open="startDateDatePicker" ng-model="courseGroup.startDate" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="startDateDatePicker = !startDateDatePicker">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12 col-md-6">
+                <label for="endDate" class="control-label col-xs-4">End Date:</label>
+                <div class="col-xs-8">
+                    <div class="input-group">
+                        <input id="endDate" name="endDate" type="text" class="form-control" ng-init="endDateDatePicker = false" uib-datepicker-popup="dd/MM/yyyy" is-open="endDateDatePicker" ng-model="courseGroup.endDate" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="endDateDatePicker = !endDateDatePicker">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <legend>Timetabling Flags</legend>
+            </div>
+
+
+            <div class="form-group col-sm-12 col-md-6">
+                <label for="displayOnTimetable" class="control-label col-xs-8">Display On Timetable:</label>
+                <div class="col-xs-4">
+                    <input type="checkbox" id="displayOnTimetable" name="displayOnTimetable" class="form-control" ng-model="courseGroup.displayOnTimetable">
+                </div>
+            </div>
+
+
+            <div class="form-group col-sm-12 col-md-6">
+                <label for="hasRegister" class="control-label col-xs-8">Has Register:</label>
+                <div class="col-xs-4">
+                    <input type="checkbox" id="hasRegister" name="hasRegister" class="form-control" ng-model="courseGroup.hasRegister">
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12 col-md-6">
+                <label for="nested" class="control-label col-xs-8">Nested Group:</label>
+                <div class="col-xs-4">
+                    <input type="checkbox" id="nested" name="nested" class="form-control" ng-model="courseGroup.nested">
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12 col-md-6">
+                <label for="excludeFromAllocation" class="control-label col-xs-8">Exclude From Allocation:</label>
+                <div class="col-xs-4">
+                    <input type="checkbox" id="excludeFromAllocation" name="excludeFromAllocation" class="form-control" ng-model="courseGroup.excludeFromAllocation">
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12 col-md-6">
+                <label for="excludeFromExams" class="control-label col-xs-8">Exclude From Exams:</label>
+                <div class="col-xs-4">
+                    <input type="checkbox" id="excludeFromExams" name="excludeFromExams" class="form-control" ng-model="courseGroup.excludeFromExams">
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12 col-md-6">
+                <label for="excludeFromIR" class="control-label col-xs-8">Exclude From IR:</label>
+                <div class="col-xs-4">
+                    <input type="checkbox" id="excludeFromIR" name="excludeFromIR" class="form-control" ng-model="courseGroup.excludeFromIR">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <legend>Timetable</legend>
+            </div>
+
+            <div class="col-xs-12">
+                <timetable-editor timetable="timetable" course-group-id="courseGroup.id" show-actions="true"></timetable-editor>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <legend>Notes</legend>
+            </div>
+
+            <div class="form-group col-xs-12">
+                <div class="col-xs-12">
+                    <textarea type="text" id="notes" name="notes" class="form-control" rows="5" ng-model="courseGroup.notes"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <legend>ILR Fields</legend>
+            </div>
+
+            <div class="col-sm-12 col-md-6">
+                <div class="form-group">
+                    <label for="ilrReturn" class="control-label col-xs-8">ILR Return:</label>
+                    <div class="col-xs-4">
+                        <input type="checkbox" id="ilrReturn" name="ilrReturn" class="form-control" ng-model="courseGroup.ilrReturn">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-6">
+                <div class="form-group">
+                    <label for="learningAimReferenceOverride" class="control-label col-xs-6">Learning Aim Override:</label>
+                    <div class="col-xs-6">
+                        <input type="text" id="learningAimReferenceOverride" name="learningAimReferenceOverride" class="form-control" ng-model="courseGroup.learningAimReferenceOverride">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12 col-md-6">
+                <div class="form-group">
+                    <label for="plh" class="control-label col-xs-8">PLH:</label>
+                    <div class="col-xs-4">
+                        <input type="text" id="plh" name="plh" class="form-control" ng-model="courseGroup.plh">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-6">
+                <div class="form-group">
+                    <label for="peeph" class="control-label col-xs-8">PEEPH:</label>
+                    <div class="col-xs-4">
+                        <input type="text" id="peeph" name="peeph" class="form-control" ng-model="courseGroup.peeph">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" permission="'ROLE_Developer'">
+            <div class="col-xs-12" collapsible="'debugData1'" collapsible-title="'Debug Data'">
+                Course Group:
+                <pre>
+                {{ courseGroup | json }}
+                </pre>
+                Timetable:
+                <pre>
+                {{ timetable | json }}
+                </pre>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="cancel()"><span class="glyphicon glyphicon-ban-circle"></span> Cancel</button>
+        <button type="button" class="btn btn-primary" ng-click="save()" ng-disabled="courseGroupEditForm.$invalid || courseGroupEditForm.$submitted"><span class="glyphicon glyphicon-save"></span> Save</button>
+    </div>
+</form>

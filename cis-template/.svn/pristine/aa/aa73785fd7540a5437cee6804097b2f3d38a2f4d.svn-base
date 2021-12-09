@@ -1,0 +1,17 @@
+<table class="table table-responsive table-hover" ts-wrapper>
+    <thead>
+        <th>StatementBank ID</th>
+        <th ts-criteria="type">ILP StatementBank Type</th>
+        <th ng-show="showActions">Actions</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="statementBankType in statementBankTypes |  orderBy:ctrl.sortOrder " ts-repeat>
+            <td>{{ statementBankType.id }}</td>
+            <td>{{ statementBankType.type }}</td>
+            <td ng-show="showActions">
+                <button type="button" class="btn btn-primary btn-sm" ng-click="ctrl.editStatementBankTypes(statementBankType.id)"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button ng-show="showActions" type="button" class="btn btn-primary btn-sm" ng-click="ctrl.addStatementBankTypes()"><span class="glyphicon glyphicon-pencil"></span> Add</button>

@@ -1,0 +1,236 @@
+<form id="ilpLetterEditForm" name="ilpLetterEditForm" role="form" novalidate show-validation>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="cancel()">&times;</button>
+        <h4 class="modal-title" id="dialog-title">Review ILP Letter</h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-7">
+                <div class="row">
+                    <div class="form-group">
+                        <label for="studentId" class="control-label col-xs-4 col-xl-2">Student ID</label>
+                        <div class="col-xs-8 col-xl-10">
+                            <input id="studentId" name="studentId" type="text" class="form-control" readonly ng-model="letter.studentId">
+                        </div>
+                    </div>
+                </div>
+                <div class="row" ng-show="letter.student.riskLevel.code != undefined">
+                    <div class="form-group">
+                        <label for="studentId" class="control-label col-xs-4 col-xl-2">Student Risk Level</label>
+                        <div class="col-xs-8 col-xl-10">
+                            <span class="risk-warning">
+                                {{ letter.student.riskLevel.code }}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group">
+                        <label for="requestedById" class="control-label col-xs-4 col-xl-2">Requested By:</label>
+                        <div class="col-xs-8 col-xl-10">
+                            <staff-selection id="requestedById" name="requestedById" class="form-control" ng-model="letter.requestedById"></staff-selection>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="writtenById" class="control-label col-xs-4 col-xl-2">Written By:</label>
+                        <div class="col-xs-8 col-xl-10">
+                            <staff-selection id="writtenById" name="writtenById" class="form-control" ng-model="letter.writtenById"></staff-selection>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="subject" class="control-label col-xs-4 col-xl-2">Subject</label>
+                        <div class="col-xs-8 col-xl-10">
+                            <input id="subject" type="text" name="subject" class="form-control text ui-widget-content ui-corner-all" ng-model="letter.subject"></input>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label for="regarding" class="control-label col-xs-4 col-xl-2">Regarding</label>
+                        <div class="col-xs-8 col-xl-10">
+                            <input id="regarding" type="text" name="regarding" class="form-control text ui-widget-content ui-corner-all" ng-model="letter.regarding"></input>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group">
+                        <label for="discussion" class="control-label col-xs-4 col-xl-2">Discussion</label>
+                        <div class="col-xs-8 col-xl-10">
+                            <textarea id="discussion" type="text" name="discussion" class="form-control text ui-widget-content ui-corner-all" rows="8" spellcheck="true" ui-tinymce="tinymceOptions" ng-model="letter.interview.discussion"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group">
+                        <label for="target" class="control-label col-xs-4 col-xl-2">Target</label>
+                        <div class="col-xs-8 col-xl-10">
+                            <textarea id="target" type="text" name="target" class="form-control text ui-widget-content ui-corner-all" rows="5" spellcheck="true" ui-tinymce="tinymceOptions" ng-model="letter.interview.target"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group">
+                        <label for="nonEntryWarning" class="control-label col-xs-4 col-xl-2">Warning Paragraph</label>
+                        <div class="col-xs-8 col-xl-10">
+                            <letter-warning-paragraph-selection id="nonEntryWarning" name="nonEntryWarning" class="form-control text ui-widget-content ui-corner-all" ng-model="letter.nonEntryWarning"></letter-warning-paragraph-selection>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-5">
+                <div class="row">
+                    <div class="form-group">
+                        <label for="requestedDate" class="control-label col-xs-4">Requested Date</label>
+                        <div class="col-xs-8">
+                            {{ letter.requestedDate | date:'dd/MM/yyyy hh:mm'}}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group">
+                        <label for="authorisedDate" class="control-label col-xs-4">Authorised Date</label>
+                        <div class="col-xs-8">
+                            {{ letter.authorisedDate | date:'dd/MM/yyyy hh:mm'}}
+                        </div>
+                    </div>
+                </div>
+
+                <fieldset>
+                    <legend>Letter Headings:</legend>
+                </fieldset>
+
+                <div class="row">
+                    <div class="form-group">
+                        <label for="reviewMeeting" class="control-label col-xs-4">Review Meeting</label>
+                        <div class="col-xs-8">
+                            <input type="checkbox" id="reviewMeeting" name="reviewMeeting" class="form-control text ui-widget-content ui-corner-all" ng-model="letter.reviewMeeting"></input>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group">
+                        <label for="attendance" class="control-label col-xs-4">Attendance</label>
+                        <div class="col-xs-8">
+                            <input type="checkbox" id="attendance" name="attendance" class="form-control text ui-widget-content ui-corner-all" ng-model="letter.attendance"></input>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group">
+                        <label for="behaviour" class="control-label col-xs-4">Behaviour</label>
+                        <div class="col-xs-8">
+                            <input type="checkbox" id="behaviour" name="behaviour" class="form-control text ui-widget-content ui-corner-all" ng-model="letter.behaviour"></input>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group">
+                        <label for="homework" class="control-label col-xs-4">Homework</label>
+                        <div class="col-xs-8">
+                            <input type="checkbox" id="homework" name="homework" class="form-control text ui-widget-content ui-corner-all" ng-model="letter.homework"></input>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group">
+                        <label for="punctuality" class="control-label col-xs-4">Punctuality</label>
+                        <div class="col-xs-8">
+                            <input type="checkbox" id="punctuality" name="punctuality" class="form-control text ui-widget-content ui-corner-all" ng-model="letter.punctuality"></input>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group">
+                        <label for="focus" class="control-label col-xs-4">Focus</label>
+                        <div class="col-xs-8">
+                            <input type="checkbox" id="focus" name="focus" class="form-control text ui-widget-content ui-corner-all" ng-model="letter.focus"></input>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group">
+                        <label for="deadlines" class="control-label col-xs-4">Deadlines</label>
+                        <div class="col-xs-8">
+                            <input type="checkbox" id="deadlines" name="deadlines" class="form-control text ui-widget-content ui-corner-all" ng-model="letter.deadlines"></input>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group">
+                        <label for="incompleteCoursework" class="control-label col-xs-4">Incomplete Course Work</label>
+                        <div class="col-xs-8">
+                            <input type="checkbox" id="incompleteCoursework" name="incompleteCoursework" class="form-control text ui-widget-content ui-corner-all" ng-model="letter.incompleteCoursework"></input>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group">
+                        <label for="insufficientProgress" class="control-label col-xs-4">Insufficient Progress</label>
+                        <div class="col-xs-8">
+                            <input type="checkbox" id="insufficientProgress" name="insufficientProgress" class="form-control text ui-widget-content ui-corner-all" ng-model="letter.insufficientProgress"></input>
+                        </div>
+                    </div>
+                </div>
+
+                <fieldset>
+                    <legend>Correspondence Details:</legend>
+                </fieldset>
+
+                <div class="row">
+                    <div class="form-group">
+                        <label for="letterTypeId" class="control-label col-xs-4">Letter Type:</label>
+                        <div class="col-xs-8">
+                            <letter-type-selection id="letterTypeId" name="letterTypeId" class="form-control" ng-model="letter.letterTypeId"></letter-type-selection>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row" ng-show="letter.letterDate != undefined && letter.letterDate != null">
+                    <div class="form-group">
+                        <label for="letterDate" class="control-label col-xs-4">Letter Date</label>
+                        <div class="col-xs-8">
+                            {{ letter.letterDate | date:'dd/MM/yyyy hh:mm'}}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group">
+                        <label for="correspondenceTypeId" class="control-label col-xs-4">Correspondence Type:</label>
+                        <div class="col-xs-8">
+                            <correspondence-type-selection id="correspondenceTypeId" name="correspondenceTypeId" class="form-control" ng-model="letter.correspondenceTypeId"></correspondence-type-selection>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="cancel()"><span class="glyphicon glyphicon-ban-circle"></span> Cancel</button>
+        <button type="button" class="btn btn-primary" ng-disabled="ilpLetterEditForm.$invalid || ilpLetterEditForm.$submitted" ng-click="send()" ng-show="letter.processingFlag == 0"><span class="glyphicon glyphicon-send"></span> Mark to Send</button>
+        <button type="button" class="btn btn-primary" ng-disabled="ilpLetterEditForm.$invalid || ilpLetterEditForm.$submitted" ng-click="cancelSending()" ng-show="letter.processingFlag == 1"><span class="glyphicon glyphicon-remove"></span> Cancel Sending</button>
+        <button type="button" class="btn btn-primary" ng-disabled="ilpLetterEditForm.$invalid || ilpLetterEditForm.$submitted" ng-click="save()" ng-show="letter.processingFlag == 1"><span class="glyphicon glyphicon-save"></span> Save</button>
+    </div>
+
+</form>

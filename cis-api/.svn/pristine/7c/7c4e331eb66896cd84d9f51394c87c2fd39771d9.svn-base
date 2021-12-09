@@ -1,0 +1,60 @@
+##
+# Please note that any settings in the double curly brackets {{ }} will need to be set to valid values.
+# To replace these remove the whole value including the brackets and enter the desired value. 
+
+# The following settings are used to configure the main spring project and the database connection
+spring:
+    profiles: 
+        include: secured, db-defaults
+    datasource:
+        url: jdbc:sqlserver://{{ SQL SERVER HERE }}:1433;databaseName=CID
+        username: {{ SQL USERNAME HERE }}
+        password: {{ SQL PASSWORD HERE }}
+
+# The following settings are used to configure the CID service 
+cid:
+  serviceUser:
+    domainName: {{ DOMAIN NAME HERE }}
+    username: {{ CID SERVICE USERNAME HERE }}
+    password: {{ CID SERVICE PASSWORD HERE }}
+
+# The following settings are used to configure the LDAP authentication
+ldap:
+  enabled: true
+  url: ldap://{{ LDAP SERVER HERE }} 
+  port: 389
+  bindUser: {{ BIND USER CN HERE }}
+  bindPassword: {{ BIND USER PASSWORD HERE }}
+  userSearchBase: {{ USER SEARCH BASE HERE }}
+  userSearchFilter: (sAMAccountName={0})
+  
+# The following settings are used to configure the postcode lookup system
+postcode: 
+  lookup:
+    key: {{ POSTCODE ANYWEHERE KEY HERE }}
+    username: {{ POSTCODE ANYWHERE USERNAME HERE }}
+
+# The following settings are used to configure the email integration 
+email:
+  username: {{ EMAIL USERNAME }}
+  password: {{ EMAIL PASSWORD }}
+  default-sender: {{ DEFAULT SENDER EMAIL ADDRESS }}
+  smtp-host: {{ EMAIL SERVER }}
+  smtp-port: {{ EMAIL SERVER PORT }}
+  archive:
+    server: {{ ARCHIVE SERVER (IMAP) }}
+    port: {{ ARCHIVE SERVER PORT (IMAP) }}
+    user: ${email.username}
+    password: ${email.password}
+    folder: Sent Items
+
+# The following settings are used to configure where the various files are stored
+file-store:
+  student-files: {{ STUDENT FILES ROOT FOLDER }}
+
+# The following settings are used to control the internal audit system
+audit:
+  enabled: true
+  consoleLog: true
+  databaseLog: true
+   

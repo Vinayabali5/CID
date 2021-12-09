@@ -1,0 +1,79 @@
+<form id="studentWorkPlacementEditForm" name="studentWorkPlacementEditForm" role="form" novalidate show-validation>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="ctrl.cancel()">&times;</button>
+        <h4 class="modal-title" id="myToDoLabel">Create or Edit a Student Work Placement</h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+            <div class="form-group" ng-show="false">
+                <label for="studentId">Student ID</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="studentId" name="studentId" type="text" class="form-control" readonly ng-model="ctrl.studentWorkPlacement.studentId">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="startDate" class="control-label col-xs-4">Start Date</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <div class="input-group">
+                        <input type="text" id="startDate" name="startDate" class="form-control" ng-init="studentWorkPlacementStartDatePicker = false" uib-datepicker-popup="dd/MM/yyyy" is-open="studentWorkPlacementStartDatePicker" ng-model="ctrl.studentWorkPlacement.startDate" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="studentWorkPlacementStartDatePicker = !studentWorkPlacementStartDatePicker"><span class="glyphicon glyphicon-calendar"></span></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="endDate" class="control-label col-xs-4">End Date</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <div class="input-group">
+                        <input type="text" id="endDate" name="endDate" class="form-control" ng-init="studentWorkPlacementEndDatePicker = false" uib-datepicker-popup="dd/MM/yyyy" is-open="studentWorkPlacementEndDatePicker" ng-model="ctrl.studentWorkPlacement.endDate" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="studentWorkPlacementEndDatePicker = !studentWorkPlacementEndDatePicker"><span class="glyphicon glyphicon-calendar"></span></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="workPlacementMode" class="control-label col-xs-4">Work Placement Mode:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <work-placement-mode-selection id="workPlacementMode" name="workPlacementMode" class="form-control" alt-null-text="'-- Select Work Placement Mode --'" ng-model="ctrl.studentWorkPlacement.workPlacementModeId" ng-required="true"></work-placement-mode-selection>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="placementHours" class="control-label col-xs-4">Placement Hours</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="placementHours" name="placementHours" type="text" name="placementHours" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.studentWorkPlacement.placementHours"></input>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="employer" class="control-label col-xs-4">Employer</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="employer" type="text" name="employer" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.studentWorkPlacement.employer"></input>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="extraDetails" class="control-label col-xs-4">Extra Details</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="extraDetails" type="text" name="extraDetails" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.studentWorkPlacement.extraDetails"></input>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="ctrl.cancel()">
+            <span class="glyphicon glyphicon-ban-circle"></span> Cancel
+        </button>
+        <button type="button" class="btn btn-primary" ng-disabled="studentWorkPlacementEditForm.$invalid || studentWorkPlacementEditForm.$submitted" ng-click="ctrl.save()">
+            <span class="glyphicon glyphicon-save"></span> Save
+        </button>
+    </div>
+
+</form>

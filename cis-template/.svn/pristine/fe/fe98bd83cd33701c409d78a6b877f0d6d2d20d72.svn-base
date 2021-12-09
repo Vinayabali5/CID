@@ -1,0 +1,11 @@
+<div ng-init=ctrl.init()>
+    <button id="add-button" ng-show="ctrl.visible" class="btn btn-primary btn-sm" ng-click="ctrl.addCallback()" uib-tooltip="{{ ctrl.addTooltip }}">
+        <span class="glyphicon glyphicon-pencil"></span> Add
+    </button>
+    <button id="edit-button" class="btn btn-primary btn-sm" ng-click="ctrl.editCallback()" uib-tooltip="{{ ctrl.editTooltip }}">
+        <span class="glyphicon glyphicon-pencil"></span> Edit
+    </button>
+    <!--     <button id="view-button" class="btn btn-sm" ng-click="ctrl.viewStudentsCallback()" uib-tooltip="View entered students"> -->
+    <!-- 		<span class="glyphicon glyphicon-user"></span> View students -->
+    <!-- 	</button> -->
+</div>

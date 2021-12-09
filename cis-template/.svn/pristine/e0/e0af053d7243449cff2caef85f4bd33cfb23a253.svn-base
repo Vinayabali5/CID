@@ -1,0 +1,3 @@
+<select id="{{ id }}" class="{{class}}" ng-disabled="readonly" ng-model="ngmodelvar" ng-options="i as i.type for i in ctrl.iLPInterviewTypes track by i.id" ng-on-change="ngChange()" ng-required="ngRequired">
+    <option value="" alt-null-text="altNullText">{{ altNullText }}</option>
+</select>

@@ -1,0 +1,12 @@
+<select class="form-control" ng-model="listFilter.examComponentId">
+    <option value="">-- All Exam Components --</option>
+    <option value="{{ component.id }}" ng-repeat="component in examComponents | orderBy:['+code']">{{ component.code }} - {{ component.title }}</option>
+</select>
+<input class="form-control" place-holder="Cand No" ng-model="listFilter._candidateNo"></input>
+
+<ul class="list-group seating-plan-student-list" dnd-list="students" dnd-effect-allowed="move" dnd-external-sources="true" dnd-drop="listDrop(students, $index, item)">
+    <li ng-repeat="student in students | orderBy:sortOrder | filter:listFilter | filter:advancedFilter" dnd-draggable="student" dnd-disable-if="(student.col !== null || student.row !== null)" dnd-dragstart="listDragStart(students, student, student.listIndex)" dnd-dragend="listDragEnd(students, student.listIndex)" dnd-moved="listMoveTo(students, student.listIndex)" dnd-canceled="listCanceled(students, student.listIndex, item)" ng-class="['list-group-item', (student.col !== null || student.row !== null) ? 'list-group-item-success' : ((student._clash === true) ? 'list-group-item-danger' : 'list-group-item-info')]">
+        <seating-plan-student class="col-md-12" student="student" display-options="displayOptions"></seating-plan-student>
+    </li>
+    <div class="clearfix"></div>
+</ul>

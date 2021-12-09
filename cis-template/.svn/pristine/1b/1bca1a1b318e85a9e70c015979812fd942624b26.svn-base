@@ -1,0 +1,74 @@
+<form id="timetableEditForm" name="timetableEditForm" role="form" novalidate show-validation>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="ctrl.cancel()">&times;</button>
+        <h4 class="modal-title" id="myToDoLabel">Create or edit a Timetable</h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+
+            <div class="form-group">
+                <label for="courseGroup" class="control-label col-xs-4">Course GroupId:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="courseGroup" name="courseGroup" class="form-control" ng-model="ctrl.timetable.courseGroupId"></input>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="period" class="control-label col-xs-4">Period:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <period-selection id="period" name="period" class="form-control" ng-model="ctrl.timetable.periodId"></period-selection>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="room" class="control-label col-xs-4">Room:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <room-selection id="room" name="room" class="form-control" ng-model="ctrl.timetable.roomId"></room-selection>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="teacher" class="control-label col-xs-4">Teacher:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <staff-selection id="timetable" name="teacher" class="form-control" ng-model="ctrl.timetable.teacherId"></staff-selection>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="validFrom" class="control-label col-xs-4">Valid From</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <div class="input-group">
+                        <input type="text" id="validFrom" name="validFrom" class="form-control" ng-init="timetablevalidFromDatePicker = false" uib-datepicker-popup="dd/MM/yyyy" is-open="timetablevalidFromDatePicker" ng-model="ctrl.timetable.validFrom" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="timetablevalidFromDatePicker = !timetablevalidFromDatePicker"><span class="glyphicon glyphicon-calendar"></span></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="validTo" class="control-label col-xs-4">Valid To</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <div class="input-group">
+                        <input type="text" id="validTo" name="validTo" class="form-control" ng-init="timetablevalidToDatePicker = false" uib-datepicker-popup="dd/MM/yyyy" is-open="timetablevalidToDatePicker" ng-model="ctrl.timetable.validTo" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="timetablevalidToDatePicker = !timetablevalidToDatePicker"><span class="glyphicon glyphicon-calendar"></span></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="ctrl.cancel()">
+            <span class="glyphicon glyphicon-ban-circle"></span> Cancel
+        </button>
+        <button type="button" class="btn btn-primary" ng-disabled="contactEditForm.$invalid || contactEditForm.$submitted" ng-click="ctrl.save()">
+            <span class="glyphicon glyphicon-save"></span> Save
+        </button>
+    </div>
+
+</form>

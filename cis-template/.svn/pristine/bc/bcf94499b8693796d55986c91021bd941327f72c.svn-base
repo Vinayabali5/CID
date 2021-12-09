@@ -1,0 +1,2 @@
+<h1>Text Lookup Editor</h1>
+<text-lookup-editor text-lookups="data" show-actions="true"></text-lookup-editor>

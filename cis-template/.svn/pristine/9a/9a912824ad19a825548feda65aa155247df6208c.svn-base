@@ -1,0 +1,41 @@
+<h1>Test Page</h1>
+<div class="row">
+    <div class="col-md-6">
+        <h2>Person Details Tests</h2>
+
+        <h3>Person Details (from person object)</h3>
+        <person-details person="ctrl.person"></person-details>
+
+        <h3>Person Details (with dob)</h3>
+        <person-details person="ctrl.person" show-dob="true"></person-details>
+
+        <h3>Person Details (with gender)</h3>
+        <person-details person="ctrl.person" show-gender="true"></person-details>
+
+        <h3>Person Details (with all)</h3>
+        <person-details person="ctrl.person" show-all="true"></person-details>
+
+        <h3>Person Details (with no data)</h3>
+        <person-details></person-details>
+
+        <h3>Person Details (transclude)</h3>
+        <person-details person="ctrl.person">Testing transclude settings</person-details>
+
+    </div>
+    <div class=col-md-6>
+        <h2>Student Details Tests</h2>
+
+        <h3>Student Details (from student object)</h3>
+        <student-details student="ctrl.student"></student-details>
+
+        <h3>Student Details (from student object with all)</h3>
+        <student-details student="ctrl.student" show-all="true"></student-details>
+
+        <h3>Student Details (from student object with dob)</h3>
+        <student-details student="ctrl.student" show-dob="true"></student-details>
+
+        <h3>Student Details (from student object with gender)</h3>
+        <student-details student="ctrl.student" show-gender="true"></student-details>
+
+    </div>
+</div>

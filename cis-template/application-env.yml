@@ -1,0 +1,11 @@
+apiUrl: ${API_URL}
+reportUrl: ${REPORT_SERVER_URL}
+studentImagesUrl: ${STUDENT_IMAGE_URL}
+debugMode: false
+
+location: rc
+profile: prod
+
+# Optional setting: 
+resourceLocation: /resources/dist/
+

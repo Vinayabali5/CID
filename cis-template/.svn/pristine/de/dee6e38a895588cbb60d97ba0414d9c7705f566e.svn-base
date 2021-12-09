@@ -1,0 +1,72 @@
+<form id="statementBanksEditForm" name="statementBanksEditForm" role="form" novalidate show-validation>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="ctrl.cancel()">&times;</button>
+        <h4 class="modal-title" id="myToDoLabel">Add/Edit ILP Statement Bank Type</h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+
+            <div class="form-group" ng-show="true">
+                <label for="type" class="control-label col-xs-4">ILP Statement Bank Type</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <statement-bank-type-selection id="type" name="type" type="text" class="form-control" name="iLPStatementBankTypeId" ng-model="ctrl.statementBanks.iLPStatementBankTypeId"></statement-bank-type-selection>
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="letterType" class="control-label col-xs-4">Letter Type</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="letterType" name="letterType" type="text" class="form-control" ng-model="ctrl.statementBanks.letterType">
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="topic" class="control-label col-xs-4">Topic</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="topic" name="topic" type="text" class="form-control" ng-model="ctrl.statementBanks.topic">
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="discussion" class="control-label col-xs-4">Discussion</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="discussion" name="discussion" type="text" class="form-control" ng-model="ctrl.statementBanks.discussion">
+                </div>
+            </div>
+            <div class="form-group" ng-show="true">
+                <label for="target" class="control-label col-xs-4">Target</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="target" name="target" type="text" class="form-control" ng-model="ctrl.statementBanks.target">
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="useForMassLetters" class="control-label col-xs-4">Use For Mass Letters</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="useForMassLetters" name="useForMassLetters" type="checkBox" class="form-control" ng-model="ctrl.statementBanks.useForMassLetters">
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="useForPraiseEmail" class="control-label col-xs-4">Use For Praise Email</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="useForMassLetters" name="useForPraiseEmail" type="checkBox" class="form-control" ng-model="ctrl.statementBanks.useForPraiseEmail">
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="ctrl.cancel()">
+            <span class="glyphicon glyphicon-ban-circle"></span>
+            Cancel
+        </button>
+        <button type="button" class="btn btn-primary" ng-click="ctrl.save()">
+            <span class="glyphicon glyphicon-save"></span>
+            Save
+        </button>
+    </div>
+
+</form>

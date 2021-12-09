@@ -1,0 +1,18 @@
+ <form name="student-details" role="form" novalidate show-validation>
+     <table class="table table-responsive table-hover" ts-wrapper>
+         <thead>
+             <th>Include</th>
+             <th>Topic</th>
+             <th>Discussion</th>
+             <th>Target</th>
+         </thead>
+         <tbody>
+             <tr ng-repeat="statementBank in statementBank |  orderBy:ctrl.sortOrder " ts-repeat>
+                 <td><input type="radio" name="statementBank" value="{{statementBank.id}}" ng-model="letter.statementId" ng-required="true" /></td>
+                 <td>{{ statementBank.topic }}</td>
+                 <td>{{ statementBank.discussion }}</td>
+                 <td>{{ statementBank.target }}</td>
+             </tr>
+         </tbody>
+     </table>
+ </form>

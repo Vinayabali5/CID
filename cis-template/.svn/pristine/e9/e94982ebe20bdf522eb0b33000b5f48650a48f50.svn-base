@@ -1,0 +1,44 @@
+<div class="row">
+    <div class="col-sm-12">
+        <h3>Seating Plan for Room {{examRoom.room.code}} - {{examRoom.room.description}} on {{examRoom.examSession.date | date}} {{examRoom.examSession.session}}</h3>
+    </div>
+</div>
+
+<div class="row seating-plan-row">
+    <div class="panel panel-info no-padding" ng-class="{'col-sm-3': globals.sideBar || globals.sideBar === undefined, 'col-md-2': globals.sideBar !== true}">
+        <div class="panel-heading">
+            <div class="panel-title">
+                <span>Students {{(students | filter:listFilter | filter:advancedFilter).length}} / {{studentsLoaded ? students.length : "Loading"}}</span>
+                <button type="button" class="close" aria-hidden="true" aria-label="Settings" ng-click="changeStudentSettings()"><span class="glyphicon glyphicon-option-vertical"></span></button>
+            </div>
+        </div>
+        <div class="panel-body" ng-include="'js/modules/exams/seating-plan/views/seating-plan-generator-student-list.html'"></div>
+    </div>
+
+    <div ng-class="{'col-sm-9': globals.sideBar || globals.sideBar === undefined, 'col-md-10': globals.sideBar !== true}">
+        <table ng-table="lists" class="seating-plan-grid">
+            <tbody class="panel-body" ng-include="'js/modules/exams/seating-plan/views/seating-plan-generator-grid.html'"></tbody>
+        </table>
+    </div>
+</div>
+
+<!-- <div class="row text-right">
+    <div class="col-sm-12">
+        <button class="btn btn-default" type="button" ng-click="addCustomExamComponent()">Add Custom Exam</button>
+        <button class="btn btn-default" type="button" ng-disabled="!studentsLoaded" ng-click="autoPopulateSeatingPlan()">Auto Populate</button>
+        <button class="btn btn-default" type="button" ng-click="bulkClearSeatsSettings()">Bulk Clear Seats</button>
+        <button class="btn btn-primary" type="button" ng-click="saveExamRoom()">Save</button>
+        <button class="btn btn-primary" type="button" ng-click="saveAndCloseExamRoom()">Save &amp; Close</button>
+        <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+    </div>
+</div> -->
+<nav class="navbar navbar-fixed-bottom navbar-right">
+    <div class="col-sm-12">
+        <button class="btn btn-default" type="button" ng-click="addCustomExamComponent()">Add Custom Exam</button>
+        <button class="btn btn-default" type="button" ng-disabled="!studentsLoaded" ng-click="autoPopulateSeatingPlan()">Auto Populate</button>
+        <button class="btn btn-default" type="button" ng-click="bulkClearSeatsSettings()">Bulk Clear Seats</button>
+        <button class="btn btn-primary" type="button" ng-click="saveExamRoom()">Save</button>
+        <button class="btn btn-primary" type="button" ng-click="saveAndCloseExamRoom()">Save &amp; Close</button>
+        <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+    </div>
+</nav>

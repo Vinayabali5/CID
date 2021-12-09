@@ -1,0 +1,17 @@
+<div class="row">
+    <div class="col-sm-12">
+        <h3>Volunteering</h3>
+        <student-volunteering-logs-editor student-id="ctrl.student.id" student-volunteering-logs="ctrl.studentVolunteeringLogs" show-actions="true" permission="['ROLE_Developer', 'ROLE_Office Administration', 'ROLE_Pastoral', 'ROLE_Volunteering Log Editor']"></student-volunteering-logs-editor>
+        <student-volunteering-logs-editor student-id="ctrl.student.id" student-volunteering-logs="ctrl.studentVolunteeringLogs" show-actions="false" permission permission-not="['ROLE_Developer', 'ROLE_Office Administration', 'ROLE_Pastoral', 'ROLE_Volunteering Log Editor']"></student-volunteering-logs-editor>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <h3>Duke of Edinburgh</h3>
+        <student-duke-of-edinburghs-editor student-id="ctrl.student.id" student-duke-of-edinburghs="ctrl.studentDukeOfEdinburghs" show-actions="true" permission="['ROLE_Developer', 'ROLE_Office Administration', 'ROLE_Pastoral', 'ROLE_Duke Of Edinburgh Editor']">
+        </student-duke-of-edinburghs-editor>
+        <student-duke-of-edinburghs-editor student-id="ctrl.student.id" student-duke-of-edinburghs="ctrl.studentDukeOfEdinburghs" show-actions="false" permission permission-not="['ROLE_Developer', 'ROLE_Office Administration', 'ROLE_Pastoral', 'ROLE_Duke Of Edinburgh Editor']">
+        </student-duke-of-edinburghs-editor>
+    </div>
+</div>

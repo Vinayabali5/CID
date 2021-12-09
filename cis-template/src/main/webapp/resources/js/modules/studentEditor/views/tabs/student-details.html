@@ -1,0 +1,62 @@
+<div class="row">
+    <h3 class="col-xs-12 col-md-12">Student Person Details</h3>
+</div>
+<div class="row">
+    <person-details class="col-xs-12 col-md-6 no" person="ctrl.student.person" show-all="true"></person-details>
+    <div class="col-xs-12 col-md-6">
+        <div class="row noprint">
+            <div class="col-xs-4">Address:</div>
+            <div class="col-xs-8">
+                <address-details permission permission-not="'ROLE_Office Administration'" address="ctrl.studentAddress"></address-details>
+                <address-editor permission="'ROLE_Office Administration'" address-id="ctrl.studentAddress.id" address="ctrl.studentAddress"></address-editor>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4">Previous School:</div>
+            <div class="col-xs-8">{{ ctrl.student._previousSchoolName }}</div>
+        </div>
+    </div>
+</div>
+<div class="row" permission="'ROLE_Office Administration'">
+    <person-editor class="col-xs-12 col-md-6" person="ctrl.student.person"></person-editor>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <h3>Contact Details</h3>
+        <contacts-table permission permission-not="'ROLE_Office Administration'" contacts="ctrl.contacts"></contacts-table>
+        <contacts-editor permission="'ROLE_Office Administration'" person-id="ctrl.student.person.id" contacts="ctrl.contacts" show-actions="true"></contacts-editor>
+    </div>
+</div>
+<div class="row">
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <h3>Student Risk Level</h3>
+        <student-risk-level-editor permission="['ROLE_Pastoral', 'ROLE_Safeguarding', 'ROLE_Office Administration']" student-id="ctrl.student.id" student-risk-levels="ctrl.studentRiskLevels" show-actions="true"></student-risk-level-editor>
+        <student-risk-level-details permission="'ROLE_Staff'" permission-not="['ROLE_Pastoral', 'ROLE_Safeguarding', 'ROLE_Office Administration']" student-risk-levels="ctrl.studentRiskLevels"></student-risk-level-details>
+    </div>
+    <div class="col-md-6 hidden">
+        <h3>Special Categories</h3>
+        <student-special-category-editor permission="'ROLE_Office Administration'" student-id="ctrl.student.id" special-categories="ctrl.specialCategories" show-actions="true"></student-special-category-editor>
+        <student-special-category-details permission="'ROLE_Staff'" permission-not="'ROLE_Office Administration'" special-categories="ctrl.specialCategories"></student-special-category-details>
+    </div>
+    <div class="col-md-6" permission="['ROLE_Office Administration', 'ROLE_First Aid Coordinator', 'ROLE_Pastoral']">
+        <h3>Medical Notes</h3>
+        <medical-notes-details permission permission-not="['ROLE_Office Administration', 'ROLE_First Aid Coordinator']" student="ctrl.student"></medical-notes-details>
+        <medical-notes-editor permission="['ROLE_Office Administration', 'ROLE_First Aid Coordinator']" student-id="ctrl.student.id" student="ctrl.student" show-actions="true"></medical-notes-editor>
+    </div>
+    <div class="student-busary-info col-md-6">
+        <h3>Student Bursary</h3>
+        <student-bursary-details student-bursary="ctrl.studentBursary"></student-bursary-details>
+    </div>
+</div>
+<div class="row">
+    <div class="college-fund-payments col-md-12">
+        <h3>College Fund Payments</h3>
+        <student-college-fund-paid student-college-fund-paid="ctrl.studentCollegeFundPaid" permission="['ROLE_Office Administration']" show-actions="true"></student-college-fund-paid>
+        <student-college-fund-paid student-college-fund-paid="ctrl.studentCollegeFundPaid" permission permission-not="['ROLE_Office Administration']" show-actions="false"></student-college-fund-paid>
+
+        <college-fund-payment-details permission permission-not="['ROLE_Developer', 'ROLE_Office Administration']" college-fund-payment="ctrl.collegeFundPayments"></college-fund-payment-details>
+        <college-fund-payment-editor permission="['ROLE_Developer', 'ROLE_Office Administration']" student-id="ctrl.student.id" college-fund-payment="ctrl.collegeFundPayments" show-actions="true"></college-fund-payment-editor>
+    </div>
+</div>

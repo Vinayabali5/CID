@@ -1,0 +1,73 @@
+ <form name="selectDetails" role="form" novalidate show-validation>
+
+     <div class="col-xs-12">
+         <fieldset>
+             <legend>Add Careers Record</legend>
+         </fieldset>
+     </div>
+
+     <div class="modal-body">
+         <div class="row">
+             <div class="form-group">
+                 <label for="careersRecordTypeId" class="control-label col-xs-3">Careers Record Type:</label>
+                 <div class="col-xs-9">
+                     <careers-record-type-selection class="form-control" id="careersRecordTypeId" name="careersRecordTypeId" ng-model="studentCareersRecord.careersRecordTypeId" ng-required="true"></careers-record-type-selection>
+                 </div>
+             </div>
+         </div>
+
+         <div class="row">
+             <div class="form-group">
+                 <label for="startDate" class="control-label col-xs-3">Start Date:</label>
+                 <div class="col-xs-9">
+                     <div class="input-group">
+                         <input type="text" class="form-control" id="startDate" name="startDate" ng-init="startDateDatePicker = false" ng-model="studentCareersRecord.startDate" uib-datepicker-popup="dd/MM/yyyy" is-open="startDateDatePicker" />
+                         <span class="input-group-btn">
+                             <button type="button" class="btn btn-default" ng-click="startDateDatePicker = !startDateDatePicker"><span class="glyphicon glyphicon-calendar"></span></button>
+                         </span>
+                     </div>
+                 </div>
+             </div>
+         </div>
+
+         <div class="row">
+             <div class="form-group">
+                 <label for="endDate" class="control-label col-xs-3">End Date:</label>
+                 <div class="col-xs-9">
+                     <div class="input-group">
+                         <input type="text" class="form-control" id="endDate" name="startDate" ng-init="endDateDatePicker = false" ng-model="studentCareersRecord.endDate" uib-datepicker-popup="dd/MM/yyyy" is-open="endDateDatePicker" />
+                         <span class="input-group-btn">
+                             <button type="button" class="btn btn-default" ng-click="endDateDatePicker = !endDateDatePicker"><span class="glyphicon glyphicon-calendar"></span></button>
+                         </span>
+                     </div>
+                 </div>
+             </div>
+         </div>
+
+         <div class="row">
+             <div class="form-group">
+                 <label for="organiser" class="control-label col-xs-3">Organiser</label>
+                 <div class="col-xs-9">
+                     <input id="organiser" type="text" name="organiser" class="form-control text ui-widget-content ui-corner-all" ng-model="studentCareersRecord.organiser"></input>
+                 </div>
+             </div>
+         </div>
+
+         <div class="row">
+             <div class="form-group">
+                 <label for="employerInstitution" class="control-label col-xs-3">Employer/Institution</label>
+                 <div class="col-xs-9">
+                     <input id="employerInstitution" type="text" name="employerInstitution" class="form-control text ui-widget-content ui-corner-all" ng-model="studentCareersRecord.employerInstitution"></input>
+                 </div>
+             </div>
+         </div>
+         <div class="row">
+             <div class="form-group">
+                 <label for="note" class="control-label col-xs-3">Notes</label>
+                 <div class="col-xs-9">
+                     <textarea id="note" type="text" name="note" class="form-control text ui-widget-content ui-corner-all" ng-model="studentCareersRecord.note"></textarea>
+                 </div>
+             </div>
+         </div>
+     </div>
+ </form>

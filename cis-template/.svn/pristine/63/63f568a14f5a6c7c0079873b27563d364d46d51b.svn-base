@@ -1,0 +1,9 @@
+<div class="row">
+    <h3>ID Violation Information</h3>
+</div>
+<div class="row">
+    <identification-violations-editor student-id="ctrl.student.id" show-actions="true" identification-violations="ctrl.identificationViolations"></identification-violations-editor>
+</div>
+<div class="row">
+    <ilp-interviews-table ilp-interviews="ctrl.ilpInterviews" show-filter="false" filter="{ typeId: 8 }" show-staff="false" show-course="false" show-letter-home="false"></ilp-interviews-table>
+</div>

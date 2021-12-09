@@ -1,0 +1,12 @@
+[Unit]
+Description=CIS Exams UI - Production
+After=syslog.target
+
+[Service]
+User=root
+Environment="SPRING_PROFILES_ACTIVE=demo" "SERVER_PORT=10305" "PIDFILE=demo.pid"
+ExecStart=/opt/cis/cis-exams/cis-exams-0.3.0.war
+SuccessExitStatus=143
+
+[Install]
+WantedBy=multi-user.target

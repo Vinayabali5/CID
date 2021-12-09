@@ -1,0 +1,33 @@
+<form id="massLetterForm" name="massLetterForm" role="form" novalidate show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="ctrl.cancel()">&times;</button>
+        <h4 class="modal-title">Mass Letters</h4>
+    </div>
+
+    <div class="modal-body">
+        <uib-tabset active="activeTab">
+            <uib-tab classes="tab-sm" index="'mass Letter'" heading="Select Paragraphs to be Included">
+                <div ng-include="'js/directives/dialogs/mass-letter/views/select-statement.html'"></div>
+            </uib-tab>
+
+            <uib-tab classes="tab-sm" index="'enrolments'" heading="Select Students to be Included AND Letter Options">
+                <div ng-include="'js/directives/dialogs/mass-letter/views/select-students.html'"></div>
+                <div ng-include="'js/directives/dialogs/mass-letter/views/letter-options.html'"></div>
+            </uib-tab>
+        </uib-tabset>
+
+        <div class="row" permission="'ROLE_Developer'">
+            <div class="col-xs-12" collapsible="'debugData1'" collapsible-title="'Debug Data'">
+                <pre>
+                {{ letter | json }}
+                </pre>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="ctrl.cancel()" ng-disabled="submitted"> <span class="glyphicon glyphicon-ban-circle"></span> Cancel</button>
+        <button type="button" class="btn btn-primary" ng-disabled="submitted || massLetterForm.$invalid || massLetterForm.$submitted" ng-click="ctrl.create()">Create ILP Letter Entries</button>
+    </div>
+</form>

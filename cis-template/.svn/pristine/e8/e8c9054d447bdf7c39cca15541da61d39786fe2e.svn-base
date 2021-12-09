@@ -1,0 +1,2 @@
+<h1>Subjects Editor</h1>
+<subjects-editor subjects="data" show-actions="true"></subjects-editor>

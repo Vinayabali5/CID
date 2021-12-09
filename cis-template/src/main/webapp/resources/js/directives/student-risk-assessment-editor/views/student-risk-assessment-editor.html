@@ -1,0 +1,41 @@
+<div class="row" ng-show="false">
+    <div class="col-md-4">Student Id:</div>
+    <div class="col-md-8" ng-bind="studentId">{{ studentRiskAssessment.studentId }}</div>
+</div>
+<div class="row">
+    <div class="col-xs-4">Risk To Student:</div>
+    <div class="col-xs-8">{{ studentRiskAssessment.riskToStudent | blank}} </div>
+</div>
+<div class="row">
+    <div class="col-xs-4">Actions To Minimise Risk:</div>
+    <div class="col-xs-8">{{ studentRiskAssessment.actionsToMinimiseRisk | blank}} </div>
+</div>
+<div class="row">
+    <div class="col-xs-4">Risk To Other Students:</div>
+    <div class="col-xs-8">{{ studentRiskAssessment.riskToOtherStudents | blank}}</div>
+</div>
+<div class="row">
+    <div class="col-xs-4">Risk To Staff:</div>
+    <div class="col-xs-8">{{ studentRiskAssessment.riskToStaff | blank}}</div>
+</div>
+<div class="row">
+    <div class="col-xs-4">Who To Inform:</div>
+    <div class="col-xs-8">{{ studentRiskAssessment.whoToInform | blank}}</div>
+</div>
+<div class="row">
+    <div class="col-xs-4">Other Agencies Involved:</div>
+    <div class="col-xs-8">{{ studentRiskAssessment.otherAgenciesInvolved | blank}}</div>
+</div>
+<div class="row">
+    <div class="col-xs-4">Agency Contact Details:</div>
+    <div class="col-xs-8">{{ studentRiskAssessment.agencyContactDetails | blank}}</div>
+</div>
+<div class="row">
+    <div class="col-xs-4">Completed By Staff:</div>
+    <div class="col-xs-8">{{ studentRiskAssessment._completeByStaffName | blank}} </div>
+</div>
+<div class="row" ng-show="showActions">
+    <div class="col-xs-12">
+        <button type="button" ng-click="editStudentRiskAssessment(studentRiskAssessment.id)" class="btn btn-sm btn-primary"><span class="glyphicon glyphicon-pencil"></span>Edit</button>
+    </div>
+</div>

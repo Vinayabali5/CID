@@ -1,0 +1,2 @@
+<!-- <button ng-click="ctrl.loadStudentTimetable()">Student Timetable</button> -->
+<a class="btn btn-sm btn-default" target="_blank" ng-href="{{ ctrl.studentTimetableUrl() }}">Student Timetable</a>

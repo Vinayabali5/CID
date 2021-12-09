@@ -1,0 +1,17 @@
+<div class="row">
+    <table class="table table-responsive table-hover">
+        <thead>
+            <th ng-show="showAll || showStudent">Student</th>
+            <th>LLDD Health Problem Category</th>
+            <th>PrimaryLLDD</th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="studentLLDDHealthProblemCategory in llddHealthProblemCategory">
+
+                <td ng-show="showAll || showStudent">{{ studentLLDDHealthProblemCategory.studentId }}</td>
+                <td>{{ studentLLDDHealthProblemCategory._lLDDHealthProblemCategoryDescription }}</td>
+                <td>{{ studentLLDDHealthProblemCategory.primarylldd | yesNo }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

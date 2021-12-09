@@ -1,0 +1,8 @@
+<h1>Student Bursary Details</h1>
+
+<input ng-model=ctrl.studentId></input><button class="btn btn-sm" ng-click="ctrl.getStudentBursary()">Get StudentBursaryDetails</button>
+<br />
+<student-bursary-details student-bursary="ctrl.studentBursary"></student-bursary-details>
+
+<h1>Student Bursary editor</h1>
+<student-bursary-editor student-id="ctrl.studentId" student-bursary="ctrl.studentBursary"></student-bursary-editor>

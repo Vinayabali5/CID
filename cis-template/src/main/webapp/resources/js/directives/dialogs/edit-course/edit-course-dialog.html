@@ -1,0 +1,179 @@
+<form id="courseEditForm" name="courseEditForm" role="form" role="form" novalidate show-validation>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="cancel()">&times;</button>
+        <h4 class="modal-title">Edit Course</h4>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="form-group col-sm-12 col-md-6">
+                <label for="subject" class="control-label col-xs-4">Subject:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <subject-selection id="subject" name="subject" class="form-control" ng-model="course.subjectId"></subject-selection>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12 col-md-6">
+                <label for="level" class="control-label col-xs-4">Level:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <level-selection id="level" name="level" class="form-control" ng-model="course.levelId"></level-selection>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12 col-md-6">
+                <label for="spec" class="control-label col-xs-4">Course Spec:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" id="spec" name="spec" class="form-control" ng-model="course.spec" readonly>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12 col-md-6">
+                <label for="glh" class="control-label col-xs-4">GLH:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" id="glh" name="glh" class="form-control" ng-model="course.glh">
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12 col-md-6">
+                <label for="examBoard" class="control-label col-xs-4">ExamBoard:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <exam-board-selection id="examBoard" name="examBoard" class="form-control" ng-model="course.examBoardId"></exam-board-selection>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12 col-md-6">
+                <label for="syllabusCode" class="control-label col-xs-4">Syllabus Code:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" id="syllabusCode" name="syllabusCode" class="form-control" ng-model="course.syllabusCode">
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12 col-md-6">
+                <label for="learningAimReference" class="control-label col-xs-4">Learning Aim Reference:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" id="learningAimReference" name="learningAimReference" class="form-control" ng-model="course.learningAimReference">
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12 col-md-6">
+                <label for="locationPostcode" class="control-label col-xs-4">Location Postcode:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" id="locationPostcode" name="locationPostcode" class="form-control" ng-model="course.locationPostcode">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-sm-12 col-md-6">
+                <label for="validFrom" class="control-label col-xs-4">Valid From:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <academic-year-selection id="validFrom" name="validFrom" class="form-control" ng-model="course.validFromId"></academic-year-selection>
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12 col-md-6">
+                <label for="validTo" class="control-label col-xs-4">Valid To:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <academic-year-selection id="validTo" name="validTo" class="form-control" ng-model="course.validToId"></academic-year-selection>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-xs-12">
+                <label for="courseSummary" class="control-label col-xs-2">Course Summary:</label>
+                <div class="col-xs-10">
+                    <textarea type="text" id="courseSummary" name="courseSummary" class="form-control" rows="5" ng-model="course.courseSummary"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-xs-12">
+                <label for="entryRequirements" class="control-label col-xs-2">Entry Requirements:</label>
+                <div class="col-xs-10">
+                    <input type="text" id="entryRequirements" name="entryRequirements" class="form-control" ng-model="course.entryRequirements">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-xs-12">
+                <label for="notes" class="control-label col-xs-2">Notes:</label>
+                <div class="col-xs-10">
+                    <input type="text" id="notes" name="notes" class="form-control" ng-model="course.notes">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-sm-12 col-md-6">
+                <label for="published" class="control-label col-xs-4">Published:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="checkbox" id="published" name="published" class="form-control" ng-model="course.published">
+                </div>
+            </div>
+
+
+            <div class="form-group col-sm-12 col-md-6">
+                <label for="russellGroup" class="control-label col-xs-4">Russell:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="checkbox" id="russellGroup" name="russellGroup" class="form-control" ng-model="course.russell">
+                </div>
+            </div>
+
+            <div class="form-group col-xs-12">
+                <label for="publishedTitle" class="control-label col-xs-4">Published Title:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" id="publishedTitle" name="publishedTitle" class="form-control" ng-model="course.publishedTitle">
+                </div>
+            </div>
+
+            <div class="form-group col-xs-12">
+                <label for="externalLink" class="control-label col-xs-2">External Link:</label>
+                <div class="col-xs-10">
+                    <input type="text" id="externalLink" name="externalLink" class="form-control" ng-model="course.externalLink">
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12 col-md-6">
+                <label for="subjectSectorArea" class="control-label col-xs-4">Subject Sector Area:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" id="subjectSectorArea" name="subjectSectorArea" class="form-control" ng-model="course.subjectSectorArea">
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12 col-md-6">
+                <label for="rqfLevelOverride" class="control-label col-xs-4">RQF Level Override:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" id="rqfLevelOverride" name="rqfLevelOverride" class="form-control" ng-model="course.rqfLevelOverride">
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12 col-md-6">
+                <label for="externallyAssessed" class="control-label col-xs-4">Externally Assessed:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="checkbox" id="externallyAssessed" name="externallyAssessed" class="form-control" ng-model="course.externallyAssessed">
+                </div>
+            </div>
+
+            <div class="form-group col-xs-12">
+                <label for="ucasTitle" class="control-label col-xs-4">UCAS Title:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" id="ucasTitle" name="ucasTitle" class="form-control" ng-model="course.ucasTitle">
+                </div>
+            </div>
+        </div>
+
+        <div class="row" permission="'ROLE_Developer'">
+            <div class="col-xs-12" collapsible="'debugData1'" collapsible-title="'Debug Data'">
+                <pre>
+                {{ course | json }}
+                </pre>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="cancel()"><span class="glyphicon glyphicon-ban-circle"></span>Cancel</button>
+        <button type="button" class="btn btn-primary" ng-click="save()" ng-disabled="courseEditForm.$invalid || courseEditForm.$submitted"><span class="glyphicon glyphicon-save"></span>Save</button>
+    </div>
+</form>

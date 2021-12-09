@@ -1,0 +1,164 @@
+// CIS - Root Project Build file
+
+plugins {
+    id "io.spring.dependency-management" version "1.0.10.RELEASE" apply false
+    id "org.springframework.boot" version "2.5.3" apply false
+    id "nebula.node" version "1.3.1" apply false
+    id "nebula.grunt" version "1.3.1" apply false
+    id "com.diffplug.spotless" version "5.8.2" apply false
+    id "net.saliman.cobertura" version "4.0.0" apply false
+    id "net.ltgt.apt" version "0.21" apply false
+}
+
+description = """CID - College Information Database - Root Project """
+
+def springBootProjects = [
+    project(':cis-data'),
+    project(':cis-api'),
+    project(':cis-template'),
+]
+
+def webappProjects = [
+    project(':cis-template'),
+]
+
+def bowerProjects = [
+    project(':cis-template'),
+]
+
+def gruntProjects = []
+
+def securedProjects = [
+    project(':cis-template'),
+    project(':cis-api'),
+]
+
+def codeCheckedProjects = [
+    project(':cis-api'),
+    project(':cis-data'),
+]
+
+def bootProjects = allprojects - rootProject
+
+def groovyProjects = springBootProjects + []
+
+configure(rootProject) { }
+
+configure(allprojects) {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+    
+    apply plugin: 'eclipse'
+    
+    tasks.eclipse.dependsOn(cleanEclipse)
+}
+
+configure(groovyProjects) { apply from: "${rootProject.projectDir}/groovy-project.gradle" }
+
+configure(springBootProjects) {
+    buildscript {
+        repositories {
+            mavenLocal()
+            mavenCentral()
+        }
+    }
+    
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+    apply plugin: 'net.saliman.cobertura'
+    
+    springBoot  {
+        buildInfo()
+    }
+    
+    dependencyManagement {
+        imports { mavenBom("org.springframework.boot:spring-boot-dependencies:${springBootVersion}") }
+    }
+    
+    dependencies {
+        implementation 'org.springframework.boot:spring-boot-starter'
+        implementation 'org.springframework.boot:spring-boot-starter-actuator'
+        implementation 'org.springframework.boot:spring-boot-devtools'
+        
+        implementation 'org.springframework.boot:spring-boot-properties-migrator'
+		
+		// Spring Testing
+		testImplementation "org.springframework.boot:spring-boot-starter-test"
+		testImplementation "org.springframework.security:spring-security-test"
+		
+		testImplementation("org.junit.vintage:junit-vintage-engine") {
+			exclude group: "org.hamcrest", module: "hamcrest-core"
+		}
+    }
+    
+    eclipse {
+        classpath {
+            downloadSources = true
+            downloadJavadoc = true
+        }
+    }
+}
+
+configure(securedProjects) {
+    dependencies { 
+        implementation 'org.springframework.boot:spring-boot-starter-security'
+    }
+}
+
+configure(webappProjects) {
+    sourceSets.main {
+        java { srcDir "src/main/webapp" }
+        java.exclude (
+                "**/bower_components/**",
+                "**/node_modules/**",
+                "**/resources/**",
+                )
+    }
+    
+    eclipse {
+        project {
+            resourceFilter {
+                appliesTo = 'FOLDERS'
+                type = 'EXCLUDE_ALL'
+                matcher {
+                  id = 'org.eclipse.ui.ide.multiFilter'
+                  arguments = '1.0-projectRelativePath-matches-false-false-node_modules'
+                }
+              }
+              resourceFilter {
+                  appliesTo = 'FOLDERS'
+                  type = 'EXCLUDE_ALL'
+                  matcher {
+                    id = 'org.eclipse.ui.ide.multiFilter'
+                    arguments = '1.0-projectRelativePath-matches-false-false-**/bower_components/**'
+                  }
+                }
+  
+        }
+    }
+}
+
+configure(bowerProjects) {
+    apply from: "${rootProject.projectDir}/node-setup.gradle"
+}
+
+configure(gruntProjects) {  apply from: "${rootProject.projectDir}/grunt-project.gradle" }
+
+configure(codeCheckedProjects) {
+    apply from: "${rootProject.projectDir}/spotless.gradle"
+
+/*
+// Codenarc is another code checking tool 
+    apply plugin: 'codenarc'
+    codenarc {
+        configFile = file("${rootProject.projectDir}/config/codenarc/codenarc.xml")
+    }
+*/
+}
+
+task buildAll (dependsOn: [
+    ':cis-api:build',
+    ':cis-template:build',
+]) {}

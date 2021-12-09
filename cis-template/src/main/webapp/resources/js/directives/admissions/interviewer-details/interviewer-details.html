@@ -1,0 +1,12 @@
+<div class="interviewer-details container-fluid">
+    <div class="row">
+        <div class="col-sm-5 col-md-3">Interviewer:</div>
+        <div class="col-sm-7 col-md-3">{{ studentAdmissions._interviewerName | notSet}}</div>
+        <div class="col-sm-5 col-md-3">Interview Date:</div>
+        <div class="col-sm-7 col-md-3">{{ studentAdmissions.interviewDate | date:'dd/MM/yyyy HH:mm' | notSet }}</div>
+        <div class="col-sm-5 col-md-3">Possible Aspire:</div>
+        <div class="col-sm-7 col-md-3">{{ studentAdmissions.possibleAspire | yesNo }}</div>
+        <div class="col-sm-5 col-md-3">School Report Not Seen:</div>
+        <div class="col-sm-7 col-md-3">{{ studentAdmissions.schoolReportNotSeen | yesNo }}</div>
+    </div>
+</div>

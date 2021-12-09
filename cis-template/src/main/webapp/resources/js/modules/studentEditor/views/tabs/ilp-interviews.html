@@ -1,0 +1,41 @@
+<button class="btn btn-sm btn-primary help-button" type="button" data-toggle="collapse" data-target="#ilpHelp" aria-expanded="false" aria-controls="ilpHelp"><span class="glyphicon glyphicon-question-sign"></span> Help</button>
+<h3>ILP Interviews</h3>
+<div class="collapse" id="ilpHelp">
+    <div class="well">
+        <p>
+            This section displays all the ILP entries for the student. To add a new ILP Entry for a student click on the Add ILP button.
+        </p>
+        <p>
+            You are able to configure which elements of the ILP Entry are displayed by using the Display Options. The data can also be filtered by using the Filters button.
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2">
+        <button class="btn btn-sm btn-primary" edit-ilp student-id="ctrl.student.id">Add ILP</button>
+    </div>
+    <div class="col-sm-8">
+        <fieldset>Display Options:</fieldset>
+        <ul class="list-inline">
+            <li>
+                <input type="checkbox" ng-model="showCourse" ng-init="showCourse = true"> Show Course
+            </li>
+            <li>
+                <input type="checkbox" ng-model="showCourseGroup"> Show Course Group
+            </li>
+            <li>
+                <input type="checkbox" ng-model="showILPTargets"> Show Targets
+            </li>
+            <li>
+                <input type="checkbox" ng-model="showLIP"> Show LIP Data
+            </li>
+            <li>
+                <input type="checkbox" ng-model="showPrivate"> Show Private
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="row">
+    <ilp-interviews-table ilp-interviews="ctrl.ilpInterviews" show-filter="true" show-course="showCourse" show-course-group="showCourseGroup" show-staff="true" show-targets="showILPTargets" show-lip="showLIP" show-private="showPrivate"></ilp-interviews-table>
+</div>

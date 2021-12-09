@@ -1,0 +1,46 @@
+<form id="studentBursaryEditForm" name="studentBursaryEditForm" role="form" novalidate ng-submit="ctrl.save()" show-validation>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="ctrl.cancel()">&times;</button>
+        <h4 class="modal-title">Edit StudentBursary</h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+
+            <div class="form-group col-sm-12 col-md-6">
+                <label for="field_gb" class="control-label col-xs-4">Guaranteed Bursary:</label>
+                <div class="col-xs-8">
+                    <input type="checkbox" name="middleNames" id="field_gb" ng-model="ctrl.studentBursary.gb" class="form-control text ui-widget-content ui-corner-all">
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12 col-md-6">
+                <label for="field_db" class="control-label col-xs-4">Discretionary Bursary:</label>
+                <div class="col-xs-8">
+                    <input type="checkbox" name="db" id="field_db" ng-model="ctrl.studentBursary.db" class="form-control text ui-widget-content ui-corner-all">
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12 col-md-6">
+                <label for="field_freeMealsEligibility" class="control-label col-xs-4">Free Meals Eligibility:</label>
+                <div class="col-xs-8">
+                    <input type="checkbox" name="freeMealsEligibility" id="field_freeMealsEligibility" ng-model="ctrl.studentBursary.freeMealsEligibility" class="form-control text ui-widget-content ui-corner-all">
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12 col-md-6">
+                <label for="field_receivingFreeMeals" class="control-label col-xs-4">Receiving Free Meals:</label>
+                <div class="col-xs-8">
+                    <input type="checkbox" name="receivingFreeMeals" id="field_receivingFreeMeals" ng-model="ctrl.studentBursary.receivingFreeMeals" class="form-control text ui-widget-content ui-corner-all">
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="ctrl.cancel()"> <span class="glyphicon glyphicon-ban-circle"></span> Cancel</button>
+        <button type="submit" class="btn btn-primary" ng-disabled="studentBursaryEditForm.$invalid || studentBursaryEditForm.$submitted"><span class="glyphicon glyphicon-save"></span> Save</button>
+    </div>
+
+</form>

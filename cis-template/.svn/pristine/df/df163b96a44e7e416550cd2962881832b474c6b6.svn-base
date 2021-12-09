@@ -1,0 +1,59 @@
+<div class="student-admissions-details">
+    <h4>Application Details</h4>
+    <admission-details student-admissions="ctrl.studentAdmissions"></admission-details>
+    <h4>Previous School Information</h4>
+    <previous-school-details student-admissions="ctrl.studentAdmissions"></previous-school-details>
+    <h4>Initial Interview Details</h4>
+    <interviewer-details student-admissions="ctrl.studentAdmissions"></interviewer-details>
+    <h4>Introductory Day/Choices Day/Enrolment Interview Details</h4>
+    <induction-details student-admissions="ctrl.studentAdmissions"></induction-details>
+    <h4>Notes</h4>
+    <div class="admission-notes container-fluid">
+        <div class="row">
+            <div class="col-xs-5 col-md-3">Admission Notes:</div>
+            <div class="col-xs-7 col-md-9">{{ ctrl.studentAdmissions.admissionsNotes}}</div>
+        </div>
+    </div>
+    <h4>Safeguarding Details:</h4>
+    <div class="safeguarding container-fluid">
+        <div class="row">
+            <div class="col-xs-5 col-md-3">Education, Health and Care Plan:</div>
+            <div class="col-xs-7 col-md-3">{{ ctrl.studentAdmissions.ehcp | yesNo}}</div>
+
+            <div class="col-xs-5 col-md-3">Are you a looked after child or adopted?</div>
+            <div class="col-xs-7 col-md-3">{{ ctrl.studentAdmissions.lookedAfterChildOrAdopted | yesNo}}</div>
+
+            <div class="col-xs-5 col-md-3">Have you or your family had any involvement with Children's Services during school years?</div>
+            <div class="col-xs-7 col-md-3">{{ ctrl.studentAdmissions.childrenServicesInvolvedAtSchool | yesNo}}</div>
+
+            <div class="col-xs-5 col-md-3">Are there any other social issues which may require further support while at college?</div>
+            <div class="col-xs-7 col-md-3">{{ ctrl.studentAdmissions.otherSocialSupportIssues | yesNo}}</div>
+        </div>
+    </div>
+
+    <h4>Data sharing options:</h4>
+    <div class="data-sharing container-fluid">
+        <div class="row">
+            <div class="col-xs-5 col-md-3">Restricted Use:</div>
+            <div class="col-xs-7 col-md-3">{{ ctrl.studentAdmissions._restrictedUseIndicatorDescription }}</div>
+
+            <div class="col-xs-5 col-md-3">Contact By Post:</div>
+            <div class="col-xs-7 col-md-3">{{ ctrl.studentAdmissions.contactByPost | yesNo}}</div>
+
+            <div class="col-xs-5 col-md-3">Contact By Phone:</div>
+            <div class="col-xs-7 col-md-3">{{ ctrl.studentAdmissions.contactByPhone | yesNo}}</div>
+
+            <div class="col-xs-5 col-md-3">Contact By Email:</div>
+            <div class="col-xs-7 col-md-3">{{ ctrl.studentAdmissions.contactByEmail | yesNo}}</div>
+
+            <div class="col-xs-5 col-md-3">LRS Opt Out:</div>
+            <div class="col-xs-7 col-md-3">{{ ctrl.studentAdmissions.lrsOptOut | yesNo}}</div>
+        </div>
+    </div>
+
+    <div class="admission-editor container-fluid">
+        <div class="row">
+            <student-admission-editor student-admission="ctrl.studentAdmissions"></student-admission-editor>
+        </div>
+    </div>
+</div>

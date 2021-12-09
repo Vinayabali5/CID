@@ -1,0 +1,4 @@
+<select id="{{ id }}" class="{{class}}" ng-disabled="readonly" ng-model="ngmodelvar">
+    <option ng-value="{{ null }}">-- No Office Action --</option>
+    <option ng-repeat="i in ctrl.officeActions" ng-selected="ngmodelvar == i.id" ng-value="{{ i.id }}" value="{{ i.id }}">{{ i.action }}</option>
+</select>

@@ -1,0 +1,32 @@
+<table class="table table-responsive table-hover" ts-wrapper ts-item-name="Timetabled Period">
+    <thead>
+        <th ng-show="showAll || showId">Course Group ID</th>
+        <th ts-criteria="_period.day + '-' + _period.dayPeriod" ts-default>Period</th>
+        <th ts-criteria="_room.code">Room</th>
+        <th>Teacher</th>
+        <th ts-criteria="_courseGroupSpec">Course Group</th>
+        <th ng-show="showAll || showTimes" ts-criteria="_period.startTime | date:'HH:mm'">Start Time</th>
+        <th ng-show="showAll || showTimes" ts-criteria="_period.endTime | date:'HH:mm'">End Time</th>
+        <th>Valid From</th>
+        <th>Valid To</th>
+        <th ng-show="showActions">Actions</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="tt in ctrl.timetable" ts-repeat>
+            <td ng-show="showAll || showId">{{ tt.courseGroupId}}</td>
+            <td>{{ tt._period.description}}</td>
+            <td>{{ tt._room.code }}</td>
+            <td>{{ tt._teacherInitials }}</td>
+            <td>{{ tt._courseGroupSpec }}</td>
+            <td ng-show="showAll || showTimes">{{ tt._period.startTime | date:'HH:mm' }}</td>
+            <td ng-show="showAll || showTimes">{{ tt._period.endTime | date:'HH:mm' }}</td>
+            <td>{{ tt.validFrom | date:'dd/MM/yyyy' }}</td>
+            <td>{{ tt.validTo | date:'dd/MM/yyyy' }}</td>
+            <td ng-show="showActions">
+                <button type="button" class="btn btrn-sm btn-primary" ng-click="ctrl.editTimetable(tt.id)"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+                <button type="button" class="btn btrn-sm btn-danger" ng-click="ctrl.deleteTimetable(tt.id)"><span class="glyphicon glyphicon-remove"></span> Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button ng-show="showActions" type="button" class="btn btrn-sm btn-primary" ng-click="ctrl.addTimetable(ctrl.courseGroupId)"><span class="glyphicon glyphicon-pencil"></span> Add</button>

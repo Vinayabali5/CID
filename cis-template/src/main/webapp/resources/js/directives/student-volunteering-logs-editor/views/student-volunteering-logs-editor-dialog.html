@@ -1,0 +1,75 @@
+<form id="studentVolunteeringLogEditForm" name="studentVolunteeringLogEditForm" role="form" novalidate show-validation>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="ctrl.cancel()">&times;</button>
+        <h4 class="modal-title" id="myToDoLabel">Create or Edit a Student Volunteering Log</h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+            <div class="form-group" ng-show="false">
+                <label for="studentId">Student ID</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="studentId" type="text" name="studentId" class="form-control" readonly ng-model="ctrl.studentVolunteeringLog.studentId">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="volunteeringType" class="control-label col-xs-4">Volunteering Type:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <volunteering-type-selection id="volunteeringType" name="volunteeringType" class="form-control" alt-null-text="'-- Select Volunteering Type --'" ng-model="ctrl.studentVolunteeringLog.volunteeringTypeId" ng-required="true"></volunteering-type-selection>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="studentRole" class="control-label col-xs-4">Student Role:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <student-role-selection id="studentRole" name="studentRole" class="form-control" ng-model="ctrl.studentVolunteeringLog.studentRoleId" ng-required="true"></student-role-selection>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="volunteeringExperience" class="control-label col-xs-4">Volunteering Experience:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <volunteering-experience-selection id="volunteeringExperience" name="volunteeringExperience" alt-null-text="'-- Select Volunteering Experience --'" class="form-control" ng-model="ctrl.studentVolunteeringLog.volunteeringExperienceId" ng-required="true"></volunteering-experience-selection>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="date" class="control-label col-xs-4">Date</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <div class="input-group">
+                        <input type="text" id="date" name="date" class="form-control" ng-init="studentVolunteeringLogDatePicker = false" uib-datepicker-popup="dd/MM/yyyy" is-open="studentVolunteeringLogDatePicker" ng-model="ctrl.studentVolunteeringLog.date" ng-required="true" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="studentVolunteeringLogDatePicker = !studentVolunteeringLogDatePicker"><span class="glyphicon glyphicon-calendar"></span></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="hours" class="control-label col-xs-4">Hours</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="hours" type="text" name="hours" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.studentVolunteeringLog.hours"></input>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="note" class="control-label col-xs-4">Note</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="note" type="text" name="note" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.studentVolunteeringLog.note"></input>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="ctrl.cancel()">
+            <span class="glyphicon glyphicon-ban-circle"></span> Cancel
+        </button>
+        <button type="button" class="btn btn-primary" ng-disabled="studentVolunteeringLogEditForm.$invalid || studentVolunteeringLogEditForm.$submitted" ng-click="ctrl.save()">
+            <span class="glyphicon glyphicon-save"></span> Save
+        </button>
+    </div>
+
+</form>

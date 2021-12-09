@@ -1,0 +1,27 @@
+<h1>Course List</h1>
+<table class="table table-responsive table-stripped" ts-wrapper ts-item-name="Courses">
+    <thead>
+        <th ts-criteria="spec" ts-default ts-filter>Course Spec</th>
+        <th ts-criteria="_levelDescription" ts-filter>Level</th>
+        <th ts-criteria="_subjectDescription" ts-filter>Subject</th>
+        <th ts-criteria="_examBoardDescription" ts-filter>Exam board</th>
+        <th ts-criteria="syllabusCode" ts-filter>Syllabus code</th>
+        <th>Valid From</th>
+        <th>Valid To</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="course in ctrl.courses | filter:filterParams" ts-repeat>
+            <td>{{ course.spec }}</td>
+            <td>{{ course._levelDescription }}</td>
+            <td>{{ course._subjectDescription }}</td>
+            <td>{{ course._examBoardDescription }}</td>
+            <td>{{ course.syllabusCode }}</td>
+            <td>{{ course._validFromCode | notSet }}</td>
+            <td>{{ course._validToCode | notSet }}</td>
+            <td>
+                <button class="btn btn-primary btn-sm" ng-click="ctrl.editExamDetails(course.id)"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

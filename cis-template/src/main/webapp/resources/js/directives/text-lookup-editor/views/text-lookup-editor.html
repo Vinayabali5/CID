@@ -1,0 +1,18 @@
+<table class="table table-responsive table-hover" ts-wrapper ts-item-name="Text Lookup" ts-no-data-text="No Text Lookups">
+    <thead>
+        <th ts-criteria="name" ts-filter ts-default>Name</th>
+        <th ts-cirteria="text" ts-filter>Text</th>
+        <th ts-cirteria="description" ts-filter>Description</th>
+        <th ng-show="showActions">Actions</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="textLookUp in textLookups" ts-repeat>
+            <td>{{ textLookUp.name}}</td>
+            <td>{{ textLookUp.text }}</td>
+            <td>{{ textLookUp.description }}</td>
+            <td ng-show="showActions">
+                <button type="button" class="btn btn-primary btn-sm" ng-click="ctrl.editTextLookup(textLookUp.id)"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

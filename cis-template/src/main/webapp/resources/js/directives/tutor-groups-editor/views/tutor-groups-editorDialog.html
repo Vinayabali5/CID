@@ -1,0 +1,77 @@
+<form id="tutorGroupsEdit" name="tutorGroupsEditForm" role="form" novalidate show-validation>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="ctrl.cancel()">&times;</button>
+        <h4 class="modal-title" id="myToDoLabel">Add/Edit TutorGroup</h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+            <div class="form-group" ng-show="true">
+                <label for="id" class="control-label col-xs-4">Tutor Group ID</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="id" name="id" type="text" class="form-control" readonly ng-model="ctrl.tutorGroups.id">
+                </div>
+            </div>
+            <div class="form-group" ng-show="true">
+                <label for="code" class="control-label col-xs-4">Code</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="code" name="code" type="text" class="form-control" ng-model="ctrl.tutorGroups.code">
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="description" class="control-label col-xs-4">Description</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="description" name="description" type="text" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.tutorGroups.description"></input>
+                </div>
+            </div>
+            <div class="form-group" ng-show="true">
+                <label for="faculty" class="control-label col-xs-4">Faculty</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <faculty-selection id="faculty" name="faculty" class="form-control" include-blank="true" readonly="setReadonly" ng-model="ctrl.tutorGroups.facultyId"></faculty-selection>
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="room" class="control-label col-xs-4">Room</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <room-selection id="room" name="room" readonly="setReadonly" class="form-control" include-blank="true" ng-model="ctrl.tutorGroups.roomId"></room-selection>
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="tutorId" class="control-label col-xs-4">Tutor</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <staff-selection id="tutorId" name="tutorId" readonly="setReadonly" class="form-control" include-blank="true" ng-model="ctrl.tutorGroups.tutorId"></staff-selection>
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="seniorTutorId" class="control-label col-xs-4">Senior Tutor</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <staff-selection id="seniorTutorId" name="seniorTutorId" readonly="setReadonly" class="form-control" include-blank="true" ng-model="ctrl.tutorGroups.seniorTutorId"></staff-selection>
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="inUse" class="control-label col-xs-4">In Use</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="inUse" name="inUse" type="checkbox" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.tutorGroups.inUse"></input>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="ctrl.cancel()">
+            <span class="glyphicon glyphicon-ban-circle"></span>
+            Cancel
+        </button>
+        <button type="button" class="btn btn-primary" ng-click="ctrl.save()">
+            <span class="glyphicon glyphicon-save"></span>
+            Save
+        </button>
+    </div>
+
+</form>

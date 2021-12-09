@@ -1,0 +1,63 @@
+<div class="row">
+    <div class="col-xs-6">
+        <div class="col-xs-5">Referral Notes:</div>
+        <div class="col-xs-7">{{ studentLearningSupport.referralNotes }}</div>
+        <div class="col-xs-5">Support Notes:</div>
+        <div class="col-xs-7">{{ studentLearningSupport.supportNotes }}</div>
+        <div class="col-xs-5">Previous Concessions:</div>
+        <div class="col-xs-7">{{ studentLearningSupport.previousConcession }}</div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12 col-md-6">
+        <h3>Referral Reasons</h3>
+        <div class="row">
+            <table class="table table-responsive table-hover">
+                <thead>
+                    <th ng-show="showAll || showStudent">StudentId</th>
+                    <th>Referral Reason</th>
+                    <th>Primary</th>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="referralReason in studentLearningSupport.referralReasons">
+                        <td ng-show="showAll || showStudent">{{ referralReason.studentId }}</td>
+                        <td>{{ referralReason._referralReasonDescription }}</td>
+                        <td>{{ referralReason.primary | yesNo }}</td>
+                    </tr>
+                    <tr ng-show="studentLearningSupport.referralReasons.length == 0">
+                        <td colspan="2">No Referral Resaons</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Exam Concessions Details</h3>
+        <div class="row">
+            <div class="col-xs-5">Concessions Being Investigated:</div>
+            <div class="col-xs-7">{{ studentLearningSupport.concessionApplication | yesNo }}</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-5">Date of Assessment:</div>
+            <div class="col-xs-7">{{ studentLearningSupport.assessmentDate | date:'dd/MM/yyyy' }}</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-5">Exam Concession Approved:</div>
+            <div class="col-xs-7">{{ studentLearningSupport.examConcessionApproved | yesNo }}</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-5">BTEC Concession Approved:</div>
+            <div class="col-xs-7">{{ studentLearningSupport.btecConcessionApproved | yesNo }}</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-5">FS Concession Approved:</div>
+            <div class="col-xs-7">{{ studentLearningSupport.fsConcessionApproved | yesNo }}</div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-md-6">
+        <h3>Concessions</h3>
+        <!-- <concessions-table concessions="studentLearningSupport.concessions"></concessions-table> -->
+        <student-concession-editor student-id="studentLearningSupport.studentId" concessions="studentLearningSupport.courseConcessions"></student-concession-editor>
+    </div>
+
+</div>

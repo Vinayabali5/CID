@@ -1,0 +1,3 @@
+<h1>Possible Grades Editor</h1>
+
+<possible-grades-editor possible-grades="data" show-actions="true"></possible-grades-editor>

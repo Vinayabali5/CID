@@ -1,0 +1,30 @@
+<div class="student-warning-details">
+    <div class="row">
+        <div class="col-xs-5">
+            Attendance Warning:
+        </div>
+        <div class="col-xs-7" ng-hide="studentWarning.attendanceMonitoringId != 99">
+            No Warning
+        </div>
+        <div class="col-xs-7 text-danger" ng-show="studentWarning.attendanceMonitoringId != 99 && studentWarning._attendanceMonitoringNonEntry">
+            {{ studentWarning._attendanceMonitoringCode }} - Non-Entry for all subjects
+        </div>
+        <div class="col-xs-7" ng-show="studentWarning.attendanceMonitoringId != 99 && !studentWarning._attendanceMonitoringNonEntry">
+            {{ studentWarning._attendanceMonitoringCode }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-5">
+            Punctuality Warning:
+        </div>
+        <div class="col-xs-7" ng-hide="studentWarning.punctualityMonitoringId != 99">
+            No Warning
+        </div>
+        <div class="col-xs-7 text-danger" ng-show="studentWarning.punctualityMonitoringId != 99 && studentWarning._punctualityMonitoringNonEntry">
+            {{ studentWarning._punctualityMonitoringCode }} - Non-Entry for all subjects
+        </div>
+        <div class="col-xs-7" ng-show="studentWarning.punctualityMonitoringId != 99 && !studentWarning._punctualityMonitoringNonEntry">
+            {{ studentWarning._punctualityMonitoringCode }}
+        </div>
+    </div>
+</div>

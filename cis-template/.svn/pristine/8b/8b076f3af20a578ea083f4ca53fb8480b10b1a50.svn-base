@@ -1,0 +1,11 @@
+<table class="table table-responsive" ng-init="ctrl.getOptionsForSyllabus($index, syllabus.syllabusId)">
+    <tbody>
+        <tr ng-repeat="option in ctrl.optionList" class="ng-cloak" ng-init="option._expanded = false">
+            <td>{{ option.optionEntryCode }}</td>
+            <td>{{ option.optionTitle }}</td>
+            <td>
+                <ng-transclude></ng-transclude>
+            </td>
+        </tr>
+    </tbody>
+</table>

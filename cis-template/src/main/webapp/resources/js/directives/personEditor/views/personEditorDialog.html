@@ -1,0 +1,131 @@
+<form id="personEditForm" name="personEditForm" role="form" novalidate ng-submit="ctrl.save()" show-validation>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="ctrl.cancel()">&times;</button>
+        <h4 class="modal-title">Edit Person</h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+
+            <div class="form-group">
+                <label for="title" class="control-label col-xs-4">Title:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <title-selection id="title" class="form-control" include-blank="true" alt-null-text="'-- Select Title --'" ng-model="ctrl.person.titleId"></title-selection>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="firstName" class="control-label col-xs-4">First Name:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" name="firstName" id="firstName" ng-model="ctrl.person.firstName" class="form-control text ui-widget-content ui-corner-all" required ng-pattern="/^[a-zA-ZÀ-ž\s\`'-.,()]*$/">
+                    <span class="validation-error" ng-show="personEditForm.firstName.$error.pattern">Only characters, (a-z)(`'-.,()) are allowed</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="surname" class="control-label col-xs-4">Surname:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" name="surname" id="surname" ng-model="ctrl.person.surname" class="form-control text ui-widget-content ui-corner-all" ng-pattern="/^[a-zA-ZÀ-ž\s\`'-.,()]*$/">
+                    <span class="validation-error" ng-show="personEditForm.surname.$error.pattern">Only characters, (a-z)(`'-.,()) are allowed</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="legalSurname" class="control-label col-xs-4">Legal Surname:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" name="legalSurname" id="legalSurname" ng-model="ctrl.person.legalSurname" class="form-control text ui-widget-content ui-corner-all" ng-pattern="/^[a-zA-ZÀ-ž\s\`'-.,()]*$/">
+                    <span class="validation-error" ng-show="personEditForm.legalSurname.$error.pattern">Only characters, (a-z)(`'-.,()) are allowed</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="middleName" class="control-label col-xs-4">Middle Names:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" name="middleName" id="middleName" ng-model="ctrl.person.middleNames" class="form-control text ui-widget-content ui-corner-all" ng-pattern="/^[a-zA-ZÀ-ž\s\`'-.,()]*$/">
+                    <span class="validation-error" ng-show="personEditForm.middleName.$error.pattern">Only characters, (a-z)(`'-.,()) are allowed</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="preferredName" class="control-label col-xs-4">Preferred Name:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" name="preferredName" id="preferredName" ng-model="ctrl.person.preferredName" class="form-control text ui-widget-content ui-corner-all" ng-pattern="/^[a-zA-ZÀ-ž\s\`'-.,()]*$/">
+                    <span class="validation-error" ng-show="personEditForm.preferredName.$error.pattern">Only characters, (a-z)(`'-.,()) are allowed</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="previousSurname" class="control-label col-xs-4">Previous Surname:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" name="previousSurname" id="previousSurname" ng-model="ctrl.person.previousSurname" class="form-control text ui-widget-content ui-corner-all" ng-pattern="/^[a-zA-ZÀ-ž\s\`'-.,()]*$/">
+                    <span class="validation-error" ng-show="personEditForm.previousSurname.$error.pattern">Only characters, (a-z)(`'-.,()) are allowed</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="dob" class="control-label col-xs-4">Date of Birth:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <div class="input-group">
+                        <input type="text" id="dob" name="dob" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.person.dob" ng-init="dobDatepicker = false" is-open="dobDatepicker" uib-datepicker-popup="dd/MM/yyyy" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="dobDatepicker = !dobDatepicker"><span class="glyphicon glyphicon-calendar"></span></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="gender" class="control-label col-xs-4">Gender:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <gender-selection id="gender" name="gender" class="form-control" alt-null-text="'-- Select Gender --'" ng-model="ctrl.person.genderId"></gender-selection>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="legalSex" class="control-label col-xs-4">Legal Sex:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <legal-sex-selection id="legalSex" name="legalSex" class="form-control" alt-null-text="'-- Select Legal Sex --'" ng-model="ctrl.person.legalSexId"></legal-sex-selection>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="home" class="control-label col-xs-4">Home:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" name="home" id="home" ng-model="ctrl.person.home" class="form-control text ui-widget-content ui-corner-all" ng-pattern="/^[\d+ ]*$/">
+                    <span class="validation-error" ng-show="personEditForm.home.$error.pattern">Please enter valid phone number</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="mobile" class="control-label col-xs-4">Mobile:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" name="mobile" id="mobile" ng-model="ctrl.person.mobile" class="form-control text ui-widget-content ui-corner-all" ng-pattern="/^[\d+ ]*$/">
+                    <span class="validation-error" ng-show="personEditForm.mobile.$error.pattern">Please enter valid phone number</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="field_work" class="control-label col-xs-4">Work:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" name="work" id="fieldfield_title_work" ng-model="ctrl.person.work" class="form-control text ui-widget-content ui-corner-all" ng-pattern="/^[\d+ ]*$/">
+                    <span class="validation-error" ng-show="personEditForm.work.$error.pattern">Please enter valid phone number</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="email" class="control-label col-xs-4">Email:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" name="email" id="email" ng-model="ctrl.person.email" class="form-control text ui-widget-content ui-corner-all" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/">
+                    <span class="validation-error" ng-show="personEditForm.email.$error.pattern">Please enter valid email address</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="ctrl.cancel()"> <span class="glyphicon glyphicon-ban-circle"></span> Cancel</button>
+        <button type="submit" class="btn btn-primary" ng-disabled="personEditForm.$invalid || personEditForm.$submitted"><span class="glyphicon glyphicon-save"></span> Save</button>
+    </div>
+
+</form>

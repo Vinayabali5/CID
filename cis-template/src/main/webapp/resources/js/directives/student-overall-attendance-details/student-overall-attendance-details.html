@@ -1,0 +1,35 @@
+<div class="student-overall-attendance-details">
+    <div class="row">
+        <div class="col-xs-5 col-md-4">Attendance:</div>
+        <div class="col-xs-7 col-md-2">{{ studentOverallAttendance.attendance | percent:2 }}</div>
+
+        <div class="col-xs-5 col-md-4">Adjusted Attendance:</div>
+        <div class="col-xs-7 col-md-2">{{ studentOverallAttendance.adjustedAttendance | percent:2 }}</div>
+
+        <div class="col-xs-5 col-md-4">Punctuality:</div>
+        <div class="col-xs-7 col-md-2">{{ studentOverallAttendance.punctuality | percent:2 }}</div>
+
+        <div class="col-xs-5 col-md-4">Adjusted Punctuality:</div>
+        <div class="col-xs-7 col-md-2">{{ studentOverallAttendance.adjustedPunctuality | percent:2 }}</div>
+    </div>
+
+    <div class="row" ng-show="showAll">
+        <div class="col-xs-5 col-md-4">Total Absence:</div>
+        <div class="col-xs-7 col-md-2">{{ studentOverallAttendance.totalAbsence | blank }}</div>
+
+        <div class="col-xs-5 col-md-4">Total Authorised:</div>
+        <div class="col-xs-7 col-md-2">{{ studentOverallAttendance.totalAuthorisedAbsence | blank }}</div>
+        <!--
+        <div class="col-xs-5 col-md-4">Total Adjusted:</div>
+        <div class="col-xs-7 col-md-2">{{ studentOverallAttendance.totalAdjusted | blank }}</div>
+        -->
+        <div class="col-xs-5 col-md-4">Total Late:</div>
+        <div class="col-xs-7 col-md-2">{{ studentOverallAttendance.totalLate | blank }}</div>
+
+        <div class="col-xs-5 col-md-4">Total Authorised Late:</div>
+        <div class="col-xs-7 col-md-2">{{ studentOverallAttendance.totalAuthorisedLate | blank }}</div>
+
+        <div class="col-xs-5 col-md-4">Total Sessions:</div>
+        <div class="col-xs-7 col-md-2">{{ studentOverallAttendance.totalSessions | blank }}</div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<table class="table table-responsive table-hover">
+    <thead>
+        <th ng-show="showBoard">Exam Board</th>
+        <th ng-show="showOption">Exam</th>
+        <th>Status</th>
+        <th>Edi Status</th>
+    </thead>
+    <tbody>
+        <tr ng-hide="showAllEntries" ng-repeat="optionEntry in optionEntries | filter:{_statusTypeDescription: 'Live'}">
+            <td ng-show="showBoard">{{ optionEntry._examBoard.boardIdentifier }} - {{ optionEntry._examBoard.description }}</td>
+            <td ng-show="showOption">{{ optionEntry._optionEntryCode }} - {{ optionEntry._optionTitle }}</td>
+            <td>{{ optionEntry._statusTypeDescription }}</td>
+            <td>{{ optionEntry._ediStatusTypeDescription }}</td>
+        </tr>
+
+        <tr ng-show="showAllEntries" ng-repeat="optionEntry in optionEntries">
+            <td ng-show="showBoard">{{ optionEntry._examBoard.boardIdentifier }} - {{ optionEntry._examBoard.description }}</td>
+            <td ng-show="showOption">{{ optionEntry._optionEntryCode }} - {{ optionEntry._optionTitle }}</td>
+            <td>{{ optionEntry._statusTypeDescription }}</td>
+            <td>{{ optionEntry._ediStatusTypeDescription }}</td>
+        </tr>
+    </tbody>
+</table>

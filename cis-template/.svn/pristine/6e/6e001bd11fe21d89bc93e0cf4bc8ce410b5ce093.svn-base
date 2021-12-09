@@ -1,0 +1,64 @@
+ <form name="student-details" role="form" novalidate show-validation>
+     <table class="table table-responsive table-hover" ts-wrapper>
+         <thead>
+             <th>Include</th>
+             <th>Topic</th>
+             <th>Discussion</th>
+             <th>Target</th>
+         </thead>
+         <tbody>
+             <tr ng-repeat="statementBank in statementBank |  orderBy:ctrl.sortOrder " ts-repeat>
+                 <td><input type="radio" name="statementBank" value="{{statementBank.id}}" ng-model="letter.statementId" ng-required="true" /></td>
+                 <td>{{ statementBank.topic }}</td>
+                 <td>{{ statementBank.discussion }}</td>
+                 <td>{{ statementBank.target }}</td>
+             </tr>
+         </tbody>
+     </table>
+
+     <div class="row">
+         <div class="col-xs-12">
+             <fieldset>
+                 <legend>Required Data</legend>
+             </fieldset>
+         </div>
+         <div class="col-sm-4">
+             <div class="form-group">
+                 <label for="pieceOfWork" class="control-label col-xs-4">Piece of Work</label>
+                 <div class="col-xs-6 col-sm-8">
+                     <input id="pieceOfWork" type="text" name="pieceOfWork" class="form-control text ui-widget-content ui-corner-all" ng-model="letter.pieceOfWork" ng-required="true">
+                     <span style="color:Red" ng-show="letter.pieceOfWorkt === undefined && massLetterForm.pieceOfWorkt.$invalid">Assignment Code Required</span>
+                 </div>
+             </div>
+         </div>
+
+         <div class="col-sm-4">
+             <div class="form-group">
+                 <label for="originalDueDate" class="control-label col-xs-4">Original Due Date:</label>
+                 <div class="col-xs-6 col-sm-8">
+                     <div class="input-group">
+                         <input type="text" class="form-control" id="originalDueDate" name="originalDueDate" ng-init="originalDueDateDatePicker = false" ng-model="letter.originalDueDate" uib-datepicker-popup="dd/MM/yyyy" is-open="originalDueDateDatePicker" ng-required="true" />
+                         <span class="input-group-btn">
+                             <button type="button" class="btn btn-default" ng-click="originalDueDateDatePicker = !originalDueDateDatePicker"><span class="glyphicon glyphicon-calendar"></span></button>
+                         </span>
+                     </div>
+                 </div>
+             </div>
+         </div>
+
+
+         <div class="col-sm-4">
+             <div class="form-group">
+                 <label for="dueDate" class="control-label col-xs-4">Target/Due Date:</label>
+                 <div class="col-xs-6 col-sm-8">
+                     <div class="input-group">
+                         <input type="text" class="form-control" id="dueDate" name="dueDate" ng-init="dueDateDatePicker = false" ng-model="letter.dueDate" uib-datepicker-popup="dd/MM/yyyy" is-open="dueDateDatePicker" ng-required="true" />
+                         <span class="input-group-btn">
+                             <button type="button" class="btn btn-default" ng-click="dueDateDatePicker = !dueDateDatePicker"><span class="glyphicon glyphicon-calendar"></span></button>
+                         </span>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+ </form>

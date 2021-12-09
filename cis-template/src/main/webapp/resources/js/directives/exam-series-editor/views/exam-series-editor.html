@@ -1,0 +1,25 @@
+<table class="table table-responsive table-hover" ts-wrapper ts-item-name="Exam Series">
+    <thead>
+        <th ts-criteria="boardIdentifier">Board Identifier</th>
+        <th ts-criteria="boardCode">Board Code</th>
+        <th ts-criteria="name">Board Name</th>
+        <th ts-criteria="description">Description</th>
+        <th ts-criteria="examYear">Year</th>
+        <th ts-criteria="examSeries">Series</th>
+        <th ng-show="showActions">Actions</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="examSeries in examSeries" ts-repeat>
+            <td>{{ examSeries.examBoard.boardIdentifier }}</td>
+            <td>{{ examSeries.examBoard.boardCode }}</td>
+            <td>{{ examSeries.examBoard.name }}</td>
+            <td>{{ examSeries.examBoard.description }}</td>
+            <td>{{ examSeries.examYear }}</td>
+            <td>{{ examSeries.examSeries }}</td>
+            <td ng-show="showActions">
+                <button type="button" class="btn btn-primary btn-sm" ng-click="ctrl.editExamSeries(examSeries.id)"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button ng-show="showActions" type="button" class="btn btn-primary btn-sm" ng-click="ctrl.addExamSeries()"><span class="glyphicon glyphicon-pencil"></span> Add</button>

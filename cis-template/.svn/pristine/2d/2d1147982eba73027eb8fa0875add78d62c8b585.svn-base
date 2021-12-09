@@ -1,0 +1,12 @@
+<md-dialog>
+    <md-dialog-content>
+        <div class="md-dialog-content">
+            <p ng-repeat="msg in generatedMessage">{{msg}}</p>
+            <p></p>
+            <p><strong>Make sure A2C migration application is running for EDI files to be transmitted to exam boards.</strong></p>
+        </div>
+    </md-dialog-content>
+    <md-dialog-actions>
+        <md-button ng-click="cancel()" class="md-primary">OK</md-button>
+    </md-dialog-actions>
+</md-dialog>

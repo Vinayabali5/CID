@@ -1,0 +1,11 @@
+<div>
+    <p>Seat: {{std.label}}</p>
+    <p>Candidate: {{std.student[0]._candidateNo}}</p>
+    <p>Name: {{std.student[0]._surname}}, {{std.student[0]._firstName}}</p>
+    <div ng-if="std.student[0]._concessions.length > 0">
+        <p>Exam concessions</p>
+        <div ng-repeat="concession in std.student[0]._concessions">
+            <p>{{concession._concessionDescription}}</p>
+        </div>
+    </div>
+</div>

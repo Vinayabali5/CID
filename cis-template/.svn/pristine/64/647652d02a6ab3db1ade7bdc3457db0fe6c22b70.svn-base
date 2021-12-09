@@ -1,0 +1,19 @@
+<div class="course-group-details">
+    <div class="row">
+        <div class="col-md-4 col-sm-6 col-xs-12">
+            <div>Course Group: {{ courseGroup.spec }}</div>
+            <div>Year Group: {{ courseGroup._yearGroupDescription }}</div>
+            <div>Level: {{ courseGroup._course._levelDescription }}</div>
+            <div>Subject: {{ courseGroup._course._subjectDescription }}</div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12">
+            <div>Learning Aim Reference: {{ courseGroup._course.learningAimReference }}</div>
+            <div>Exam Board: {{ courseGroup._course._examBoardDescription }}</div>
+            <div>Syllabus Code: {{ courseGroup._course.syllabusCode }}</div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12">
+            <div>Valid From Year: {{ courseGroup._course._validFromCode | notSet }}</div>
+            <div>Valid To Year: {{ courseGroup._course._validToCode | notSet }}</div>
+        </div>
+    </div>
+</div>

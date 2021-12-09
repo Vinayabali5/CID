@@ -1,0 +1,243 @@
+<form name="studentYearEditForm" role="form" novalidate ng-submit="ctrl.save()" show-validation>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="ctrl.cancel()">&times;</button>
+        <h4 class="modal-title">Edit Student Year Information</h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+            <div class="form-group col-sm-12 col-md-6 row">
+                <label for="type" class="control-label col-xs-4">Student Type:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <student-type-selection class="form-control" id="type" name="type" include-blank="true" ng-model="ctrl.studentYear.typeId"></student-type-selection>
+                </div>
+            </div>
+            <div class="form-group col-sm-12 col-md-6 row">
+                <label for="tutorGroup" class="control-label col-xs-4">Tutor Group:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <tutor-group-selection class="form-control" id="tutorGroup" name="tutorGroup" include-blank="true" ng-model="ctrl.studentYear.tutorGroupId"></tutor-group-selection>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-sm-12 col-md-6 row">
+                <label for="startDate" class="control-label col-xs-4">Start Date:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="startDate" name="startDate" ng-init="startDateDatePicker = false" uib-datepicker-popup="dd/MM/yyyy" is-open="startDateDatePicker" ng-model="ctrl.studentYear.startDate" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="startDateDatePicker = !startDateDatePicker">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-sm-12 col-md-6 row">
+                <label for="endDate" class="control-label col-xs-4">End Date:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <div class="input-group">
+                        <input type="text" id="endDate" name="endDate" class="form-control" ng-init="endDateDatePicker = false" uib-datepicker-popup="dd/MM/yyyy" is-open="endDateDatePicker" ng-model="ctrl.studentYear.endDate" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="endDateDatePicker = !endDateDatePicker">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-sm-12 col-md-6 row">
+                <label for="withdrawnDate" class="control-label col-xs-4">Withdrawn Date:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <div class="input-group">
+                        <input type="text" id="endDate" name="withdrawnDate" class="form-control" ng-init="withdrawnDateDatePicker = false" uib-datepicker-popup="dd/MM/yyyy" is-open="withdrawnDateDatePicker" ng-model="ctrl.studentYear.withdrawnDate" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="withdrawnDateDatePicker = !withdrawnDateDatePicker">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-sm-12 col-md-6 row">
+                <label for="onContract" class="control-label col-xs-4">On Contract:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="checkbox" name="onContract" id="onContract" ng-model="ctrl.studentYear.onContract" class="form-control text ui-widget-content ui-corner-all">
+                </div>
+            </div>
+            <div class="form-group col-sm-12 col-md-6 row">
+                <label for="onBreakInLearning" class="control-label col-xs-4">On Break In Learning:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="checkbox" name="onBreakInLearning" id="onBreakInLearning" ng-model="ctrl.studentYear.breakInLearning" class="form-control text ui-widget-content ui-corner-all">
+                </div>
+            </div>
+        </div>
+
+        <h4 class="row modal-title">Exam Candidate Fields</h4>
+
+        <div class="row">
+            <div class="form-group col-sm-12 col-md-6 row">
+                <label for="candidateNo" class="control-label col-xs-4" uib-tooltip="candidateNo">Candidate No:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" id="candidateNo" name="candidateNo" ng-model="ctrl.studentYear.candidateNo" class="form-control text ui-widget-content ui-corner-all">
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12 col-md-6 row">
+                <label for="externalCandidate" class="control-label col-xs-4">External Candidate:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="checkbox" id="externalCandidate" name="externalCandidate" ng-model="ctrl.studentYear.externalCandidate" class="form-control text ui-widget-content ui-corner-all">
+                </div>
+            </div>
+        </div>
+
+        <h4 class="row modal-title">ILR Fields</h4>
+
+        <div class="row">
+            <div class="form-group col-sm-12 col-md-6 row">
+                <label for="ilr" class="control-label col-xs-4">ILR Returned:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="checkbox" id="ilr" name="ilr" ng-model="ctrl.studentYear.ilr" class="form-control text ui-widget-content ui-corner-all">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-sm-12 col-md-6 row">
+                <label for="plh" class="control-label col-xs-4">PLH:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" id="plh" name="plh" ng-model="ctrl.studentYear.plh" class="form-control text ui-widget-content ui-corner-all">
+                </div>
+            </div>
+            <div class="form-group col-sm-12 col-md-6 row">
+                <label for="peeph" class="control-label col-xs-4">PEEPH:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" id="peeph" name="peeph" ng-model="ctrl.studentYear.peeph" class="form-control text ui-widget-content ui-corner-all">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-sm-12 col-md-6 row">
+                <label for="lda" class="control-label col-xs-4" uib-tooltip="Learning Difficulty Assessment">LDA:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="checkbox" id="lda" name="lda" ng-model="ctrl.studentYear.lda" class="form-control text ui-widget-content ui-corner-all">
+                </div>
+            </div>
+            <div class="form-group col-sm-12 col-md-6 row">
+                <label for="ehc" class="control-label col-xs-4" uib-tooltip="Education Health Care">EHC:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="checkbox" id="ehc" name="ehc" ng-model="ctrl.studentYear.ehc" class="form-control text ui-widget-content ui-corner-all">
+                </div>
+            </div>
+            <div class="form-group col-sm-12 col-md-6 row">
+                <label for="hns" class="control-label col-xs-4" uib-tooltip="High Needs Student">HNS:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="checkbox" id="hns" name="hns" ng-model="ctrl.studentYear.hns" class="form-control text ui-widget-content ui-corner-all">
+                </div>
+            </div>
+            <div class="form-group col-sm-12 col-md-6 row">
+                <label for="sen" class="control-label col-xs-4" uib-tooltip="Special Educational Needs">SEN:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="checkbox" id="sen" name="sen" ng-model="ctrl.studentYear.sen" class="form-control text ui-widget-content ui-corner-all">
+                </div>
+            </div>
+            <div class="form-group col-sm-12 col-md-6 row">
+                <label for="socialWorker" class="control-label col-xs-4" uib-tooltip="Social Worker">Social Worker:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="checkbox" id="socialWorker" name="socialWorker" ng-model="ctrl.studentYear.socialWorker" class="form-control text ui-widget-content ui-corner-all">
+                </div>
+            </div>
+            <div class="form-group col-sm-12 col-md-6 row">
+                <label for="onMentoring" class="control-label col-xs-4" uib-tooltip="Social Worker">On Mentoring:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="checkbox" id="onMentoring" name="onMentoring" ng-model="ctrl.studentYear.onMentoring" class="form-control text ui-widget-content ui-corner-all">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-sm-12 col-md-6 row">
+                <label for="gcseEnglishGrade" class="control-label col-xs-4">GCSE English Grade (highest):</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" id="gcseEnglishGrade" name="gcseEnglishGrade" ng-model="ctrl.studentYear.gcseEnglishGrade" class="form-control text ui-widget-content ui-corner-all">
+                </div>
+            </div>
+            <div class="form-group col-sm-12 col-md-6 row">
+                <label for="gcseMathsGrade" class="control-label col-xs-4">GCSE Maths Grade (highest):</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" id="gcseMathsGrade" name="gcseMathsGrade" ng-model="ctrl.studentYear.gcseMathsGrade" class="form-control text ui-widget-content ui-corner-all">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-sm-12 col-md-6 row">
+                <label for="llddHealthProblem" class="control-label col-xs-4">LLDD Health Problem:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <lLDD-health-problem-selection id="llddHealthProblem" name="llddHealthProblem" class="form-control" include-blank="true" ng-model="ctrl.studentYear.llddHealthProblemId"></lLDD-health-problem-selection>
+                </div>
+            </div>
+            <div class="form-group col-sm-12 col-md-6 row">
+                <label for="learningSupportCost" class="control-label col-xs-4">Learning Support Cost:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" id="learningSupportCost" name="learningSupportCost" ng-model="ctrl.studentYear.learningSupportCost" class="form-control text ui-widget-content ui-corner-all">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-sm-12 col-md-6 row">
+                <label for="englishConditionOfFunding" class="control-label col-xs-4" uib-tooltip="English Condition Of Funding">English CoF:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <english-condition-of-funding-selection id="englishConditionOfFunding" name="englishConditionOfFunding" class="form-control" include-blank="true" ng-model="ctrl.studentYear.englishConditionOfFundingId"></english-condition-of-funding-selection>
+                </div>
+            </div>
+            <div class="form-group col-sm-12 col-md-6 row">
+                <label for="mathsConditionOfFunding" class="control-label col-xs-4" uib-tooltip="Maths Condition Of Funding">Maths CoF:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <maths-condition-of-funding-selection id="mathsConditionOfFunding" name="mathsConditionOfFunding" class="form-control" include-blank="true" ng-model="ctrl.studentYear.mathsConditionOfFundingId"></maths-condition-of-funding-selection>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-sm-12 col-md-6 row">
+                <label for="initialPostcode" class="control-label col-xs-4">Initial Postcode:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" id="initialPostcode" name="initialPostcode" ng-model="ctrl.studentYear.initialPostcode" class="form-control text ui-widget-content ui-corner-all">
+                </div>
+            </div>
+        </div>
+
+        <h4 class="row modal-title">Destination Fields</h4>
+        <div class="row">
+            <div class="form-group col-sm-12 col-md-6 row">
+                <label for="destination" class="control-label col-xs-4">Destination:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <destination-selection id="destination" name="destination" class="form-control" include-blank="true" ng-model="ctrl.studentYear.destinationId"></destination-selection>
+                </div>
+            </div>
+            <div class="form-group col-sm-12 col-md-6 row">
+                <label for="destinationCollegeEmployer" class="control-label col-xs-4">College Employer:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" id="destinationCollegeEmployer" name="destinationCollegeEmployer" ng-model="ctrl.studentYear.destinationCollegeEmployer" class="form-control text ui-widget-content ui-corner-all">
+                </div>
+            </div>
+
+            <div class="form-group col-sm-12 col-md-6 row">
+                <label for="destinationCourseCareer" class="control-label col-xs-4">Course Career:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" id="destinationCourseCareer" name="destinationCourseCareer" ng-model="ctrl.studentYear.destinationCourseCareer" class="form-control text ui-widget-content ui-corner-all">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="ctrl.cancel()">
+            <span class="glyphicon glyphicon-ban-circle"></span>
+            Cancel</button>
+        <button type="submit" class="btn btn-primary" ng-disabled="studentYearEditForm.$invalid || studentYearEditForm.$submitted">
+            <span class="glyphicon glyphicon-save"></span>
+            Save</button>
+    </div>
+
+</form>

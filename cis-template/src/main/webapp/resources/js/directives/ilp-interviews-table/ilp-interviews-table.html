@@ -1,0 +1,98 @@
+<div class="row">
+    <div class="col-md-2 col-md-offset-10">
+        <button ng-show="showFilter" type="button" class="btn btn-sm btn-primary" ng-click="showILPFilters = !showILPFilters">
+            Filters
+            <span class="glyphicon glyphicon-chevron-right" ng-if="showILPFilters"></span>
+        </button>
+    </div>
+</div>
+<div class="filter-box ilp-interview-filters row" ng-show="showILPFilters">
+    <fieldset>Filters:</fieldset>
+    <div class="form-group col-xs-12 col-sm-6 col-md-3">
+        <label for="title" class="col-xs-4 control-label">ILP Interview ID</label>
+        <div class="col-xs-8">
+            <input type="text" class="form-control" ng-model="systemFilter.id">
+        </div>
+    </div>
+    <div class="form-group col-xs-12 col-sm-6 col-md-3">
+        <label for="title" class="col-xs-4 control-label">ILP Interview Type</label>
+        <div class="col-xs-8">
+            <ilp-interview-type-selection class="form-control" alt-null-text="'-- Show All --'" ng-model="systemFilter.interviewType"></ilp-interview-type-selection>
+        </div>
+    </div>
+    <div class="form-group col-xs-12 col-sm-6 col-md-3">
+        <label for="title" class="col-xs-4 control-label">Course Spec</label>
+        <div class="col-xs-8">
+            <input type="text" class="form-control" ng-model="systemFilter._courseGroup._course.spec">
+        </div>
+    </div>
+    <div class="form-group col-xs-12 col-sm-6 col-md-3">
+        <label for="title" class="col-xs-4 control-label">Course Description</label>
+        <div class="col-xs-8">
+            <input type="text" class="form-control" ng-model="systemFilter._courseGroup._course._description">
+        </div>
+    </div>
+    <div class="form-group col-xs-12 col-sm-6 col-md-3">
+        <label for="title" class="col-xs-4 control-label">Staff</label>
+        <div class="col-xs-8">
+            <input type="text" class="form-control" ng-model="systemFilter._staffName">
+        </div>
+    </div>
+</div>
+
+<table class="table table-responsive table-hover" ts-wrapper ts-item-name="ILP Entry" ts-item-name-plural="ILP Entries">
+    <thead>
+        <th ng-show="showAll || showStudent" ts-criteria="studentId">Student ID</th>
+        <th ng-show="showAll || showStudent" ts-criteria="studentId">Student Name</th>
+        <th>ILP Interview ID</th>
+        <th ts-criteria="_ilpInterviewTypeDescription">Interview Type</th>
+        <th ng-show="showAll || showCourse" ts-criteria="_courseGroup._course.spec">Course Spec</th>
+        <th ng-show="showAll || showCourse" ts-criteria="_courseGroup._course._description">Course</th>
+        <th ng-show="showAll || showCourseGroup" ts-criteria="_courseGroup.spec">Course Group Spec</th>
+        <th>Discussion</th>
+        <th ng-show="showAll || showTargets">Target</th>
+        <th ng-show="showAll || showTargets" ts-criteria="targetByWhen">Target Date</th>
+        <th ng-show="showAll || showStaff" ts-criteria="_staffName">Staff</th>
+        <th ts-criteria="interviewDate" ts-default="descending">Interview Date</th>
+        <th ng-show="showAll" ts-criteria="interviewTime">Interview Time</th>
+        <th ng-show="showAll || showLip">Refer Lip</th>
+        <th ng-show="showAll || showLip">LIP Refer Date</th>
+        <th ng-show="showAll || showLetterHome">Letter Home</th>
+        <th>Actions</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="ilpInterview in ilpInterviews | orderBy:'-interviewDate' | filter:systemFilter" ts-repeat>
+            <td ng-show="showAll || showStudent"><a ui-sref="student-editor.edit({ studentId: ilpInterview.studentId, tab:'ilp'})" uib-tooltip="View Student ILP">{{ ilpInterview.studentId }}</a></td>
+            <td ng-show="showAll || showStudent">{{ ilpInterview._student.person.surname }}, {{ ilpInterview._student.person.preferredName !== null ? ilpInterview._student.person.preferredName : ilpInterview._student.person.firstName }}</td>
+            <td>{{ ilpInterview.id }}</td>
+            <td>{{ ilpInterview._ilpInterviewTypeDescription }}</td>
+            <td ng-show="showAll || showCourse">{{ ilpInterview._courseGroup._course.spec }}</td>
+            <td ng-show="showAll || showCourse">{{ ilpInterview._courseGroup._course._description }}</td>
+            <td ng-show="showAll || showCourseGroup">{{ ilpInterview._courseGroup.spec }}</td>
+            <td>
+                <div class="" ng-bind-html="ilpInterview.discussion"></div>
+            </td>
+            <td ng-show="showAll || showTargets">
+                <div class="" ng-bind-html="ilpInterview.target"></div>
+            </td>
+            <td ng-show="showAll || showTargets">{{ ilpInterview.targetByDate | date:'dd/MM/yyyy' }}</td>
+            <td ng-show="showAll || showStaff">{{ ilpInterview._staffName }}</td>
+            <td>{{ ilpInterview.interviewDate | date:'dd/MM/yyyy' }}</td>
+            <td ng-show="showAll">{{ ilpInterview.interviewTime }}</td>
+            <td ng-show="showAll || showLip">{{ ilpInterview.referLip | yesNo }}</td>
+            <td ng-show="showAll || showLip">{{ ilpInterview.lipReferDate | date:'dd/MM/yyyy' }}</td>
+            <td ng-show="showAll || showLetterHome">{{ ilpInterview.letterSent | yesNo }}</td>
+            <td>
+                <button class="btn btn-sm btn-default" edit-ilp ilp-interview-id="ilpInterview.id" student-id="ilpInterview.studentId" ng-show="
+                  currentUser.isAdmin == true ||
+                  ilpInterview.staffId == currentUser.staffId ||
+                  (ilpInterview.typeId == 1 && (
+                    ilpInterview._courseGroup._courseLeader.id == currentUser.staffId ||
+                    ilpInterview._courseGroup._department.hodId == currentUser.staffId ||
+                    ilpInterview._courseGroup._department.hodId2 == currentUser.staffId
+                  ))
+                  ">Edit ILP</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

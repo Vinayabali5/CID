@@ -1,0 +1,26 @@
+<table class="table table-responsive table-hover">
+    <thead>
+        <th ng-show="showAll || showStudent">Student</th>
+        <th>Course Spec</th>
+        <th>Level</th>
+        <th>Subject</th>
+        <th>Syllabus</th>
+        <th>Grade</th>
+        <th>Mark</th>
+        <th>Max Mark</th>
+        <th>Date Achieved</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="externalResult in externalResultsArchive | orderBy:['-dateAchieved']">
+            <td ng-show="showAll || showStudent">{{ externalResult.studentId }}</td>
+            <td>{{ externalResult.courseSpec }}</td>
+            <td>{{ externalResult.levelDescription}}</td>
+            <td>{{ externalResult.subjectDescription }}</td>
+            <td>{{ externalResult.syllabus }}</td>
+            <td>{{ externalResult.grade }}</td>
+            <td>{{ externalResult.mark }}</td>
+            <td>{{ externalResult.maxMark }}</td>
+            <td>{{ externalResult.dateAchieved | date:'dd/MM/yyyy' }}</td>
+        </tr>
+
+</table>

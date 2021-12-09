@@ -1,0 +1,2 @@
+<h1>Blocks Editor</h1>
+<blocks-editor blocks="data" show-actions="true"></blocks-editor>

@@ -1,0 +1,8 @@
+<h1>StudentYear Details</h1>
+
+<input ng-model=ctrl.studentId></input><button class="btn btn-sm" ng-click="ctrl.getStudentYear()">Get StudentYearDetails</button>
+<br />
+<student-year-details student-year="ctrl.studentYear"></student-year-details>
+
+<h1>Student Year editor</h1>
+<student-year-editor student-id="ctrl.studentId" year-id="ctrl.yearId" student-year="ctrl.studentYear"></student-year-editor>

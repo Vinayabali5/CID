@@ -1,0 +1,6 @@
+<h1>ILPInterview Table</h1>
+
+<input ng-model=ctrl.studentId></input><button class="btn btn-sm" ng-click="ctrl.getILPInterviews()">Get ILPInterview</button>
+<br />
+
+<ilp-interviews-table ilp-interviews="ctrl.ilpInterviews" show-all="true"></ilp-interviews-table>

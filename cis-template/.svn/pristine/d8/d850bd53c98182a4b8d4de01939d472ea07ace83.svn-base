@@ -1,0 +1,80 @@
+<form name="studentSupportTypeEditorDialogForm" role="form" novalidate show-validation>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="cancel()">&times;</button>
+        <h4 class="modal-title">Add/Edit Student Course SupportType</h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+
+            <div class="form-group">
+                <label for="studentId" class="control-label col-xs-4">Student ID:</label>
+                <div class="col-xs-8">
+                    <input type="text" id="studentId" name="studentId" class="form-control" ng-model="supportType.studentId" readonly></input>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="course" class="control-label col-xs-4">Course:</label>
+                <div class="col-xs-8">
+                    <select id="course" name="course" class="form-control" ng-options="course.id as (course.spec + ' - ' + course._levelDescription + ' ' + course._subjectDescription) for course in courses | orderBy:['_levelDescription', '_subjectDescription']" ng-model="supportType.courseId" ng-required="true">
+                        <option value="">-- Select Course --</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="supportTypeId" class="control-label col-xs-4">SupportType: </label>
+                <div class="col-xs-8">
+                    <select id="supportTypeId" name="supportTypeId" class="form-control text ui-widget-content ui-corner-all" ng-model="supportType.supportTypeId" ng-required="true">
+                        <option value="">-- Select Support Type --</option>
+                        <option ng-repeat="i in supportTypes | limitTo : 3 : 15" ng-selected="supportType.supportTypeId == i.id" ng-value="{{ i.id }}" value="{{ i.id }}">{{ i.support }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <!--             <div class="form-group"> -->
+            <!--                 <label for="supportTypeId" class="control-label col-xs-4">SupportType: </label> -->
+            <!--                 <div class="col-xs-8"> -->
+            <!--                     <support-type-selection id="supportTypeId" name="supportTypeId" class="form-control text ui-widget-content ui-corner-all" ng-model="supportType.supportTypeId" ng-required="true"></support-type-selection> -->
+            <!--                 </div> -->
+            <!--             </div> -->
+
+            <div class="form-group">
+                <label for="startDate" class="control-label col-xs-4">Start Date</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="startDate" name="startDate" ng-init="supportTypeStartDatePicker = false" uib-datepicker-popup="dd/MM/yyyy" is-open="supportTypeStartDatePicker" ng-model="supportType.startDate" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="supportTypeStartDatePicker = !supportTypeStartDatePicker"><span class="glyphicon glyphicon-calendar"></span></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="endDate" class="control-label col-xs-4">End Date</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="endDate" name="endDate" ng-init="supportTypeEndDatePicker = false" uib-datepicker-popup="dd/MM/yyyy" is-open="supportTypeEndDatePicker" ng-model="supportType.endDate" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="supportTypeEndDatePicker = !supportTypeEndDatePicker"><span class="glyphicon glyphicon-calendar"></span></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="cancel()">
+            <span class="glyphicon glyphicon-ban-circle"></span>
+            Cancel
+        </button>
+        <button type="button" class="btn btn-primary" ng-click="save()" ng-disabled="studentSupportTypeEditorDialogForm.$invalid">
+            <span class="glyphicon glyphicon-save"></span>
+            Save
+        </button>
+    </div>
+    </div>

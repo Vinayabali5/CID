@@ -1,0 +1,91 @@
+<div class="row">
+
+    <div class="col-xs-12">
+        <h4>Request Green Letter</h4>
+    </div>
+
+    <div class="col-xs-12">
+        <div class="row" ng-show="ctrl.ilpInterview.letter.regarding !== undefined">
+            <div class="form-group">
+                <label for="greenLetterRegarding" class="control-label col-xs-3 col-xl-2">Regarding</label>
+                <div class="col-xs-9 col-xl-10">
+                    <input id="greenLetterRegarding" type="text" name="greenLetterRegarding" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.ilpInterview.letter.regarding" readonly="true"></input>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" ng-show="ctrl.ilpInterview.letter.subject !== undefined">
+            <div class="form-group">
+                <label for="greenLetterSubject" class="control-label col-xs-3 col-xl-2">Subject</label>
+                <div class="col-xs-9 col-xl-10">
+                    <input id="greenLetterSubject" type="text" name="greenLetterSubject" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.ilpInterview.letter.subject" readonly="true"></input>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" permission="'ROLE_Developer'">
+            <div class="form-group">
+                <label for="studentId" class="control-label col-xs-3 col-xl-2">Student ID</label>
+                <div class="col-xs-9 col-xl-10">
+                    <input id="studentId" type="text" class="form-control" name="studentId" readonly ng-model="ctrl.ilpInterview.studentId">
+                </div>
+            </div>
+        </div>
+
+        <div class="row" permission="'ROLE_Developer'">
+            <div class="form-group">
+                <label for="id" class="control-label col-xs-3 col-xl-2">ILP Interview ID</label>
+                <div class="col-xs-9 col-xl-10">
+                    <input id="id" type="text" class="form-control" name="id" readonly ng-model="ctrl.ilpInterview.id">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <label for="greenLetterRequestedById" class="control-label col-xs-3 col-xl-2">Requested By:</label>
+                <div class="col-xs-9 col-xl-10">
+                    <staff-selection id="greenLetterRequestedById" name="greenLetterRequestedById" class="form-control" ng-model="ctrl.ilpInterview.letter.requestedById"></staff-selection>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <label for="greenLetterRequestedDate" class="control-label col-xs-3 col-xl-2">Requested Date:</label>
+                <div class="col-xs-9 col-xl-10">
+                    <div class="input-group">
+                        <input type="text" id="greenLetterRequestedDate" name="greenLetterRequestedDate" class="form-control" ng-init="greenLetterRequestedDatePicker = false" ng-model="ctrl.ilpInterview.letter.requestedDate" uib-datepicker-popup="dd/MM/yyyy" is-open="greenLetterRequestedDatePicker" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="greenLetterRequestedDatePicker = !greenLetterRequestedDatePicker"><span class="glyphicon glyphicon-calendar"></span></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" ng-show="false">
+            <div class="form-group">
+                <label for="greenLetterWrittenById" class="control-label col-xs-3 col-xl-2">Authorised By:</label>
+                <div class="col-xs-9 col-xl-10">
+                    <staff-selection id="greenLetterWrittenById" name="greenLetterWrittenById" class="form-control" ng-model="ctrl.ilpInterview.letter.writtenById"></staff-selection>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <label for="greenLetterAuthorisedDate" class="control-label col-xs-3 col-xl-2">Authorised Date:</label>
+                <div class="col-xs-9 col-xl-10">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="greenLetterAuthorisedDate" name="greenLetterAuthorisedDate" ng-init="greenLetterAuthorisedDatePicker = false" ng-model="ctrl.ilpInterview.letter.authorisedDate" uib-datepicker-popup="dd/MM/yyyy" is-open="greenLetterAuthorisedDatePicker" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="greenLetterAuthorisedDatePicker = !greenLetterAuthorisedDatePicker"><span class="glyphicon glyphicon-calendar"></span></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

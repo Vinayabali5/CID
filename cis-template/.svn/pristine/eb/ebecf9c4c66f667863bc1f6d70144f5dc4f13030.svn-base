@@ -1,0 +1,16 @@
+<table class="table table-hover">
+    <thead>
+        <th ng-show="showAll || showStudent">Student ID</th>
+        <th>Concession</th>
+        <th>Concession</th>
+        <th>Extra Time Percentage</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="concession in concessions">
+            <td ng-show="showAll || showStudent">{{ concession.studentId }}</td>
+            <td>{{ concession.course.spec }} <span ng-show="showAll || showCourseDescription">- {{ concession.course._levelDescription }} {{ concession.course._subjectDescription }}</span></td>
+            <td>{{ concession._concessionDescription }}</td>
+            <td>{{ concession.extraTimePercentage }}</td>
+        </tr>
+    </tbody>
+</table>

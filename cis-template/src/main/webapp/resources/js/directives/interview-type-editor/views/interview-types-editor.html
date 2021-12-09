@@ -1,0 +1,27 @@
+<table class="table table-responsive table-hover" ts-wrapper>
+    <thead>
+        <th ts-criteria="code">ILP Interview Type</th>
+        <th ts-criteria="description">Require CourseGroupId</th>
+        <th ts-criteria="description">Allow Lip Referral</th>
+        <th ts-criteria="description">Allow Office Action</th>
+        <th ts-criteria="description">Allow Email Related Staff</th>
+        <th ts-criteria="description">Default To Private</th>
+        <th ts-criteria="description">Require Target</th>
+        <th ng-show="showActions">Actions</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="interviewType in interviewTypes |  orderBy:ctrl.sortOrder " ts-repeat>
+            <td>{{ interviewType.type }}</td>
+            <td>{{ interviewType.requireCourseGroupId | yesNo }}</td>
+            <td>{{ interviewType.allowLipReferral | yesNo }}</td>
+            <td>{{ interviewType.allowOfficeAction | yesNo }}</td>
+            <td>{{ interviewType.allowEmailRelatedStaff | yesNo }}</td>
+            <td>{{ interviewType.defaultToPrivate | yesNo }}</td>
+            <td>{{ interviewType.requireTarget | yesNo }}</td>
+            <td ng-show="showActions">
+                <button type="button" class="btn btn-primary btn-sm" ng-click="ctrl.editInterviewTypes(interviewType.id)"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button ng-show="showActions" type="button" class="btn btn-primary btn-sm" ng-click="ctrl.addInterviewTypes()"><span class="glyphicon glyphicon-pencil"></span> Add</button>

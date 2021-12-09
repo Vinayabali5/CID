@@ -1,0 +1,12 @@
+[Unit]
+Description=CIS API - Demo Version
+After=syslog.target
+
+[Service]
+User=root
+Environment="SPRING_PROFILES_ACTIVE=demo" "SERVER_PORT=9005" "PIDFILE=demo.pid" "PORTFILE=demo.port"
+ExecStart=/opt/cis/cis-api/cis-api-0.5.0.jar
+SuccessExitStatus=143
+
+[Install]
+WantedBy=multi-user.target

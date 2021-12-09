@@ -1,0 +1,25 @@
+<table class="table table-responsive table-hover" ts-wrapper>
+    <thead>
+        <th ts-criteria="type">ILP StatementBank Type</th>
+        <th ts-criteria="type">Letter Type</th>
+        <th ts-criteria="type">Topic</th>
+        <th ts-criteria="type">Discussion</th>
+        <th ts-criteria="type">Target</th>
+        <th ts-criteria="type">Use For Mass Letters</th>
+        <th ng-show="showActions">Actions</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="statementBank in statementBanks |  orderBy:ctrl.sortOrder " ts-repeat>
+            <td>{{ statementBank._iLPStatementBankType }}</td>
+            <td>{{ statementBank.letterType }}</td>
+            <td>{{ statementBank.topic }}</td>
+            <td>{{ statementBank.discussion }}</td>
+            <td>{{ statementBank.target }}</td>
+            <td>{{ statementBank.useForMassLetters | yesNo }}</td>
+            <td ng-show="showActions">
+                <button type="button" class="btn btn-primary btn-sm" ng-click="ctrl.editStatementBanks(statementBank.id)"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button ng-show="showActions" type="button" class="btn btn-primary btn-sm" ng-click="ctrl.addStatementBanks()"><span class="glyphicon glyphicon-pencil"></span> Add</button>

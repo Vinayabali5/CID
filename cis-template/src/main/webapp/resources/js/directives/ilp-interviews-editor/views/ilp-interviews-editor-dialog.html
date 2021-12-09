@@ -1,0 +1,102 @@
+<form id="ilpInterviewsEditForm" name="ilpInterviewsEditForm" role="form" novalidate ng-submit="ctrl.save()" show-validation>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="ctrl.cancel()">&times;</button>
+        <h4 class="modal-title">Add ILP Interviews</h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+
+            <div class="form-group" ng-show="false">
+                <label for="studentId" class="control-label col-xs-4">Student ID</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="studentId" type="text" class="form-control" name="studentId" readonly ng-model="ctrl.ilpInterview.studentId">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="academicYearId" class="control-label col-xs-4">Academic Year:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <academic-year-selection class="form-control" id="academicYearId" name="academicYearId" ng-model="ctrl.ilpInterview.academicYearId"></academic-year-selection>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="typeId" class="control-label col-xs-4">ILP Interview Type:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <ilp-interview-type-selection class="form-control" id="typeId" name="typeId" alt-null-text="'-- ILP Interview Type --'" ng-model="ctrl.ilpInterview.typeId"></ilp-interview-type-selection>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="interviewDate" class="control-label col-xs-4">Interview Date:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="interviewDate" name="interviewDate" ng-init="interviewDateDatePicker = false" uib-datepicker-popup="dd/MM/yyyy" is-open="interviewDateDatePicker" ng-model="ctrl.ilpInterview.interviewDate" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="interviewDateDatePicker = !interviewDateDatePicker">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="staffId" class="control-label col-xs-4">Interview By:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <staff-selection class="form-control" id="staffId" name="staffId" ng-model="ctrl.ilpInterview.staffId"></staff-selection>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="discussion" class="control-label col-xs-4">Discussion:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <textarea id="discussions" name="discussion" type="text" class="form-control" ng-model="ctrl.ilpInterview.discussion"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="target" class="control-label col-xs-4">Target:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <textarea id="target" name="target" type="text" class="form-control" ng-model="ctrl.ilpInterview.target"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="targetByWhen" class="control-label col-xs-4">Target By When:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="targetByWhen" name="targetByWhen" type="text" class="form-control" ng-model="ctrl.ilpInterview.targetByWhen"></input>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="targetByDate" class="control-label col-xs-4">Target By Date:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <div class="input-group">
+                        <input type="text" id="targetByDate" name="targetByDate" class="form-control" ng-init="targetByDateDatePicker = false" uib-datepicker-popup="dd/MM/yyyy" is-open="targetByDateDatePicker" ng-model="ctrl.ilpInterview.targetByDate" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="targetByDateDatePicker = !targetByDateDatePicker">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="privateEntry" class="control-label col-xs-4">Private Entry:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="checkbox" id="privateEntry" name="privateEntry" class="form-control" include-blank="true" ng-model="ctrl.ilpInterview.privateEntry"></input>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="ctrl.cancel()"> <span class="glyphicon glyphicon-ban-circle"></span> Cancel</button>
+        <button type="submit" class="btn btn-primary" ng-disabled="ilpInterviewsEditForm.$invalid || ilpInterviewsEditForm.$submitted"><span class="glyphicon glyphicon-save"></span> Save</button>
+    </div>
+
+</form>

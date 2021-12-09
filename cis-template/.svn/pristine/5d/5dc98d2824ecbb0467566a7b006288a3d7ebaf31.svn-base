@@ -1,0 +1,4 @@
+<button type="button" class="btn btn-sm btn-primary" ng-click="ctrl.editDataSharingOption(dataSharingOption.studentId)">
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit Student Data Options
+</button>

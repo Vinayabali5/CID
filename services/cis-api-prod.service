@@ -1,0 +1,12 @@
+[Unit]
+Description=CIS API - Production
+After=syslog.target
+
+[Service]
+User=root
+Environment="SPRING_PROFILES_ACTIVE=prod" "PIDFILE=prod.pid" "PORTFILE=prod.port"
+ExecStart=/opt/cis/cis-api/cis-api-0.5.0.jar
+SuccessExitStatus=143
+
+[Install]
+WantedBy=multi-user.target

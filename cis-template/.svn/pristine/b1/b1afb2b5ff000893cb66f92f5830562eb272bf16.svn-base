@@ -1,0 +1,17 @@
+<div>
+    <div ng-switch="student.student[0].studentId">
+        <div ng-switch-when="null">
+            <div ng-switch="student.blocked">
+                <div ng-switch-when="true">
+                    <p>Unblock seat</p>
+                </div>
+                <div ng-switch-default>
+                    <p>Block out seat</p>
+                </div>
+            </div>
+        </div>
+        <div ng-switch-default>
+            <p>Remove student from seat</p>
+        </div>
+    </div>
+</div>

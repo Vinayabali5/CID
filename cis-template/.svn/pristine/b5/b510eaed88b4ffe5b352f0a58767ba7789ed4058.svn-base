@@ -1,0 +1,36 @@
+<div>
+    <table id="examBoardTable" class="table">
+        <thead>
+            <tr>
+                <th>Board Identifier</th>
+                <th>Board Code</th>
+                <th>Board Name</th>
+                <th>Description</th>
+                <th>Telephone No</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="examBoard in examBoardList" class="ng-cloak">
+                <td>{{ examBoard.boardIdentifier }}</td>
+                <td>{{ examBoard.boardCode }}</td>
+                <td>{{ examBoard.boardName }}</td>
+                <td>{{ examBoard.description }}</td>
+                <td>{{ examBoard.telephoneNo }}</td>
+                <td>
+                    <ng-transclude></ng-transclude>
+                    <!-- 					<button class="btn btn-primary btn-sm"
+						ui-sref="examBoards.edit({ id: examBoard.id })">
+						<span class="glyphicon glyphicon-pencil"></span> Edit
+					</button>
+					<button class="btn btn-primary btn-sm"
+						ui-sref="examBaseDataViewer.viewById({ id: examBoard.id })">View
+						basedata</button>
+-->
+                    <!-- 						<button class="btn btn-primary btn-sm" ng-click="viewBaseData(examBoard.examBoardId)" >View basedata</button>
+ -->
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,46 @@
+<form name="studentLLDDHealthProblemCategoryEditorDialogForm" role="form" novalidate show-validation>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="ctrl.cancel()">&times;</button>
+        <h4 class="modal-title">Add/Edit Student LLDD Health Problem Category</h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+
+            <div class="form-group">
+                <label for="studentId" class="control-label col-xs-4">Student ID:</label>
+                <div class="col-xs-8">
+                    <input type="text" id="studentId" name="studentId" class="form-control" ng-model="ctrl.studentLLDDHealthProblemCategory.studentId" readonly></input>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="lLDDHealthProblemCategoryId" class="control-label col-xs-4">LLDD Health Problem Category: </label>
+                <div class="col-xs-8">
+                    <lldd-health-problem-category-selection id="lLDDHealthProblemCategoryId" name="lLDDHealthProblemCategoryId" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.studentLLDDHealthProblemCategory.lLDDHealthProblemCategoryId" ng-required="true"></lldd-health-problem-category-selection>
+                    <span class="validation-error" ng-show="studentLLDDHealthProblemCategoryEditorDialogForm.lLDDHealthProblemCategoryId.$dirty && studentLLDDHealthProblemCategoryEditorDialogForm.lLDDHealthProblemCategoryId.$error.required">Mandatory Field</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="primarylldd" class="control-label col-xs-4">Primary LLDD:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="checkbox" id="primarylldd" name="primarylldd" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.studentLLDDHealthProblemCategory.primarylldd"></input>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="ctrl.cancel()">
+            <span class="glyphicon glyphicon-ban-circle"></span>
+            Cancel
+        </button>
+        <button type="button" class="btn btn-primary" ng-click="ctrl.save()" ng-disabled="studentLLDDHealthProblemCategoryEditorDialogForm.$invalid">
+            <span class="glyphicon glyphicon-save"></span>
+            Save
+        </button>
+    </div>
+    </div>
+</form>

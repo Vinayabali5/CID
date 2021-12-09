@@ -1,0 +1,2 @@
+<h1>Rooms Editor</h1>
+<rooms-editor rooms="data" show-actions="true"></rooms-editor>

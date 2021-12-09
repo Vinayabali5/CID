@@ -1,0 +1,51 @@
+<form id="studentWithdrawalForm" name="studentWithdrawalForm" role="form" novalidate ng-submit="ctrl.save()" show-validation>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="ctrl.cancel()">&times;</button>
+        <h4 class="modal-title">Withdraw Student</h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+
+            <div class="form-group">
+                <label for="withdrawalDate" class="control-label col-xs-4">Date of Withdrawal:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <div class="input-group">
+                        <input type="text" id="withdrawalDate" name="withdrawalDate" class="form-control" ng-init="withdrawalDatePicker = false" uib-datepicker-popup="dd/MM/yyyy" is-open="withdrawalDatePicker" ng-model="ctrl.withdrawalRequest.withdrawalDate" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="withdrawalDatePicker = !withdrawalDatePicker"><span class="glyphicon glyphicon-calendar"></span></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="destination" class="control-label col-xs-4">Destination:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <destination-selection id="destination" name="withdrawalDate" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.withdrawalRequest.destinationId"></destination-selection>
+                    <span class="error" ng-show="ctrl.withdrawalRequest.withdrawalDate !== null && ctrl.withdrawalRequest.destinationId == 95">A destination is required when a Date of Withdrawal is supplied.</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="collegeEmployer" class="control-label col-xs-4">College or Employer:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" id="collegeEmployer" name="collegeEmployer" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.withdrawalRequest.collegeEmployer">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="courseCareer" class="control-label col-xs-4">Course or Career:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" id="courseCareer" name="courseCareer" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.withdrawalRequest.courseCareer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="ctrl.cancel()"> <span class="glyphicon glyphicon-ban-circle"></span> Cancel</button>
+        <button type="button" class="btn btn-primary" ng-click="ctrl.withdraw()" ng-disabled="!ctrl.formValidation()">Withdraw</button>
+    </div>
+
+</form>

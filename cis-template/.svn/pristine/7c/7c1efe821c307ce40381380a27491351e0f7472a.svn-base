@@ -1,0 +1,47 @@
+<div class="col-md-2 col-md-offset-10">
+    <button type="button" class="btn btn-sm btn-primary" ng-click="ctrl.toggleVisibility()">Filters<span class="glyphicon glyphicon-chevron-right" ng-hide="ctrl.visible"></span><span class="glyphicon glyphicon-chevron-down" ng-show="ctrl.visible"></span></button>
+</div>
+<div ng-show="ctrl.visible">
+    <div class="form-group col-sm-12 col-md-3 row">
+        <label for="subject" class="control-label col-xs-4">Subject Code</label>
+        <div class="col-xs-8 col-sm-8 col-md-8">
+            <input type="text" ng-model="filter.subjectCode" class="form-control text ui-widget-content ui-corner-all" ng-change="ctrl.applyFilter()">
+        </div>
+    </div>
+    <div class="form-group col-sm-12 col-md-3 row">
+        <label for="subject" class="control-label col-xs-4">Group</label>
+        <div class="col-xs-8 col-sm-8 col-md-8">
+            <input type="text" ng-model="filter.group" class="form-control text ui-widget-content ui-corner-all" ng-change="ctrl.applyFilter()">
+        </div>
+    </div>
+    <div class="form-group col-sm-12 col-md-3 row">
+        <label for="attendance" class="control-label col-xs-4">Attendance</label>
+        <div class="col-xs-8">
+            <attendance-code-selection class="form-control" ng-model="registerFilter.attendance"></attendance-code-selection>
+        </div>
+    </div>
+</div>
+<table class="table table-responsive table-hover" ts-wrapper ts-item-name="Register Mark">
+    <thead>
+        <th ts-criteria="studentId" ng-show="showAll || showStudentRef">Student Ref</th>
+        <th ts-criteria="sessionRef" ng-show="showAll || showSessionRef">Session Ref</th>
+        <th ts-criteria="subjectCode">Subject Code</th>
+        <th ts-criteria="group">Group</th>
+        <th>Attendance</th>
+        <th ts-criteria="sessionRef" ts-default="descending">Session Date</th>
+        <th class="text-center" ts-criteria="_sessionPeriod">Session Period</th>
+        <th>Notes</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="register in registers | filter: ctrl.filterParams | filter: {'attendanceId':registerFilter.attendance.id}:true" ng-style="{ 'background-color': '{{register._attendance.htmlColour }}'}" ts-repeat>
+            <td ng-show="showAll || showStudentRef">{{ register.studentId }}</td>
+            <td ng-show="showAll || showSessionRef">{{ register.sessionRef }}</td>
+            <td>{{ register.subjectCode }}</td>
+            <td>{{ register.group }}</td>
+            <td>{{ register._attendance.description }}</td>
+            <td>{{ register._sessionDate | date:'EEE dd/MM/yyyy' }}</td>
+            <td class="text-center">{{ register._sessionPeriod }}</td>
+            <td>{{ register.notes }}</td>
+        </tr>
+    </tbody>
+</table>

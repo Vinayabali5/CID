@@ -1,0 +1,30 @@
+<table class="table table-responsive table-hover">
+    <thead>
+        <th>Surname</th>
+        <th>First Name</th>
+        <th>Middle Name(s)</th>
+        <th>Date of Birth</th>
+        <th>Home Telephone</th>
+        <th>Mobile Telephone</th>
+        <th>Address</th>
+        <th>Actions</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="duplicate in duplicates">
+            <td>{{ duplicate.person.surname }}</td>
+            <td>{{ duplicate.person.firstName }}</td>
+            <td>{{ duplicate.person.middleNames }}</td>
+            <td>{{ duplicate.person.dob }}</td>
+            <td>{{ duplicate.person.home }}</td>
+            <td>{{ duplicate.person.mobile }}</td>
+            <td>
+                <address-details address="duplicate.person.address" ng-show="duplicate.person.addressId"></address-details>
+            </td>
+            <td>
+                <button type="button" class="btn btn-primary btn-sm" ng-click="ctrl.selectTwin(duplicate.id)"><span class="glyphicon glyphicon-pencil"></span>Select Twin</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button type="button" class="btn btn-primary btn-sm" ng-click="ctrl.duplicateApplication()"><span class="glyphicon glyphicon-pencil"></span>Duplicate Application</button>
+<button type="button" class="btn btn-primary btn-sm" ng-click="ctrl.continueApplication()"><span class="glyphicon glyphicon-pencil"></span>Continue</button>

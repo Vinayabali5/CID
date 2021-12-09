@@ -1,0 +1,20 @@
+<div class="col-sm-12">
+    <table class="table table-responsive table-hover">
+        <thead>
+            <th>Candidate Number</th>
+            <th>First Name</th>
+            <th>Surname</th>
+            <th>Remark Permissions</th>
+            <th>TutorGroup</th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="tutorGroupRemarkPermission in remarkPermission">
+                <td>{{ tutorGroupRemarkPermission.candidateNo | notSet }}</td>
+                <td>{{ tutorGroupRemarkPermission._firstName }}</td>
+                <td>{{ tutorGroupRemarkPermission._surname }}</td>
+                <td>{{ tutorGroupRemarkPermission._studentRemarkPermissionDecription | notSet }}</td>
+                <td>{{ tutorGroupRemarkPermission._tutorGroupCode }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

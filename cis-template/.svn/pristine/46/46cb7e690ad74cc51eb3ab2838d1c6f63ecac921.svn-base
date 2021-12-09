@@ -1,0 +1,25 @@
+<form id="pastoralMonitorEditForm" name="pastoralMonitorEditForm" role="form" novalidate ng-submit="ctrl.save()" show-validation>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="ctrl.cancel()">&times;</button>
+        <h4 class="modal-title">Edit Pastoral Monitoring</h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+
+            <div class="form-group">
+                <label for="pastoralMonitor" class="control-label col-xs-4">Pastoral Monitor:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <staff-selection id="pastoralMonitor" name="pastoralMonitor" class="form-control" include-blank="true" ng-model="ctrl.pastoralMonitor.pastoralMonitorId"></staff-selection>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="ctrl.cancel()"> <span class="glyphicon glyphicon-ban-circle"></span> Cancel</button>
+        <button type="submit" class="btn btn-primary" ng-disabled="pastoralMonitorEditForm.$invalid || pastoralMonitorEditForm.$submitted"><span class="glyphicon glyphicon-save"></span> Save</button>
+    </div>
+
+</form>

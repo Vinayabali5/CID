@@ -1,0 +1,68 @@
+<h1>Student Record Editor</h1>
+
+<div ng-show="ctrl.loaded">
+    <h3>Student Details:</h3>
+    <student-details student="ctrl.student"></student-details>
+    <uib-tabset active="active">
+
+        <uib-tab index="0" heading="Personal Details">
+            <h3>Student Person Details</h3>
+
+            <div>Address:</div>
+            <div>
+                <address-editor address="ctrl.studentAddress"></address-editor>
+            </div>
+
+            <div>
+                <person-editor person="ctrl.studentPerson"></person-editor>
+            </div>
+
+            <div>Person Details:</div>
+            <div>
+                <person-details person="ctrl.student.person"></person-details>
+            </div>
+
+            <h3>Corresponding Contact Details:</h3>
+            <div>
+                <contacts-table contacts="ctrl.contacts"></contacts-table>
+            </div>
+        </uib-tab>
+
+
+        <uib-tab index="2" heading="Entry Qualifications Editor">
+            <h3>Student Entry Qualification Editor</h3>
+            <student-entry-qualifications-editor student-entry-qualifications="ctrl.studentEntryQualifications"></student-entry-qualifications-editor>
+        </uib-tab>
+
+        <uib-tab index="2" heading="Enrolments">
+            <h3>Enrolment Details</h3>
+            <enrolments-table enrolments="ctrl.student.enrolments" show-all="true"></enrolments-table>
+        </uib-tab>
+
+        <uib-tab heading="Student Entry Qualifications">
+            <h3>Student Entry Qualification Details</h3>
+            <student-entry-qualifications-table student-entry-qualifications="ctrl.studentEntryQualifications"></student-entry-qualifications-table>
+        </uib-tab>
+
+
+        <uib-tab index="3" heading="Contacts Editor">
+            <h3>Corresponding Contact Details</h3>
+            <contacts-editor person-id="ctrl.student.person.id"></contacts-editor>
+        </uib-tab>
+
+        <uib-tab index="4" heading="Enrolment Editor">
+            <h3>Enrolments Editor</h3>
+            <enrolments-editor enrolments="ctrl.student.enrolments"></enrolments-editor>
+        </uib-tab>
+
+        <uib-tab index="2" heading="Entry Qualifications Editor">
+            <h3>Entry Qualification Editor</h3>
+            <entry-qualifications-editor entry-qualifications="ctrl.entryQualifications"></entry-qualifications-editor>
+        </uib-tab>
+
+    </uib-tabset>
+
+
+</div>
+
+<!-- <div ui-view="@student-details"></div> -->

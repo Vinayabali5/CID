@@ -1,0 +1,21 @@
+<table class="table table-responsive table-hover">
+    <thead>
+        <th ng-show="showAll || showStudent">Student</th>
+        <th>Referral Reasons</th>
+        <th>Primary</th>
+        <th ng-show="showActions">Actions</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="studentReferralReason in ctrl.studentReferralReason">
+
+            <td ng-show="showAll || showStudent">{{ studentReferralReason.studentId }}</td>
+            <td>{{ studentReferralReason._referralReasonDescription }}</td>
+            <td>{{ studentReferralReason.primary | yesNo }}</td>
+            <td ng-show="showActions">
+                <button class="btn btn-sm btn-primary" type="button" name="edit" ng-click="ctrl.editStudentReferralReason(studentReferralReason.id)"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+                <button class="btn btn-sm btn-danger" type="button" name="delete" ng-click="ctrl.deleteStudentReferralReason(studentReferralReason.id)"><span class="glyphicon glyphicon-remove"></span> Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button ng-show="showActions" class="btn btn-sm btn-primary" type="button" name="AddButton" ng-click="ctrl.addStudentReferralReason(ctrl.studentId)"><span class="glyphicon glyphicon-plus"></span> Add</button>

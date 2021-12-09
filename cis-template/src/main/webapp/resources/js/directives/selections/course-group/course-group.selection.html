@@ -1,0 +1,4 @@
+<select ng-attr-id="{{ id }}" ng-attr-name="{{ name }}" class="{{ class }}" ng-disabled="readonly" ng-model="ngmodelvar" ng-required="ngRequired">
+    <option value="" ng-value="null">-- No Course Group --</option>
+    <option ng-repeat="i in ctrl.courseGroups track by i.id" ng-value="{{ i.id }}">{{ i.spec }} - {{ i._course._levelDescription }} {{ i._course._subjectDescription }}</option>
+</select>

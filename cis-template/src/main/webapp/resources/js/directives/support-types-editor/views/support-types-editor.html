@@ -1,0 +1,17 @@
+<table class="table table-responsive table-hover" ts-wrapper ts-item-name="Learning Support Type" ts-no-data-text="No Learning Support Types">
+    <thead>
+        <th> Id </th>
+        <th ts-criteria="support" ts-filter>Support</th>
+        <th ng-show="showActions">Actions</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="supportType in supportTypes" ts-repeat>
+            <td>{{ supportType.id}}</td>
+            <td>{{ supportType.support }}</td>
+            <td ng-show="showActions">
+                <button type="button" class="btn btn-primary btn-sm" ng-click="ctrl.editSupportTypes(supportType.id)"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button ng-show="showActions" type="button" class="btn btn-primary btn-sm" ng-click="ctrl.addSupportTypes()"><span class="glyphicon glyphicon-pencil"></span> Add</button>

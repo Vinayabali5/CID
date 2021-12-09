@@ -1,0 +1,11 @@
+<h3>Student Files</h3>
+<div class="row">
+    <div class="col-md-12">
+        <student-files student-files="ctrl.studentFiles"></student-files>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <student-files-uploader student-id="ctrl.student.id"></student-files-uploader>
+    </div>
+</div>

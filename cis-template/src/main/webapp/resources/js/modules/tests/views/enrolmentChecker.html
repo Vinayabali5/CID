@@ -1,0 +1,25 @@
+<ul>
+    <li ng-repeat="(i, spec) in ctrl.ttCheck.specs track by $index"><input ng-model="ctrl.ttCheck.specs[i]" /> <button class="btn btn-sm" ng-click="ctrl.removeRequest(spec)">X</button> </li>
+</ul>
+New Request: <input ng-model="ctrl.newRequest" /> <button class="btn btn-sm" ng-click="ctrl.addRequest(ctrl.newRequest)">Add Request</button> Programme Size: {{ ctrl.requestCount() }}
+<br />
+<button class="btn btn-sm" ng-click="ctrl.check()">Check</button>
+<br />
+<div>
+    <uib-pagination ng-show="ctrl.totalItems > 0" total-items="ctrl.totalItems" items-per-page="ctrl.size" ng-model="ctrl.page" max-size="8" boundary-links="true" class="pagination-sm"></uib-pagination>
+
+    <table class="table table-responsive table-stripped">
+        <thead>
+            <th ng-repeat="request in ctrl.ttCheck.specs track by $index">Option {{ $index + 1 }}</td>
+            <th>Actions</th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="option in ctrl.ttCheck.options | paginate:ctrl.page:ctrl.size">
+                <td ng-repeat="wc in option.courseGroups">{{ wc.spec }} ({{ wc.currentStudents }})</td>
+                <td>
+                    <button class="btn btn-sm" ng-click="ctrl.selectOption(option)">Select</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

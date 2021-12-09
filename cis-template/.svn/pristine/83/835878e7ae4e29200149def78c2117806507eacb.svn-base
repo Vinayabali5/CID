@@ -1,0 +1,19 @@
+<table class="table table-responsive table-hover" ts-wrapper ts-item-name="Setting">
+    <thead>
+        <th ts-criteria="setting" ts-filter>Setting</th>
+        <th ts-criteria="value" ts-filter>Value</th>
+        <th ts-criteria="description" ts-filter>Description</th>
+        <th ng-show="showActions">Actions</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="setting in settings" ts-repeat>
+            <td>{{ setting.setting }}</td>
+            <td>{{ setting.value }}</td>
+            <td>{{ setting.description }}</td>
+            <td ng-show="showActions">
+                <button type="button" class="btn btn-primary btn-sm" ng-click="ctrl.editSettings(setting.id)"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button ng-show="showActions" type="button" class="btn btn-primary btn-sm" ng-click="ctrl.addSettings()"><span class="glyphicon glyphicon-pencil"></span> Add</button>

@@ -1,0 +1,44 @@
+<form id="letterTypesEditForm" name="letterTypesEditForm" role="form" novalidate show-validation>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="ctrl.cancel()">&times;</button>
+        <h4 class="modal-title" id="myToDoLabel">Add/Edit ILP Letter Type</h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+
+            <div class="form-group" ng-show="true">
+                <label for="id" class="control-label col-xs-4">ILP Letter Type ID</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="id" name="id" type="text" class="form-control" readonly ng-model="ctrl.letterTypes.id">
+                </div>
+            </div>
+            <div class="form-group" ng-show="true">
+                <label for="type" class="control-label col-xs-4">ILP Letter Type</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="type" name="type" type="text" class="form-control" ng-model="ctrl.letterTypes.type">
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="requireAuthorisation" class="control-label col-xs-4">Require Authorisation:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="requireAuthorisation" name="requireAuthorisation" type="checkBox" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.letterTypes.requireAuthorisation"></input>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="ctrl.cancel()">
+            <span class="glyphicon glyphicon-ban-circle"></span>
+            Cancel
+        </button>
+        <button type="button" class="btn btn-primary" ng-click="ctrl.save()">
+            <span class="glyphicon glyphicon-save"></span>
+            Save
+        </button>
+    </div>
+
+</form>

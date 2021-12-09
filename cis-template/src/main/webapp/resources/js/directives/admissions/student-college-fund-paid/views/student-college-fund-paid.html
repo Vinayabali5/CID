@@ -1,0 +1,9 @@
+<div class="col-md-4 col-sm-4 col-xs-4">
+    College Fund Paid : {{studentCollegeFundPaid._collegeFundDescription}}
+</div>
+<div class="col-md-4 col-sm-4 col-xs-4">
+    Years Paid For : {{studentCollegeFundPaid.collegeFundPaidYears}}
+</div>
+<button type="button" class="btn btn-primary btn-sm" ng-show="showActions" ng-click="ctrl.editCollegeFundPaid(studentCollegeFundPaid.studentId)">
+    <span class="glyphicon glyphicon-pencil"></span> Edit
+</button>

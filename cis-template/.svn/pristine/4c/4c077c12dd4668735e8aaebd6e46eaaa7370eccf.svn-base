@@ -1,0 +1,28 @@
+<table class="table table-hover" ts-wrapper ts-item-name="Student Volunteering Log">
+    <thead>
+        <th ts-criteria ng-show="showAll || showStudent">Student</th>
+        <th>Volunteering Type</th>
+        <th>Student Role</th>
+        <th>Volunteering Experience</th>
+        <th>Date</th>
+        <th>Hours</th>
+        <th>Note</th>
+        <th ng-show="showActions">Actions</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="studentVolunteeringLog in ctrl.studentVolunteeringLogs" ts-repeat>
+            <td ng-show="showAll || showStudent">{{ studentVolunteeringLog.studentId }}</td>
+            <td>{{ studentVolunteeringLog._volunteeringTypeDescription }}</td>
+            <td>{{ studentVolunteeringLog._studentRoleDescription | notSet }}</td>
+            <td>{{ studentVolunteeringLog._volunteeringExperienceDescription }}</td>
+            <td>{{ studentVolunteeringLog.date | date:'dd/MM/yyyy' }}</td>
+            <td>{{ studentVolunteeringLog.hours }}</td>
+            <td>{{ studentVolunteeringLog.note }}</td>
+            <td ng-show="showActions">
+                <button type="button" class="btn btrn-sm btn-primary" ng-click="ctrl.editStudentVolunteeringLog(studentVolunteeringLog.id)"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+                <button type="button" class="btn btrn-sm btn-danger" ng-click="ctrl.deleteStudentVolunteeringLog(studentVolunteeringLog.id)"><span class="glyphicon glyphicon-pencil"></span> Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button ng-show="showActions" type="button" class="btn btn-sm btn-primary" ng-click="ctrl.addStudentVolunteeringLog(ctrl.studentId)"><span class="glyphicon glyphicon-plus"></span> Add</button>

@@ -1,0 +1,51 @@
+<table class="table table-responsive table-hover" ts-wrapper ts-item-name="Student Interim Report">
+    <thead>
+        <th ng-show="showAll || showStudent">Student</th>
+        <th ng-show="showAll || showIRInfo">Interim Report Code</th>
+        <th ts-criteria="studentInterimReport._interimReportCode">Interim Report</th>
+        <th>Year</th>
+        <th>Course</th>
+        <th>Group</th>
+        <th class="text-center"><span uib-tooltip="Motivation">M</span></th>
+        <th class="text-center"><span uib-tooltip="Class Ethic">CE</span></th>
+        <th class="text-center"><span uib-tooltip="Time Management">TM</span></th>
+        <th class="text-center"><span uib-tooltip="Average Effort">Avg</span></th>
+        <th class="text-center" ng-show="showAll || showAttendanceFigures">Total Possible</th>
+        <th class="text-center" ng-show="showAll || showAttendanceFigures">Absence</th>
+        <th class="text-center" ng-show="showAll || showAttendanceFigures">Authorised Absence</th>
+        <th class="text-center" ng-show="showAll || showAttendanceFigures">Late</th>
+        <th class="text-center">Attendance %</th>
+        <th class="text-center">Adjusted %</th>
+        <th class="text-center">Punctuality %</th>
+        <th ng-show="false"><span uib-tooltip="Current Predicted Grade">CG</span></th>
+        <th class="text-center" ng-show="showAll || showKeyAssessments"><span uib-tooltip="Key Assessment 1 Grade">KA1</span></th>
+        <th class="text-center" ng-show="showAll || showKeyAssessments"><span uib-tooltip="Key Assessment 2 Grade">KA2</span></th>
+        <th ng-show="showActions">Actions</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="studentInterimReport in ctrl.studentInterimReports" ts-repeat>
+            <td ng-show="showAll || showStudent">{{ studentInterimReport.studentId }}</td>
+            <td ng-show="showAll || showIRInfo">{{ studentInterimReport._interimReportCode }}</td>
+            <td>{{ studentInterimReport.interimReport.description }}</td>
+            <td>{{ studentInterimReport.interimReport.year.description }}</td>
+            <td>{{ studentInterimReport.course._description }}</td>
+            <td>{{ studentInterimReport.courseGroup.spec }}</td>
+            <td class="text-center">{{ studentInterimReport.motivationId }}</td>
+            <td class="text-center">{{ studentInterimReport.classEthicId }}</td>
+            <td class="text-center">{{ studentInterimReport.timeManagementId }}</td>
+            <td class="text-center">{{ studentInterimReport._averageEffort | number:3 }}</td>
+            <td class="text-center" ng-show="showAll || showAttendanceFigures">{{ studentInterimReport.totalPossible }}</td>
+            <td class="text-center" ng-show="showAll || showAttendanceFigures">{{ studentInterimReport.absence }}</td>
+            <td class="text-center" ng-show="showAll || showAttendanceFigures">{{ studentInterimReport.authorisedAbsence }}</td>
+            <td class="text-center" ng-show="showAll || showAttendanceFigures">{{ studentInterimReport.late }}</td>
+            <td class="text-center">{{ studentInterimReport.Attendance | percent:2 }}</td>
+            <td class="text-center">{{ studentInterimReport.AdjustedAttendance | percent:2 }}</td>
+            <td class="text-center">{{ studentInterimReport.Punctuality | percent:2 }}</td>
+            <td ng-show="false">{{ studentInterimReport._currentPredictedGrade }}</td>
+            <td class="text-center" ng-show="showAll || showKeyAssessments">{{ studentInterimReport._keyAssessment1Grade }}</td>
+            <td class="text-center" ng-show="showAll || showKeyAssessments">{{ studentInterimReport._keyAssessment2Grade }}</td>
+            <td ng-show="showActions">
+                <button type="button" class="btn btrn-sm btn-primary" ng-click="ctrl.editStudentInterimReport(studentInterimReport.id)"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+            </td>
+        </tr>
+</table>

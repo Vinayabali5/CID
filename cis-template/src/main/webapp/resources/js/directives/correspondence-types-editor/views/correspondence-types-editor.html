@@ -1,0 +1,17 @@
+<table class="table table-responsive table-hover" ts-wrapper>
+    <thead>
+        <th>Correspondence ID</th>
+        <th ts-criteria="code">ILP Correspondence Type</th>
+        <th ng-show="showActions">Actions</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="correspondenceType in correspondenceTypes |  orderBy:ctrl.sortOrder " ts-repeat>
+            <td>{{ correspondenceType.id }}</td>
+            <td>{{ correspondenceType.type }}</td>
+            <td ng-show="showActions">
+                <button type="button" class="btn btn-primary btn-sm" ng-click="ctrl.editCorrespondenceTypes(correspondenceType.id)"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button ng-show="showActions" type="button" class="btn btn-primary btn-sm" ng-click="ctrl.addCorrespondenceTypes()"><span class="glyphicon glyphicon-pencil"></span> Add</button>

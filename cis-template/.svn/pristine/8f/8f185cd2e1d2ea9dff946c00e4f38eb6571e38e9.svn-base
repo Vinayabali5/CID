@@ -1,0 +1,979 @@
+<form name="editApplicationForm" class="form" ng-action="editApplication()">
+    <div class="row">
+        <div class="col-xs-12">
+            <fieldset>
+                <legend>Application Details</legend>
+            </fieldset>
+        </div>
+        <div class="col-xs-6">
+            <div class="row">
+                <div class="form-group">
+                    <label for="referenceNo" class="col-xs-6 col-sm-4 control-label">Reference No:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control" id="referenceNo" name="referenceNo" readonly ng-model="application.referenceNo"></input>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div class="row">
+                <div class="form-group">
+                    <label for="statusId" class="col-xs-6 col-sm-4 control-label">Application Status:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <application-status-selection id="statusId" name="statusId" class="form-control" ng-model="application.statusId"></application-status-selection>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div class="row">
+                <div class="form-group">
+                    <label for="received" class="col-xs-6 col-sm-4 control-label">Date Received:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <div class="input-group">
+                            <input type="text" id="received" name="received" class="form-control" ng-init="applicationReceived = false" uib-datepicker-popup="dd/MM/yyyy" is-open="applicationReceived" placeholder="DD/MM/YYYY" ng-model="application.received" ng-required="true" />
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-click="applicationReceived = !applicationReceived"><span class="glyphicon glyphicon-calendar"></span></button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div class="row">
+                <div class="form-group">
+                    <label for="endDate" class="col-xs-6 col-sm-4 control-label">Date withdrawal:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <div class="input-group">
+                            <input type="text" id="endDate" name="endDate" class="form-control" ng-init="applicationWithdrawnDate = false" uib-datepicker-popup="dd/MM/yyyy" is-open="applicationWithdrawnDate" placeholder="DD/MM/YYYY" ng-model="application.endDate" />
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-click="applicationWithdrawnDate = !applicationWithdrawnDate"><span class="glyphicon glyphicon-calendar"></span></button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-6">
+            <div class="row">
+                <div class="form-group">
+                    <label for="year" class="col-xs-6 col-sm-4 control-label">Year of Application:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <academic-year-selection class="form-control" id="year" name="year" ng-model="application.academicYearId" readonly="application.yearId !== undefined"></academic-year-selection>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div class="row">
+                <div class="form-group">
+                    <label for="academicYear" class="col-xs-6 col-sm-4 control-label">Year Applied:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <academic-year-selection class="form-control" id="academicYear" name="academicYear" ng-model="application.academicYearId" readonly="application.academicYearId !== undefined"></academic-year-selection>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 col-md-6">
+            <div class="row">
+                <div class="col-xs-12">
+                    <fieldsset>
+                        <legend>Personal Details</legend>
+                    </fieldsset>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="firstName" class="col-xs-6 col-sm-4 control-label">First Name:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control" placeholder="First Name" id="firstName" name="firstName" ng-model="application.firstName" minlength="1" type="text" ng-required="true"></input>
+                        <span style="color:Red" ng-show="editApplicationForm.firstName.$dirty && editApplicationForm.firstName.$error.minlength" class="help-inline">Please enter at least 1 characters</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="middleNames" class="col-xs-6 col-sm-4 control-label">Middle Name(s):</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control" placeholder="Middle Name(s)" id="middleNames" name="middleNames" ng-model="application.middleNames" minlength="2" type="text"></input>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="surname" class="col-xs-6 col-sm-4 control-label">Surname:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control" type="text" id="surname" name="surname" minlength="2" placeholder="Surname" ng-model="application.surname" ng-required="true"></input>
+                        <span style="color:Red" ng-show="editApplicationForm.surname.$dirty && editApplicationForm.surname.$error.minlength" class="help-inline">Please enter at least 2 characters</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="preferredName" class="col-xs-6 col-sm-4 control-label">Preferred Name:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control" type="text" id="preferredName" name="preferredName" minlength="2" placeholder="Preferred Name" ng-model="application.preferredName"></input>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="previousSurname" class="col-xs-6 col-sm-4 control-label">Previous Surname:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control" type="text" id="previousSurname" name="previousSurname" minlength="2" placeholder="Previous Surname" ng-model="application.previousSurname"></input>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="legalSurname" class="col-xs-6 col-sm-4 control-label">Legal Surname:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control" type="text" id="legalSurname" name="legalSurname" minlength="2" placeholder="Legal Surname" ng-model="application.legalSurname"></input>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <label for="dob" class="col-xs-6 col-sm-4 control-label">Date of Birth:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <div class="input-group">
+                            <input type="text" id="dob" name="dob" class="form-control" ng-init="dob = false" uib-datepicker-popup="dd/MM/yyyy" is-open="dob" ng-model="application.dob" ng-required="true" />
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-click="dob = !dob"><span class="glyphicon glyphicon-calendar"></span></button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="legalSex" class="col-xs-6 col-sm-4 control-label">Legal Sex:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <legal-sex-selection class="form-control" id="legalSex" name="legalSex" alt-null-text="'-- Select Legal Sex --'" ng-model="application.legalSexId" ng-required="true"></legal-sex-selection>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="gender" class="col-xs-6 col-sm-4 control-label">Gender:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <gender-selection class="form-control" id="gender" name="gender" alt-null-text="'-- Select Gender --'" ng-model="application.genderId"></gender-selection>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="home" class="col-xs-6 col-sm-4 control-label">Home Telephone:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control left phone-group" type="tel" id="home" name="home" placeholder="Home Telephone" ng-model="application.home"></input>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="mobile" class="col-xs-6 col-sm-4 control-label">Mobile Telephone:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control left phone-group" type="tel" id="mobile" name="mobile" placeholder="Mobile Telephone" ng-model="application.mobile"></input>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="email" class="col-xs-6 col-sm-4 control-label">Student Email:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control" type="email" id="email" name="email" placeholder="Student Email" ng-model="application.email"></input>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <label for="resident" class="col-xs-6 col-sm-4 control-label">Resident:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control" type="checkbox" id="resident" name="resident" ng-model="application.resident"></input>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="countryOfResidence" class="col-xs-6 col-sm-4 control-label">Country Of Residence:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control" type="text" id="countryOfResidence" name="countryOfResidence" placeholder="Country Of Residence" ng-model="application.countryOfResidence"></input>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="main-address-form" class="col-xs-12 col-md-6">
+            <div class="row">
+                <div class="col-xs-12">
+                    <fieldset>
+                        <legend>Address Details</legend>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <address-lookup id="personal" address="application.address" required="true"></address-lookup>
+                    <!--                 <address-editor address-id="studentAddress.id"></address-editor> -->
+                </div>
+            </div>
+        </div>
+        <div class="form-group col-sm-12 col-md-6">
+            <div class="row">
+                <div class="col-xs-12">
+                    <fieldsset>
+                        <legend>Sibling Details</legend>
+                    </fieldsset>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="sibling" class="col-xs-6 col-sm-4 control-label">Sibling at College:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control" type="checkbox" id="sibling" name="sibling" ng-model="application.sibling"></input>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="siblingName" class="col-xs-6 col-sm-4 control-label">Sibling Name:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control" placeholder="Sibling Name" id="siblingName" name="siblingName" ng-model="application.siblingName" minlength="2" type="text"></input>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="siblingYear" class="col-xs-6 col-sm-4 control-label">Sibling Year:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control" placeholder="Sibling Year" id="siblingYear" name="siblingYear" ng-model="application.siblingYear" minlength="4" type="text"></input>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="siblingAdmNo" class="col-xs-6 col-sm-4 control-label">Sibling AdmNo:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control" placeholder="Sibling AdmNo" id="siblingAdmNo" name="siblingAdmNo" ng-model="application.siblingAdmNo" type="text"></input>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="row">
+                <div class="col-xs-12">
+                    <fieldset>
+                        <legend>Correspondence Details</legend>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <div class="row">
+                <div class="col-xs-12">
+                    <contacts-editor person-id="application.personId" contacts="contacts" show-actions="true"></contacts-editor>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 col-md-6">
+            <div class="row">
+                <div class="col-xs-12">
+                    <fieldsset>
+                        <legend>Previous School Information</legend>
+                    </fieldsset>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="school" class="col-xs-6 col-sm-4 control-label">Previous School:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <school-selection class="form-control" id="school" name="school" alt-null-text="'-- Select School --'" ng-model="application.schoolId"></school-selection>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="refRequested" class="col-xs-6 col-sm-4 control-label">Reference Requested:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="refRequested" name="refRequested" ng-init="applicationReferneceRequested = false" uib-datepicker-popup="dd/MM/yyyy" is-open="applicationReferneceRequestedDatePicker" placeholder="DD/MM/YYYY" ng-model="application.refRequested" />
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-click="applicationReferneceRequestedDatePicker = !applicationReferneceRequestedDatePicker"><span class="glyphicon glyphicon-calendar"></span></button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="refReceived" class="col-xs-6 col-sm-4 control-label">Reference Received:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="refReceived" name="refReceived" ng-init="applicationReferneceReceived = false" uib-datepicker-popup="dd/MM/yyyy" is-open="applicationReferneceReceivedDatePicker" placeholder="DD/MM/YYYY" ng-model="application.refReceived" />
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-click="applicationReferneceReceivedDatePicker = !applicationReferneceReceivedDatePicker"><span class="glyphicon glyphicon-calendar"></span></button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="reportRequested" class="col-xs-6 col-sm-4 control-label">School Report Requested:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="reportRequested" name="reportRequested" ng-init="applicationSchoolReportRequested = false" uib-datepicker-popup="dd/MM/yyyy" is-open="applicationSchoolReportRequestedDatePicker" placeholder="DD/MM/YYYY" ng-model="application.reportRequested" />
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-click="applicationSchoolReportRequestedDatePicker = !applicationSchoolReportRequestedDatePicker"><span class="glyphicon glyphicon-calendar"></span></button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="reportReceived" class="col-xs-6 col-sm-4 control-label">School Report Received:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="reportReceived" name="reportReceived" ng-init="applicationSchoolReportReceived = false" uib-datepicker-popup="dd/MM/yyyy" is-open="applicationSchoolReportReceivedDatePicker" placeholder="DD/MM/YYYY" ng-model="application.reportReceived" />
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-click="applicationSchoolReportReceivedDatePicker = !applicationSchoolReportReceivedDatePicker"><span class="glyphicon glyphicon-calendar"></span></button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="schoolReportStatus" class="col-xs-6 col-sm-4 control-label">School Report Status:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <school-report-status-selection class="form-control" id="schoolReportStatus" name="schoolReportStatus" alt-null-text="'-- Select School Report Status --'" ng-model="application.schoolReportStatusId"></school-report-status-selection>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="blueCard" class="col-xs-6 col-sm-4 control-label">Blue Card Date:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="blueCard" name="blueCard" ng-init="blueCardDateReceived = false" uib-datepicker-popup="dd/MM/yyyy" is-open="blueCardDateDatePicker" placeholder="DD/MM/YYYY" ng-model="application.blueCard" />
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-click="blueCardDateDatePicker = !blueCardDateDatePicker"><span class="glyphicon glyphicon-calendar"></span></button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-md-6">
+            <div class="row">
+                <div class="col-xs-12">
+                    <fieldset>
+                        <legend>Student Details</legend>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="studentTypeId" class="col-xs-6 col-sm-4 control-label">Student Type:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <student-type-selection class="form-control" id="studentTypeId" name="studentTypeId" alt-null-text="'-- Select Student Type --'" ng-model="application.studentTypeId"></student-type-selection>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="uln" class="col-xs-6 col-sm-4 control-label">Unique Learner No:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control" placeholder="Unique Learner No" ng-model="application.uln" id="uln" name="uln" type="text"></input>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="uci" class="col-xs-6 col-sm-4 control-label">Unique Candidate Identifier:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control" placeholder="Unique Candidate Identifier" ng-model="application.uci" id="uci" name="uci" type="text" maxlength="13"></input>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="tutorGroupId" class="col-xs-6 col-sm-4 control-label">Tutor Group:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <tutor-group-selection class="form-control" id="tutorGroupId" name="tutorGroupId" alt-null-text="'-- Select Tutor Group --'" ng-model="application.tutorGroupId"></tutor-group-selection>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="offerTypeId" class="col-xs-6 col-sm-4 control-label">Offer Type:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <offer-type-selection class="form-control" id="offerTypeId" name="offerTypeId" alt-null-text="'-- Select Offer Type --'" ng-model="application.offerTypeId"></offer-type-selection>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="offerSent" class="col-xs-6 col-sm-4 control-label">Offer Sent:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <div class="input-group">
+                            <input type="text" id="offerSent" name="offerSent" class="form-control" ng-init="offerSent = false" uib-datepicker-popup="dd/MM/yyyy" is-open="offerSent" placeholder="DD/MM/YYYY" ng-model="application.offerSent" />
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-click="offerSent = !offerSent"><span class="glyphicon glyphicon-calendar"></span></button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 col-md-6">
+            <div class="row">
+                <div class="col-xs-12">
+                    <fieldset>
+                        <legend>Disability/Medical Information</legend>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="learningSupportNeeds" class="col-xs-6 col-sm-4 control-label">Learning Support Needs:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input id="learningSupportOnIntro" name="learningSupportNeeds" type="checkbox" class="form-control" ng-model="application.learningSupportNeeds"></input>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="llddHealthProblem" class="col-xs-6 col-sm-4 control-label">LLDD Health Problem:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <lldd-health-problem-selection class="form-control" id="llddHealthProblem" name="llddHealthProblem" ng-model="application.llddHealthProblemId"></lldd-health-problem-selection>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="llddHealthProblemCategory" class="col-xs-6 col-sm-4 control-label">LLDD Health Problem Category</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <student-lldd-health-problem-category-editor student-id="application.id" id="llddHealthProblemCategory" name="llddHealthProblemCategory" lldd-health-problem-category="llddHealthProblemCategory" show-actions="true"></student-lldd-health-problem-category-editor>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <label for="medicalNotes" class="col-xs-6 col-sm-4 control-label">Medical Notes:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <textarea class="form-control" placeholder="Medical Notes" ng-model="application.medicalNote" id="medicalNotes" name="medicalNotes" rows="5" cols="30" type="text"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="ehcp" class="control-label col-xs-10">Education, Health and Care Plan ?</label>
+                    <div class="col-xs-2">
+                        <input class="form-control" type="checkbox" id="ehcp" name="ehcp" ng-model="application.ehcp"></input>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="lookedAfterChildOrAdopted" class="control-label col-xs-10">Are you a looked after child or adopted ?</label>
+                    <div class="col-xs-2">
+                        <input class="form-control" type="checkbox" id="lookedAfterChildOrAdopted" name="lookedAfterChildOrAdopted" ng-model="application.lookedAfterChildOrAdopted"></input>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="childrenServicesInvolvedAtSchool" class="control-label col-xs-10">Have you or your family had any involvement with Children's Services during school ?</label>
+                    <div class="col-xs-2">
+                        <input class="form-control" type="checkbox" id="childrenServicesInvolvedAtSchool" name="childrenServicesInvolvedAtSchool" ng-model="application.childrenServicesInvolvedAtSchool"></input>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="otherSocialSupportIssues" class="control-label col-xs-10">Are there any other social issues which may require further support while at college ?</label>
+                    <div class="col-xs-2">
+                        <input class="form-control" type="checkbox" id="otherSocialSupportIssues" name="otherSocialSupportIssues" ng-model="application.otherSocialSupportIssues"></input>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="specialCategory" class="col-xs-6 col-sm-4 control-label">Special Category:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <special-category-selection class="form-control" id="specialCategory" name="specialCategory" alt-null-text="'-- None --'" ng-model="application.specialCategoryId"></special-category-selection>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-xs-12 col-md-6">
+            <div class="row">
+                <div class="col-xs-12">
+                    <fieldset>
+                        <legend>Interview Information</legend>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="interviewer" class="col-xs-6 col-sm-4 control-label">Interviewer:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <staff-selection class="form-control" id="interviewer" name="interviewer" ng-model="application.interviewerId"></staff-selection>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="interviewCategory" class="col-xs-6 col-sm-4 control-label">Interview Category:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <interview-category-selection class="form-control" id="interviewCategory" name="interviewCategory" alt-null-text="'-- Select Interview Category --'" ng-model="application.interviewCategoryId"></interview-category-selection>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="interviewDate" class="col-xs-6 col-sm-4 control-label">Interview Date:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control" type="text" id="interviewDate" name="interviewDate" placeholder="DD/MM/YYYY HH:MM" ng-model="application.interviewDate" ng-pattern="/^([1-9]|([012][0-9])|(3[01]))\/([0]{0,1}[1-9]|1[012])\/\d\d\d\d\s([0-1]?[0-9]|2?[0-3]):([0-5]\d)$/g"></input>
+                        <span class="validation-error" ng-show="editApplicationForm.interviewDate.$dirty && editApplicationForm.interviewDate.$invalid">Please enter the Date and Time in DD/MM/YYYY HH:MM Format</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <label for="possibleAspire" class="col-xs-6 col-sm-4 control-label">Possible Aspire:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control" type="checkbox" id="possibleAspire" name="possibleAspire" ng-model="application.possibleAspire"></input>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="schoolReportNotSeen" class="col-xs-6 col-sm-4 control-label">School Report Not Seen:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control" type="checkbox" id="schoolReportNotSeen" name="schoolReportNotSeen" ng-model="application.schoolReportNotSeen"></input>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="noShowAtInterview" class="col-xs-6 col-sm-4 control-label">No Show At Interview:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control" type="checkbox" id="noShowAtInterview" name="noShowAtInterview" ng-model="application.noShowAtInterview"></input>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="interviewNeedsRescheduling" class="col-xs-6 col-sm-4 control-label">Interview Needs Rescheduling:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control" type="checkbox" id="interviewNeedsRescheduling" name="interviewNeedsRescheduling" ng-model="application.interviewNeedsRescheduling"></input>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <label for="interviewBy" class="col-xs-6 col-sm-4 control-label">To Be Interviewed by at Enrolment:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control" type="text" placeholder="To Be Interviewed By at Enrolment" id="interviewBy" name="interviewBy" ng-model="application.interviewBy"></input>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-xs-12 col-md-6">
+            <div class="row">
+                <div class="col-xs-12">
+                    <fieldset>
+                        <legend>Admissions Notes</legend>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="admissionsNotes" class="col-xs-6 col-sm-4 control-label">Admissions Notes:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <textarea class="form-control" placeholder="Admissions Notes" ng-model="application.admissionsNotes" id="admissionsNotes" name="admissionsNotes" rows="5" cols="30" type="text"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-6">
+            <div class="row">
+                <div class="col-xs-12">
+                    <fieldset>
+                        <legend>Acceptance Information</legend>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="acceptanceReceived" class="col-xs-6 col-sm-4 control-label">Acceptance Received:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="acceptanceReceived" name="acceptanceReceived" ng-init="applicationAcceptanceReceived = false" uib-datepicker-popup="dd/MM/yyyy" is-open="applicationAcceptanceReceivedDatePicker" ng-model="application.acceptanceReceived" />
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-click="applicationAcceptanceReceivedDatePicker = !applicationAcceptanceReceivedDatePicker"><span class="glyphicon glyphicon-calendar"></span></button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="ethnicity" class="col-xs-6 col-sm-4 control-label">Ethnicity:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <ethnicity-selection class="form-control" id="ethnicity" name="ethnicity" ng-model="application.ethnicityId"></ethnicity-selection>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="freeMealsWhileAtSchool" class="col-xs-6 col-sm-4 control-label">Free Meals While At School ?</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control" type="checkbox" id="freeMealsWhileAtSchool" name="freeMealsWhileAtAchool" ng-model="application.freeMealsWhileAtSchool"></input>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="parentsUniversityEducated" class="col-xs-6 col-sm-4 control-label">Parents University Educated ?</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control" type="checkbox" id="parentsUniversityEducated" name="parentsUniversityEducated" ng-model="application.parentsUniversityEducated"></input>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 col-md-6">
+            <div class="row">
+                <div class="col-xs-12">
+                    <fieldset>
+                        <legend>Data Sharing options</legend>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="restrictedUseIndicator" class="col-xs-6 col-sm-4 control-label">Restricted Use:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <restricted-use-indicator-selection class="form-control" id="restrictedUseIndicator" name="restrictedUseIndicatorId" alt-null-text="'-- Select Restricted Use --'" ng-model="application.restrictedUseIndicatorId"></restricted-use-indicator-selection>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="contactByPost" class="col-xs-6 col-sm-4 control-label">Contact By Post:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input type="checkbox" class="form-control" id="contactByPost" name="contactByPost" ng-model="application.contactByPost"></input>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="contactByPhone" class="col-xs-6 col-sm-4 control-label">Contact By Phone:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input type="checkbox" class="form-control" id="contactByPhone" name="contactByPhone" ng-model="application.contactByPhone"></input>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="contactByEmail" class="col-xs-6 col-sm-4 control-label">Contact By Email:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input type="checkbox" class="form-control" id="contactByEmail" name="contactByEmail" ng-model="application.contactByEmail"></input>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-md-6">
+            <div class="row">
+                <div class="col-xs-12">
+                    <fieldset>
+                        <legend>College Fund Entry</legend>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="collegeFundPaid" class="col-xs-6 col-sm-4 control-label">College Fund Paid:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <college-fund-paid-selection class="form-control" id="collegeFundPaid" name="collegeFundPaid" ng-model="application.collegeFundPaidId"></college-fund-paid-selection>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="collegeFundPaidYears" class="col-xs-6 col-sm-4 control-label">Years Paid For:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input class="form-control" type="text" id="collegeFundPaidYears" name="collegeFundPaidYears" ng-model="application.collegeFundPaidYears"></input>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <college-fund-payment-editor student-id="application.id" college-fund-payment="collegeFundPayments" show-actions="true"></college-fund-payment-editor>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 col-md-6">
+            <div class="row">
+                <div class="col-xs-12">
+                    <fieldset>
+                        <legend>Introductory Day/Choices Day/Enrolment Interview Details</legend>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="cannotAttendIntro" class="col-xs-6 col-sm-4 control-label">Cannot Attend Intro Day:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input type="checkbox" class="form-control" id="cannotAttendIntro" name="cannotAttendIntro" ng-model="application.cannotAttendIntro"></input>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="cannotAttendInduction" class="col-xs-6 col-sm-4 control-label">Cannot Attend Choices Day:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input type="checkbox" class="form-control" id="cannotAttendInduction" name="cannotAttendInduction" ng-model="application.cannotAttendInduction"></input>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="learningSupportOnIntro" class="col-xs-6 col-sm-4 control-label">Additional Support needed on Intro Day:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input type="checkbox" class="form-control" id="learningSupportOnIntro" name="learningSupportOnIntro" ng-model="application.learningSupportOnIntro"></input>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="inductionDate" class="col-xs-6 col-sm-4 control-label">Date of Induction:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="inductionDate" name="inductionDate" ng-init="inductionDate = false" uib-datepicker-popup="dd/MM/yyyy" is-open="inductionDateDatePicker" ng-model="application.inductionDate" />
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-click="inductionDateDatePicker = !inductionDateDatePicker"><span class="glyphicon glyphicon-calendar"></span></button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <label for="enrolmentInterviewDate" class="col-xs-6 col-sm-4 control-label">Enrolment Interview Date:</label>
+                    <div class="col-xs-6 col-sm-8">
+                        <input type="text" class="form-control" id="enrolmentInterviewDate" name="enrolmentInterviewDate" placeholder="DD/MM/YYYY HH:MM" ng-model="application.enrolmentInterviewDate" ng-pattern="/^([1-9]|([012][0-9])|(3[01]))\/([0]{0,1}[1-9]|1[012])\/\d\d\d\d\s([0-1]?[0-9]|2?[0-3]):([0-5]\d)$/g"></input>
+                        <span class="validation-error" ng-show="editApplicationForm.enrolmentInterviewDate.$dirty && editApplicationForm.enrolmentInterviewDate.$invalid">Please enter the Date and Time in DD/MM/YYYY HH:MM Format</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-xs-12 col-md-6">
+            <div class="row">
+                <div class="col-xs-12">
+                    <fieldsset>
+                        <legend>Course Requests</legend>
+                    </fieldsset>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <course-request-editor show-actions="true" student-id="application.id" request="requests"></course-request-editor>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-md-6">
+            <div class="row">
+                <div class="col-xs-12">
+                    <fieldsset>
+                        <legend>Admissions ILP Interviews</legend>
+                    </fieldsset>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="col-sm-2">
+                        <button class="btn btn-sm btn-primary" edit-ilp student-id="application.id">Add ILP</button>
+                    </div>
+                    <ilp-interviews-table ilp-interviews="ilpInterviews" show-filter="false" show-staff="true" show-course="false" show-letter-home="false" show-private="true"></ilp-interviews-table>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-md-6">
+            <div class="row">
+                <div class="col-xs-12">
+                    <fieldsset>
+                        <legend>Person Notes</legend>
+                    </fieldsset>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <person-notes-editor notes="studentNotes" person-id="application.personId" show-actions="true" allow-delete="true"></person-notes-editor>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-md-6">
+            <div class="row">
+                <div class="col-xs-12">
+                    <fieldsset>
+                        <legend>Student Files</legend>
+                    </fieldsset>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <student-files student-files="studentFiles"></student-files>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <student-files-uploader student-id="application.id"></student-files-uploader>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12">
+            <div class="row">
+                <div class="col-xs-12">
+                    <fieldset>
+                        <legend>Interview Information</legend>
+                    </fieldset>
+                </div>
+
+
+                <div class="form-group col-md-3 col-sm-6">
+                    <div class="form-group">
+                        <label for="careerAims">Career/University aims:</label>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Career Aims" ng-model="application.careerAims" id="careerAims" name="careerAims" rows="3" cols="30" type="text"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-md-3 col-sm-6">
+                    <div class="form-group">
+                        <label for="workVoluntaryExperience">Work experience:</label>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Work Voluntary Experience" ng-model="application.workVoluntaryExperience" id="workVoluntaryExperience" name="workVoluntaryExperience" rows="3" cols="30" type="text"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-md-3 col-sm-6">
+                    <div class="form-group">
+                        <label for="hobbiesInterestsOtherAchievements">Hobbies, interests and other achievements:</label>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Hobbies, interests and other achievements" ng-model="application.hobbiesInterestsOtherAchievements" rows="3" cols="30" type="text"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-md-3 col-sm-6">
+                    <div class="form-group">
+                        <label for="learningSupportNeedsDetails">Learning Support Needs:</label>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Learning Support Needs Details" ng-model="application.learningSupportNeedsDetails" id="learningSupportNeedsDetails" name="learningSupportNeedsDetails" rows="3" cols="30" type="text"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-md-3 col-sm-6">
+                    <div class="form-group">
+                        <label for="learningSupportNeedsDetails">Learning Support Needs Details:</label>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Learning Support Needs Details" ng-model="application.learningSupportNeedsDetails" id="learningSupportNeedsDetails" name="learningSupportNeedsDetails" rows="3" cols="30" type="text"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-md-3 col-sm-6">
+                    <div class="form-group">
+                        <label for="favoriteSubject">Favourite subjects:</label>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Favorite Subject" ng-model="application.favoriteSubject" id="favoriteSubject" name="favoriteSubject" rows="3" cols="30" type="text"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-md-3 col-sm-6">
+                    <div class="form-group">
+                        <label for="courseworkOrExams">Coursework/Exams/both:</label>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Coursework/exams/both" ng-model="application.courseworkOrExams" id="courseworkOrExams" name="courseworkOrExams" rows="3" cols="30" type="text"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-md-3 col-sm-6">
+                    <div class="form-group">
+                        <label for="reasonsForReigateCollege">Reasons for choosing Reigate College:</label>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Reasons For Reigate College" ng-model="application.reasonsForReigateCollege" id="reasonsForReigateCollege" name="reasonsForReigateCollege" rows="3" cols="30" type="text"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-md-3 col-sm-6">
+                    <div class="form-group">
+                        <label for="otherSchoolCollegeAppliedFor">Place at another College or School:</label>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Place at another College or School" ng-model="application.otherSchoolCollegeAppliedFor" id="otherSchoolCollegeAppliedFor" name="otherSchoolCollegeAppliedFor" rows="3" cols="30" type="text"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row fixed-bottom-right">
+            <word-generator permission="'ROLE_Office Administration'" student-id="application.id"></word-generator>
+            <button type="button" class="btn btn-primary" ng-disabled="submitted || editApplicationForm.$invalid" ng-click="save()">Save</button>
+            <button type="button" class="btn btn-default" ng-click="cancel()">Cancel</button>
+        </div>
+
+        <div class="row" permission="'ROLE_Developer'">
+            <div class="col-xs-12">
+                <fieldsset>
+                    <legend>Developer Information</legend>
+                </fieldsset>
+            </div>
+
+            <div class="col-xs-12" collapsible="'debugData'" collapsible-title="'Debug Data'">
+                <pre>
+                {{ application | json }}
+                </pre>
+            </div>
+        </div>
+</form>

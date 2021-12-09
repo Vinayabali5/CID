@@ -1,0 +1,14 @@
+<div class="row">
+    <div class="col-md-12" permission="'ROLE_Exams Officer'">
+        <h3>Exam Results - Editor</h3>
+        <exam-results-editor results="ctrl.examResults" show-all="true"></exam-results-editor>
+    </div>
+    <div class="col-md-12" permission permission-not="'ROLE_Exams Officer'">
+        <h3>Exam Results</h3>
+        <exam-results-table results="ctrl.examResults" show-year="true" show-board="true"></exam-results-table>
+    </div>
+    <div class="col-md-12">
+        <h3>Exam Results - Archive</h3>
+        <external-results-archive-table external-results-archive="ctrl.externalResultsArchive"></external-results-archive-table>
+    </div>
+</div>

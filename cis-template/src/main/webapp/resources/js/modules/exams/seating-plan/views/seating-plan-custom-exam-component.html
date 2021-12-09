@@ -1,0 +1,123 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="ctrl.cancel()">&times;</button>
+    <h3 class="modal-title">Add Custom/Internal Exam</h3>
+</div>
+
+<div class="modal-body">
+    <form>
+        <fieldset>
+            <div class="col-xs-12">
+                <div class="form-group row">
+                    <label for="examSeries" class="control-label col-xs-4">Exam Series:</label>
+                    <div class="col-xs-3 input-group">
+                        <exam-series-selection id="examSeries" class="form-control" ng-model="ctrl.customExam.examSeriesId"></exam-series-selection>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <div class="col-xs-12" uib-collapse="!ctrl.collapseAdditional">
+                <div class="form-group row">
+                    <label for="standardSyllabusCode" class="control-label col-xs-4">Use {{ ctrl.customExam.syllabusCode }} for Syllabus Code:</label>
+                    <div class="col-xs-3 input-group">
+                        <input id="examCode" type="checkbox" class="form-control" ng-model="ctrl.customExam.standardSyllabusCode" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="examCode" class="control-label col-xs-4">Exam Code:</label>
+                    <div class="col-xs-3 input-group">
+                        <input id="examCode" type="text" class="form-control" ng-model="ctrl.customExam.examCode" maxlength="12" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="examTitle" class="control-label col-xs-4">Exam Title:</label>
+                    <div class="col-xs-6 input-group">
+                        <input id="examTitle" type="text" class="form-control" ng-model="ctrl.customExam.examTitle" maxlength="35" />
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+
+        <div class="panel panel-default" ng-init="ctrl.collapseAdditional=true" ng-model="ctrl.collapseAdditional" ng-click="ctrl.collapseAdditional=!ctrl.collapseAdditional">
+            <div class="panel-heading" data-toggle="collapse">
+                <h3 class="panel-title">
+                    <span ng-if="ctrl.collapseAdditional">
+                        <span class="glyphicon glyphicon-plus-sign"></span> Enter individual Syllabus/Option/Component Details
+                    </span>
+                    <span ng-if="!ctrl.collapseAdditional">
+                        <span class="glyphicon glyphicon-minus-sign"></span> Enter simple Details
+                    </span>
+                </h3>
+            </div>
+        </div>
+
+        <fieldset>
+            <div class="col-xs-12" uib-collapse="ctrl.collapseAdditional">
+                <div class="form-group row">
+                    <label for="syllabusCode" class="control-label col-xs-4">Syllabus Code:</label>
+                    <div class="col-xs-3 input-group">
+                        <input id="syllabusCode" type="text" class="form-control" ng-model="ctrl.customExam.syllabusCode" maxlength="12" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="syllabusTitle" class="control-label col-xs-4">Syllabus Title:</label>
+                    <div class="col-xs-6 input-group">
+                        <input id="syllabusTitle" type="text" class="form-control" ng-model="ctrl.customExam.syllabusTitle" maxlength="35" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="optionCode" class="control-label col-xs-4">Option Code:</label>
+                    <div class="col-xs-3 input-group">
+                        <input id="optionCode" type="text" class="form-control" ng-model="ctrl.customExam.optionCode" maxlength="12" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="optionTitle" class="control-label col-xs-4">Option Title:</label>
+                    <div class="col-xs-6 input-group">
+                        <input id="optionTitle" type="text" class="form-control" ng-model="ctrl.customExam.optionTitle" maxlength="35" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="componentCode" class="control-label col-xs-4">Component Code:</label>
+                    <div class="col-xs-3 input-group">
+                        <input id="componentCode" type="text" class="form-control" ng-model="ctrl.customExam.componentCode" maxlength="12" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="componentTitle" class="control-label col-xs-4">Component Title:</label>
+                    <div class="col-xs-6 input-group">
+                        <input id="componentTitle" type="text" class="form-control" ng-model="ctrl.customExam.componentTitle" maxlength="35" />
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <div class="col-sm-12">
+
+                <div class="form-group row">
+                    <label for="timeAllowed" class="control-label col-xs-4">Time Allowed:</label>
+                    <div class="col-xs-3 input-group">
+                        <input id="timeAllowed" type="number" class="form-control" ng-model="ctrl.customExam.timeAllowed" />
+                    </div>
+                </div>
+                <div>
+                    <course-search on-select="ctrl.loadCourse(id)">
+                </div>
+                <div class="form-group row">
+                    <label for="courseTitle" class="control-label col-xs-4">Course Title:</label>
+                    <div class="col-xs-8">
+                        <input id="courseTitle" ng-readonly="true" ng-model="ctrl.customExam.courseTitle" />
+                    </div>
+                </div>
+
+            </div>
+        </fieldset>
+    </form>
+</div>
+
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ctrl.save()">Next</button>
+    <button class="btn btn-warning" type="button" ng-click="ctrl.cancel()">Cancel</button>
+</div>

@@ -1,0 +1,81 @@
+<form id="entryQualificationsEditForm" name="entryQualificationsEditForm" role="form" novalidate show-validation>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="ctrl.cancel()">&times;</button>
+        <h4 class="modal-title" id="myToDoLabel">Add/Edit EntryQualification</h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+
+            <div class="form-group" ng-show="true">
+                <label for="id" class="control-label col-xs-4">Entry Qualification ID</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" class="form-control" id="id" name="id" readonly ng-model="ctrl.entryQualifications.id">
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="entryQualificationTypeId" class="control-label col-xs-4">Entry Qualification Type</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <entry-qualification-type-selection id="entryQualificationTypeId" name="entryQualificationTypeId" class="form-control" ng-model="ctrl.entryQualifications.entryQualificationTypeId"></entry-qualification-type-selection>
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="title" class="control-label col-xs-4">Title</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" class="form-control" id="title" name="title" ng-model="ctrl.entryQualifications.title">
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="basicList" class="control-label col-xs-4">Basic List:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="checkbox" class="form-control text ui-widget-content ui-corner-all" id="basicList" name="basicList" ng-model="ctrl.entryQualifications.basicList"></input>
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="shortCourse" class="control-label col-xs-4">Short Course:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="checkbox" class="form-control text ui-widget-content ui-corner-all" id="shortCourse" name="shortCourse" ng-model="ctrl.entryQualifications.shortCourse"></input>
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="dataMatchCode" class="control-label col-xs-4">Data Match Code</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" class="form-control" id="dataMatchCode" name="dataMatchCode" ng-model="ctrl.entryQualifications.dataMatchCode">
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="webLinkCode" class="control-label col-xs-4">Web Link Code</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" class="form-control" id="webLinkCode" name="webLinkCode" ng-model="ctrl.entryQualifications.webLinkCode">
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="OLDID" class="control-label col-xs-4">Old Id</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input type="text" class="form-control" id="OLDID" name="webLinkCode" ng-model="ctrl.entryQualifications.OLDID">
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="ctrl.cancel()">
+            <span class="glyphicon glyphicon-ban-circle"></span>
+            Cancel
+        </button>
+        <button type="button" class="btn btn-primary" ng-click="ctrl.save()">
+            <span class="glyphicon glyphicon-save"></span>
+            Save
+        </button>
+    </div>
+
+</form>

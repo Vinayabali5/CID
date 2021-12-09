@@ -1,0 +1,74 @@
+<div class="student-details">
+    <div class="row">
+        <div class="col-md-5 col-sm-5 col-xs-5">Student ID:</div>
+        <div class="col-md-7 col-sm-7 col-xs-7">{{ student.id }}</div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-5 col-sm-5 col-xs-5">Surname:</div>
+        <div class="col-md-7 col-sm-7 col-xs-7">{{ student.person.surname }}</div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-5 col-sm-5 col-xs-5">First Name:</div>
+        <div class="col-md-7 col-sm-7 col-xs-7">{{ student.person.firstName }}</div>
+    </div>
+
+    <div class="row" ng-show="{{ student.person.preferredName !== null }}">
+        <div class="col-md-5 col-sm-5 col-xs-5">Preferred Name:</div>
+        <div class="col-md-7 col-sm-7 col-xs-7">{{ student.person.preferredName }}</div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-5 col-sm-5 col-xs-5">Student Email:</div>
+        <div class="col-md-7 col-sm-7 col-xs-7">{{ student.studentEmail }}</div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-5 col-sm-5 col-xs-5">ULN:</div>
+        <div class="col-md-7 col-sm-7 col-xs-7">{{ student.uln | notSet }}</div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-5 col-sm-5 col-xs-5">UCI:</div>
+        <div class="col-md-7 col-sm-7 col-xs-7">{{ student.uci | notSet }}</div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-5 col-sm-5 col-xs-5">Ethnicity:</div>
+        <div class="col-md-7 col-sm-7 col-xs-7">{{ student._ethnicityDescription }}</div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-5 col-sm-5 col-xs-5">
+            LLDD and Health Problems:
+        </div>
+        <div class="col-md-7 col-sm-7 col-xs-7">
+            <ul ng-show="student.llddHealthProblemCategories.length !== 0">
+                <li ng-repeat="prob in student.llddHealthProblemCategories">{{ prob.code }} - {{ prob.shortDescription }}</li>
+            </ul>
+            <span ng-show="student.llddHealthProblemCategories.length === 0">No LLDD Health Problems</span>
+        </div>
+    </div>
+
+    <div class="row" ng-show="hidden">
+        <div class="col-md-5 col-sm-5 col-xs-5">Special Category:</div>
+        <div class="col-md-7 col-sm-7 col-xs-7">
+            {{ student._specialCategoryCode }} - {{ student._specialCategoryDescription }}
+            <span ng-show="{{ student.specialConfirmed }}"> (Confirmed)</span>
+            <span ng-show="{{ !student.monitorable }}"> (Not Monitored)</span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-5 col-sm-5 col-xs-5">Risk Level:</div>
+        <div class="col-md-7 col-sm-7 col-xs-7">
+            {{ student._riskLevelCode }} - {{ student._riskLevelDescription }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-5 col-sm-5 col-xs-5">Average GCSE Score:</div>
+        <div class="col-md-7 col-sm-7 col-xs-7">{{ student.gcseScore.average | number:3 | notSet }}</div>
+    </div>
+</div>

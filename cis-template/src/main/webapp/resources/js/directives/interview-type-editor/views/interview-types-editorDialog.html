@@ -1,0 +1,73 @@
+<form id="interviewTypesEditForm" name="interviewTypesEditForm" role="form" novalidate show-validation>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="ctrl.cancel()">&times;</button>
+        <h4 class="modal-title" id="myToDoLabel">Add/Edit ILP Interview Type</h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+
+            <div class="form-group" ng-show="true">
+                <label for="id" class="control-label col-xs-4">ILP Interview Type ID</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="id" name="id" type="text" class="form-control" readonly ng-model="ctrl.interviewTypes.id">
+                </div>
+            </div>
+            <div class="form-group" ng-show="true">
+                <label for="type" class="control-label col-xs-4">ILP Interview Type</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="type" name="type" type="text" class="form-control" ng-model="ctrl.interviewTypes.type">
+                </div>
+            </div>
+
+            <div class="form-group" ng-show="true">
+                <label for="requireCourseGroupId" class="control-label col-xs-4">Require CourseGroup:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="requireCourseGroupId" name="requireCourseGroupId" type="checkBox" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.interviewTypes.requireCourseGroupId"></input>
+                </div>
+            </div>
+            <div class="form-group" ng-show="true">
+                <label for="allowLipReferral" class="control-label col-xs-4">Allow Lip Referral:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="allowLipReferral" name="allowLipReferral" type="checkBox" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.interviewTypes.allowLipReferral"></input>
+                </div>
+            </div>
+            <div class="form-group" ng-show="true">
+                <label for="allowOfficeAction" class="control-label col-xs-4">Allow Office Action:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="allowOfficeAction" name="allowOfficeAction" type="checkBox" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.interviewTypes.allowOfficeAction"></input>
+                </div>
+            </div>
+            <div class="form-group" ng-show="true">
+                <label for="allowEmailRelatedStaff" class="control-label col-xs-4">Allow Email Related Staff:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="allowEmailRelatedStaff" name="allowEmailRelatedStaff" type="checkBox" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.interviewTypes.allowEmailRelatedStaff"></input>
+                </div>
+            </div>
+            <div class="form-group" ng-show="true">
+                <label for="defaultToPrivate" class="control-label col-xs-4">Default To Private:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="defaultToPrivate" name="defaultToPrivate" type="checkBox" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.interviewTypes.defaultToPrivate"></input>
+                </div>
+            </div>
+            <div class="form-group" ng-show="true">
+                <label for="requireTarget" class="control-label col-xs-4">Require Target:</label>
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <input id="requireTarget" name="requireTarget" type="checkBox" class="form-control text ui-widget-content ui-corner-all" ng-model="ctrl.interviewTypes.requireTarget"></input>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="ctrl.cancel()">
+            <span class="glyphicon glyphicon-ban-circle"></span>
+            Cancel
+        </button>
+        <button type="button" class="btn btn-primary" ng-click="ctrl.save()">
+            <span class="glyphicon glyphicon-save"></span>
+            Save
+        </button>
+    </div>
+
+</form>
