@@ -12,7 +12,7 @@ This command executes a shell script that will run the various docker commands t
 
 The script will output a log file into the base folder with the file name __build-{ COMPONENT NAME }.log__ with details of build process. This is the same output that appears with the _--verbose_ argument.
 
-By default the build script will calculate the appropriate Docker Image Tag for the particular build. The tag will be something like registry.reigate.ac.uk/cid/cis-api:1.3.2 (see below for an explanation of Docker Image Tags). The tag for your newly created image will appear on the command line, this will be used later for running, publishing and deploying the docker image.
+By default the build script will calculate the appropriate Docker Image Tag for the particular build. The tag will be something like registry.-----.ac.uk/cid/cis-api:1.3.2 (see below for an explanation of Docker Image Tags). The tag for your newly created image will appear on the command line, this will be used later for running, publishing and deploying the docker image.
 
 ### Docker Image Tag - explained
 
@@ -30,7 +30,7 @@ The ```docker build``` command required that a tag (-t) is supplied to label/nam
 | application | cis-api or cis-ui (note: use this for cis-template project builds) | Yes |
 | version | the version number of the build | Yes |
 
-An example of the docker image tag to use for the cis-api application would be ```registry.reigate.ac.uk/cid/cis-api:1.3.0```. 
+An example of the docker image tag to use for the cis-api application would be ```registry.----.ac.uk/cid/cis-api:1.3.0```. 
 
 ## Running the docker images
 
